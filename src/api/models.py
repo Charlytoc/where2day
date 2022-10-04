@@ -28,6 +28,8 @@ class Usuario(db.Model):
     nombre = db.Column(db.String(120), unique=False, nullable=False)
     apellido = db.Column(db.String(120), unique=False, nullable=False)
     edad = db.Column(db.Integer, unique=False, nullable=True)
+    # eventos = db.relationship('Eventos', backref='usuario', lazy=True)
+    
     
 
     def __repr__(self):
@@ -54,6 +56,10 @@ class Experiencias(db.Model):
     outdoor = db.Column(db.Boolean(), unique=False, nullable=True)
     indoor = db.Column(db.Boolean(), unique=False, nullable=True)
     anywhere = db.Column(db.Boolean(), unique=False, nullable=False)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'),
+        nullable=False)
+    usuario = db.relationship('Usuario',
+        backref=db.backref('experiencias', lazy=True))
 
     def __repr__(self):
         return f'<Experiencias {self.titulo}>'
@@ -79,6 +85,9 @@ class Eventos(db.Model):
     outdoor = db.Column(db.Boolean(), unique=False, nullable=True)
     indoor = db.Column(db.Boolean(), unique=False, nullable=True)
     anywhere = db.Column(db.Boolean(), unique=False, nullable=False)
+    # usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'),
+    #     nullable=False)
+    # addresses = db.relationship('Address', backref='person', lazy=True)
 
     def __repr__(self):
         return f'<Eventos {self.titulo}>'
