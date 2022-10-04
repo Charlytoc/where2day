@@ -17,3 +17,81 @@ class User(db.Model):
             "email": self.email,
             # do not serialize the password, its a security breach
         }
+
+
+
+class Usuario(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    # password = db.Column(db.String(80), unique=False, nullable=False)
+    username = db.Column(db.String(120), unique=True, nullable=False)
+    # nombre = db.Column(db.String(120), unique=False, nullable=False)
+    # apellido = db.Column(db.String(120), unique=False, nullable=False)
+    # edad = db.Column(db.Integer, unique=False, nullable=True)
+    
+
+    def __repr__(self):
+        return f'<Usuario {self.username}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "email": self.email,
+            # do not serialize the password, its a security breach
+            "username": self.username,
+            # "nombre": self.nombre,
+            # "apellido": self.apellido,
+            # "edad": self.edad
+        }
+
+
+
+class Experiencias(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    titulo = db.Column(db.String(120), unique=False, nullable=False)
+    lugar = db.Column(db.String(120), unique=False, nullable=False)
+    fecha = db.Column(db.String(80), unique=False, nullable=False)
+    outdoor = db.Column(db.Boolean(), unique=False, nullable=True)
+    indoor = db.Column(db.Boolean(), unique=False, nullable=True)
+    anywhere = db.Column(db.Boolean(), unique=False, nullable=False)
+
+    def __repr__(self):
+        return f'<Experiencias {self.titulo}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "titulo": self.titulo,
+            # do not serialize the password, its a security breach
+            "fecha": self.fecha,
+            "lugar": self.lugar,
+            "outdoor": self.outdoor,
+            "indoor": self.indoor,
+            "anywhere": self.anywhere
+        }
+
+
+class Eventos(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    titulo = db.Column(db.String(120), unique=False, nullable=False)
+    lugar = db.Column(db.String(120), unique=False, nullable=False)
+    fecha = db.Column(db.String(80), unique=False, nullable=False)
+    outdoor = db.Column(db.Boolean(), unique=False, nullable=True)
+    indoor = db.Column(db.Boolean(), unique=False, nullable=True)
+    anywhere = db.Column(db.Boolean(), unique=False, nullable=False)
+
+    def __repr__(self):
+        return f'<Eventos {self.titulo}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "titulo": self.titulo,
+            # do not serialize the password, its a security breach
+            "fecha": self.fecha,
+            "lugar": self.lugar,
+            "outdoor": self.outdoor,
+            "indoor": self.indoor,
+            "anywhere": self.anywhere
+        }
+
