@@ -9,7 +9,7 @@ export const Home = () => {
   return (
     <div className="row mt-5">
       <div className="col-10 offset-1 col-md-8 offset-md-2">
-        <img src={rigoImageUrl} className="img-fluid" /> <hr className="my-4" />
+        <h1 class="text-center">Where2Day</h1> <hr className="my-4" />
       </div>
       <div className="col-12 col-md-8 offset-md-2">
         <div
@@ -20,14 +20,14 @@ export const Home = () => {
           <div className="carousel-inner">
             <div className="carousel-item active" data-bs-interval="10000">
               <img
-                src="http://www.superpark.com.sg/wp-content/uploads/2016/11/SG_Skate-145.jpg"
+                src="https://www.simplemost.com/wp-content/uploads/2015/07/dinner-party.jpg"
                 className="d-block w-100"
                 alt="..."
               />
             </div>
             <div className="carousel-item" data-bs-interval="2000">
               <img
-                src="https://www.simplemost.com/wp-content/uploads/2015/07/dinner-party.jpg"
+                src="http://www.superpark.com.sg/wp-content/uploads/2016/11/SG_Skate-145.jpg"
                 className="d-block w-100"
                 alt="..."
               />
@@ -66,18 +66,30 @@ export const Home = () => {
           </button>
         </div>
       </div>
-      <p>
-        {" "}
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eum
-        nostrum fuga, minus veritatis sed dignissimos, cupiditate asperiores
-        ipsum quaerat inventore eaque, nesciunt nobis laudantium laborum itaque
-        repellendus ipsa quia.{" "}
-      </p>
-      <h2>
-        FACEBOOK <i class="bi bi-facebook"></i>
-      </h2>
-      <h2>INSTAGRAM</h2>
-      <h2>TWITTER</h2>
+      <div className="row mt-5">
+        <div className="col-10 offset-1 col-md-8 offset-md-2">
+          <h2 class="text-center">Join the movement!</h2>
+          <p class="text-center">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+            eum nostrum fuga, minus veritatis sed dignissimos, cupiditate
+            asperiores ipsum quaerat inventore eaque, nesciunt nobis laudantium
+            laborum itaque repellendus ipsa quia.{" "}
+          </p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div className="col-12 col-md-8 offset-md-2">
+          <h2 class="text-center">
+            <i class="bi bi-facebook"></i>
+          </h2>
+          <h2 class="text-center">
+            <i class="bi bi-instagram"></i>
+          </h2>
+          <h2 class="text-center">
+            <i class="bi bi-twitter"></i>
+          </h2>
+        </div>
+      </div>
     </div>
   );
 };
