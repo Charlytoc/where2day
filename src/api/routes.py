@@ -47,13 +47,13 @@ def login():
 def to_signup():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
-    username = request.json.get("username", None)
-    nombre =  request.json.get("nombre", None)
-    apellido = request.json.get("apellido", None)
-    edad = request.json.get("edad", None)
+    # username = request.json.get("username", None)
+    # nombre =  request.json.get("nombre", None)
+    # apellido = request.json.get("apellido", None)
+    # edad = request.json.get("edad", None)
 
-    nuevo_usuario = Usuario(email=email, password=password, username=username, nombre=nombre, apellido=apellido, edad=edad)
-    
+    # nuevo_usuario = Usuario(email=email, password=password, username=username, nombre=nombre, apellido=apellido, edad=edad)
+    nuevo_usuario = Usuario(email=email, password=password)
 
     db.session.add(nuevo_usuario)
     db.session.commit()
