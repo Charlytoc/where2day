@@ -7,6 +7,7 @@ export const Navbar = () => {
 
 	const {store, actions}=useContext(Context)
 
+
 	return (
 		<nav className="navbar navbar-light bg-light">
 			<div className="container">
@@ -14,7 +15,7 @@ export const Navbar = () => {
       <img src={logoPres} alt="Logo" width="100" height="70" className="d-block align-text-top" />
 				</Link>
 				<div className="ml-auto">
-					{ store.auth= true ? <button onClick={()=>{actions.logout()}} className="btn btn-warning">Me quiero ir un rato</button>: null}
+					{ store.auth == true ? <button onClick={()=>{actions.logout()}} className="btn btn-warning">Me quiero ir un rato</button>: null}
 					
 				</div>
 			</div>

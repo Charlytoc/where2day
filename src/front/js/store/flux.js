@@ -37,8 +37,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			
 			login: (email, password) => {
-				console.log("funciono")
-              
+				setStore({auth: true})
+				// const store = getStore()
+				// console.log(store.auth)
+
                 fetch(process.env.BACKEND_URL + "/api/login", {
                         method: "POST",
                         body: JSON.stringify({
@@ -51,16 +53,15 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .then((response) => {
                         setStore({auth: true})
-                        // console.log(store.auth)
                         return response.json()})
                     .then((data) => localStorage.setItem("token", data.access_token))
 
             },
 			logout: () => {
-				// getStore(store)
+				const store = getStore()
                 localStorage.removeItem('token');
                 setStore({auth: false})
-				// console.log(store.auth)
+				console.log(store.auth)
 
             },
 			signup: (email, password) => {
