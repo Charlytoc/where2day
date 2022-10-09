@@ -2,18 +2,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
+			// demo: [
+			// 	{
+			// 		title: "FIRST",
+			// 		background: "white",
+			// 		initial: "white"
+			// 	},
+			// 	{
+			// 		title: "SECOND",
+			// 		background: "white",
+			// 		initial: "white"
+			// 	}
+			// ],
 			auth: false,
 			redi_to_log: false
 		},
@@ -39,7 +39,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			login: (email, password) => {
 				console.log("funciono")
               
-                fetch('https://3001-charlytoc-where2day-5af9thz5hi4.ws-us70.gitpod.io/api/login', {
+                fetch(process.env.BACKEND_URL + "/api/login", {
                         method: "POST",
                         body: JSON.stringify({
                             email: email,
@@ -57,8 +57,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             },
 			logout: () => {
+				// getStore(store)
                 localStorage.removeItem('token');
                 setStore({auth: false})
+				// console.log(store.auth)
 
             },
 			signup: (email, password) => {
@@ -66,7 +68,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// console.log(redi_to_log)
                 console.log("Sí funciono")
 				
-                fetch('https://3001-charlytoc-where2day-5af9thz5hi4.ws-us70.gitpod.io/api/signup', {
+                fetch(process.env.BACKEND_URL + "/api/signup", {
                         method: "POST",
                         body: JSON.stringify({
                             email: email,

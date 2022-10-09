@@ -14,9 +14,8 @@ export const Navbar = () => {
       <img src={logoPres} alt="Logo" width="100" height="70" className="d-block align-text-top" />
 				</Link>
 				<div className="ml-auto">
-					{/* <Link to="/demo"> */}
-						<button onClick={()=>{actions.logout()}} className="btn btn-warning">Me quiero ir un rato</button>
-					{/* </Link> */}
+					{ store.auth= true ? <button onClick={()=>{actions.logout()}} className="btn btn-warning">Me quiero ir un rato</button>: null}
+					
 				</div>
 			</div>
 		</nav>

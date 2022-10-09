@@ -15,13 +15,16 @@ export const Signup = () => {
         // const navigate = useNavigate();
     
     const handleSubmit = (e)=>{
-            e.preventDefault();
-            actions.signup(email,password)
+      e.preventDefault();
+      actions.signup(email,password)
+      setEmail("")
+      setPassword("")
     }
 
     const handleClick = () => {
       actions.login(email,password)
-      
+      setEmail("")
+      setPassword("")
     } 
     
 	return (
