@@ -73,19 +73,19 @@ export const Home = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
             eum nostrum fuga, minus veritatis sed dignissimos, cupiditate
             asperiores ipsum quaerat inventore eaque, nesciunt nobis laudantium
-            laborum itaque repellendus ipsa quia.{" "}
+            laborum itaque repellendus ipsa quia2.{" "}
           </p>
         </div>
       </div>
-      <div class="d-flex justify-content-between">
-        <div className="col-12 col-md-8 offset-md-2">
-          <h2 class="text-center">
+      <div>
+        <div className="col-12 col-md-8 offset-md-2 d-flex justify-content-center">
+          <h2 class="text-center px-3">
             <i class="bi bi-facebook"></i>
           </h2>
-          <h2 class="text-center">
+          <h2 class="text-center px-3">
             <i class="bi bi-instagram"></i>
           </h2>
-          <h2 class="text-center">
+          <h2 class="text-center px-3">
             <i class="bi bi-twitter"></i>
           </h2>
         </div>
