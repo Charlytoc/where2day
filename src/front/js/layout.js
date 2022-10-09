@@ -21,23 +21,21 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          <div className="container-fluid fondo-landing">
-            <div className="row">
+          
               <Navbar />
-            </div>{" "}
+            
             <Routes>
               <Route element={<Home />} path="/" />
               <Route element={<Demo />} path="/demo" />
               <Route element={<Signup />} path="/signup" />
               <Route element={<Single />} path="/single/:theid" />
               <Route element={<h1> Not found! </h1>} />
-            </Routes>{" "}
-            <div className="row">
+            </Routes>
+            
               <Footer />
-            </div>{" "}
-          </div>{" "}
-        </ScrollToTop>{" "}
-      </BrowserRouter>{" "}
+            
+        </ScrollToTop>
+      </BrowserRouter>
     </div>
   );
 };
