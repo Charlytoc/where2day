@@ -4,8 +4,9 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
+import { Signup } from "./pages/signup.jsx";
 import { Login } from "./pages/login.jsx";
+import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -21,17 +22,24 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          <Navbar />
-          <Routes>
-            <Route element={<Home />} path="/" />
-            <Route element={<Demo />} path="/demo" />
-            <Route element={<Login />} path="/login" />
-            <Route element={<Single />} path="/single/:theid" />
-            <Route element={<h1>Not found!</h1>} />
-          </Routes>
-          <Footer />
-        </ScrollToTop>
-      </BrowserRouter>
+          <div className="container-fluid fondo-landing">
+            <div className="row">
+              <Navbar />
+            </div>{" "}
+            <Routes>
+              <Route element={<Home />} path="/" />
+              <Route element={<Demo />} path="/demo" />
+              <Route element={<Signup />} path="/signup" />
+              <Route element={<Login />} path="/login" />
+              <Route element={<Single />} path="/single/:theid" />
+              <Route element={<h1> Not found! </h1>} />
+            </Routes>{" "}
+            <div className="row">
+              <Footer />
+            </div>{" "}
+          </div>{" "}
+        </ScrollToTop>{" "}
+      </BrowserRouter>{" "}
     </div>
   );
 };

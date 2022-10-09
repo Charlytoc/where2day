@@ -4,7 +4,7 @@ import React from "react";
 // import rigoImageUrl from "../../img/rigo-baby.jpg";
 // import "../../styles/home.css";
 
-export const Login = () => {
+export const Signup = () => {
   //   const { store, actions } = useContext(Context);
 
   return (
@@ -17,7 +17,7 @@ export const Login = () => {
             id="floatingInputGroup1"
             placeholder="Username"
           />
-          <label for="floatingInputGroup1">eMail</label>
+          <label htmlFor="floatingInputGroup1">eMail</label>
         </div>
       </div>
       <div className="input-group d-flex justify-content-center">
@@ -28,7 +28,18 @@ export const Login = () => {
             id="floatingInputGroup1"
             placeholder="Username"
           />
-          <label for="floatingInputGroup1">Password</label>
+          <label htmlFor="floatingInputGroup1">Password</label>
+        </div>
+      </div>
+      <div className="input-group d-flex justify-content-center">
+        <div className="form-floating">
+          <input
+            type="text"
+            className="form-control"
+            id="floatingInputGroup1"
+            placeholder="Username"
+          />
+          <label htmlFor="floatingInputGroup1">Confirm Password</label>
         </div>
       </div>
     </>
