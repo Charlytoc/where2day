@@ -12,6 +12,15 @@ from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
 
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import jwt_required
+from flask_jwt_extended import JWTManager
+
+
+
+
+
 #from models import Person
 
 ENV = os.getenv("FLASK_ENV")
@@ -41,6 +50,13 @@ setup_commands(app)
 
 # Add all endpoints form the API with a "api" prefix
 app.register_blueprint(api, url_prefix='/api')
+
+
+# Aquí estoy añadiendo la configuración de JWT-Flask
+app.config["JWT_SECRET_KEY"] = "secreto-de-where2day"  # Change this!
+jwt = JWTManager(app)
+
+
 
 # Handle/serialize errors like a JSON object
 @app.errorhandler(APIException)

@@ -1,3 +1,10 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+.fondo-landing {
+    background-color: #f2dec4;
+}
+
+.Where2Day {
+    color: #bf4141;
+}
