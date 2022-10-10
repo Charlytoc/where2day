@@ -52,7 +52,7 @@ def to_signup():
     apellido = request.json.get("apellido", None)
     edad = request.json.get("edad", None)
 
-    nuevo_usuario = Usuario(email=email, password=password, username=username, nombre=nombre, apellido=apellido, edad=edad)
+    nuevo_usuario = Usuario(email=email, password=password)
     
 
     db.session.add(nuevo_usuario)
