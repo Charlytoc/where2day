@@ -34,11 +34,11 @@ export const Signup = () => {
 			<form onSubmit={handleSubmit}>
   <div className="mb-3">
     <input type="email" value={email}
-				onChange={(e)=>setEmail(e.target.value)} placeholder="Introduce aquí tu email, buenaventurado." className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+				onChange={(e)=>setEmail(e.target.value)} placeholder="Introduce aquí tu email, buenaventurado." className="form-control"  aria-describedby="emailHelp"/>
   </div>
   <div className="mb-3">
     <input type="password" value={password}
-				onChange={(e)=>setPassword(e.target.value)} placeholder="Y por acá tu clave secreta" className="form-control" id="exampleInputPassword1"/>
+				onChange={(e)=>setPassword(e.target.value)} placeholder="Y por acá tu clave secreta" className="form-control"/>
   </div>
   <div className="mb-3 form-check">
     

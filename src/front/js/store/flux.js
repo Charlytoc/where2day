@@ -37,8 +37,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			
 			login: (email, password) => {
-				setStore({auth: true})
-				// const store = getStore()
+				
+				const store = getStore()
 				// console.log(store.auth)
 
                 fetch(process.env.BACKEND_URL + "/api/login", {
