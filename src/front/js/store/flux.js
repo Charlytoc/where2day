@@ -43,8 +43,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       signup: (email, password) => {
         fetch(process.env.BACKEND_URL + "/api/signup", {
           method: "POST",
-          body: JSON.stringify({ email: email, password: password }),
-          header: {
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
+          headers: {
             "Content-Type": "application/json",
           },
         })
