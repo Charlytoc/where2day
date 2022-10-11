@@ -53,12 +53,14 @@ class Experiencias(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     titulo = db.Column(db.String(120), unique=False, nullable=False)
     lugar = db.Column(db.String(120), unique=False, nullable=False)
-    fecha = db.Column(db.String(80), unique=False, nullable=False)
+    fecha = db.Column(db.String(80), unique=False, nullable=True)
     outdoor = db.Column(db.Boolean(), unique=False, nullable=True)
     indoor = db.Column(db.Boolean(), unique=False, nullable=True)
-    anywhere = db.Column(db.Boolean(), unique=False, nullable=False)
+    anywhere = db.Column(db.Boolean(), unique=False, nullable=True)
+    description = db.Column(db.String(250), unique=False, nullable=False)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'),
         nullable=False)
+    
     
 
     def __repr__(self):

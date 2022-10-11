@@ -60,3 +60,25 @@ def to_signup():
 
     response_body = "te has loggeado tío"
     return jsonify(response_body)
+
+
+@api.route("/postear", methods=["POST"])
+def to_post():
+    titulo = request.json.get("titulo", None)
+    lugar = request.json.get("lugar", None)
+    description = request.json.get("description", None)
+    usuario_id = request.json.get("usuario_id", None)
+
+    print(titulo, lugar, description, usuario_id)
+
+
+
+    # nuevo_usuario = Usuario(email=email, password=password, username=username, nombre=nombre, apellido=apellido, edad=edad)
+    nueva_experiencia = Experiencias(titulo=titulo, lugar=lugar, description=description, usuario_id=usuario_id)
+
+    print(nueva_experiencia)
+    db.session.add(nueva_experiencia)
+    db.session.commit()
+
+    response_body = "has agregado una nueva experiencia"
+    return jsonify(response_body)
