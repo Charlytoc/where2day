@@ -24,7 +24,7 @@ const Layout = () => {
   const basename = process.env.BASENAME || "";
 
   const { store } = useContext(Context); // #3 Consumirlo
-  
+
   return (
     <div>
       <BrowserRouter basename={basename}>
@@ -37,14 +37,14 @@ const Layout = () => {
             <Route element={<Single />} path="/single/:theid" />
             {/* Este es la ruta signup condicional, si el usuario se regista exitosamente redirigira al feed */}
             <Route
-              element={store.auth ? <Navigate to="/feed" /> : <Signup />}
+              element={store.auth ? <Navigate to="/demo" /> : <Signup />}
               path="/signup"
             />
             {/* Este es la ruta FEED condicional, si el usuario pierde el "auth: true" 
             y pasa a "auth: false" enviara al path "/" al usuario */}
             <Route
-              element={!store.auth ? <Navigate to="/" /> : <Feed />}
-              path="/feed"
+              element={!store.auth ? <Navigate to="/" /> : <Demo />}
+              path="/demo"
             />
             <Route element={<h1> Not found! </h1>} />
           </Routes>
