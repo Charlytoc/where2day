@@ -1,19 +1,21 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      message: null,
-      demo: [
-        {
-          title: "FIRST",
-          background: "white",
-          initial: "white",
-        },
-        {
-          title: "SECOND",
-          background: "white",
-          initial: "white",
-        },
-      ],
+      // message: null,
+      // // demo: [
+      // //   {
+      // //     title: "FIRST",
+      // //     background: "white",
+      // //     initial: "white",
+      // //   },
+      // //   {
+      // //     title: "SECOND",
+      // //     background: "white",
+      // //     initial: "white",
+      // //   },
+      // // ],
+
+      auth: false,
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -41,6 +43,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       // }
 
       signup: (email, password) => {
+        setStore({ auth: true });
+        const store = getStore();
+        console.log(store.auth);
+
         fetch(process.env.BACKEND_URL + "/api/signup", {
           method: "POST",
           body: JSON.stringify({
@@ -53,6 +59,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((response) => response.json())
           .then((data) => console.log(data));
+      },
+
+      
+      logout: () => {
+        setStore({ auth: false });
+        const store = getStore();
+        console.log(store.auth);
       },
 
       changeColor: (index, color) => {
