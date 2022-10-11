@@ -38,12 +38,28 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      // login: (email, password) => {
-      //     fetch(process.env.BACKEND_URL + "/api/login")
-      // }
+      login: (email, password) => {
+        setStore({ auth: true });
+
+        // Hago un console log SOLO para verificar si el Status se cambia a "True" en el Auth
+        const store = getStore();
+        console.log(store.auth);
+
+        fetch(process.env.BACKEND_URL + "/api/login", {
+          method: "POST",
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+      },
 
       signup: (email, password) => {
-        setStore({ auth: true });
         const store = getStore();
         console.log(store.auth);
 
@@ -61,7 +77,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => console.log(data));
       },
 
-      
       logout: () => {
         setStore({ auth: false });
         const store = getStore();

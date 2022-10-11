@@ -5,7 +5,7 @@ import { Context } from "../store/appContext"; // #2 traer nuestro context
 import logo from "../../img/logo.png";
 // import "../../styles/home.css";
 
-export const Signup = () => {
+export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { store, actions } = useContext(Context); // #3 Consumirlo
@@ -14,14 +14,14 @@ export const Signup = () => {
     e.preventDefault();
     console.log(email);
     console.log(password);
-    actions.signup(email, password);
+    actions.login(email, password);
   };
 
   return (
     <div className="text-center w-50 container mt-5">
       <img src={logo} style={{ width: 300 }} className="mb-5" />
 
-      <h1> Signup </h1>
+      <h1> Login </h1>
 
       {/* Aca creamos un form que "onSubmit" nos suba la data a la DB Signup */}
       <form onSubmit={handleSubmit}>
@@ -58,7 +58,7 @@ export const Signup = () => {
         {/* Esto es el boton submit */}
         <div className="d-flex justify-content-center">
           <button type="submit" className="btn btn-warning mb-3 ">
-            Signup
+            Login
           </button>
         </div>
       </form>
