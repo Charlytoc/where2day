@@ -10,6 +10,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
+import { Login } from "./pages/login";
 import { Signup } from "./pages/signup.jsx";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
@@ -35,10 +36,11 @@ const Layout = () => {
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />
+            <Route element={<Signup />} path="/signup" />
             {/* Este es la ruta signup condicional, si el usuario se regista exitosamente redirigira al feed */}
             <Route
-              element={store.auth ? <Navigate to="/demo" /> : <Signup />}
-              path="/signup"
+              element={store.auth ? <Navigate to="/demo" /> : <Login />}
+              path="/login"
             />
             {/* Este es la ruta FEED condicional, si el usuario pierde el "auth: true" 
             y pasa a "auth: false" enviara al path "/" al usuario */}
