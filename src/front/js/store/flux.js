@@ -61,6 +61,13 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => console.log(data));
       },
 
+      
+      logout: () => {
+        setStore({ auth: false });
+        const store = getStore();
+        console.log(store.auth);
+      },
+
       changeColor: (index, color) => {
         //get the store
         const store = getStore();
