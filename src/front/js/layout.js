@@ -13,6 +13,7 @@ import { Demo } from "./pages/demo";
 import { Signup } from "./pages/signup.jsx";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
+import { Feed } from "./pages/feed.js";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -24,7 +25,7 @@ const Layout = () => {
   const basename = process.env.BASENAME || "";
 
   const { store } = useContext(Context); // #3 Consumirlo
-  
+
   return (
     <div>
       <BrowserRouter basename={basename}>
@@ -35,13 +36,14 @@ const Layout = () => {
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />
+            <Route element={<Feed />} path="/feed" />
             {/* Este es la ruta signup condicional, si el usuario se regista exitosamente redirigira al feed */}
             <Route
               element={store.auth ? <Navigate to="/feed" /> : <Signup />}
               path="/signup"
             />
             {/* Este es la ruta FEED condicional, si el usuario pierde el "auth: true" 
-            y pasa a "auth: false" enviara al path "/" al usuario */}
+                            y pasa a "auth: false" enviara al path "/" al usuario */}
             <Route
               element={!store.auth ? <Navigate to="/" /> : <Feed />}
               path="/feed"
