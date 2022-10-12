@@ -64,6 +64,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(store.auth)
 
             },
+			postear: (titulo, lugar, description) => {
+                
+				
+                fetch('https://3001-charlytoc-where2day-yz3hd6qxae3.ws-us70.gitpod.io/api/postear', {
+                        method: "POST",
+                        body: JSON.stringify({
+                            titulo: titulo,
+                            lugar: lugar,
+							description: description,
+							usuario_id: 1
+                        }),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then((response) => response.json())
+                    .then((data) => console.log(data))},
 			signup: (email, password) => {
                 // setStore({redi_to_log: true})
 				// console.log(redi_to_log)

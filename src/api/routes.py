@@ -62,12 +62,13 @@ def to_signup():
     return jsonify(response_body)
 
 
-@api.route("/post", methods=["POST"])
+@api.route("/postear", methods=["POST"])
 def to_post():
+
     titulo = request.json.get("titulo", None)
     lugar = request.json.get("lugar", None)
     description = request.json.get("description", None)
-    user_id = request.json.get("user_id", None)
+    user_id = request.json.get("usuario_id", None)
 
     print(titulo, lugar, description, user_id)
 
@@ -77,8 +78,23 @@ def to_post():
     nueva_experiencia = Experiencias(titulo=titulo, lugar=lugar, description=description, usuario_id=user_id)
 
     print(nueva_experiencia)
+
     db.session.add(nueva_experiencia)
     db.session.commit()
 
     response_body = "has agregado una nueva experiencia"
     return jsonify(response_body)
+
+
+
+@api.route("/usuario", methods=["GET"])
+@jwt_required()
+def protected():
+    # Access the identity of the current user with get_jwt_identity
+    current_user = get_jwt_identity()
+    print(current_user)
+
+    usuario = Usuario.query.filter_by(email=current_user).first()
+    print(usuario.id)
+
+    return jsonify(usuario.id), 200
