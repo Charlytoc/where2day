@@ -1,407 +1,157 @@
-import React, { useContext } from "react";
-import { Context } from "../store/appContext";
+import React, {
+    useContext
+} from "react";
+import {
+    Context
+} from "../store/appContext";
 // import "../../styles/home.css";
 // import rigoImageUrl from "../../img/Where2Day.png";
 
 export const Feed = () => {
-  //   const { store, actions } = useContext(Context);
+    //   const { store, actions } = useContext(Context);
 
-  return (
-    <>
-      <div>
-        <div className="row">
-          <div className="col-md-6 col-xs-12 col-md-offset-3">
-            <div className="panel">
-              <div className="panel-heading">
-                <h3 className="panel-title">Twitter Feed</h3>
-              </div>
-              <div className="panel-body">
-                <div className="form-group">
-                  <textarea
-                    className="form-control"
-                    placeholder="Enter here for tweet..."
-                    rows="3"
-                  ></textarea>
-                </div>
-                <a
-                  href="javascript:void(0)"
-                  className="btn btn-info btn-sm pull-right waves-effect waves-light"
-                >
-                  Tweet
-                </a>
-                <link
-                  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-                  rel="stylesheet"
-                />
-                <div class="container">
-                  <div class="col-md-7">
-                    <div class="social-feed-separated">
-                      <div class="social-avatar">
-                        <a href="">
-                          <img
-                            alt="image"
-                            src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                          />
-                        </a>
-                      </div>
+    return ( <
+        >
+        {
+            /* BODY GENERAL */
+        } <
+        div className = "container" >
+        <
+        div className = "row" >
+        <
+        div className = "col-md-3" >
+        <
+        div className = "card" >
+        <
+        h5 > < div class = "card-header font-weight-bold" > Filtros < /div> </h5 >
+        <
+        ul className = "list-group list-group-flush" >
+        <
+        li className = "list-group-item" > Tus experiencias < /li>{" "} <
+        li className = "list-group-item" > Cerca de ti < /li>{" "} <
+        li className = "list-group-item" > En cualquier lugar < /li>{" "} < /
+        ul > {
+            " "
+        } <
+        div className = "card-footer" > Actividades < /div>{" "} < /
+        div > {
+            " "
+        } <
+        /div>{" "} <
+        div className = "col-md-6" >
+        <
+        div className = "card text-bg-light mb-3" >
+        <
+        h5 > < div class = "card-header font-weight-bold" > Crea una nueva experiencia < /div> </h5 >
+        <
+        form >
+        <
+        div class = "row mb-3" >
+        <
+        div class = "col-sm-12" >
+        <
+        label
+        for = "exampleFormControlTextarea1"
+        class = "form-label" > < /label> <
+        textarea class = "form-control"
+        id = "exampleFormControlTextarea1"
+        rows = "5" > < /textarea> < /
+        div > {
+            " "
+        } <
+        /div>{" "} <
+        fieldset class = "row mb-3" >
 
-                      <div class="social-feed-box">
-                        <div class="pull-right social-action dropdown">
-                          <button
-                            data-toggle="dropdown"
-                            class="dropdown-toggle btn-white"
-                          >
-                            <i class="fa fa-angle-down"></i>
-                          </button>
-                          <ul class="dropdown-menu m-t-xs">
-                            <li>
-                              <a href="#">Config</a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="social-avatar">
-                          <a href="#">Andrew Williams</a>
-                          <small class="text-muted">
-                            Today 4:21 pm - 12.06.2014
-                          </small>
-                        </div>
-                        <div class="social-body">
-                          <p>
-                            Many desktop publishing packages and web page
-                            editors now use Lorem Ipsum as their default model
-                            text, and a search for 'lorem ipsum' will uncover
-                            many web sites still in their infancy. Packages and
-                            web page editors now use Lorem Ipsum as their
-                            default model text.
-                          </p>
-                          <img
-                            src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                            class="img-responsive"
-                          />
-                          <div class="btn-group">
-                            <button class="btn btn-white btn-xs">
-                              <i class="fa fa-thumbs-up"></i> Like this!
-                            </button>
-                            <button class="btn btn-white btn-xs">
-                              <i class="fa fa-comments"></i> Comment
-                            </button>
-                            <button class="btn btn-white btn-xs">
-                              <i class="fa fa-share"></i> Share
-                            </button>
-                          </div>
-                        </div>
-                        <div class="social-footer">
-                          <div class="social-comment">
-                            <a href="" class="pull-left">
-                              <img
-                                alt="image"
-                                src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                              />
-                            </a>
-                            <div class="media-body">
-                              <a href="#">Andrew Williams</a>
-                              Internet tend to repeat predefined chunks as
-                              necessary, making this the first true generator on
-                              the Internet. It uses a dictionary of over 200
-                              Latin words.
-                              <br />
-                              <a href="#" class="small">
-                                <i class="fa fa-thumbs-up"></i> 26 Like this!
-                              </a>{" "}
-                              -<small class="text-muted">12.06.2014</small>
-                            </div>
-                          </div>
+        <
+        div class = "col-sm-10" >
 
-                          <div class="social-comment">
-                            <a href="" class="pull-left">
-                              <img
-                                alt="image"
-                                src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                              />
-                            </a>
-                            <div class="media-body">
-                              <a href="#">Andrew Williams</a>
-                              Making this the first true generator on the
-                              Internet. It uses a dictionary of.
-                              <br />
-                              <a href="#" class="small">
-                                <i class="fa fa-thumbs-up"></i> 11 Like this!
-                              </a>{" "}
-                              -<small class="text-muted">10.07.2014</small>
-                            </div>
-
-                            <div class="social-comment">
-                              <a href="" class="pull-left">
-                                <img
-                                  alt="image"
-                                  src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                />
-                              </a>
-                              <div class="media-body">
-                                <a href="#">Andrew Williams</a>
-                                Making this the first true generator on the
-                                Internet. It uses a dictionary of.
-                                <br />
-                                <a href="#" class="small">
-                                  <i class="fa fa-thumbs-up"></i> 11 Like this!
-                                </a>{" "}
-                                -<small class="text-muted">10.07.2014</small>
-                              </div>
-                            </div>
-                            <div class="social-comment">
-                              <a href="" class="pull-left">
-                                <img
-                                  alt="image"
-                                  src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                                />
-                              </a>
-                              <div class="media-body">
-                                <textarea
-                                  class="form-control"
-                                  placeholder="Write comment..."
-                                ></textarea>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="social-comment">
-                            <a href="" class="pull-left">
-                              <img
-                                alt="image"
-                                src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                              />
-                            </a>
-                            <div class="media-body">
-                              <a href="#">Andrew Williams</a>
-                              Internet tend to repeat predefined chunks as
-                              necessary, making this the first true generator on
-                              the Internet. It uses a dictionary of over 200
-                              Latin words.
-                              <br />
-                              <a href="#" class="small">
-                                <i class="fa fa-thumbs-up"></i> 26 Like this!
-                              </a>{" "}
-                              -<small class="text-muted">12.06.2014</small>
-                            </div>
-                          </div>
-
-                          <div class="social-comment">
-                            <a href="" class="pull-left">
-                              <img
-                                alt="image"
-                                src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                              />
-                            </a>
-                            <div class="media-body">
-                              <a href="#">Andrew Williams</a>
-                              Making this the first true generator on the
-                              Internet. It uses a dictionary of over 200 Latin
-                              words.
-                              <br />
-                              <a href="#" class="small">
-                                <i class="fa fa-thumbs-up"></i> 26 Like this!
-                              </a>{" "}
-                              -<small class="text-muted">12.06.2014</small>
-                            </div>
-                          </div>
-
-                          <div class="social-comment">
-                            <a href="" class="pull-left">
-                              <img
-                                alt="image"
-                                src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                              />
-                            </a>
-                            <div class="media-body">
-                              <textarea
-                                class="form-control"
-                                placeholder="Write comment..."
-                              ></textarea>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="social-feed-separated">
-                      <div class="social-avatar">
-                        <a href="">
-                          <img
-                            alt="image"
-                            src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                          />
-                        </a>
-                      </div>
-
-                      <div class="social-feed-box">
-                        <div class="pull-right social-action dropdown">
-                          <button
-                            data-toggle="dropdown"
-                            class="dropdown-toggle btn-white"
-                          >
-                            <i class="fa fa-angle-down"></i>
-                          </button>
-                          <ul class="dropdown-menu m-t-xs">
-                            <li>
-                              <a href="#">Config</a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="social-avatar">
-                          <a href="#">Andrew Williams</a>
-                          <small class="text-muted">
-                            Today 4:21 pm - 12.06.2014
-                          </small>
-                        </div>
-                        <div class="social-body">
-                          <p>
-                            Many desktop publishing packages and web page
-                            editors now use Lorem Ipsum as their default model
-                            text, and a search for 'lorem ipsum' will uncover
-                            many web sites still in their infancy.
-                          </p>
-                          <div class="btn-group">
-                            <button class="btn btn-white btn-xs">
-                              <i class="fa fa-thumbs-up"></i> Like this!
-                            </button>
-                            <button class="btn btn-white btn-xs">
-                              <i class="fa fa-comments"></i> Comment
-                            </button>
-                            <button class="btn btn-white btn-xs">
-                              <i class="fa fa-share"></i> Share
-                            </button>
-                          </div>
-                        </div>
-                        <div class="social-footer">
-                          <div class="social-comment">
-                            <a href="" class="pull-left">
-                              <img
-                                alt="image"
-                                src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                              />
-                            </a>
-                            <div class="media-body">
-                              <a href="#">Andrew Williams</a>
-                              Internet tend to repeat predefined chunks as
-                              necessary, making this the first true generator on
-                              the Internet. It uses a dictionary of over 200
-                              Latin words.
-                              <br />
-                              <a href="#" class="small">
-                                <i class="fa fa-thumbs-up"></i> 26 Like this!
-                              </a>{" "}
-                              -<small class="text-muted">12.06.2014</small>
-                            </div>
-                          </div>
-
-                          <div class="social-comment">
-                            <a href="" class="pull-left">
-                              <img
-                                alt="image"
-                                src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                              />
-                            </a>
-                            <div class="media-body">
-                              <a href="#">Andrew Williams</a>
-                              Making this the first true generator on the
-                              Internet. It uses a dictionary of.
-                              <br />
-                              <a href="#" class="small">
-                                <i class="fa fa-thumbs-up"></i> 11 Like this!
-                              </a>{" "}
-                              -<small class="text-muted">10.07.2014</small>
-                            </div>
-                          </div>
-
-                          <div class="social-comment">
-                            <a href="" class="pull-left">
-                              <img
-                                alt="image"
-                                src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                              />
-                            </a>
-                            <div class="media-body">
-                              <textarea
-                                class="form-control"
-                                placeholder="Write comment..."
-                              ></textarea>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="social-feed-separated">
-                      <div class="social-avatar">
-                        <a href="">
-                          <img
-                            alt="image"
-                            src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                          />
-                        </a>
-                      </div>
-                      <div class="social-feed-box">
-                        <div class="pull-right social-action dropdown">
-                          <button
-                            data-toggle="dropdown"
-                            class="dropdown-toggle btn-white"
-                          >
-                            <i class="fa fa-angle-down"></i>
-                          </button>
-                          <ul class="dropdown-menu m-t-xs">
-                            <li>
-                              <a href="#">Config</a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="social-avatar">
-                          <a href="#">Andrew Williams</a>
-                          <small class="text-muted">
-                            Today 4:21 pm - 12.06.2014
-                          </small>
-                        </div>
-                        <div class="social-body">
-                          <p>
-                            Text, and a search for 'lorem ipsum' will uncover
-                            many web sites still in their infancy.
-                          </p>
-                          <div class="btn-group">
-                            <button class="btn btn-white btn-xs">
-                              <i class="fa fa-thumbs-up"></i> Like this!
-                            </button>
-                            <button class="btn btn-white btn-xs">
-                              <i class="fa fa-comments"></i> Comment
-                            </button>
-                            <button class="btn btn-white btn-xs">
-                              <i class="fa fa-share"></i> Share
-                            </button>
-                          </div>
-                        </div>
-                        <div class="social-footer">
-                          <div class="social-comment">
-                            <a href="" class="pull-left">
-                              <img
-                                alt="image"
-                                src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                              />
-                            </a>
-                            <div class="media-body">
-                              <textarea
-                                class="form-control"
-                                placeholder="Write comment..."
-                              ></textarea>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+        <
+        button type = "button"
+        className = "btn btn-primary" > Imagen < /button> <
+        button type = "button"
+        className = "btn btn-primary" > Evento < /button> <
+        button type = "button"
+        className = "btn btn-primary" > Check in < /button> < /
+        div > {
+            " "
+        } <
+        /fieldset>{" "} <
+        div class = "row mb-3" >
+        <
+        div class = "card-body d-flex justify-content-between align-items-center" >
+        <
+        button type = "submit"
+        class = "btn btn-primary btn-sm" >
+        Publicar {
+            " "
+        } <
+        /button>{" "} < /
+        div > {
+            " "
+        } <
+        /div>{" "} < /
+        form > {
+            " "
+        } <
+        /div>{" "} <
+        div className = "card" >
+        <
+        h5 className = "card-header" > Experiencias < /h5>{" "} <
+        div className = "card-body" >
+        <
+        h4 className = "card-title" > Visita a la isla Santay < /h4>{" "} <
+        p className = "card-text" >
+        <
+        img src = "https://previews.123rf.com/images/danflcreativo/danflcreativo1706/danflcreativo170600254/80138855-guayaquil-ecuador-mayo-2016-r%C3%ADo-guayas-en-la-vista-de-la-isla-santay-desde-el-malec%C3%B3n-2000-guayaquil.jpg"
+        className = "d-block w-100"
+        alt = "..." /
+        >
+        <
+        p > < b > Lugar: < /b> Isla Santay, Guayaquil, Ecuador <
+        b > Lugar por: < /b> @charlytoc</p >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.Quibusdam eum nostrum fuga, minus veritatis sed dignissimos, cupiditate asperiores ipsum quaerat inventore eaque, nesciunt nobis laudantium laborum itaque repellendus ipsa quia2.. {
+            " "
+        } <
+        /p>{" "} < /
+        div > {
+            " "
+        } <
+        /div>{" "} < /
+        div > {
+            " "
+        } <
+        div className = "col-md-3" >
+        <
+        div class = "card text-bg-light mb-3" >
+        <
+        h5 > < div class = "card-header font-weight-bold" > Eventos < /div> </h5 >
+        <
+        div class = "card-body" >
+        <
+        h5 class = "card-title" > Festival montañitas < /h5>{" "} <
+        img src = "https://media.traveler.es/photos/61376a65ba2a75fcba4be8d5/master/w_1600%2Cc_limit/148355.jpg"
+        className = "d-block w-100"
+        alt = "..." /
+        >
+        <
+        p > < b > Lugar: < /b> Guayaquil, Ecuador</p >
+        <
+        p class = "card-text" >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.Quibusdam eum nostrum fuga, minus veritatis sed dignissimos, cupiditate asperiores ipsum quaerat inventore eaque, nesciunt nobis laudantium laborum itaque repellendus ipsa quia2. {
+            " "
+        } <
+        /p>{" "} < /
+        div > {
+            " "
+        } <
+        /div>{" "} < /
+        div > {
+            " "
+        } <
+        /div>{" "} < /
+        div > {
+            " "
+        } <
+        />
+    );
 };
