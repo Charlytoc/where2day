@@ -38,6 +38,8 @@ def login():
     if email != usuario.email or password != usuario.password:
         return jsonify({"msg": "Bad email or password"}), 401
 
+    if email != usuario.email  and password != usuario.password:
+        return jsonify({"msg": "Bad email and password"}), 401
 
     access_token = create_access_token(identity=email)
     return jsonify(access_token=access_token), 200
@@ -47,10 +49,16 @@ def login():
 def to_signup():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
-    username = request.json.get("username", None)
-    nombre =  request.json.get("nombre", None)
-    apellido = request.json.get("apellido", None)
-    edad = request.json.get("edad", None)
+    # username = request.json.get("username", None)
+    # nombre =  request.json.get("nombre", None)
+    # apellido = request.json.get("apellido", None)
+    # edad = request.json.get("edad", None)
+
+    usuario_existente = Usuario.query.filter_by(email=email).first()
+    print(usuario_existente)
+
+    if usuario_existente:
+        return "El usuario ya existe", 400
 
     nuevo_usuario = Usuario(email=email, password=password)
     
@@ -82,3 +90,20 @@ def to_post():
 
     response_body = "has agregado una nueva experiencia"
     return jsonify(response_body)
+
+
+@api.route("/getuser", methods=["GET"])
+@jwt_required()
+def protected():
+    # Access the identity of the current user with get_jwt_identity
+
+    # Para usar esta ruta se debe enviar un bearer token con el token del usuario 
+    # en el header del fetch
+
+
+    current_user = get_jwt_identity()
+
+    usuario = Usuario.query.filter_by(email=current_user).first()
+
+    return jsonify(usuario.id), 200
+
