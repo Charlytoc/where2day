@@ -79,15 +79,7 @@ export const Home = () => {
       </div>
       <div>
         <div className="col-12 col-md-8 offset-md-2 d-flex justify-content-center">
-          <h2 className="text-center px-3">
-            <i className="bi bi-facebook"></i>
-          </h2>
-          <h2 className="text-center px-3">
-            <i className="bi bi-instagram"></i>
-          </h2>
-          <h2 className="text-center px-3">
-            <i className="bi bi-twitter"></i>
-          </h2>
+          
         </div>
       </div>
     </div>
