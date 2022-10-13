@@ -87,6 +87,7 @@ class Eventos(db.Model):
     outdoor = db.Column(db.Boolean(), unique=False, nullable=True)
     indoor = db.Column(db.Boolean(), unique=False, nullable=True)
     anywhere = db.Column(db.Boolean(), unique=False, nullable=False)
+    description = db.Column(db.String(250), unique=False, nullable=False)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'),
         nullable=False)
     invitado = db.relationship('Invitados', backref='eventos', lazy=True)
