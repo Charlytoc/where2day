@@ -1,10 +1,12 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
-.fondo-landing {
-    background-color: #f2dec4;
+.bg-redw2d {
+    color: white !important;
+    background-color: rgba(222, 82, 81);
 }
 
-.Where2Day {
-    color: #bf4141;
+.bg-yellw2d {
+    color: rgb(0, 0, 0) !important;
+    background-color: rgba(241, 228, 206, 0.35);
 }
