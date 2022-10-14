@@ -39,14 +39,14 @@ const Layout = () => {
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />
-            <Route element={<Feed />} path="/feed" />{" "}
-            {/* Este es la ruta signup condicional, si el usuario se regista exitosamente redirigira al feed */}{" "}
+            <Route element={<Signup />} path="/signup" />
+            {/* Este es la ruta signup condicional, si el usuario se regista exitosamente redirigira al feed */}
             <Route
               element={store.auth ? <Navigate to="/feed" /> : <Login />}
               path="/login"
-            />{" "}
+            />
             {/* Este es la ruta FEED condicional, si el usuario pierde el "auth: true" 
-                                                                                        y pasa a "auth: false" enviara al path "/" al usuario */}{" "}
+                                                                                        y pasa a "auth: false" enviara al path "/" al usuario */}
             <Route
               element={!store.auth ? <Navigate to="/" /> : <Feed />}
               path="/feed"
@@ -55,8 +55,8 @@ const Layout = () => {
           </Routes>
 
           <Footer />
-        </ScrollToTop>{" "}
-      </BrowserRouter>{" "}
+        </ScrollToTop>
+      </BrowserRouter>
     </div>
   );
 };
