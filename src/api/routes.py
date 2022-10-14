@@ -70,6 +70,32 @@ def to_signup():
     return jsonify(response_body)
 
 
+@api.route('/leerPost', methods=['GET'])
+def obtener_experiencias():
+    exp_query = Experiencias.query.limit(10)
+
+    all_exp = list(map(lambda item: item.serialize(), exp_query))
+
+    response_body = {
+        "msg": "OK ",
+        "results": all_exp
+    }
+    return jsonify(response_body), 200
+
+
+@api.route('/leerEventos', methods=['GET'])
+def obtener_eventos():
+    event_query = Eventos.query.limit(10)
+
+    all_events = list(map(lambda item: item.serialize(),  event_query))
+
+    response_body = {
+        "msg": "OK ",
+        "results": all_events
+    }
+    return jsonify(response_body), 200
+
+
 @api.route("/postear", methods=["POST"])
 def to_post():
     titulo = request.json.get("titulo", None)
