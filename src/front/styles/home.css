@@ -6,10 +6,6 @@
     on that page only (the ones not reused in other pages).
 */
 
-body {
-    background-color: #fafff3;
-}
-
 .bg-redw2d {
     color: white !important;
     background-color: rgba(222, 82, 81);
@@ -18,16 +14,4 @@ body {
 .bg-yellw2d {
     color: rgb(0, 0, 0) !important;
     background-color: rgba(241, 228, 206, 0.35);
-}
-
-.fondo-landing {
-    background-color: #f2dec4;
-}
-
-.Where2Day {
-    color: #bf4141;
-}
-
-.container {
-    background-color: rgb(255, 255, 255);
 }
