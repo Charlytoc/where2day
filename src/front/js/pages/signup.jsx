@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react"; // #1 import Context de rea
 
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 
-import logo from "../../img/logo.png";
+import logo from "../../img/Logo WHERE2DAY.png";
 // import "../../styles/home.css";
 
 export const Signup = () => {
