@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react"; // #1 import Context de rea
 
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 
-import logo from "../../img/logo.png";
+import logo from "../../img/Logo WHERE2DAY.png";
 // import "../../styles/home.css";
 
 export const Login = () => {
@@ -19,9 +19,7 @@ export const Login = () => {
 
   return (
     <div className="text-center w-50 container mt-5">
-      <img src={logo} style={{ width: 300 }} className="mb-5" />
-
-      <h1> Login </h1>
+      <img src={logo} style={{ width: 290 }} className="mb-5" />
 
       {/* Aca creamos un form que "onSubmit" nos suba la data a la DB Signup */}
       <form onSubmit={handleSubmit}>
@@ -36,7 +34,7 @@ export const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
-            <label>eMail</label>
+            <label>Correo electrónico</label>
           </div>
         </div>
 
@@ -51,14 +49,14 @@ export const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
-            <label>Password</label>
+            <label>Contraseña</label>
           </div>
         </div>
 
         {/* Esto es el boton submit */}
         <div className="d-flex justify-content-center">
-          <button type="submit" className="btn btn-warning mb-3 ">
-            Login
+          <button type="submit" className="btn btn-md bg-redw2d">
+            Iniciar sesión
           </button>
         </div>
       </form>
