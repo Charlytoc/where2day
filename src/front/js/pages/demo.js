@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Demo = () => {
-	const { store, actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
 
-	return (
-		<div className="container">
-			<ul className="list-group">
-				{store.demo.map((item, index) => {
+  return (
+    <div className="container">
+      <ul className="list-group">
+        {/* {store.demo.map((item, index) => {
 					return (
 						<li
 							key={index}
@@ -30,12 +30,12 @@ export const Demo = () => {
 							</button>
 						</li>
 					);
-				})}
-			</ul>
-			<br />
-			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
-			</Link>
-		</div>
-	);
+				})} */}
+      </ul>
+      <br />
+      <Link to="/">
+        <button className="btn btn-primary">Back home</button>
+      </Link>
+    </div>
+  );
 };
