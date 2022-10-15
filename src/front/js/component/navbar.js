@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
-import logoPres from "../../img/logo-presentation.png";
+import logoPres from "../../img/Logo WHERE2DAY.png";
 
 import { useContext } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
@@ -21,16 +21,16 @@ export const Navbar = () => {
           {!store.auth ? (
             <>
               <Link to="/login">
-                <button className="btn btn-warning">Login</button>
+                <button className="btn btn-danger btn-md" style={{ backgroundColor: 'rgba(222, 82, 81' }}>Login</button>
               </Link>
 
               <Link to="/signup">
-                <button className="btn btn-warning ms-3">Signup</button>
+                <button className="btn btn-danger btn-md ms-3" style={{ backgroundColor: 'rgba(222, 82, 81' }}>Signup</button>
               </Link>
             </>
           ) : (
             <button
-              className="btn btn-warning ms-3"
+              className="btn btn-danger btn-md ms-3" style={{ backgroundColor: 'rgba(222, 82, 81' }}
               onClick={() => actions.logout()}
             >
               Logout

@@ -1,14 +1,4 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
-.fondo-landing {
-    background-color: #f2dec4;
-}
-
-.Where2Day {
-    color: #bf4141;
-}
-
-.container {
-    background-color: rgb(255, 255, 255);
-}
+/* Include any default variable overrides here (though functions won't be available) */
