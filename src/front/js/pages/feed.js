@@ -15,7 +15,7 @@ export const Feed = () => {
             <div className="card">
               {/* CARD FILTROS */}
               <h5>
-                <div class="card-header font-weight-bold bg-yellw2d">
+                <div className="card-header font-weight-bold bg-yellw2d">
                   Filtros
                 </div>
               </h5>
@@ -31,26 +31,26 @@ export const Feed = () => {
             <div className="card text-bg-light mb-3">
               {/* CARD CREAR EXPERIENCIA */}
               <h5>
-                <div class="card-header font-weight-bold bg-yellw2d">
+                <div className="card-header font-weight-bold bg-yellw2d">
                   Crea una nueva experiencia
                 </div>
               </h5>
               <form>
-                <div class="row mb-3">
-                  <div class="col-sm-12">
+                <div className="row mb-3">
+                  <div className="col-sm-12">
                     <label
-                      for="exampleFormControlTextarea1"
-                      class="form-label"
+                      htmlFor="exampleFormControlTextarea1"
+                      className="form-label"
                     ></label>
                     <textarea
-                      class="form-control"
+                      className="form-control"
                       id="exampleFormControlTextarea1"
                       rows="5"
                     ></textarea>
                   </div>
                 </div>
-                <fieldset class="row mb-3">
-                  <div class="col-sm-10">
+                <fieldset className="row mb-3">
+                  <div className="col-sm-10">
                     {/* <button type="button" className="btn btn-sm bg-redw2d">
                       Imagen
                     </button> */}
@@ -70,9 +70,9 @@ export const Feed = () => {
                     </button> */}
                   </div>
                 </fieldset>
-                <div class="row mb-3">
-                  <div class="card-body d-flex justify-content-between align-items-center">
-                    <button type="submit" class="btn btn-md bg-redw2d">
+                <div className="row mb-3">
+                  <div className="card-body d-flex justify-content-between align-items-center">
+                    <button type="submit" className="btn btn-md bg-redw2d">
                       Publicar
                     </button>
                   </div>
@@ -104,15 +104,15 @@ export const Feed = () => {
             </div>
           </div>
           <div className="col-md-3">
-            <div class="card text-bg-light mb-3">
+            <div className="card text-bg-light mb-3">
               {/* CARD EVENTOS */}
               <h5>
-                <div class="card-header font-weight-bold bg-yellw2d">
+                <div className="card-header font-weight-bold bg-yellw2d">
                   Eventos
                 </div>
               </h5>
-              <div class="card-body">
-                <h5 class="card-title"> Festival montañitas </h5>
+              <div className="card-body">
+                <h5 className="card-title"> Festival montañitas </h5>
                 <img
                   src="https://media.traveler.es/photos/61376a65ba2a75fcba4be8d5/master/w_1600%2Cc_limit/148355.jpg"
                   className="d-block w-100"
@@ -121,7 +121,7 @@ export const Feed = () => {
                 <p>
                   <b>Lugar:</b> Guayaquil, Ecuador
                 </p>
-                <p class="card-text">
+                <p className="card-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing
                   elit.Quibusdam eum nostrum fuga, minus veritatis sed
                   dignissimos, cupiditate asperiores ipsum quaerat inventore
