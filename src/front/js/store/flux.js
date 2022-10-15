@@ -57,49 +57,65 @@ const getState = ({ getStore, getActions, setStore }) => {
         // Hacemos un if/else con el status recibido
         
         // Si es un 401, entonces auth:false
-        if (response.status === 401){
+        if (!response.status === 200){
           // console.log(response)
           alert('Wrong eMail or Password, please try again');
           setStore({auth:false});
-        }else{
+                                      }else{
         const data = await response.json()
         console.log(data)
         setStore({ auth: true });
         const store = getStore();
         console.log(store.auth)
         return true;    
-        }
+                                             }
         // Caso contrario SI PONEMOS EL auth:true
-      } 
+             } 
       // Ahora... Si el TRY NO SIRVIO, entonces INMEDIATAMENTE HAREMOS UN CATCH
       // El catch NOS DIRA donde viene el error o porque el async/await no sirvio
       catch(error){
-        if(error.msg === 'Bad email or password'){
-          alert(error.msg);
-        }
+        if(error.msg === 'Bad email and password'){
+          alert('Wrong eMail or Password, please try again');
+                                                   }
         setStore({auth:false});
           console.log(error);
-      }
-
-        // // Hago un console log SOLO para verificar si el Status se cambia a "True" en el Auth
-        // const store = getStore();
-        // console.log(store.auth)
+                   }
       },
 
-      signup: (email, password) => {
-        
-        fetch(process.env.BACKEND_URL + "/api/signup", {
+
+     
+      // EL ASYNC SIEMPRE DEBE IR ACOMPA:ADO DE UN AWAIT, es como un "if/else", son dependientes
+      signup: async (email, password) => {
+         // el try INTENTARA hacer lo que se encuentra entre "{}", SINO funciona, omite la logica que ahi se encuentra
+        try{
+          const response = await fetch(process.env.BACKEND_URL + "/api/signup", {
           method: "POST",
           body: JSON.stringify({
             email: email,
             password: password,
-          }),
+                               }),
           headers: {
             "Content-Type": "application/json",
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data));
+                   },
+                                                                                });
+        // Una vez que funciono el "try" y los datos se trajeron, entonces 
+        // Hacemos un if/else con el status recibido
+        
+        if(response.status === 200){
+          const data = await response.json()
+          (alert('An eMail has been sent, please follow instructions'))
+          console.log(data)
+                                  }else{
+                                    (alert("Este correo ya se ha registrado"))
+                                        }
+           
+            
+           }
+      // Ahora... Si el TRY NO SIRVIO, entonces INMEDIATAMENTE HAREMOS UN CATCH
+      // El catch NOS DIRA donde viene el error o porque el async/await no sirvio
+      catch (error) {
+        console.log("Error loading message from backend", error);
+                     }   
       },
 
       logout: () => {
