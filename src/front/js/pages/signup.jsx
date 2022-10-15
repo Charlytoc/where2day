@@ -15,6 +15,8 @@ export const Signup = () => {
     console.log(email);
     console.log(password);
     actions.signup(email, password);
+    setEmail("");
+    setPassword("");
   };
 
   return (
