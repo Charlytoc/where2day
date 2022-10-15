@@ -25,12 +25,12 @@ export const Navbar = () => {
               </Link>
 
               <Link to="/signup">
-                <button className="btn btn-danger btn-md" style={{ backgroundColor: 'rgba(222, 82, 81' }}>Signup</button>
+                <button className="btn btn-danger btn-md ms-3" style={{ backgroundColor: 'rgba(222, 82, 81' }}>Signup</button>
               </Link>
             </>
           ) : (
             <button
-              className="btn btn-warning ms-3"
+              className="btn btn-danger btn-md ms-3" style={{ backgroundColor: 'rgba(222, 82, 81' }}
               onClick={() => actions.logout()}
             >
               Logout

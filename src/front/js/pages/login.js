@@ -57,7 +57,7 @@ export const Login = () => {
 
         {/* Esto es el boton submit */}
         <div className="d-flex justify-content-center">
-          <button type="submit" className="btn btn-warning mb-3 ">
+          <button type="submit" className="btn btn-danger btn-md ms-3" style={{ backgroundColor: 'rgba(222, 82, 81' }}>
             Login
           </button>
         </div>
