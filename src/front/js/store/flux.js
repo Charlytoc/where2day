@@ -89,7 +89,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                             titulo: titulo,
                             lugar: lugar,
 							description: description,
-							usuario_id: store.usuario_actual
+							usuario_id: store.usuario_actual,
+                            
                         }),
                         headers: {
                             'Content-Type': 'application/json'
