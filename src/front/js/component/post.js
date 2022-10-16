@@ -28,7 +28,7 @@ export const Post = () => {
     
     const postear = () => {
         setDesplegar(false)
-        actions.postear(titulo, lugar, description)
+        actions.postear(titulo, lugar, description, fecha, outdoor, indoor, anywhere)
         setTitulo('')
         setFecha('')
         setDescription('')

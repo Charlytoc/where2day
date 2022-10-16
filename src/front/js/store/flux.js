@@ -80,7 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then((response) => response.json())
                     .then((data) => setStore({usuario_actual : data.usuario}))},
 					
-			postear: (titulo, lugar, description, usuario_id) => {
+			postear: (titulo, lugar, description, fecha, outdoor, indoor, anywhere) => {
                 const store = getStore()
 				
                 fetch(process.env.BACKEND_URL + "/api/postear", {
@@ -90,7 +90,11 @@ const getState = ({ getStore, getActions, setStore }) => {
                             lugar: lugar,
 							description: description,
 							usuario_id: store.usuario_actual,
-                            
+                            fecha: fecha,
+                            outdoor: outdoor,
+                            indoor: indoor,
+                            anywhere: anywhere
+
                         }),
                         headers: {
                             'Content-Type': 'application/json'
