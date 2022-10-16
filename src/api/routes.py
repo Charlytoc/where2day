@@ -97,6 +97,25 @@ def protected():
     usuario = Usuario.query.filter_by(email=current_user).first()
     print(usuario.id)
     response_body= {"usuario": usuario.id}
-    print("Sí sirvo")
+    # print("Sí sirvo")
 
     return jsonify(response_body), 200
+
+
+
+
+@api.route("/obtenerExperiencias", methods=["GET"])
+def get_all_exp ():
+    
+    experiencias = Experiencias.query.limit(3).all()
+
+    results = list(map(lambda item: item.serialize(), experiencias))
+    print(results)
+
+    
+
+    response_body= results
+
+    return jsonify(response_body), 200
+
+
