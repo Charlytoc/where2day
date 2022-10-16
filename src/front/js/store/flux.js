@@ -127,7 +127,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 
                 fetch(process.env.BACKEND_URL + "/api/obtenerExperiencias")
                 .then((response) => response.json()) //lo transformamos en un json
-				.then((data) => console.log(data)) //lo guardamos en un objeto
+				.then((data) => setStore({experiencias: data})) //lo guardamos en un objeto
             }
                 
                 }
