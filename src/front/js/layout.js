@@ -14,6 +14,7 @@ import { Login } from "./pages/login";
 import { Signup } from "./pages/signup.jsx";
 import { Single } from "./pages/single";
 import { ErrorPage } from "./pages/errorPage";
+import { Reset } from "./pages/resetPassword";
 
 import injectContext from "./store/appContext";
 import { Feed } from "./pages/feed.js";
@@ -40,7 +41,8 @@ const Layout = () => {
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<Signup />} path="/signup" />
-            {/* Este es la ruta signup condicional, si el usuario se regista exitosamente redirigira al feed */}
+            <Route element={<Reset />} path="/reset" />
+            {/* Este es la ruta LOGIN condicional, si el usuario se regista exitosamente redirigira al feed */}
             <Route
               element={store.auth ? <Navigate to="/feed" /> : <Login />}
               path="/login"
