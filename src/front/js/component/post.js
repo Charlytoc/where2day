@@ -33,6 +33,9 @@ export const Post = () => {
         setFecha('')
         setDescription('')
         setLugar('')
+        setAnywhere(false)
+        setOutdoor(false)
+        setIndoor(false)
 
     }
 
@@ -70,7 +73,9 @@ export const Post = () => {
         </label>
         <textarea onChange={(e) => {setDescription(e.target.value)}} value={description} className="form-control" placeholder="Cuenta cómo fue la experiencia" id="floatingTextarea"></textarea>
         <button onClick={postear} className="btn mt-1 btn-warning">Postear</button>
+        <button onClick={()=>setDesplegar(false)} className="btn mt-1 ms-2 btn-warning">X</button>
         </> : null }
+        
         
         </div>
         </>

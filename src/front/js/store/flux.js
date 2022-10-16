@@ -16,7 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// ],
 			auth: false,
 			redi_to_log: false,
-			usuario_actual: 0
+			usuario_actual: 0,
+            experiencias: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -102,7 +103,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .then((response) => response.json())
                     .then((data) => console.log(data))},
-
+            
+            
 			signup: (email, password) => {
                 // setStore({redi_to_log: true})
 				// console.log(redi_to_log)
@@ -119,7 +121,16 @@ const getState = ({ getStore, getActions, setStore }) => {
                         }
                     })
                     .then((response) => response.json())
-                    .then((data) => console.log(data))}}
+                    .then((data) => console.log(data))},
+
+            obtenerExperiencias: () => {
+                
+                fetch(process.env.BACKEND_URL + "/api/obtenerExperiencias")
+                .then((response) => response.json()) //lo transformamos en un json
+				.then((data) => console.log(data)) //lo guardamos en un objeto
+            }
+                
+                }
 	};
 };
 
