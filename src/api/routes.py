@@ -67,7 +67,7 @@ def to_signup():
     db.session.commit()
 
     response_body = "te has loggeado tío"
-    return jsonify(response_body)
+    return jsonify(response_body), 200
 
 
 @api.route('/leerPost', methods=['GET'])

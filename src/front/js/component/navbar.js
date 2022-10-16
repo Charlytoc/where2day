@@ -12,11 +12,26 @@ export const Navbar = () => {
   return (
     <nav className="navbar bg-light" style={{ height: 75 }}>
       <div className="container">
-        <Link to="/">
-          <span className="navbar-brand h1">
-            <img src={logoPres} style={{ height: 60 }} />
-          </span>
-        </Link>
+        
+        {/* Aca inicia ternario de REDIRIGIR a home/feed dependiente del auth STATUS */}
+        {!store.auth ? (
+            <Link to="/">
+            <span className="navbar-brand h1">
+              <img src={logoPres} style={{ height: 60 }} />
+            </span>
+          </Link>
+        ):(
+          <Link to="/feed">
+            <span className="navbar-brand h1">
+              <img src={logoPres} style={{ height: 60 }} />
+            </span>
+          </Link>
+        )
+      }
+        
+
+
+        {/* Aca inicia ternario de login/logout dependiente del auth STATUS */}
         <div>
           {!store.auth ? (
             <>
