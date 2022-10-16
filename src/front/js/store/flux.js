@@ -15,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 	}
 			// ],
 			auth: false,
-			redi_to_log: false
+			redi_to_log: false,
+			usuario_actual: 0
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -61,19 +62,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore()
                 localStorage.removeItem('token');
                 setStore({auth: false})
+				setStore({usuario_actual: 0})
 				console.log(store.auth)
 
             },
-			postear: (titulo, lugar, description) => {
+			obtenerUsuario: () => {
                 
+				let token = localStorage.getItem("token")
 				
-                fetch('https://3001-charlytoc-where2day-yz3hd6qxae3.ws-us70.gitpod.io/api/postear', {
+                fetch(process.env.BACKEND_URL + "/api/usuario", {
+                        method: "GET",
+                        headers: {
+                            'Content-Type': 'application/json',
+							'Authorization': "Bearer "+token
+                        }
+                    })
+                    .then((response) => response.json())
+                    .then((data) => setStore({usuario_actual : data.usuario}))},
+					
+			postear: (titulo, lugar, description, usuario_id) => {
+                const store = getStore()
+				
+                fetch(process.env.BACKEND_URL + "/api/postear", {
                         method: "POST",
                         body: JSON.stringify({
                             titulo: titulo,
                             lugar: lugar,
 							description: description,
-							usuario_id: 1
+							usuario_id: store.usuario_actual
                         }),
                         headers: {
                             'Content-Type': 'application/json'
@@ -81,6 +97,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .then((response) => response.json())
                     .then((data) => console.log(data))},
+
 			signup: (email, password) => {
                 // setStore({redi_to_log: true})
 				// console.log(redi_to_log)

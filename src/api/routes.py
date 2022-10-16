@@ -92,9 +92,11 @@ def to_post():
 def protected():
     # Access the identity of the current user with get_jwt_identity
     current_user = get_jwt_identity()
-    print(current_user)
+    # print(current_user)
 
     usuario = Usuario.query.filter_by(email=current_user).first()
     print(usuario.id)
+    response_body= {"usuario": usuario.id}
+    print("Sí sirvo")
 
-    return jsonify(usuario.id), 200
+    return jsonify(response_body), 200

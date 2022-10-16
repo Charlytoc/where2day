@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 // import logo from "../../img/logo.png";
 import "../../styles/home.css";
@@ -16,6 +16,11 @@ export const Post = () => {
     const [indoor, setIndoor] = useState(false)
     const [anywhere, setAnywhere] = useState(false)
 
+    useEffect( () => {
+		actions.obtenerUsuario()
+	}, [])
+
+
 
     const desplegarCaja = () => {
         setDesplegar(true)
@@ -31,7 +36,7 @@ export const Post = () => {
 
     }
 
-    // console.log(description)
+    console.log(store.usuario_actual)
     // console.log(fecha)
     // console.log(titulo)
     // console.log(lugar)
