@@ -1,28 +1,13 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      // message: null,
-      // // demo: [
-      // //   {
-      // //     title: "FIRST",
-      // //     background: "white",
-      // //     initial: "white",
-      // //   },
-      // //   {
-      // //     title: "SECOND",
-      // //     background: "white",
-      // //     initial: "white",
-      // //   },
-      // // ],
 
       auth: false,
+
+      feedExperiencias:[],
     },
     actions: {
-      // Use getActions to call a function within a fuction
-      exampleFunction: () => {
-        getActions().changeColor(0, "green");
-      },
-
+  
       getMessage: async () => {
         try {
           // fetching data from the backend
@@ -123,6 +108,16 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         console.log(store.auth);
       },
+      
+
+     loadExperiencias:  () => {
+      fetch(process.env.BACKEND_URL + "/api/leerPost")
+      .then(res => res.json())
+      .then(data =>setStore({feedExperiencias: data.results}))         
+        // console.log(data.results)
+      
+      },
+
 
       changeColor: (index, color) => {
         //get the store

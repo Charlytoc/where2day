@@ -6,15 +6,19 @@ import logoPres from "../../img/Logo WHERE2DAY.png";
 import { useContext } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 
-export const MostrarExp = () => {
+export const MostrarExp = (props) => {
 
   const { store, actions } = useContext(Context); // #3 Consumirlo
+
+    // ACA LLAMAMOS LA FUNCION QUE HACE EL FETCH QUE VA TRAER LAS EXPERIENCIAS QUE TENEMOS DB
+
+
 
   return (
    <>
      <div className="card">
               {/* CARD FEED EXPERIENCIAS */}
-              <h5 className="card-header bg-yellw2d">Experiencias</h5>
+              <h5 className="card-header bg-yellw2d">{props.title}</h5>
               <div className="card-body">
                 <h4 className="card-title"> Visita a la isla Santay </h4>
                 <p className="card-text">
