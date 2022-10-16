@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react"; // #1 import Context de react
+import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 
@@ -52,6 +53,9 @@ export const Login = () => {
               value={password}
             />
             <label>Password</label>
+            <Link to="/reset">
+                <p>Forgot Your Password? Click Here</p>
+            </Link>
           </div>
         </div>
 
