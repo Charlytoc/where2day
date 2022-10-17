@@ -72,6 +72,7 @@ class Experiencias(db.Model):
             "titulo": self.titulo,
             # do not serialize the password, its a security breach
             "fecha": self.fecha,
+            "descripcion": self.description,
             "lugar": self.lugar,
             "outdoor": self.outdoor,
             "indoor": self.indoor,
@@ -101,6 +102,7 @@ class Eventos(db.Model):
             "titulo": self.titulo,
             # do not serialize the password, its a security breach
             "fecha": self.fecha,
+            "descripcion": self.description,
             "lugar": self.lugar,
             "outdoor": self.outdoor,
             "indoor": self.indoor,
