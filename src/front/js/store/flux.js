@@ -16,6 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       // // ],
 
       auth: false,
+      usuario_actual: 0,
+      redirectLogin: false
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -63,10 +65,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({auth:false});
                                       }else{
         const data = await response.json()
-        console.log(data)
+        // console.log(data.access_token)
+        localStorage.setItem("token", data.access_token)
         setStore({ auth: true });
-        const store = getStore();
-        console.log(store.auth)
+        // const store = getStore();
+        // console.log(store.auth)
         return true;    
                                              }
         // Caso contrario SI PONEMOS EL auth:true
@@ -81,6 +84,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log(error);
                    }
       },
+
 
 
      
@@ -103,11 +107,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         
         if(response.status === 200){
           const data = await response.json()
-          (alert('An eMail has been sent, please follow instructions'))
-          console.log(data)
-                                  }else{
-                                    (alert("Este correo ya se ha registrado"))
-                                        }
+        setStore({redirectLogin: true});
+        (alert('An email has been sent, please follow instructions'))
+      }
+        else  {(alert("Este correo ya se ha registrado"))}
            
             
            }
@@ -123,6 +126,41 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         console.log(store.auth);
       },
+
+      obtenerUsuario: () => {
+                console.log("funciono desde el flux")
+				let token = localStorage.getItem("token")
+				
+          fetch(process.env.BACKEND_URL + "/api/getuser", {
+             method: "GET",
+              headers: {
+              'Content-Type': 'application/json',
+							'Authorization': "Bearer "+token} })
+         .then((response) => response.json())
+          .then((data) => setStore({usuario_actual: data}))},
+
+      postear: (titulo, lugar, description, fecha, outdoor, indoor, anywhere) => {
+        const store = getStore()
+
+        fetch(process.env.BACKEND_URL + "/api/postear", {
+                method: "POST",
+                body: JSON.stringify({
+                    titulo: titulo,
+                    lugar: lugar,
+                     description: description,
+                    usuario_id: store.usuario_actual,
+                    fecha: fecha,
+                    outdoor: outdoor,
+                    indoor: indoor,
+                    anywhere: anywhere
+
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then((response) => response.json())
+            .then((data) => console.log(data))},
 
       changeColor: (index, color) => {
         //get the store
