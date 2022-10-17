@@ -18,9 +18,9 @@ export const MostrarExp = (props) => {
    <>
      <div className="card">
               {/* CARD FEED EXPERIENCIAS */}
-              <h5 className="card-header bg-yellw2d">{props.title}</h5>
+              <h5 className="card-header bg-yellw2d">{props.fecha}</h5>
               <div className="card-body">
-                <h4 className="card-title"> Visita a la isla Santay </h4>
+                <h4 className="card-title">{props.title} </h4>
                 <p className="card-text">
                   <img
                     src="https://previews.123rf.com/images/danflcreativo/danflcreativo1706/danflcreativo170600254/80138855-guayaquil-ecuador-mayo-2016-r%C3%ADo-guayas-en-la-vista-de-la-isla-santay-desde-el-malec%C3%B3n-2000-guayaquil.jpg"
@@ -28,14 +28,10 @@ export const MostrarExp = (props) => {
                     alt="..."
                   />
                   <p>
-                    <b>Lugar:</b> Isla Santay, Guayaquil, Ecuador
-                    <b>Lugar por:</b> @charlytoc
+                    <b>Lugar:</b> {props.ubicacion}
+                    <b> Lugar por:</b> {props.publicacion}
                   </p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing
-                  elit.Quibusdam eum nostrum fuga, minus veritatis sed
-                  dignissimos, cupiditate asperiores ipsum quaerat inventore
-                  eaque, nesciunt nobis laudantium laborum itaque repellendus
-                  ipsa quia2..
+                 
                 </p>
               </div>
             </div>

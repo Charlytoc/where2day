@@ -110,13 +110,21 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       
 
-     loadExperiencias:  () => {
-      fetch(process.env.BACKEND_URL + "/api/leerPost")
-      .then(res => res.json())
-      .then(data =>setStore({feedExperiencias: data.results}))         
-        // console.log(data.results)
+    //  loadExperiencias:  () => {
+    //   fetch(process.env.BACKEND_URL + "/api/leerPost")
+    //   .then(res => res.json())
+    //   .then(data =>setStore({feedExperiencias: data.results}))         
+    //     // console.log(data.results)
       
-      },
+    //   },
+
+      // ESPEJO DE LO QUE SE HIZO ABAJO ->
+      loadExperiencias: () => {
+				fetch(process.env.BACKEND_URL + "/api/leerPost")
+				.then(response => response.json())
+				.then(data => setStore({feedExperiencias: data.results}))
+          // setStore({charactersCard: data.results}))
+				},
 
 
       changeColor: (index, color) => {

@@ -12,8 +12,8 @@ import { MostrarEventos } from "../component/mostrarEventos";
 
 export const Feed = () => {
   const { store, actions } = useContext(Context); // #3 Consumirlo
-
-
+  
+  console.log(store.feedExperiencias)
 
   return (
     <>
@@ -28,7 +28,15 @@ export const Feed = () => {
             {/* Componentes del feed */}
            <CrearExp />
             {/* <MostrarExp /> */}
-            {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp title={item.titulo} lugar={item.lugar}/></div>)}
+            {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp 
+            title={item.titulo} 
+            fecha={item.fecha} 
+            publicacion={item.description} 
+            ubicacion={item.lugar}
+            user={item.id}
+            /></div>)}
+
+            {/* key={item.id}><MostrarExp title={item.titulo} lugar={item.lugar} */}
 
             {/* Titulo Lugar Fecha Outdoor Indoor Anywhere Description Usuario */}
           </div>
