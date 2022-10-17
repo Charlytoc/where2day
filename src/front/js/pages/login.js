@@ -53,11 +53,12 @@ export const Login = () => {
               value={password}
             />
             <label>Password</label>
+          </div>
+        </div>
+
             <Link to="/reset">
                 <p>Forgot Your Password? Click Here</p>
             </Link>
-          </div>
-        </div>
 
         {/* Esto es el boton submit */}
         <div className="d-flex justify-content-center">
