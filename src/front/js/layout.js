@@ -13,7 +13,8 @@ import { Context } from "./store/appContext"
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { Feed } from "./component/feed";
+// import { Feed } from "./component/feed";
+import { InfoUsuario } from "./pages/configUser";
 
 
 
@@ -32,11 +33,11 @@ const Layout = () => {
                 <ScrollToTop>
                     <Navbar />
                     <Routes>
-                        <Route element={store.auth ? <Navigate to="/index" /> : <Home />} path="/" />
-                        {/* <Route element={ !store.auth ? <Navigate to="/"/> : <Index />} path="/index" /> */}
-                        <Route element={<Demo />} path="/demo" />
-                        <Route element={<Index />} path="/index" />
-                        <Route element={<Single />} path="/single/:theid" />
+                        <Route element={   store.auth ? <Navigate to="/index" /> : <Home />} path="/" />
+                        <Route element={ !store.auth ? <Navigate to="/"/> : <Index />} path="/index" />
+                        
+                        <Route element={<InfoUsuario />} path="/user" />
+
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

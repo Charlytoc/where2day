@@ -37,11 +37,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Error loading message from backend", error)
 				}
 			},
-			
+			setAuth: () => {
+                localStorage.getItem("token") ? setStore({auth: true}) : setStore({auth: false})
+            },
+
 			login: (email, password) => {
 				
 				const store = getStore()
 				// console.log(store.auth)
+
 
                 fetch(process.env.BACKEND_URL + "/api/login", {
                         method: "POST",
@@ -54,16 +58,16 @@ const getState = ({ getStore, getActions, setStore }) => {
                         }
                     })
                     .then((response) => {
-                        setStore({auth: true})
+                        // setStore({auth: true})
                         return response.json()})
-                    .then((data) => localStorage.setItem("token", data.access_token))
+                    .then((data) => {localStorage.setItem("token", data.access_token), getActions().setAuth()})
 
             },
 			logout: () => {
 				const store = getStore()
                 localStorage.removeItem('token');
-                setStore({auth: false})
 				setStore({usuario_actual: 0})
+                getActions().setAuth()
 				console.log(store.auth)
 
             },

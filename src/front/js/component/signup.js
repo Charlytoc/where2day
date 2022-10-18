@@ -23,6 +23,7 @@ export const Signup = () => {
 
     const handleClick = () => {
       actions.login(email,password)
+      // actions.setAuth()
       setEmail("")
       setPassword("")
     } 
