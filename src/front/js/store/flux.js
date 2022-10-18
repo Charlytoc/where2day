@@ -188,19 +188,14 @@ const getState = ({
 
             //FETCH EVENTOS
             verEventos: () => {
-                // EL try INTENTA HACER LO QUE ENCUENTRA ENTRE "{}". SI NO FUNCIONA, OMITE LA LOGICA QUE AHI SE ENCUENTRA
-                fetch(process.env.BACKEND_URL + "/api/leerEventos"), {
-                        method: "GET",
-                        body: JSON.stringify({
-
-                        }),
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    }
-                    .then((response) => response.json())
-                    .then((data) => console.log(data.results))
+                fetch(process.env.BACKEND_URL + "/api/leerEventos")
+                    .then(response => response.json())
+                    .then(data => setStore({
+                        mostrarEventos: data.results
+                    }))
             },
+
+
 
             changeColor: (index, color) => {
                 //get the store

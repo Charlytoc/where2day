@@ -11,7 +11,9 @@ import { MostrarExp } from "../component/mostrarExp";
 import { MostrarEventos } from "../component/mostrarEventos";
 
 export const Feed = () => {
-  //   const { store, actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
+
+  console.log(store.verEventos);
 
   return (
     <>
@@ -19,17 +21,20 @@ export const Feed = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-3">
-            {/* Componente para seleccionar los filtros */}
-            <Filtros />
+            {/* Componente para seleccionar los filtros */} <Filtros />
           </div>
           <div className="col-md-6">
-            {/* Componentes del feed */}
-           <CrearExp />
+            {/* Componentes del feed */} <CrearExp />
             <MostrarExp />
           </div>
           <div className="col-md-3">
-            {/* Vista latereal derecho, eventos */}
-            <MostrarEventos />
+            {/* Vista latereal derecho, eventos */} <MostrarEventos />
+            {/* {store.verEventos.map((item) => (
+              <div key={item.id}>
+                {" "}
+                <MostrarEventos /> title={item.titulo}{" "}
+              </div>
+            ))} */}
           </div>
         </div>
       </div>
