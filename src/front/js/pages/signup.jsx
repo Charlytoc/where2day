@@ -12,13 +12,14 @@ export const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
+    // console.log(email);
+    // console.log(password);
     actions.signup(email, password);
     setEmail("");
     setPassword("");
   };
 
+  console.log(store.redirectLogin)
   return (
     <div className="text-center w-50 container mt-5">
       <img src={logo} style={{ width: 300 }} className="mb-5" />

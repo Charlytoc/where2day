@@ -102,13 +102,20 @@ def to_post():
     lugar = request.json.get("lugar", None)
     description = request.json.get("description", None)
     usuario_id = request.json.get("usuario_id", None)
+    fecha = request.json.get("fecha", None)
+    outdoor = request.json.get("outdoor", None)
+    indoor = request.json.get("indoor", None)
+    anywhere = request.json.get("anywhere", None)
+
+
+
 
     print(titulo, lugar, description, usuario_id)
 
 
 
     # nuevo_usuario = Usuario(email=email, password=password, username=username, nombre=nombre, apellido=apellido, edad=edad)
-    nueva_experiencia = Experiencias(titulo=titulo, lugar=lugar, description=description, usuario_id=usuario_id)
+    nueva_experiencia = Experiencias(titulo=titulo, lugar=lugar, description=description, usuario_id=usuario_id, fecha=fecha, outdoor=outdoor, indoor=indoor, anywhere=anywhere)
 
     print(nueva_experiencia)
     db.session.add(nueva_experiencia)

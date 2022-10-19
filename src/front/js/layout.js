@@ -40,7 +40,8 @@ const Layout = () => {
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />
-            <Route element={<Signup />} path="/signup" />
+            {/* <Route element={<Signup />} path="/signup" /> */}
+
             <Route element={<Reset />} path="/reset" />
             {/* Este es la ruta LOGIN condicional, si el usuario se regista exitosamente redirigira al feed */}
             <Route
@@ -53,6 +54,11 @@ const Layout = () => {
               element={!store.auth ? <Navigate to="/" /> : <Feed />}
               path="/feed"
             />
+            <Route
+              element={store.redirectLogin ? <Navigate to="/login" /> : <Signup />}
+              path="/signup"
+            />
+            {/* <Route element={<Feed />} path="/feed" /> */}
             <Route element={<ErrorPage />} path="*" />
           </Routes>
 
