@@ -9,6 +9,7 @@ import { Filtros } from "../component/filtros";
 import { CrearExp } from "../component/crearExp";
 import { MostrarExp } from "../component/mostrarExp";
 import { MostrarEventos } from "../component/mostrarEventos";
+import { CrearEvento } from "../component/crearEvento";
 
 export const Feed = () => {
   //   const { store, actions } = useContext(Context);
@@ -29,6 +30,7 @@ export const Feed = () => {
           </div>
           <div className="col-md-3">
             {/* Vista latereal derecho, eventos */}
+            <CrearEvento/>
             <MostrarEventos />
           </div>
         </div>
