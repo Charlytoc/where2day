@@ -51,11 +51,12 @@ const Layout = () => {
             {/* Este es la ruta FEED condicional, si el usuario pierde el "auth: true" 
               y pasa a "auth: false" enviara al path "/" al usuario */}
             
-            <Route element={<Feed />} path="/feed" />
-            {/* <Route
+            {/* DESCOMENTA ESTO Y COMENTA LA RUTA DE ABAJO PARA NO SER REDIRIGIDO */}
+            {/* <Route element={<Feed />} path="/feed" /> */}
+            <Route
               element={!store.auth ? <Navigate to="/" /> : <Feed />}
               path="/feed"
-            /> */}
+            />
 
 
 

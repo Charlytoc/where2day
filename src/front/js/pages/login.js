@@ -15,6 +15,7 @@ export const Login = () => {
     e.preventDefault();
     console.log(email);
     console.log(password);
+    console.log(store.auth);
     actions.login(email, password);
   };
 
