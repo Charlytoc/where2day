@@ -9,7 +9,7 @@ export const Home = () => {
   return (
     <div className="row mt-5">
       <div className="col-10 offset-1 col-md-8 offset-md-2">
-        <h1 class="text-center">Where2Day</h1> <hr className="my-4" />
+        <h1 className="text-center">Where2Day</h1> <hr className="my-4" />
       </div>
       <div className="col-12 col-md-8 offset-md-2">
         <div
@@ -68,8 +68,8 @@ export const Home = () => {
       </div>
       <div className="row mt-5">
         <div className="col-10 offset-1 col-md-8 offset-md-2">
-          <h2 class="text-center">Join the movement!</h2>
-          <p class="text-center">
+          <h2 className="text-center">Join the movement!</h2>
+          <p className="text-center">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
             eum nostrum fuga, minus veritatis sed dignissimos, cupiditate
             asperiores ipsum quaerat inventore eaque, nesciunt nobis laudantium
@@ -79,15 +79,7 @@ export const Home = () => {
       </div>
       <div>
         <div className="col-12 col-md-8 offset-md-2 d-flex justify-content-center">
-          <h2 class="text-center px-3">
-            <i class="bi bi-facebook"></i>
-          </h2>
-          <h2 class="text-center px-3">
-            <i class="bi bi-instagram"></i>
-          </h2>
-          <h2 class="text-center px-3">
-            <i class="bi bi-twitter"></i>
-          </h2>
+          
         </div>
       </div>
     </div>
