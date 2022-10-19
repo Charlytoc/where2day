@@ -77,7 +77,7 @@ def obtener_experiencias():
     all_exp = list(map(lambda item: item.serialize(), exp_query))
 
     response_body = {
-        "msg": "OK ",
+        "msg": "OK",
         "results": all_exp
     }
     return jsonify(response_body), 200

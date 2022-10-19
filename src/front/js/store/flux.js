@@ -1,30 +1,15 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      // message: null,
-      // // demo: [
-      // //   {
-      // //     title: "FIRST",
-      // //     background: "white",
-      // //     initial: "white",
-      // //   },
-      // //   {
-      // //     title: "SECOND",
-      // //     background: "white",
-      // //     initial: "white",
-      // //   },
-      // // ],
 
       auth: false,
+
+      feedExperiencias:[],
       usuario_actual: 0,
       redirectLogin: false
     },
     actions: {
-      // Use getActions to call a function within a fuction
-      exampleFunction: () => {
-        getActions().changeColor(0, "green");
-      },
-
+  
       getMessage: async () => {
         try {
           // fetching data from the backend
@@ -126,6 +111,59 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         console.log(store.auth);
       },
+      
+
+    //  loadExperiencias:  () => {
+    //   fetch(process.env.BACKEND_URL + "/api/leerPost")
+    //   .then(res => res.json())
+    //   .then(data =>setStore({feedExperiencias: data.results}))         
+    //     // console.log(data.results)
+      
+    //   },
+
+      // ESPEJO DE LO QUE SE HIZO ABAJO ->
+      loadExperiencias: () => {
+				fetch(process.env.BACKEND_URL + "/api/leerPost")
+				.then(response => response.json())
+				.then(data => setStore({feedExperiencias: data.results}))
+          // setStore({charactersCard: data.results}))
+				},
+
+
+      obtenerUsuario: () => {
+                console.log("funciono desde el flux")
+				let token = localStorage.getItem("token")
+				
+          fetch(process.env.BACKEND_URL + "/api/getuser", {
+             method: "GET",
+              headers: {
+              'Content-Type': 'application/json',
+							'Authorization': "Bearer "+token} })
+         .then((response) => response.json())
+          .then((data) => setStore({usuario_actual: data}))},
+
+      postear: (titulo, lugar, description, fecha, outdoor, indoor, anywhere) => {
+        const store = getStore()
+
+        fetch(process.env.BACKEND_URL + "/api/postear", {
+                method: "POST",
+                body: JSON.stringify({
+                    titulo: titulo,
+                    lugar: lugar,
+                     description: description,
+                    usuario_id: store.usuario_actual,
+                    fecha: fecha,
+                    outdoor: outdoor,
+                    indoor: indoor,
+                    anywhere: anywhere
+
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then((response) => response.json())
+            .then((data) => console.log(data))},
 
       obtenerUsuario: () => {
                 console.log("funciono desde el flux")
