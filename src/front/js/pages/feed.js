@@ -28,13 +28,12 @@ export const Feed = () => {
             <MostrarExp />
           </div>
           <div className="col-md-3">
-            {/* Vista latereal derecho, eventos */} <MostrarEventos />
-            {/* {store.verEventos.map((item) => (
+            {/* Vista latereal derecho, eventos <MostrarEventos /> */}
+            {store.mostrarEventos.map((item) =>
               <div key={item.id}>
-                {" "}
-                <MostrarEventos /> title={item.titulo}{" "}
+                <MostrarEventos title={item.titulo} />
               </div>
-            ))} */}
+            )}
           </div>
         </div>
       </div>

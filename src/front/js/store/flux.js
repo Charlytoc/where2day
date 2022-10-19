@@ -187,7 +187,7 @@ const getState = ({
             },
 
             //FETCH EVENTOS
-            verEventos: () => {
+            loadEventos: () => {
                 fetch(process.env.BACKEND_URL + "/api/leerEventos")
                     .then(response => response.json())
                     .then(data => setStore({
