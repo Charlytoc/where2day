@@ -13,11 +13,13 @@ import { Demo } from "./pages/demo";
 import { Login } from "./pages/login";
 import { Signup } from "./pages/signup.jsx";
 import { Single } from "./pages/single";
+
 import { ErrorPage } from "./pages/errorPage";
 import { Reset } from "./pages/resetPassword";
 
 import injectContext from "./store/appContext";
 import { Feed } from "./pages/feed.js";
+import { PerfilUsuario } from "./pages/perfilUsuario.js";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -41,7 +43,6 @@ const Layout = () => {
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />
             {/* <Route element={<Signup />} path="/signup" /> */}
-
             <Route element={<Reset />} path="/reset" />
             {/* Este es la ruta LOGIN condicional, si el usuario se regista exitosamente redirigira al feed */}
             <Route
@@ -49,17 +50,21 @@ const Layout = () => {
               path="/login"
             />
             {/* Este es la ruta FEED condicional, si el usuario pierde el "auth: true" 
-                                                                                        y pasa a "auth: false" enviara al path "/" al usuario */}
+                                                                                                    y pasa a "auth: false" enviara al path "/" al usuario */}
             <Route
               element={!store.auth ? <Navigate to="/" /> : <Feed />}
               path="/feed"
             />
             <Route
-              element={store.redirectLogin ? <Navigate to="/login" /> : <Signup />}
+              element={
+                store.redirectLogin ? <Navigate to="/login" /> : <Signup />
+              }
               path="/signup"
             />
             {/* <Route element={<Feed />} path="/feed" /> */}
             <Route element={<ErrorPage />} path="*" />
+            {/* Esta es la ruta del perfil de usuario */}
+            <Route element={<PerfilUsuario />} path="/perfilUsuario" />
           </Routes>
 
           <Footer />
