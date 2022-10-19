@@ -27,13 +27,19 @@ export const Feed = () => {
             {/* Componentes del feed */} <CrearExp />
             <MostrarExp />
           </div>
+          
           <div className="col-md-3">
-            {/* Vista latereal derecho, eventos <MostrarEventos /> */}
-            {store.mostrarEventos.map((item) =>
-              <div key={item.id}>
-                <MostrarEventos title={item.titulo} />
-              </div>
-            )}
+            {/* Vista latereal derecho, eventos */}
+            {store.mostrarEventos.map((item) =>            
+            <div 
+            key={item.id}><MostrarEventos 
+            usuarioid={item.usuarioid}
+            title={item.titulo} 
+            lugar={item.lugar} 
+            fecha={item.fecha} 
+            description={item.description}/>
+            </div>)}
+
           </div>
         </div>
       </div>
