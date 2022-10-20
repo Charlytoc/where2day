@@ -21,7 +21,7 @@ export const MostrarExp = (props) => {
                 <h5 className="card-header bg-yellw2d">{props.fecha}</h5>
                 <div className="card-body">
                     <h4 className="card-title">{props.title} </h4>
-                    <p className="card-text">
+                    <div className="card-text">
                         <img
                             src="https://previews.123rf.com/images/danflcreativo/danflcreativo1706/danflcreativo170600254/80138855-guayaquil-ecuador-mayo-2016-r%C3%ADo-guayas-en-la-vista-de-la-isla-santay-desde-el-malec%C3%B3n-2000-guayaquil.jpg"
                             className="d-block w-100"
@@ -32,7 +32,7 @@ export const MostrarExp = (props) => {
                             <b> Lugar por:</b> {props.publicacion}
                         </p>
 
-                    </p>
+                    </div>
                 </div>
             </div>
         </>

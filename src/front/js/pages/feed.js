@@ -44,7 +44,7 @@ export const Feed = () => {
 
                     <div className="col-md-3" >
                         {/* Vista latereal derecho, eventos */}
-
+                        <CrearEvento/>
                         {store.mostrarEventos.map((item) =>
                             <div key={item.id} > < MostrarEventos
                                 usuarioid={item.usuarioid}
