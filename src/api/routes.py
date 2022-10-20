@@ -140,3 +140,48 @@ def protected():
 
     return jsonify(usuario.id), 200
 
+
+
+
+
+@api.route("/updateUser", methods=["POST"])
+def update_user ():
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+    username = request.json.get("username", None)
+    nombre =  request.json.get("nombre", None)
+    apellido = request.json.get("apellido", None)
+    edad = request.json.get("edad", None)
+    usuario_id = request.json.get("usuario_id", None)
+
+    # usuario_existente = Usuario.query.filter_by(email=email).first()
+
+    user1 = Usuario.query.get(usuario_id)
+
+    # if user1 is None:
+    #   raise APIException('User not found', status_code=404)
+
+    # if "username" in body:
+    #  user1.username = body["username"]
+    # if "email" in body:
+    #  user1.email = body["email"]
+
+    user1.username = username
+
+    db.session.commit()
+
+
+    
+    print(user1)
+
+    # if usuario_existente:
+    #     return "El usuario ya existe", 400
+
+    # nuevo_usuario = Usuario(email=email, password=password)
+    
+
+    # db.session.add(nuevo_usuario)
+    # db.session.commit()
+
+    response_body = "funciona"
+    return jsonify(response_body), 200
