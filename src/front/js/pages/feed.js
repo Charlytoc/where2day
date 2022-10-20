@@ -11,41 +11,53 @@ import { MostrarExp } from "../component/mostrarExp";
 import { MostrarEventos } from "../component/mostrarEventos";
 
 export const Feed = () => {
-  const { store, actions } = useContext(Context); // #3 Consumirlo
-  
-  console.log(store.feedExperiencias)
+    const { store, actions } = useContext(Context); // #3 Consumirlo
 
-  return (
-    <>
-      {/* BODY GENERAL */}
-      <div className="container">
-        <div className="row">
-          <div className="col-md-3">
-            {/* Componente para seleccionar los filtros */}
-            <Filtros />
-          </div>
-          <div className="col-md-6">
-            {/* Componentes del feed */}
-           <CrearExp />
-            {/* <MostrarExp /> */}
-            {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp 
-            title={item.titulo} 
-            fecha={item.fecha} 
-            publicacion={item.description} 
-            ubicacion={item.lugar}
-            user={item.id}
-            /></div>)}
+    console.log(store.feedExperiencias)
 
-            {/* key={item.id}><MostrarExp title={item.titulo} lugar={item.lugar} */}
+    return (
+        <>
+            {/* BODY GENERAL */}
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-3">
+                        {/* Componente para seleccionar los filtros */}
+                        <Filtros />
+                    </div>
+                    <div className="col-md-6">
+                        {/* Componentes del feed */}
+                        <CrearExp />
+                        {/* <MostrarExp /> */}
+                        {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
+                            title={item.titulo}
+                            fecha={item.fecha}
+                            publicacion={item.description}
+                            ubicacion={item.lugar}
+                            user={item.id}
+                        /></div>)}
 
-            {/* Titulo Lugar Fecha Outdoor Indoor Anywhere Description Usuario */}
-          </div>
-          <div className="col-md-3">
-            {/* Vista latereal derecho, eventos */}
-            <MostrarEventos />
-          </div>
-        </div>
-      </div>
-    </>
-  );
+                        {/* key={item.id}><MostrarExp title={item.titulo} lugar={item.lugar} */}
+
+                        {/* Titulo Lugar Fecha Outdoor Indoor Anywhere Description Usuario */}
+                    </div>
+
+                    <div className="col-md-3" >
+                        {/* Vista latereal derecho, eventos */}
+
+                        {store.mostrarEventos.map((item) =>
+                            <div key={item.id} > < MostrarEventos
+                                usuarioid={item.usuarioid}
+                                title={item.titulo}
+                                lugar={item.lugar}
+                                fecha={item.fecha}
+                                description={item.description}
+                            />
+                            </div >)
+                        }
+
+                    </div>
+                </div >
+            </div>
+        </>
+    );
 };
