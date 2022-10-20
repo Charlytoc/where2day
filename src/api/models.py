@@ -87,7 +87,7 @@ class Eventos(db.Model):
     fecha = db.Column(db.String(80), unique=False, nullable=False)
     outdoor = db.Column(db.Boolean(), unique=False, nullable=True)
     indoor = db.Column(db.Boolean(), unique=False, nullable=True)
-    anywhere = db.Column(db.Boolean(), unique=False, nullable=False)
+    anywhere = db.Column(db.Boolean(), unique=False, nullable=True)
     description = db.Column(db.String(250), unique=False, nullable=False)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'),
         nullable=False)
