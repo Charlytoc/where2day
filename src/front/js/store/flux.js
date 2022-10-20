@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       mostrarEventos: [],
       feedExperiencias: [],
+      user_list: [],
       usuario_actual: 0,
       redirectLogin: false,
     },
@@ -125,6 +126,17 @@ const getState = ({ getStore, getActions, setStore }) => {
             })
           );
       },
+
+      loadUsers: () => {
+        fetch(process.env.BACKEND_URL + "/api/obtenerUsuarios")
+          .then((response) => response.json())
+          .then((data) =>
+            setStore({
+              user_list: data.results,
+            })
+          );
+      },
+      
 
       obtenerUsuario: () => {
         console.log("funciono desde el flux");

@@ -6,16 +6,18 @@ import logo from "../../img/logo.png";
 // import "../../styles/home.css";
 
 export const Reset = () => {
-  const [reset, setReset] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { store, actions } = useContext(Context); // #3 Consumirlo
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(reset);
+    console.log(email);
     console.log(password);
-    actions.login(email, password);
+    
   };
+ 
+
 
   return (
     <div className="text-center w-50 container mt-5">
@@ -29,35 +31,22 @@ export const Reset = () => {
         <div className="mb-3 input-group d-flex justify-content-center">
           <div className="form-floating">
             <input
-              type="password"
               className="form-control"
               aria-describedby="emailHelp"
               placeholder="_"
-              onChange={(e) => setReset(e.target.value)}
-              value={reset}
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
-            <label>Your New Password</label>
+            <label>Enter your Email</label>
           </div>
         </div>
 
-        {/* Este es el form de password */}
-        <div className="mb-3 input-group d-flex justify-content-center">
-          <div className="form-floating">
-            <input
-              type="password"
-              className="form-control"
-              placeholder="_"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-            <label>Confirm New Password</label>
-          </div>
-        </div>
+        
 
         {/* Esto es el boton submit */}
         <div className="d-flex justify-content-center">
           <button type="submit" className="btn btn-danger btn-md ms-3" style={{ backgroundColor: 'rgba(222, 82, 81' }}>
-            Save New Password
+            Submit
           </button>
         </div>
       </form>

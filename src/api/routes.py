@@ -96,6 +96,35 @@ def obtener_eventos():
     return jsonify(response_body), 200
 
 
+@api.route("/getToken", methods=["POST"])
+def get_token():
+    email = request.json.get("email", None)
+    if not email:
+        return jsonify({"msg" : "Se necesita un email"})
+    usuario_existente = Usuario.query.filter_by(email=email).first()
+    if not usuario_existente:
+        return jsonify({"msg" : "no existe este usuario"})
+    token = create_access_token(identity=email)
+    """ aca abajo mandamos email con variable token """
+
+@api.route("/resetPassword", methods=["POST"])
+@jwt_required()
+def reset_pass():
+    password = request.json.get("password", None)
+    current_email = get_jwt_identity()
+    usuario = Usuario.query.filter_by(email=current_email).first()
+    new_pass = Usuario(password = password)
+    db.session.add(new_pass)
+    db.session.commit()
+    return jsonify({"msg" : "contraseña cambiada"})
+
+    
+
+    
+
+        
+
+
 @api.route("/postear", methods=["POST"])
 def to_post():
     titulo = request.json.get("titulo", None)
