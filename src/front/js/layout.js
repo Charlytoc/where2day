@@ -49,11 +49,18 @@ const Layout = () => {
               path="/login"
             />
             {/* Este es la ruta FEED condicional, si el usuario pierde el "auth: true" 
-                                                                                        y pasa a "auth: false" enviara al path "/" al usuario */}
+              y pasa a "auth: false" enviara al path "/" al usuario */}
+            
+            {/* DESCOMENTA ESTO Y COMENTA LA RUTA DE ABAJO PARA NO SER REDIRIGIDO */}
+            {/* <Route element={<Feed />} path="/feed" /> */}
             <Route
               element={!store.auth ? <Navigate to="/" /> : <Feed />}
               path="/feed"
             />
+
+
+
+
             <Route
               element={store.redirectLogin ? <Navigate to="/login" /> : <Signup />}
               path="/signup"
