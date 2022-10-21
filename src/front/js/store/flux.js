@@ -1,3 +1,6 @@
+import axios from 'axios';
+const Swal = require("sweetalert2")
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -71,33 +74,32 @@ const getState = ({ getStore, getActions, setStore }) => {
       signup: async (email, password) => {
         // el try INTENTARA hacer lo que se encuentra entre "{}", SINO funciona, omite la logica que ahi se encuentra
         try {
-          const response = await fetch(
-            process.env.BACKEND_URL + "/api/signup",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                email: email,
-                password: password,
-              }),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
+          const response = await axios.post(
+            process.env.BACKEND_URL + "/api/signup",{
+              email: email,
+              password: password,
+            });
           // Una vez que funciono el "try" y los datos se trajeron, entonces
           // Hacemos un if/else con el status recibido
 
           if (response.status === 200) {
-            const data = await response.json();
-            setStore({ redirectLogin: true });
-            alert("An email has been sent, please follow instructions");
-          } else {
-            alert("Este correo ya se ha registrado");
-          }
+            // setStore({ redirectLogin: true });
+            // Esto es SINONIMO de ALERT, pero mas "elegante"
+            Swal.fire(
+              'Te Has Registrado Exitosamente!',
+              'Se ha enviado un correo, por favor sigue los pasos!',
+              'success'
+            )
+          } 
         } catch (error) {
           // Ahora... Si el TRY NO SIRVIO, entonces INMEDIATAMENTE HAREMOS UN CATCH
           // El catch NOS DIRA donde viene el error o porque el async/await no sirvio
           console.log("Error loading message from backend", error);
+          Swal.fire(
+            error.response.data,
+            'Por favor utiliza otro correo, o ve a login y usa el correo ya registado!',
+            'error'
+          )
         }
       },
 
