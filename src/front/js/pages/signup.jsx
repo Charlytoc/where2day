@@ -6,6 +6,8 @@ import logo from "../../img/logo.png";
 import Swal from "sweetalert2";
 // import "../../styles/home.css";
 
+import gsap from "gsap";
+
 export const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +21,25 @@ export const Signup = () => {
     setEmail("");
     setPassword("");
   };
+
+  const agrandar = () => {
+    let boton = document.querySelector(".boton")
+
+
+    let anim = gsap.to(boton, {scale: 1.2, yoyo: true, duration: 1})
+    anim.play()
+   
+  }
+
+  const disminuir = () => {
+    let boton = document.querySelector(".boton")
+
+
+    let anim = gsap.to(boton, {scale: 0.8, yoyo: true, duration: 1})
+    anim.play()
+   
+  }
+
 
   console.log(store.redirectLogin)
   return (
@@ -62,8 +83,10 @@ export const Signup = () => {
         {/* Esto es el boton submit */}
         <div className="d-flex justify-content-center">
           <button
+          onMouseDown={disminuir}
+            onMouseOver={agrandar}
             type="submit"
-            className="btn btn-danger btn-md ms-3"
+            className="btn btn-danger btn-md ms-3 boton"
             style={{ backgroundColor: "rgba(222, 82, 81" }}
           >
             Signup
