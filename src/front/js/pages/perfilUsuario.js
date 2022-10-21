@@ -19,18 +19,20 @@ export const PerfilUsuario = () => {
   return (
     <>
       {/* BODY GENERAL */}
-      <div className="container">
-        <div className="row">
+      <div className="container fluid">
+        <div className="row p-3 justify-content-center">
           {/* PERIL HEADER */}
-          <div className="col-md-12 grid-margin">
+          <div className="col-md-11">
             <ProfileHeader />
           </div>
           {/* PERIL INFO */}
-          <div className="col-md-6">
-            <ProfileInfo />
-          </div>
-          <div className="col-md-3">
-            <ProfileFeed />
+          <div className="row p-3 justify-content-center">
+            <div className="col-md-4">
+              <ProfileInfo />
+            </div>
+            <div className="col-md-7">
+              <ProfileFeed />
+            </div>
           </div>
         </div>
       </div>
