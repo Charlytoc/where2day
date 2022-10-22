@@ -5,6 +5,7 @@ import { Context } from "../store/appContext"; // #2 traer nuestro context
 
 import logo from "../../img/logo.png";
 // import "../../styles/home.css";
+import gsap from "gsap";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,6 +19,25 @@ export const Login = () => {
     console.log(store.auth);
     actions.login(email, password);
   };
+
+  const agrandar = () => {
+    let boton = document.querySelector(".boton")
+
+
+    let anim = gsap.to(boton, {scale: 1.2, yoyo: true, duration: 1})
+    anim.play()
+   
+  }
+
+  const disminuir = () => {
+    let boton = document.querySelector(".boton")
+
+
+    let anim = gsap.to(boton, {scale: 0.8, yoyo: true, duration: 1})
+    anim.play()
+   
+  }
+
 
   return (
     <div className="text-center w-50 container mt-5">
@@ -63,7 +83,8 @@ export const Login = () => {
 
         {/* Esto es el boton submit */}
         <div className="d-flex justify-content-center">
-          <button type="submit" className="btn btn-danger btn-md ms-3" style={{ backgroundColor: 'rgba(222, 82, 81' }}>
+          <button onMouseDown={disminuir}
+            onMouseOver={agrandar} type="submit" className="btn btn-danger btn-md ms-3 boton" style={{ backgroundColor: 'rgba(222, 82, 81' }}>
             Login
           </button>
         </div>

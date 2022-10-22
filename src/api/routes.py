@@ -127,7 +127,7 @@ def to_post():
 
 @api.route("/getuser", methods=["GET"])
 @jwt_required()
-def protected():
+def getUser_id ():
     # Access the identity of the current user with get_jwt_identity
 
     # Para usar esta ruta se debe enviar un bearer token con el token del usuario 
@@ -139,4 +139,164 @@ def protected():
     usuario = Usuario.query.filter_by(email=current_user).first()
 
     return jsonify(usuario.id), 200
+
+
+
+@api.route('/filtrarExp', methods=['GET'])
+def get_filtered_experiences ():
+
+    variable = request.json.get("variable", None)
+
+    # print(variable)
+
+    if variable == 'outdoor':
+        exp_query = Experiencias.query.filter_by(outdoor = True).all()
+    elif variable == 'indoor':
+        exp_query = Experiencias.query.filter_by(indoor = True).all()
+    elif variable == 'anywhere':
+        exp_query = Experiencias.query.filter_by(anywhere = True).all()
+    else: 
+        response_body = {
+            'msg': 'No valid filter'
+        }
+        return jsonify(response_body), 200
+
+    
+
+    all_exp = list(map(lambda item: item.serialize(), exp_query))
+
+    # print(all_exp)
+    response_body = {
+        "msg": "OK",
+        "results": all_exp
+    }
+    return jsonify(response_body), 200
+
+
+
+@api.route("/postearEvento", methods=["POST"])
+def to_post_event ():
+    titulo = request.json.get("titulo", None)
+    lugar = request.json.get("lugar", None)
+    description = request.json.get("description", None)
+    usuario_id = request.json.get("usuario_id", None)
+    fecha = request.json.get("fecha", None)
+    outdoor = request.json.get("outdoor", None)
+    indoor = request.json.get("indoor", None)
+    anywhere = request.json.get("anywhere", None)
+
+
+
+
+    print(titulo, lugar, description, usuario_id)
+
+
+
+    # nuevo_usuario = Usuario(email=email, password=password, username=username, nombre=nombre, apellido=apellido, edad=edad)
+    nuevo_evento = Eventos(titulo=titulo, lugar=lugar, description=description, usuario_id=usuario_id, fecha=fecha, outdoor=outdoor, indoor=indoor, anywhere=anywhere)
+
+    print(nuevo_evento)
+    db.session.add(nuevo_evento)
+    db.session.commit()
+
+    response_body = "has agregado un nuevo evento"
+    return jsonify(response_body)
+
+
+
+
+@api.route("/updateUser", methods=["POST"])
+def update_user ():
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+    username = request.json.get("username", None)
+    nombre =  request.json.get("nombre", None)
+    apellido = request.json.get("apellido", None)
+    edad = request.json.get("edad", None)
+    usuario_id = request.json.get("usuario_id", None)
+
+    
+    user1 = Usuario.query.get(usuario_id)
+
+    if user1 is None:
+      raise APIException('User not found', status_code=404)
+
+    if username:
+     user1.username = username
+
+    if email:
+        user1.email = email
+    
+    if password:
+        user1.password = password
+    if nombre:
+        user1.nombre = nombre
+    if apellido:
+        user1.apellido = apellido
+    if edad:
+        user1.edad = edad
+
+
+    db.session.commit()
+
+
+    response_body = "Has agregado los cambios a tu usuario"
+    return jsonify(response_body), 200
+
+
+@api.route("/updateExp", methods=["POST"])
+def update_exp ():
+    titulo = request.json.get("titulo", None)
+    lugar = request.json.get("lugar", None)
+    fecha = request.json.get("fecha", None)
+    description =  request.json.get("description", None)
+    indoor = request.json.get("indoor", None)
+    outdoor = request.json.get("outdoor", None)
+    anywhere = request.json.get("anywhere", None)
+    exp_id = request.json.get("exp_id", None)
+
+    
+    exp = Experiencias.query.get(exp_id)
+
+    if exp is None:
+      raise APIException('Experiencia no encontrada', status_code=404)
+
+    if titulo:
+     exp.titulo = titulo
+
+    if lugar:
+        exp.lugar = lugar
+    
+    if description:
+        exp.description = description
+    if outdoor:
+        exp.outdoor = outdoor
+    if fecha:
+        exp.fecha = fecha
+    if indoor:
+        exp.indoor = indoor
+    if anywhere:
+        exp.anywhere = anywhere
+
+
+    db.session.commit()
+
+
+    response_body = "Has agregado los cambios a tu experiencia"
+    return jsonify(response_body), 200
+
+
+
+@api.route("/getExp", methods=["GET"])
+def getExp_id ():
+
+    titulo = request.json.get("titulo", None)
+    usuario_id = request.json.get("usuario_id", None)
+
+
+    exp = Experiencias.query.filter_by(titulo = titulo, usuario_id= usuario_id).first()
+
+    print(exp)
+
+    return jsonify(exp.id), 200
 
