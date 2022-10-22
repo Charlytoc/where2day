@@ -75,6 +75,7 @@ def obtener_experiencias():
     exp_query = Experiencias.query.limit(10)
 
     all_exp = list(map(lambda item: item.serialize(), exp_query))
+    print(all_exp[0])
 
     response_body = {
         "msg": "OK",

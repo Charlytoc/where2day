@@ -40,6 +40,7 @@ const postear = () => {
   setAnywhere(false)
   setOutdoor(false)
   setIndoor(false)
+  actions.loadEventos()
 
 }
 
@@ -51,7 +52,8 @@ useEffect( () => {
 
 
 // console.log(titulo, description, fecha, lugar, outdoor, indoor, anywhere)
-console.log(store.usuario_actual)
+// console.log(store.usuario_actual)
+
   return (
    <>
      <div className="card text-bg-light mb-3">

@@ -45,6 +45,8 @@ class Usuario(db.Model):
             "nombre": self.nombre,
             "apellido": self.apellido,
             "edad": self.edad
+            # "experience_owner": self.Usuario,
+            # "exp_dueno": self.experiencias
         }
 
 
@@ -76,7 +78,8 @@ class Experiencias(db.Model):
             "lugar": self.lugar,
             "outdoor": self.outdoor,
             "indoor": self.indoor,
-            "anywhere": self.anywhere
+            "anywhere": self.anywhere,
+            "expOwner": self.usuario_id
         }
 
 

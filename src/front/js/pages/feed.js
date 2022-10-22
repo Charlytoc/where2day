@@ -1,4 +1,4 @@
-import React, { useContext } from "react"; // #1 Traer context de react
+import React, { useContext, useEffect } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 import "../../styles/home.css";
 // import rigoImageUrl from "../../img/Where2Day.png";
@@ -14,7 +14,11 @@ import { CrearEvento } from "../component/crearEvento";
 export const Feed = () => {
     const { store, actions } = useContext(Context); // #3 Consumirlo
 
-    console.log(store.feedExperiencias)
+    // console.log(store.feedExperiencias)
+    
+    useEffect( () => {
+        actions.loadExperiencias()
+      }, [])
 
     return (
         <>
@@ -34,7 +38,8 @@ export const Feed = () => {
                             fecha={item.fecha}
                             publicacion={item.description}
                             ubicacion={item.lugar}
-                            user={item.id}
+                            user={item.expOwner}
+                            expId = {item.id}
                         /></div>)}
 
                         {/* key={item.id}><MostrarExp title={item.titulo} lugar={item.lugar} */}

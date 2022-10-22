@@ -41,7 +41,8 @@ export const Signup = () => {
   }
 
 
-  console.log(store.redirectLogin)
+  // console.log(store.redirectLogin)
+  
   return (
     <div className="text-center w-50 container mt-5">
       <img src={logo} style={{ width: 300 }} className="mb-5" />

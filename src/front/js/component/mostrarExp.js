@@ -11,6 +11,8 @@ export const MostrarExp = (props) => {
     const { store, actions } = useContext(Context); // #3 Consumirlo
 
     // ACA LLAMAMOS LA FUNCION QUE HACE EL FETCH QUE VA TRAER LAS EXPERIENCIAS QUE TENEMOS DB
+    // console.log(store.usuario_actual, props.user)
+
 
 
 
@@ -21,6 +23,8 @@ export const MostrarExp = (props) => {
                 <h5 className="card-header bg-yellw2d">{props.fecha}</h5>
                 <div className="card-body">
                     <h4 className="card-title">{props.title} </h4>
+                    {props.user == store.usuario_actual ? <button className="btn btn-outline-danger">Editar</button> : null}
+                    
                     <div className="card-text">
                         <img
                             src="https://previews.123rf.com/images/danflcreativo/danflcreativo1706/danflcreativo170600254/80138855-guayaquil-ecuador-mayo-2016-r%C3%ADo-guayas-en-la-vista-de-la-isla-santay-desde-el-malec%C3%B3n-2000-guayaquil.jpg"
