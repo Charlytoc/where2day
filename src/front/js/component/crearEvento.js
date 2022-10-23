@@ -25,7 +25,7 @@ export const CrearEvento = () => {
         mostrarEvento ? setMostrarEvento(false) : setMostrarEvento(true)
     }
 
-    useEffect( () =>{console.log(mostrarEvento)} , [])
+    // useEffect( () =>{console.log(mostrarEvento)} , [])
 
     const postearEvento = () =>{
         actions.postearEvento(titulo, lugar, description, fecha, outdoor, indoor, anywhere) 

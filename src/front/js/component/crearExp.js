@@ -51,7 +51,7 @@ useEffect( () => {
 
 
 // console.log(titulo, description, fecha, lugar, outdoor, indoor, anywhere)
-console.log(store.usuario_actual)
+// console.log("Este es el numero de ID_usuario actual utilizando nuestra app " + store.usuario_actual)
   return (
    <>
      <div className="card text-bg-light mb-3">

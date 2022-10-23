@@ -14,7 +14,7 @@ import { CrearEvento } from "../component/crearEvento";
 export const Feed = () => {
     const { store, actions } = useContext(Context); // #3 Consumirlo
 
-    console.log(store.feedExperiencias)
+    // console.log(store.feedExperiencias)
 
     return (
         <>
