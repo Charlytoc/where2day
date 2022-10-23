@@ -25,10 +25,10 @@ export const CrearEvento = () => {
         mostrarEvento ? setMostrarEvento(false) : setMostrarEvento(true)
     }
 
-    useEffect( () =>{console.log(mostrarEvento)} , [])
+    // useEffect( () =>{console.log(mostrarEvento)} , [])
 
-    const postear = () =>{
-        actions.postear(titulo, lugar, description, fecha, outdoor, indoor, anywhere) 
+    const postearEvento = () =>{
+        actions.postearEvento(titulo, lugar, description, fecha, outdoor, indoor, anywhere) 
         console.log(titulo)
         console.log(lugar)
         console.log(fecha)
@@ -98,7 +98,7 @@ export const CrearEvento = () => {
             onChange={(e) => setDescription(e.target.value)} value={description} id="floatingTextarea"></textarea>
 
             {/* Boton de publicar y boton de cierre a continuacion */}
-            <button className="btn btn-md bg-redw2d" onClick={postear}> Publicar Evento</button>
+            <button className="btn btn-md bg-redw2d" onClick={postearEvento}> Publicar Evento</button>
             <button className="btn btn-md bg-redw2d mt-1" onClick={desplegarCaja}> Cerrar </button>
          </div> 
         </> }

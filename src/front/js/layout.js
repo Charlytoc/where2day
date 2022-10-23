@@ -37,7 +37,7 @@ const Layout = () => {
           <Navbar />
 
           <Routes>
-            <Route element={<Home />} path="/" />
+            <Route element={store.auth ? <Navigate to="/feed"/> : <Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />
             {/* <Route element={<Signup />} path="/signup" /> */}
@@ -57,9 +57,6 @@ const Layout = () => {
               element={!store.auth ? <Navigate to="/" /> : <Feed />}
               path="/feed"
             />
-
-
-
 
             <Route
               element={store.redirectLogin ? <Navigate to="/login" /> : <Signup />}

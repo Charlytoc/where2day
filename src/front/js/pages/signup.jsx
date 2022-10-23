@@ -26,22 +26,20 @@ export const Signup = () => {
     let boton = document.querySelector(".boton")
 
 
-    let anim = gsap.to(boton, {scale: 1.2, yoyo: true, duration: 1})
+    let anim = gsap.to(boton, { scale: 1.2, yoyo: true, duration: 1 })
     anim.play()
-   
+
   }
 
   const disminuir = () => {
     let boton = document.querySelector(".boton")
 
 
-    let anim = gsap.to(boton, {scale: 0.8, yoyo: true, duration: 1})
+    let anim = gsap.to(boton, { scale: 0.8, yoyo: true, duration: 1 })
     anim.play()
-   
+
   }
 
-
-  console.log(store.redirectLogin)
   return (
     <div className="text-center w-50 container mt-5">
       <img src={logo} style={{ width: 300 }} className="mb-5" />
@@ -83,7 +81,7 @@ export const Signup = () => {
         {/* Esto es el boton submit */}
         <div className="d-flex justify-content-center">
           <button
-          onMouseDown={disminuir}
+            onMouseDown={disminuir}
             onMouseOver={agrandar}
             type="submit"
             className="btn btn-danger btn-md ms-3 boton"

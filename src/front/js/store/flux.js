@@ -26,7 +26,12 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Error loading message from backend", error);
         }
       },
-
+      
+      // Aca autenticaremos al usuario si localStorage.getItem ("token") NO esta vacio, quiere decir
+      // que YA tenemos un JWT, por lo tanto el usuario esta verificado, y podemos autenticarle
+      autenticar: () =>{
+        localStorage.getItem("token") ? setStore({auth: true}) : setStore({auth: false})
+      },
       // EL ASYNC SIEMPRE DEBE IR ACOMPA:ADO DE UN AWAIT, es como un "if/else", son dependientes
       login: async (email, password) => {
         // el try INTENTARA hacer lo que se encuentra entre "{}", SINO funciona, omite la logica que ahi se encuentra
@@ -53,7 +58,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             const data = await response.json();
             // console.log(data.access_token)
             localStorage.setItem("token", data.access_token);
-            setStore({ auth: true });
+            getActions().autenticar();
+            // console.log("Aca quiero verificar si tenemos el TOKEN guardado ya o no " + localStorage.getItem("token"))
             // const store = getStore();
             // console.log(store.auth)
             return true;
@@ -106,7 +112,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       logout: () => {
         setStore({ auth: false });
         const store = getStore();
-        console.log(store.auth);
+        localStorage.removeItem("token")
+        // console.log("Este es el status actual de auth al clickear en logout " + store.auth);
       },
 
       //FETCH PARA MOSTRAR LO QUE ESTA EN LA BASE DE DATOS EXPERIENCIAS
@@ -129,53 +136,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       obtenerUsuario: () => {
-        console.log("funciono desde el flux");
-        let token = localStorage.getItem("token");
-
-        fetch(process.env.BACKEND_URL + "/api/getuser", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => setStore({ usuario_actual: data }));
-      },
-
-      postear: (
-        titulo,
-        lugar,
-        description,
-        fecha,
-        outdoor,
-        indoor,
-        anywhere
-      ) => {
-        const store = getStore();
-
-        fetch(process.env.BACKEND_URL + "/api/postear", {
-          method: "POST",
-          body: JSON.stringify({
-            titulo: titulo,
-            lugar: lugar,
-            description: description,
-            usuario_id: store.usuario_actual,
-            fecha: fecha,
-            outdoor: outdoor,
-            indoor: indoor,
-            anywhere: anywhere,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data));
-      },
-
-      obtenerUsuario: () => {
-        console.log("funciono desde el flux");
+        // console.log("funciono desde el flux");
         let token = localStorage.getItem("token");
 
         fetch(process.env.BACKEND_URL + "/api/getuser", {
@@ -241,25 +202,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             .then ((response) => response.json())
             .then ((data) => console.log(data))
          },
-
-
-
-      changeColor: (index, color) => {
-        //get the store
-        const store = getStore();
-
-        //we have to loop the entire demo array to look for the respective index
-        //and change its color
-        const demo = store.demo.map((elm, i) => {
-          if (i === index) elm.background = color;
-          return elm;
-        });
-
-        //reset the global store
-        setStore({
-          demo: demo,
-        });
-      },
     },
   };
 };

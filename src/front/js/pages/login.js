@@ -14,10 +14,9 @@ export const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
-    console.log(store.auth);
-    actions.login(email, password);
+    // console.log(email);
+    // console.log(password);
+    actions.login(email, password); 
   };
 
   const agrandar = () => {
