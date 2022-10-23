@@ -2,3 +2,12 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 /* Include any default variable overrides here (though functions won't be available) */
+
+
+.navarra {
+    background: linear-gradient(to right, rgba(222, 82, 81, 1), rgba(244, 82, 199, 0.8))
+}
+
+.centrar {
+    margin: 0 auto;
+}
