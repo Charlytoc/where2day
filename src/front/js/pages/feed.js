@@ -10,6 +10,8 @@ import { CrearExp } from "../component/crearExp";
 import { MostrarExp } from "../component/mostrarExp";
 import { MostrarEventos } from "../component/mostrarEventos";
 import { CrearEvento } from "../component/crearEvento";
+import { Navbar } from "../component/navbar";
+import { Footer } from "../component/footer";
 
 export const Feed = () => {
     const { store, actions } = useContext(Context); // #3 Consumirlo
@@ -19,6 +21,7 @@ export const Feed = () => {
     return (
         <>
             {/* BODY GENERAL */}
+            <Navbar />
             <div className="container">
                 <div className="row">
                     <div className="col-md-3">
@@ -59,6 +62,7 @@ export const Feed = () => {
                     </div>
                 </div >
             </div>
+            <Footer />
         </>
     );
 };

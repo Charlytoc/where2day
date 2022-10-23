@@ -50,7 +50,7 @@ export const CrearEvento = () => {
 
     return (
         <>
-        {!mostrarEvento ?<button onClick={desplegarCaja} className="btn btn-md bg-redw2d container text-center"> Create Event</button>
+        {!mostrarEvento ?<button onClick={desplegarCaja} className="btn-outline mt-2 border-0 rounded btn-lg navarra animable2 boton3"> Create Event</button>
         : 
         <>
             

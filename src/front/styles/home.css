@@ -30,4 +30,17 @@ body {
     background: linear-gradient(to right, rgb(222, 82, 81), rgb(122, 32, 122));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: content-box
+}
+
+.columna {
+    height: 200px;
+    font-size: 300px;
+}
+
+.dos {
+    text-decoration: none;
+    color: pink;
+    text-shadow: 300px black;
+    border: 2px
 }

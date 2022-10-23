@@ -53,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           if (!response.status === 200) {
             // console.log(response)
             alert("Wrong eMail or Password, please try again");
-            setStore({ auth: false });
+            
           } else {
             const data = await response.json();
             // console.log(data.access_token)
@@ -78,6 +78,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       // EL ASYNC SIEMPRE DEBE IR ACOMPA:ADO DE UN AWAIT, es como un "if/else", son dependientes
       signup: async (email, password) => {
+        const store = getStore()
         // el try INTENTARA hacer lo que se encuentra entre "{}", SINO funciona, omite la logica que ahi se encuentra
         try {
           const response = await axios.post(
@@ -92,10 +93,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             // setStore({ redirectLogin: true });
             // Esto es SINONIMO de ALERT, pero mas "elegante"
             Swal.fire(
-              'Te Has Registrado Exitosamente!',
-              'Se ha enviado un correo, por favor sigue los pasos!',
+              '¡Te has registrado exitosamente!',
+              'Se ha enviado un correo, por favor sigue los pasos',
               'success'
             )
+            setStore({redirectLogin: true})
+            // console.log(store.redirectLogin)
           } 
         } catch (error) {
           // Ahora... Si el TRY NO SIRVIO, entonces INMEDIATAMENTE HAREMOS UN CATCH

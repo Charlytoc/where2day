@@ -46,7 +46,7 @@ export const Navbar = () => {
             </>
           ) : (
             <button
-              className="navarra btn btn-danger btn-md ms-3"
+              className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3"
               onClick={() => actions.logout()}
             >
               Logout
