@@ -174,52 +174,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => console.log(data));
       },
 
-      obtenerUsuario: () => {
-        console.log("funciono desde el flux");
-        let token = localStorage.getItem("token");
-
-        fetch(process.env.BACKEND_URL + "/api/getuser", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => setStore({ usuario_actual: data }));
-      },
-
-      postear: (
-        titulo,
-        lugar,
-        description,
-        fecha,
-        outdoor,
-        indoor,
-        anywhere
-      ) => {
-        const store = getStore();
-
-        fetch(process.env.BACKEND_URL + "/api/postear", {
-          method: "POST",
-          body: JSON.stringify({
-            titulo: titulo,
-            lugar: lugar,
-            description: description,
-            usuario_id: store.usuario_actual,
-            fecha: fecha,
-            outdoor: outdoor,
-            indoor: indoor,
-            anywhere: anywhere,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data));
-      },
-
       postearEvento: (titulo, lugar, description, usuario_id, fecha, outdoor, indoor, anywhere) => {
         const store = getStore()	
         fetch   (process.env.BACKEND_URL + "/api/postearEvento", 	{
