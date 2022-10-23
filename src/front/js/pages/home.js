@@ -9,7 +9,7 @@ export const Home = () => {
   return (
     <div className="row mt-5">
       <div className="col-10 offset-1 col-md-8 offset-md-2">
-        <h1 className="text-center">Where2Day</h1> <hr className="my-4" />
+        <h1 className="text-center titulo">Where2Day</h1> <hr className="my-4" />
       </div>
       <div className="col-12 col-md-8 offset-md-2">
         <div

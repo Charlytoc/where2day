@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 
 export const Footer = () => (
-  <footer className="footer mt-auto py-3 text-center">
+  <footer className="navarra footer mt-auto py-3 text-center">
     <p>
       <a
-        className="btn btn-link btn-floating btn-lg text-dark m-1"
+        className="navarra btn btn-link btn-floating btn-lg text-dark m-1"
         href="https://www.facebook.com/"
 		target="_blank"
         role="button"
@@ -15,7 +15,7 @@ export const Footer = () => (
       </a>
 
       <a
-        className="btn btn-link btn-floating btn-lg text-dark m-1"
+        className="navarra btn btn-link btn-floating btn-lg text-dark m-1"
         href="https://twitter.com/?lang=en"
 		target="_blank"
         role="button"
@@ -26,7 +26,7 @@ export const Footer = () => (
 
 
       <a
-        className="btn btn-link btn-floating btn-lg text-dark m-1"
+        className="navarra btn btn-link btn-floating btn-lg text-dark m-1"
         href="https://www.instagram.com/"
 		target="_blank"
         role="button"
@@ -37,7 +37,7 @@ export const Footer = () => (
 
 	
     </p>
-	<div className='text-center p-3' style={{ backgroundColor: 'rgba(252, 247, 255, 0.8)' }}>
+	<div className='text-center p-3 navarra' >
         © 2022 Copyright:
         <a className='text-yellow' > 4Geeks Academy</a>
       </div>

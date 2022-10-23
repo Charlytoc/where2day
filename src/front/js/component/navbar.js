@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
-import logoPres from "../../img/Logo WHERE2DAY.png";
+import logoPres from "../../img/logo-where2.png";
+
 
 import { useContext } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
@@ -10,7 +11,7 @@ export const Navbar = () => {
   const { store, actions } = useContext(Context); // #3 Consumirlo
 
   return (
-    <nav className="navbar bg-light" style={{ height: 75 }}>
+    <nav className="navbar bg-light navarra" style={{ height: 75 }}>
       <div className="container">
         
         {/* Aca inicia ternario de REDIRIGIR a home/feed dependiente del auth STATUS */}
@@ -36,16 +37,16 @@ export const Navbar = () => {
           {!store.auth ? (
             <>
               <Link to="/login">
-                <button className="btn btn-danger btn-md" style={{ backgroundColor: 'rgba(222, 82, 81' }}>Login</button>
+                <button className="navarra btn btn-danger btn-md" >Login</button>
               </Link>
 
               <Link to="/signup">
-                <button className="btn btn-danger btn-md ms-3" style={{ backgroundColor: 'rgba(222, 82, 81' }}>Signup</button>
+                <button className="navarra btn btn-danger btn-md ms-3" >Signup</button>
               </Link>
             </>
           ) : (
             <button
-              className="btn btn-danger btn-md ms-3" style={{ backgroundColor: 'rgba(222, 82, 81' }}
+              className="navarra btn btn-danger btn-md ms-3"
               onClick={() => actions.logout()}
             >
               Logout

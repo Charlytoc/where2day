@@ -5,6 +5,12 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+body {
+    background: linear-gradient(to right, rgba(255, 233, 222, 1), rgba(245, 222,242, 1));
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
 
 .bg-redw2d {
     color: white !important;
@@ -14,4 +20,14 @@
 .bg-yellw2d {
     color: rgb(0, 0, 0) !important;
     background-color: rgba(241, 228, 206, 0.35);
+}
+
+
+.titulo {
+    padding: 50;
+    font-size: 90px;
+    font-family: 'Permanent Marker', cursive;
+    background: linear-gradient(to right, rgb(222, 82, 81), rgb(122, 32, 122));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
