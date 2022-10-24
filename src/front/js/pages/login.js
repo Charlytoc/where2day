@@ -98,7 +98,7 @@ export const Login = () => {
 
 
   return (
-    <div className="text-center w-50 container mt-5">
+    <div className="text-center w-50 container">
       <img src={logo} onClick={desaparecer} className="mb-2 w-50 animable desaparecer" />
 
       <h1 className="animable2 desaparecer">Inicia sesión</h1>
@@ -110,7 +110,7 @@ export const Login = () => {
           <div className="form-floating animable3">
             <input
               type="email"
-              className="form-control animable3 desaparecer"
+              className="form-control animable3 navarra desaparecer"
               aria-describedby="emailHelp"
               placeholder="Your eMail"
               onChange={(e) => setEmail(e.target.value)}
@@ -125,7 +125,7 @@ export const Login = () => {
           <div className="form-floating">
             <input
               type="password"
-              className="form-control"
+              className="form-control navarra"
               id="floatingInputGroup1"
               placeholder="Username"
               onChange={(e) => setPassword(e.target.value)}

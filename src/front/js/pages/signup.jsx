@@ -90,7 +90,7 @@ export const Signup = () => {
   }, [])
 
   return (
-    <div className="text-center w-50 container mt-5 ">
+    <div className="text-center w-50 container">
       <img src={logo}  className="w-50 mb-2 animable" />
 
       <h1 className="animable3"> Bienvenido</h1>
@@ -102,7 +102,7 @@ export const Signup = () => {
           <div className="form-floating">
             <input
               type="email"
-              className="form-control animable"
+              className="form-control animable navarra"
               aria-describedby="emailHelp"
               placeholder="Your eMail"
               onChange={(e) => setEmail(e.target.value)}
@@ -117,7 +117,7 @@ export const Signup = () => {
           <div className="form-floating">
             <input
               type="password"
-              className="form-control animable"
+              className="form-control animable navarra"
               id="floatingInputGroup1"
               placeholder="Username"
               onChange={(e) => setPassword(e.target.value)}

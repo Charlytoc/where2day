@@ -15,8 +15,8 @@ export const Filtros = () => {
     <div className="card mt-2 me-2">
               {/* CARD FILTROS */}
               
-                <div className="rounded pt-2 text-center font-weight-bold navarra">
-                  <h4>Filtros</h4>
+                <div className="btn-outline rounded p-2 text-center navarra">
+                  Filtros
                 </div>
               
               <ul className="list-group list-group-flush">

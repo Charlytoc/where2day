@@ -32,9 +32,11 @@ export const Feed = () => {
                         {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
                             title={item.titulo}
                             fecha={item.fecha}
-                            publicacion={item.description}
-                            ubicacion={item.lugar}
-                            user={item.id}
+                            description={item.descripcion}
+                            lugar={item.lugar}
+                            exp_id={item.id}
+                            expOwner={item.expOwner}
+                            
                         /></div>)}
                         </div>
                         <div className="derecho w-25 float-end"><CrearEvento/>

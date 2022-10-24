@@ -9,6 +9,12 @@
     color: white;
 }
 
+.pub-title {
+    
+    font-weight: bolder;
+    
+}
+
 .centrar {
     margin: 0 auto;
 }

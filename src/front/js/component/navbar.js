@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../img/logo.png";
-import logoPres from "../../img/logo-where2.png";
+
 
 
 import { useContext } from "react"; // #1 Traer context de react
