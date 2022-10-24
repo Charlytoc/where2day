@@ -34,12 +34,12 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          <Navbar />
+          
 
           <Routes>
             <Route element={store.auth ? <Navigate to="/feed"/> : <Home />} path="/" />
-            <Route element={<Demo />} path="/demo" />
-            <Route element={<Single />} path="/single/:theid" />
+            {/* <Route element={<Demo />} path="/demo" />
+            <Route element={<Single />} path="/single/:theid" /> */}
             {/* <Route element={<Signup />} path="/signup" /> */}
 
             <Route element={<Reset />} path="/reset" />
@@ -48,11 +48,7 @@ const Layout = () => {
               element={store.auth ? <Navigate to="/feed" /> : <Login />}
               path="/login"
             />
-            {/* Este es la ruta FEED condicional, si el usuario pierde el "auth: true" 
-              y pasa a "auth: false" enviara al path "/" al usuario */}
             
-            {/* DESCOMENTA ESTO Y COMENTA LA RUTA DE ABAJO PARA NO SER REDIRIGIDO */}
-            {/* <Route element={<Feed />} path="/feed" /> */}
             <Route
               element={!store.auth ? <Navigate to="/" /> : <Feed />}
               path="/feed"
@@ -62,11 +58,11 @@ const Layout = () => {
               element={store.redirectLogin ? <Navigate to="/login" /> : <Signup />}
               path="/signup"
             />
-            {/* <Route element={<Feed />} path="/feed" /> */}
+            
             <Route element={<ErrorPage />} path="*" />
           </Routes>
 
-          <Footer />
+        
         </ScrollToTop>
       </BrowserRouter>
     </div>

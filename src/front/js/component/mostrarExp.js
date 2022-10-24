@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../img/logo.png";
+import logo from "../../img/logo-where2-alone.png";
 import logoPres from "../../img/Logo WHERE2DAY.png";
 
 import { useContext } from "react"; // #1 Traer context de react
@@ -15,26 +15,21 @@ export const MostrarExp = (props) => {
 
 
     return (
-        <>
-            <div className="card">
-                {/* CARD FEED EXPERIENCIAS */}
-                <h5 className="card-header bg-yellw2d">{props.fecha}</h5>
-                <div className="card-body">
-                    <h4 className="card-title">{props.title} </h4>
-                    <div className="card-text">
-                        <img
-                            src="https://previews.123rf.com/images/danflcreativo/danflcreativo1706/danflcreativo170600254/80138855-guayaquil-ecuador-mayo-2016-r%C3%ADo-guayas-en-la-vista-de-la-isla-santay-desde-el-malec%C3%B3n-2000-guayaquil.jpg"
-                            className="d-block w-100"
-                            alt="..."
-                        />
-                        <p>
-                            <b>Lugar:</b> {props.ubicacion}
-                            <b> Lugar por:</b> {props.publicacion}
-                        </p>
-
-                    </div>
-                </div>
+        <><div className="mt-5 container bg-light rounded pub-title" >
+            <h3 className="text-dark mt-2 p-3 text-center pub-title">{props.title}</h3>
+            <div className="text-center"><img src={logo} className="w-75"></img></div>
+            <div className=" container text-center">
+            <h4 className="text-dark text-center d-inline-block" title="Vivida por">🧔🏻 {props.expOwner}</h4>
+            <h4 className="text-dark text-center d-inline-block" title="Lugar">🔍 {props.lugar}</h4>
+            <h4 className="text-dark text-center d-inline-block" title="Fecha">🗓️ {props.fecha}</h4>
+            { props.outdoor ? <h4 className="text-dark text-center d-inline-block" title="Outdoor">🏃🏻</h4> : null}
+            { props.indoor ? <h4 className="text-dark text-center d-inline-block" title="Indoor">🏠</h4> : null}
+            { props.anywhere ? <h4 className="text-dark text-center d-inline-block" title="Anywhere">🌐</h4> : null}
             </div>
+            
+            <h4 className="text-dark text-center fs-6 p-5">✍🏻{props.description}</h4>
+        </div>
+        
         </>
 
 

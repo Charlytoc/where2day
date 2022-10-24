@@ -12,13 +12,13 @@ export const Filtros = () => {
 
   return (
    <>
-    <div className="card">
+    <div className="card mt-2 me-2">
               {/* CARD FILTROS */}
-              <h5>
-                <div className="card-header font-weight-bold bg-yellw2d">
+              
+                <div className="btn-outline rounded p-2 text-center navarra">
                   Filtros
                 </div>
-              </h5>
+              
               <ul className="list-group list-group-flush">
                 <li className="list-group-item"> Tus experiencias </li>
                 <li className="list-group-item"> Cerca de ti </li>

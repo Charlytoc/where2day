@@ -98,6 +98,7 @@ def obtener_eventos():
 
 @api.route("/postear", methods=["POST"])
 def to_post():
+
     titulo = request.json.get("titulo", None)
     lugar = request.json.get("lugar", None)
     description = request.json.get("description", None)
@@ -106,16 +107,11 @@ def to_post():
     outdoor = request.json.get("outdoor", None)
     indoor = request.json.get("indoor", None)
     anywhere = request.json.get("anywhere", None)
+    imagen = request.json.get("imagen", None)
 
 
-
-
-    print(titulo, lugar, description, usuario_id)
-
-
-
-    # nuevo_usuario = Usuario(email=email, password=password, username=username, nombre=nombre, apellido=apellido, edad=edad)
-    nueva_experiencia = Experiencias(titulo=titulo, lugar=lugar, description=description, usuario_id=usuario_id, fecha=fecha, outdoor=outdoor, indoor=indoor, anywhere=anywhere)
+    
+    nueva_experiencia = Experiencias(titulo=titulo, lugar=lugar, description=description, usuario_id=usuario_id, fecha=fecha, outdoor=outdoor, indoor=indoor, anywhere=anywhere, image_url=imagen)
 
     print(nueva_experiencia)
     db.session.add(nueva_experiencia)

@@ -12,6 +12,7 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { store, actions } = useContext(Context); // #3 Consumirlo
+  const {desaparecerLogo, setDesaparecerLogo} = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,6 +37,33 @@ export const Login = () => {
     let anim = gsap.to(boton, {scale: 0.8, yoyo: true, duration: 1})
     anim.play()
    
+  }
+
+  const desaparecer = () => {
+    
+    
+    let desaparecerAnimation = () => {}
+
+    console.log(desaparecerLogo)
+    let imagen = document.querySelector(".desaparecer")
+    gsap.to(imagen, {opacity: 0, duration: 2})
+
+   
+    
+    console.log("todo bien")
+    
+  }
+  
+  const agrandar3 = () => {
+    let boton = document.querySelectorAll(".boton3")
+    let anim = gsap.to(boton, { scale: 1.2, yoyo: true, duration: 1 })
+    anim.play()
+  }
+
+  const disminuir3 = () => {
+    let boton = document.querySelector(".boton3")
+    let anim = gsap.to(boton, { scale: 0.8, yoyo: true, duration: 1 })
+    anim.play()
   }
 
 
@@ -64,15 +92,16 @@ export const Login = () => {
   }
 
   useEffect(() => {
-    animation()
+    animation();
+    
   }, [])
 
 
   return (
-    <div className="text-center w-50 container mt-5">
-      <img src={logo} className="mb-2 w-50 animable" />
+    <div className="text-center w-50 container">
+      <img src={logo} onClick={desaparecer} className="mb-2 w-50 animable desaparecer" />
 
-      <h1 className="animable2"> Login </h1>
+      <h1 className="animable2 desaparecer">Inicia sesión</h1>
 
       {/* Aca creamos un form que "onSubmit" nos suba la data a la DB Signup */}
       <form onSubmit={handleSubmit}>
@@ -81,13 +110,13 @@ export const Login = () => {
           <div className="form-floating animable3">
             <input
               type="email"
-              className="form-control animable3"
+              className="form-control animable3 navarra text-light"
               aria-describedby="emailHelp"
               placeholder="Your eMail"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
-            <label>eMail</label>
+            <label>email</label>
           </div>
         </div>
 
@@ -96,28 +125,33 @@ export const Login = () => {
           <div className="form-floating">
             <input
               type="password"
-              className="form-control"
+              className="form-control navarra text-light"
               id="floatingInputGroup1"
               placeholder="Username"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
-            <label>Password</label>
+            <label>contraseña</label>
           </div>
         </div>
 
-            <Link to="/reset">
-                <p className="animable2">Forgot Your Password? Click Here</p>
+            <Link style={{ textDecoration: 'none', color: "black" }} to="/reset">
+                <p className="animable2 dos">Clickea acá si perdiste tu contraseña</p>
             </Link>
 
         {/* Esto es el boton submit */}
         <div className="d-flex justify-content-center">
           <button onMouseDown={disminuir}
-            onMouseOver={agrandar} type="submit" className="animable3 btn btn-danger btn-md mb-5 ms-3 boton" style={{ backgroundColor: 'rgba(222, 82, 81' }}>
-            Login
+            onMouseOver={agrandar} type="submit" className="animable3 btn-outline border-0 rounded btn-lg ms-3 boton navarra" >
+            Inicia sesión
           </button>
+          
         </div>
       </form>
+      <Link to="/">
+      <button onMouseDown={disminuir3}
+            onMouseOver={agrandar3} className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3" >regresa al inicio</button>
+      </Link>
     </div>
   );
 };

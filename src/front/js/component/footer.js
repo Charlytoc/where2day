@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 
 export const Footer = () => (
-  <footer className="navarra footer mt-auto py-3 text-center">
-    <p>
+  <footer className="navarra mt-3 pt-2 footer mt-auto text-center">
+    <div>
       <a
         className="navarra btn btn-link btn-floating btn-lg text-dark m-1"
         href="https://www.facebook.com/"
@@ -36,10 +36,10 @@ export const Footer = () => (
       </a>
 
 	
-    </p>
-	<div className='text-center p-3 navarra' >
+    </div>
+	<div className='text-center navarra mt-2 mb-0' >
         © 2022 Copyright:
-        <a className='text-yellow' > 4Geeks Academy</a>
+        <a className=' dos' >Where2Day</a>
       </div>
 	
 

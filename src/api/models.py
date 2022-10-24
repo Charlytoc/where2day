@@ -2,22 +2,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-# class User(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     email = db.Column(db.String(120), unique=True, nullable=False)
-#     password = db.Column(db.String(80), unique=False, nullable=False)
-#     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
-
-#     def __repr__(self):
-#         return f'<User {self.email}>'
-
-#     def serialize(self):
-#         return {
-#             "id": self.id,
-#             "email": self.email,
-#             # do not serialize the password, its a security breach
-#         }
-
 
 
 class Usuario(db.Model):
@@ -58,6 +42,7 @@ class Experiencias(db.Model):
     indoor = db.Column(db.Boolean(), unique=False, nullable=True)
     anywhere = db.Column(db.Boolean(), unique=False, nullable=True)
     description = db.Column(db.String(250), unique=False, nullable=False)
+    image_url = db.Column(db.String(250), unique=False, nullable=True)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'),
         nullable=False)
     
@@ -76,7 +61,9 @@ class Experiencias(db.Model):
             "lugar": self.lugar,
             "outdoor": self.outdoor,
             "indoor": self.indoor,
-            "anywhere": self.anywhere
+            "anywhere": self.anywhere,
+            "exp_owner": self.usuario_id,
+            "image_url": self.image_url
         }
 
 
