@@ -16,6 +16,7 @@ export const MostrarExp = (props) => {
 
     return (
         <>
+            
             <div className="card">
                 {/* CARD FEED EXPERIENCIAS */}
                 <h5 className="card-header bg-yellw2d">{props.fecha}</h5>

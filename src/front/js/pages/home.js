@@ -26,20 +26,21 @@ export const Home = () => {
   
 
   const desaparecer = () => {
-    let world = document.querySelector(".desaparecer")
+    let world = document.querySelector(".mundo")
     gsap.to(world, {opacity: 0, duration: 1, x:500, scale: 2})
-    console.log("funciono")
-    // redirect("/signup")
+    // console.log("funciono")
+    
   }
 
   return (
     <><div className="mundo">
       <span  className="columna">¿Te gustaría vivir algo nuevo?</span>
       <span  className="columna">
-      <span onClick={desaparecer} className=" desaparecer">Entonces </span>
-      <span onClick={desaparecer} className="desaparecer">únete </span>
-      <span onClick={desaparecer} className=" desaparecer">a </span>
-      <span onClick={desaparecer} className=" desaparecer">Where<Link to="/signup" style={{ textDecoration: 'none' }}><span className="dos">2</span></Link>Day</span></span>
+      <span onClick={desaparecer} className="tres desaparecer">Entonces </span>
+      {/* <div className="letra">botón de colapso</div> */}
+      <span  className="desaparecer">únete </span>
+      <span className=" desaparecer">a </span>
+      <span className=" desaparecer">Where<Link to="/signup" style={{ textDecoration: 'none' }}><span className="dos">2</span></Link>Day</span></span>
       </div></>
   );
 };

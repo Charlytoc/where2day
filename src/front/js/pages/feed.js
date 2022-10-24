@@ -24,9 +24,11 @@ export const Feed = () => {
             <Navbar />
             <div className="d-flex container m-0">
                 <div className="filtros w-25"><Filtros /></div>
-                <div className="centro w-50">
+                <div className="centro w-50 me-2 mt-2">
+                
                 <CrearExp />
                         {/* <MostrarExp /> */}
+                        <div className="navarra mt-2 text-center">Últimas experiencias</div>
                         {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
                             title={item.titulo}
                             fecha={item.fecha}

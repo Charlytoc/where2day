@@ -51,3 +51,25 @@ body {
     color: rgba(255, 255, 255, 1);
     
 }
+
+.tres {
+    text-decoration: none;
+    color: rgba(44, 145, 244, 0.7);
+    border: 2 dotted black;
+}
+
+.tres:hover {
+    
+    text-decoration: none;
+    border: 2cm;
+    color: rgba(255, 255, 255, 1);
+    
+}
+
+/* .letra {
+    border: rgb(122, 32, 122);
+    color: wheat;
+    position: inherit;
+    z-index: 2;
+    font-size: 100px;
+} */
