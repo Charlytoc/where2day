@@ -11,20 +11,22 @@ export const Navbar = () => {
   const { store, actions } = useContext(Context); // #3 Consumirlo
 
   return (
-    <nav className="navbar bg-light navarra" style={{ height: 75 }}>
+    <nav className="navbar bg-light navarra" style={{ height: 80 }}>
       <div className="container">
         
         {/* Aca inicia ternario de REDIRIGIR a home/feed dependiente del auth STATUS */}
         {!store.auth ? (
             <Link to="/">
-            <span className="navbar-brand h1">
-              <img src={logoPres} style={{ height: 60 }} />
+            <span className="navarra fs-4 text-dark boton-navbar">
+              {/* <img src={logoPres} style={{ height: 60 }} /> */}
+              Where2Day
             </span>
           </Link>
         ):(
-          <Link to="/feed">
-            <span className="navbar-brand h1">
-              <img src={logoPres} style={{ height: 60 }} />
+          <Link to="/feed" style={{ textDecoration: 'none' }}>
+            <span className="navarra fs-4 text-dark" id="estilo">
+              {/* <img src={logoPres} style={{ height: 60 }} /> */}
+              Where2Day
             </span>
           </Link>
         )

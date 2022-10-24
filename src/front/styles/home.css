@@ -35,12 +35,19 @@ body {
 
 .columna {
     height: 200px;
-    font-size: 300px;
+    font-size: 150px;
 }
 
 .dos {
     text-decoration: none;
-    color: pink;
-    text-shadow: 300px black;
-    border: 2px
+    color: rgba(222, 22, 22, 1);
+    border: 2 dotted black;
+}
+
+.dos:hover {
+    
+    text-decoration: none;
+    border: 2cm;
+    color: rgba(255, 255, 255, 1);
+    
 }

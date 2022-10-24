@@ -5,9 +5,16 @@
 
 
 .navarra {
-    background: linear-gradient(to right, rgba(222, 82, 81, 1), rgba(244, 82, 199, 0.8))
+    background: linear-gradient(to right, rgba(222, 22, 22, 1), rgba(244, 43, 78, 0.7));
+    color: white;
 }
 
 .centrar {
     margin: 0 auto;
+}
+
+#estilo {
+    font-family: 'Fuzzy Bubbles', cursive;
+    color: white;
+
 }

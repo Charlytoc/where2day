@@ -108,7 +108,7 @@ export const Signup = () => {
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
-            <label>Email</label>
+            <label>email</label>
           </div>
         </div>
 
@@ -123,7 +123,7 @@ export const Signup = () => {
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
-            <label>Password</label>
+            <label>password</label>
           </div>
         </div>
 

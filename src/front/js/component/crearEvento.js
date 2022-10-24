@@ -57,7 +57,7 @@ export const CrearEvento = () => {
         <div className="container mt-2" style={{width: 300}}>
              {/* Este div me permite "Colorear el card" y luego el h4 le pongo ms-2 para que "se centre mejor el texto" */}
              
-                <h4 className=" navarra rounded">
+                <h4 className="p-2 navarra rounded">
                 Comparte tus eventos
                 </h4>
              

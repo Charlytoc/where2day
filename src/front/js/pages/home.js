@@ -18,7 +18,7 @@ export const Home = () => {
 
   const aparecer = () => {
     let world = document.querySelector(".mundo")
-    timeline.from(world, {opacity: 0, duration: 6, x:500, scale: 5})
+    timeline.from(world, {opacity: 0, duration: 3, x:100, scale: -5})
     // .from(world, {opacity: 0, duration: 6, x:500, scale: 5})
     // desaparecer()
   }

@@ -12,10 +12,10 @@ export const Filtros = () => {
 
   return (
    <>
-    <div className="card ms-4 mt-2 me-2">
+    <div className="card mt-2 me-2">
               {/* CARD FILTROS */}
               
-                <div className="card-header text-center font-weight-bold navarra">
+                <div className="rounded pt-2 text-center font-weight-bold navarra">
                   <h4>Filtros</h4>
                 </div>
               
