@@ -175,6 +175,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             outdoor: outdoor,
             indoor: indoor,
             anywhere: anywhere,
+            imagen: "some image link"
           }),
           headers: {
             "Content-Type": "application/json",
