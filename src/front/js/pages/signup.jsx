@@ -15,9 +15,14 @@ export const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (email != "" && password != "") {
+      actions.signup(email, password);
+    } else {
+      alert("Nope")
+    }
     // console.log(email);
     // console.log(password);
-    actions.signup(email, password);
+
     setEmail("");
     setPassword("");
   };
