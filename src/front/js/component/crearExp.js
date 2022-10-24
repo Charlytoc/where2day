@@ -64,7 +64,7 @@ useEffect( () => {
         <input onChange={(e) => {setFecha(e.target.value)}} value={fecha} placeholder="Fecha" type="text" className="mt-1 form-control" />
           </div>
 
-        <div className="container text-center bg-light">
+        <div className="d-flex text-center text-dark bg-light">
             <input className="mt-1 form-check-input float-start" onClick={()=>{outdoor ? setOutdoor(false) : setOutdoor(true)}} type="checkbox" value=""/>
             <label className=" form-check-label float-start" htmlFor="flexCheckDefault">
             Outdoor

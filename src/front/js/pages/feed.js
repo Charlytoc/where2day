@@ -36,6 +36,9 @@ export const Feed = () => {
                             lugar={item.lugar}
                             exp_id={item.id}
                             expOwner={item.expOwner}
+                            outdoor={item.outdoor}
+                            indoor={item.indoor}
+                            anywhere={item.anywhere}
                             
                         /></div>)}
                         </div>

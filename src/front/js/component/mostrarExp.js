@@ -22,6 +22,9 @@ export const MostrarExp = (props) => {
             <h4 className="text-dark text-center d-inline-block" title="Vivida por">🧔🏻 {props.expOwner}</h4>
             <h4 className="text-dark text-center d-inline-block" title="Lugar">🔍 {props.lugar}</h4>
             <h4 className="text-dark text-center d-inline-block" title="Fecha">🗓️ {props.fecha}</h4>
+            { props.outdoor ? <h4 className="text-dark text-center d-inline-block" title="Outdoor">🏃🏻</h4> : null}
+            { props.indoor ? <h4 className="text-dark text-center d-inline-block" title="Indoor">🏠</h4> : null}
+            { props.anywhere ? <h4 className="text-dark text-center d-inline-block" title="Anywhere">🌐</h4> : null}
             </div>
             
             <h4 className="text-dark text-center fs-6 p-5">✍🏻{props.description}</h4>

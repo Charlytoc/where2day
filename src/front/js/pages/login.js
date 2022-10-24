@@ -110,7 +110,7 @@ export const Login = () => {
           <div className="form-floating animable3">
             <input
               type="email"
-              className="form-control animable3 navarra desaparecer"
+              className="form-control animable3 navarra text-light"
               aria-describedby="emailHelp"
               placeholder="Your eMail"
               onChange={(e) => setEmail(e.target.value)}
@@ -125,7 +125,7 @@ export const Login = () => {
           <div className="form-floating">
             <input
               type="password"
-              className="form-control navarra"
+              className="form-control navarra text-light"
               id="floatingInputGroup1"
               placeholder="Username"
               onChange={(e) => setPassword(e.target.value)}
