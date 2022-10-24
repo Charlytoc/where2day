@@ -15,8 +15,8 @@ export const MostrarExp = (props) => {
 
 
     return (
-        <><div className="mt-2 container bg-light rounded pub-title" >
-            <h3 className="text-dark mt-2 p-2 text-center pub-title">{props.title}</h3>
+        <><div className="mt-5 container bg-light rounded pub-title" >
+            <h3 className="text-dark mt-2 p-3 text-center pub-title">{props.title}</h3>
             <div className="text-center"><img src={logo} className="w-75"></img></div>
             <div className=" container text-center">
             <h4 className="text-dark text-center d-inline-block" title="Vivida por">🧔🏻 {props.expOwner}</h4>

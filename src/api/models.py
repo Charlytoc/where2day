@@ -58,6 +58,7 @@ class Experiencias(db.Model):
     indoor = db.Column(db.Boolean(), unique=False, nullable=True)
     anywhere = db.Column(db.Boolean(), unique=False, nullable=True)
     description = db.Column(db.String(250), unique=False, nullable=False)
+    image_url = db.Column(db.String(250), unique=False, nullable=True)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'),
         nullable=False)
     
@@ -77,7 +78,8 @@ class Experiencias(db.Model):
             "outdoor": self.outdoor,
             "indoor": self.indoor,
             "anywhere": self.anywhere,
-            "expOwner": self.usuario_id
+            "exp_owner": self.usuario_id,
+            "image_url": self.image_url
         }
 
 

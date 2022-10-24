@@ -35,7 +35,7 @@ export const Feed = () => {
                             description={item.descripcion}
                             lugar={item.lugar}
                             exp_id={item.id}
-                            expOwner={item.expOwner}
+                            expOwner={item.exp_owner}
                             outdoor={item.outdoor}
                             indoor={item.indoor}
                             anywhere={item.anywhere}
