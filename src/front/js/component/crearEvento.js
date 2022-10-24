@@ -54,13 +54,13 @@ export const CrearEvento = () => {
         : 
         <>
             
-        <div className="card ">
+        <div className="container mt-2" style={{width: 300}}>
              {/* Este div me permite "Colorear el card" y luego el h4 le pongo ms-2 para que "se centre mejor el texto" */}
-             <div className="card-header font-weight-bold bg-yellw2d">
-                <h4 className="ms-2">
+             
+                <h4 className=" navarra rounded">
                 Comparte tus eventos
                 </h4>
-             </div>
+             
              
              {/* Input almacena en setTitulo y cambia titulo */}
             <input type="text" placeholder="Título del evento" className="form-control" 
@@ -98,8 +98,8 @@ export const CrearEvento = () => {
             onChange={(e) => setDescription(e.target.value)} value={description} id="floatingTextarea"></textarea>
 
             {/* Boton de publicar y boton de cierre a continuacion */}
-            <button className="btn btn-md bg-redw2d" onClick={postearEvento}> Publicar Evento</button>
-            <button className="btn btn-md bg-redw2d mt-1" onClick={desplegarCaja}> Cerrar </button>
+            <button className="btn-outline border-0 rounded btn-lg navarra animable2 boton3 me-2" onClick={postearEvento}> Publicar Evento</button>
+            <button className="btn-outline border-0 rounded btn-lg navarra animable2 boton3 me-2" onClick={desplegarCaja}> Cerrar </button>
          </div> 
         </> }
         

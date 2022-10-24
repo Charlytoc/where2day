@@ -37,7 +37,7 @@ export const Home = () => {
       <span  className="columna">¿Te gustaría vivir algo nuevo?</span>
       <span  className="columna">
       <span onClick={desaparecer} className=" desaparecer">Entonces </span>
-      <span onClick={desaparecer} className="desaparecer">unete </span>
+      <span onClick={desaparecer} className="desaparecer">únete </span>
       <span onClick={desaparecer} className=" desaparecer">a </span>
       <span onClick={desaparecer} className=" desaparecer">Where<Link to="/signup" style={{ textDecoration: 'none' }}><span className="dos">2</span></Link>Day</span></span>
       </div></>

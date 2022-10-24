@@ -22,15 +22,10 @@ export const Feed = () => {
         <>
             {/* BODY GENERAL */}
             <Navbar />
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-3">
-                        {/* Componente para seleccionar los filtros */}
-                        <Filtros />
-                    </div>
-                    <div className="col-md-6">
-                        {/* Componentes del feed */}
-                        <CrearExp />
+            <div className="d-flex container m-0">
+                <div className="filtros w-25"><Filtros /></div>
+                <div className="centro w-50">
+                <CrearExp />
                         {/* <MostrarExp /> */}
                         {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
                             title={item.titulo}
@@ -39,15 +34,8 @@ export const Feed = () => {
                             ubicacion={item.lugar}
                             user={item.id}
                         /></div>)}
-
-                        {/* key={item.id}><MostrarExp title={item.titulo} lugar={item.lugar} */}
-
-                        {/* Titulo Lugar Fecha Outdoor Indoor Anywhere Description Usuario */}
-                    </div>
-
-                    <div className="col-md-3" >
-                        {/* Vista latereal derecho, eventos */}
-                        <CrearEvento/>
+                        </div>
+                        <div className="derecho w-25 float-end"><CrearEvento/>
                         {store.mostrarEventos.map((item) =>
                             <div key={item.id} > < MostrarEventos
                                 usuarioid={item.usuarioid}
@@ -57,11 +45,9 @@ export const Feed = () => {
                                 description={item.description}
                             />
                             </div >)
-                        }
-
-                    </div>
-                </div >
-            </div>
+                        } </div>  
+                        </div>
+                
             <Footer />
         </>
     );

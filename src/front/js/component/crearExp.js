@@ -54,10 +54,10 @@ useEffect( () => {
 // console.log("Este es el numero de ID_usuario actual utilizando nuestra app " + store.usuario_actual)
   return (
    <>
-     <div className="text-bg-light mt-2 mb-3">
+     <div className="text-bg-light me-2 mt-2 mb-3">
           {/* CARD CREAR EXPERIENCIA */}
           { desplegar ? <>
-          <h2 className=" text-center font-weight-bold bg-yellw2d">Cuéntale al mundo tu experiencia</h2>
+          <h2 className="text-center font-weight-bold navarra rounded">Cuéntale al mundo tu experiencia</h2>
           <input onChange={(e) => {setTitulo(e.target.value)}} value={titulo} placeholder="Título de la experiencia" type="text" className="mt-1 form-control" />
         <input onChange={(e) => {setLugar(e.target.value)}} value={lugar} placeholder="Lugar" type="text" className="mt-1 form-control" />
         <input onChange={(e) => {setFecha(e.target.value)}} value={fecha} placeholder="Fecha" type="text" className="mt-1 form-control" />
@@ -79,7 +79,7 @@ useEffect( () => {
          </div>
         
         <textarea onChange={(e) => {setDescription(e.target.value)}} value={description} className="form-control" placeholder="Cuenta cómo fue la experiencia" id="floatingTextarea"></textarea>
-        <button onClick={postear} className=" btn-outline border-0 rounded btn-lg navarra animable2 boton3">Postear</button>
+        <button onClick={postear} className=" btn-outline border-0 rounded btn-lg navarra animable2 boton3 me-2">Postear</button>
         <button onClick={()=>{setDesplegar(false)}} className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3">Cerrar</button>
 
           </> : <button onClick={desplegarCaja} className=" btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3">Crear post</button>

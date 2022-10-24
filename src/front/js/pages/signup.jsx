@@ -22,6 +22,10 @@ export const Signup = () => {
     setPassword("");
   };
 
+  const saludar = () => {
+    console.log("hola")
+  }
+
   const agrandar = () => {
     let boton = document.querySelectorAll(".boton")
     let anim = gsap.to(boton, { scale: 1.2, yoyo: true, duration: 1 })
@@ -60,7 +64,7 @@ export const Signup = () => {
   const timeline = gsap.timeline()
 
   const animation = () => {
-    console.log("ejecutando")
+    
     let animables = document.querySelectorAll(".animable")
     let animables2 = document.querySelectorAll(".animable2")
     let animables3 = document.querySelectorAll(".animable3")
@@ -124,7 +128,7 @@ export const Signup = () => {
         </div>
 
         {/* Esto es el boton submit */}
-        <div className="d-flex justify-content-center animable">
+        <div className="d-block justify-content-center animable">
           <button
             onMouseDown={disminuir}
             onMouseOver={agrandar}
@@ -132,18 +136,21 @@ export const Signup = () => {
             className="btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton"
             
           >
-            <span className="animable2">Suscríbete</span>
+            <span className="animable2">suscríbete</span>
           </button>
+          <br></br>
+          <Link to="/login">
+      <button onMouseDown={disminuir2}
+            onMouseOver={agrandar2} className="btn-outline d-inline-block border-0 rounded btn-lg navarra animable2 mb-3 boton2" >ven acá si ya tienes cuenta</button>
+      </Link>
+      <br></br>
+      <Link to="/">
+      <button onClick={saludar} onMouseDown={disminuir3}
+            onMouseOver={agrandar3} className="btn-outline d-inline-block  border-0 rounded btn-lg navarra animable2 mb-3 boton3" >regresa al inicio</button>
+      </Link>
         </div>
       </form>
-      <Link to="/login">
-      <button onMouseDown={disminuir2}
-            onMouseOver={agrandar2} className="btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton2" >O ven acá si ya tienes cuenta</button>
-      </Link>
-      <Link to="/">
-      <button onMouseDown={disminuir3}
-            onMouseOver={agrandar3} className="btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3" >regresa al inicio</button>
-      </Link>
+      
     </div>
   );
 };
