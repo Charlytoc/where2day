@@ -3,20 +3,51 @@
 */
 /* Include any default variable overrides here (though functions won't be available) */
 
-body {
-    
+/* TITULO POST DE USUARIO EN perfilUsuario */
+.header {
+    display: flex;
+    justify-content: space-between;
 }
 
+/* TITULO POST DE USUARIO LADO IZQUIERDO EN perfilUsuario */
+.header-left {
+    display: flex;
+}
+
+/* IMAGEN DE PERFIL DEL USUARIO EN perfilUsuario */
+.profile-pic {
+    margin: 10px 5px 10px 1px;
+    /* width: 150 height 150; */
+}
+
+.titulo-ubicacion {
+    font-size: 80%;
+    margin: -5px 0px 5px 0px;
+}
+
+.nombre-usuario {
+    font-size: 120%;
+    margin: 10px 0px 5px 0px;
+}
+
+.profile-pic-post {
+    margin: 3px 8px 1px 8px;
+
+}
+
+.descripcion-post {
+    margin: 10px 30px 10px 10px;
+}
 
 .navarra {
-    background: linear-gradient(to right, rgba(222, 22, 22, 1), rgba(244, 43, 78, 0.7));
+    background: linear-gradient(to right,
+            rgba(222, 22, 22, 1),
+            rgba(244, 43, 78, 0.7));
     color: white;
 }
 
 .pub-title {
-    
     font-weight: bolder;
-    
 }
 
 .centrar {
@@ -24,7 +55,6 @@ body {
 }
 
 #estilo {
-    font-family: 'Fuzzy Bubbles', cursive;
+    font-family: "Fuzzy Bubbles", cursive;
     color: white;
-
 }

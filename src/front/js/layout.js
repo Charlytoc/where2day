@@ -18,6 +18,7 @@ import { Reset } from "./pages/resetPassword";
 
 import injectContext from "./store/appContext";
 import { Feed } from "./pages/feed.js";
+import { PerfilUsuario } from "./pages/perfilUsuario.js";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -34,10 +35,10 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          
+
 
           <Routes>
-            <Route element={store.auth ? <Navigate to="/feed"/> : <Home />} path="/" />
+            <Route element={store.auth ? <Navigate to="/feed" /> : <Home />} path="/" />
             {/* <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" /> */}
             {/* <Route element={<Signup />} path="/signup" /> */}
@@ -48,7 +49,7 @@ const Layout = () => {
               element={store.auth ? <Navigate to="/feed" /> : <Login />}
               path="/login"
             />
-            
+
             <Route
               element={!store.auth ? <Navigate to="/" /> : <Feed />}
               path="/feed"
@@ -58,11 +59,14 @@ const Layout = () => {
               element={store.redirectLogin ? <Navigate to="/login" /> : <Signup />}
               path="/signup"
             />
-            
+
+            <Route element={<PerfilUsuario />} path="/perfilUsuario" />
+
             <Route element={<ErrorPage />} path="*" />
           </Routes>
 
-        
+
+
         </ScrollToTop>
       </BrowserRouter>
     </div>
