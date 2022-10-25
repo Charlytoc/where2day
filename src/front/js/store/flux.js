@@ -54,15 +54,30 @@ const getState = ({ getStore, getActions, setStore }) => {
           // Si es un 401, entonces auth:false
           if (!response.status === 200) {
             // console.log(response)
-            alert("Wrong eMail or Password, please try again");
+            Swal.fire({
+              icon: "error",
+              title: "Oops... Something went wrong!",
+              text: "Make sure you are using the correct eMail and/or Password",
+            });
           } else {
+            // esperamos el response y lo igualamos a "data"
             const data = await response.json();
             console.log(data);
+
+            // si el mesanje es DISTINTO a "bad email or password"
+            // entonces el usuario esta AUTENTICADO y lo verificamos
             if (data.msg !== "Bad email or password") {
               localStorage.setItem("token", data.access_token);
               getActions().autenticar();
+
+              // Sino, entonces quiere decir que hubo un correo/password
+              // erroneo, y se le notifica del mismo al usuario
             } else {
-              alert("blablabla MALO MALO");
+              Swal.fire({
+                icon: "error",
+                title: "Oops... Something went wrong!",
+                text: "Make sure you are using the correct eMail and/or Password",
+              });
             }
 
             // console.log("Aca quiero verificar si tenemos el TOKEN guardado ya o no " + localStorage.getItem("token"))
@@ -76,7 +91,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           // El catch NOS DIRA donde viene el error o porque el async/await no sirvio
           // if (error.msg === "Bad email and password") {
           // }
-          alert("Wrong eMail or Password, please try again");
+          Swal.fire({
+            icon: "error",
+            title: "Oops... Something went wrong!",
+            text: "Make sure you are using the correct eMail and/or Password",
+          });
           setStore({ auth: false });
           console.log(error);
         }
@@ -112,7 +131,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Error loading message from backend", error);
           Swal.fire(
             error.response.data,
-            "Por favor utiliza otro correo, o ve a login y usa el correo ya registado!",
+            "Por favor utiliza otro eMail/Password, o ve a login y usa el correo ya registrado.",
             "error"
           );
         }

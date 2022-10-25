@@ -15,10 +15,10 @@ export const MostrarExp = (props) => {
 
 
     return (
-        <><div className="card mt-5 container bg-light rounded pub-title" >
-            <div className="card-header d-flex justify-content-between">
+        <><div className=" mt-5 container bg-light rounded pub-title" >
+            <div className=" d-flex justify-content-between">
             <h3 className="text-dark mt-2 p-3 text-center pub-title">{props.title}</h3>
-            {store.usuario_actual === props.expOwner && <button className="btn"> 🖊 </button> }
+            {store.usuario_actual === props.expOwner && <button className="btn"> ✏ </button> }
             </div>
             <div className="text-center"><img src={logo} className="w-75"></img></div>
             <div className=" container text-center">

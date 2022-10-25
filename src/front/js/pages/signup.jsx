@@ -6,7 +6,7 @@ import logo from "../../img/logo-where2-alone.png";
 import Swal from "sweetalert2";
 // import "../../styles/home.css";
 import { Link } from "react-router-dom";
-import {gsap, Elastic} from "gsap";
+import { gsap, Elastic } from "gsap";
 
 export const Signup = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +18,11 @@ export const Signup = () => {
     if (email != "" && password != "") {
       actions.signup(email, password);
     } else {
-      alert("Nope")
+      Swal.fire({
+        icon: "error",
+        title: "Oops... Something went wrong!",
+        text: "Make sure you are using the correct eMail and/or Password",
+      });
     }
     // console.log(email);
     // console.log(password);
@@ -69,7 +73,7 @@ export const Signup = () => {
   const timeline = gsap.timeline()
 
   const animation = () => {
-    
+
     let animables = document.querySelectorAll(".animable")
     let animables2 = document.querySelectorAll(".animable2")
     let animables3 = document.querySelectorAll(".animable3")
@@ -96,7 +100,7 @@ export const Signup = () => {
 
   return (
     <div className="text-center w-50 container">
-      <img src={logo}  className="w-50 mb-2 animable" />
+      <img src={logo} className="w-50 mb-2 animable" />
 
       <h1 className="animable3"> Bienvenido</h1>
 
@@ -139,23 +143,24 @@ export const Signup = () => {
             onMouseOver={agrandar}
             type="submit"
             className="btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton"
-            
+            onSubmit={handleSubmit}
+
           >
             <span className="animable2">suscríbete</span>
           </button>
           <br></br>
           <Link to="/login">
-      <button onMouseDown={disminuir2}
-            onMouseOver={agrandar2} className="btn-outline d-inline-block border-0 rounded btn-lg navarra animable2 mb-3 boton2" >ven acá si ya tienes cuenta</button>
-      </Link>
-      <br></br>
-      <Link to="/">
-      <button onClick={saludar} onMouseDown={disminuir3}
-            onMouseOver={agrandar3} className="btn-outline d-inline-block  border-0 rounded btn-lg navarra animable2 mb-3 boton3" >regresa al inicio</button>
-      </Link>
+            <button onMouseDown={disminuir2}
+              onMouseOver={agrandar2} className="btn-outline d-inline-block border-0 rounded btn-lg navarra animable2 mb-3 boton2" >ven acá si ya tienes cuenta</button>
+          </Link>
+          <br></br>
+          <Link to="/">
+            <button onClick={saludar} onMouseDown={disminuir3}
+              onMouseOver={agrandar3} className="btn-outline d-inline-block  border-0 rounded btn-lg navarra animable2 mb-3 boton3" >regresa al inicio</button>
+          </Link>
         </div>
       </form>
-      
+
     </div>
   );
 };
