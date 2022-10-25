@@ -55,7 +55,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           if (!response.status === 200) {
             // console.log(response)
             alert("Wrong eMail or Password, please try again");
-            setStore({ auth: false });
           } else {
             const data = await response.json();
             console.log(data);
@@ -85,6 +84,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       // EL ASYNC SIEMPRE DEBE IR ACOMPA:ADO DE UN AWAIT, es como un "if/else", son dependientes
       signup: async (email, password) => {
+        const store = getStore();
         // el try INTENTARA hacer lo que se encuentra entre "{}", SINO funciona, omite la logica que ahi se encuentra
         try {
           const response = await axios.post(
@@ -181,6 +181,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             outdoor: outdoor,
             indoor: indoor,
             anywhere: anywhere,
+            imagen: "some image link",
           }),
           headers: {
             "Content-Type": "application/json",
