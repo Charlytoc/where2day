@@ -21,7 +21,7 @@ export const Feed = () => {
     return (
         <>
             {/* BODY GENERAL */}
-            <Navbar />
+            
             <div className="d-flex container m-0">
                 <div className="filtros w-25"><Filtros /></div>
                 <div className="centro w-50 me-2 mt-2">

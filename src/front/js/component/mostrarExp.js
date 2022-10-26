@@ -15,11 +15,14 @@ export const MostrarExp = (props) => {
 
 
     return (
-        <><div className="mt-5 container bg-light rounded pub-title" >
-            <h3 className="text-dark mt-2 p-3 text-center pub-title">{props.title}</h3>
+        <><div className=" card " >
+            <div className="card-header d-flex justify-content-between">
+                <h3 >{props.title}</h3>
+                {props.expOwner === store.usuario_actual && <button className="btn"> ✏</button> }
+            </div>
             <div className="text-center"><img src={logo} className="w-75"></img></div>
             <div className=" container text-center">
-            <h4 className="text-dark text-center d-inline-block" title="Vivida por">🧔🏻 {props.expOwner}</h4>
+            
             <h4 className="text-dark text-center d-inline-block" title="Lugar">🔍 {props.lugar}</h4>
             <h4 className="text-dark text-center d-inline-block" title="Fecha">🗓️ {props.fecha}</h4>
             { props.outdoor ? <h4 className="text-dark text-center d-inline-block" title="Outdoor">🏃🏻</h4> : null}
