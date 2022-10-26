@@ -35,7 +35,7 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
         <ScrollToTop>
           
-
+          <Navbar/>
           <Routes>
             <Route element={store.auth ? <Navigate to="/feed"/> : <Home />} path="/" />
             {/* <Route element={<Demo />} path="/demo" />

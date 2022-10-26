@@ -69,32 +69,32 @@ export const Login = () => {
 
   const timeline = gsap.timeline()
 
-  const animation = () => {
-    // console.log("ejecutando")
-    let animables = document.querySelectorAll(".animable")
-    let animables2 = document.querySelectorAll(".animable2")
-    let animables3 = document.querySelectorAll(".animable3")
-    timeline.from(animables, {
-      y: -50,
-      duration: 1,
-      opacity: 0,
-      stagger: -0.2
-    }).from(animables2, {
-      x: 50,
-      duration: 1,
-      opacity: 0,
-      stagger: 0.2
-    }, "-=0.9").from(animables3, {
-      x: -50,
-      duration: 1,
-      opacity: 0
-    }, "-=0.9")
-  }
+  // const animation = () => {
+  //   // console.log("ejecutando")
+  //   let animables = document.querySelectorAll(".animable")
+  //   let animables2 = document.querySelectorAll(".animable2")
+  //   let animables3 = document.querySelectorAll(".animable3")
+  //   timeline.from(animables, {
+  //     y: -50,
+  //     duration: 1,
+  //     opacity: 0,
+  //     stagger: -0.2
+  //   }).from(animables2, {
+  //     x: 50,
+  //     duration: 1,
+  //     opacity: 0,
+  //     stagger: 0.2
+  //   }, "-=0.9").from(animables3, {
+  //     x: -50,
+  //     duration: 1,
+  //     opacity: 0
+  //   }, "-=0.9")
+  // }
 
-  useEffect(() => {
-    animation();
+  // useEffect(() => {
+  //   animation();
     
-  }, [])
+  // }, [])
 
 
   return (
@@ -110,7 +110,7 @@ export const Login = () => {
           <div className="form-floating animable3">
             <input
               type="email"
-              className="form-control animable3 navarra text-light"
+              className="form-control"
               aria-describedby="emailHelp"
               placeholder="Your eMail"
               onChange={(e) => setEmail(e.target.value)}
@@ -125,7 +125,7 @@ export const Login = () => {
           <div className="form-floating">
             <input
               type="password"
-              className="form-control navarra text-light"
+              className="form-control"
               id="floatingInputGroup1"
               placeholder="Username"
               onChange={(e) => setPassword(e.target.value)}
@@ -142,7 +142,7 @@ export const Login = () => {
         {/* Esto es el boton submit */}
         <div className="d-flex justify-content-center">
           <button onMouseDown={disminuir}
-            onMouseOver={agrandar} type="submit" className="animable3 btn-outline border-0 rounded btn-lg ms-3 boton navarra" >
+            onMouseOver={agrandar} onClick={handleSubmit} type="submit" className="animable3 btn-outline border-0 rounded btn-lg ms-3 boton navarra" >
             Inicia sesión
           </button>
           
