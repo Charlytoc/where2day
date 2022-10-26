@@ -6,31 +6,33 @@
     on that page only (the ones not reused in other pages).
 */
 body {
-    background: linear-gradient(to right, rgba(255, 233, 222, 1), rgba(245, 222,242, 1));
-    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to right,
+            rgba(255, 233, 222, 1),
+            rgba(245, 222, 242, 1));
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
 }
 
-
+/* COLOR ROJO CON LETRA BLANCA */
 .bg-redw2d {
     color: white !important;
     background-color: rgba(222, 82, 81);
 }
 
+/* COLOR AMARILLO CON LETRA NEGRA */
 .bg-yellw2d {
     color: rgb(0, 0, 0) !important;
     background-color: rgba(241, 228, 206, 0.35);
 }
 
-
 .titulo {
     padding: 50;
     font-size: 90px;
-    font-family: 'Permanent Marker', cursive;
+    font-family: "Permanent Marker", cursive;
     background: linear-gradient(to right, rgb(222, 82, 81), rgb(122, 32, 122));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: content-box
+    background-clip: content-box;
 }
 
 .columna {
@@ -45,11 +47,9 @@ body {
 }
 
 .dos:hover {
-    
     text-decoration: none;
     border: 2cm;
     color: rgba(255, 255, 255, 1);
-    
 }
 
 .tres {
@@ -59,11 +59,9 @@ body {
 }
 
 .tres:hover {
-    
     text-decoration: none;
     border: 2cm;
     color: rgba(255, 255, 255, 1);
-    
 }
 
 /* .letra {

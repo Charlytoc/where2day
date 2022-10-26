@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
 import logoPres from "../../img/Logo WHERE2DAY.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen } from '@fortawesome/free-solid-svg-icons'
 
 import { useContext } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
@@ -21,10 +23,17 @@ export const ProfileHeader = () => {
                             src="https://images.pexels.com/photos/343717/pexels-photo-343717.jpeg?auto=compress&cs=tinysrgb&w=800"
                             alt="profile"
                         />
-                        <span className="profile-name">Pepito Perez</span>
+                        <div className="info-profile">
+                            <h3 className="profile-name text-black">Carlos Toc Toc</h3>
+                            <p>
+
+                                New York, USA
+                            </p>
+                        </div>
                     </div>
-                    <div className="d-none d-md-block">
-                        <button className="btn btn-danger btn-icon-text btn-edit-profile bg-redw2d fa-regular fa-pen-to-square">
+                    <div className="header-info ">
+                        <button className="btn bg-redw2d fa-regular">
+                            <FontAwesomeIcon icon={faPen} />
                             Edit profile
                         </button>
                     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
 import logoPres from "../../img/Logo WHERE2DAY.png";
-{/* <script src="https://kit.fontawesome.com/3ea353913d.js" crossorigin="anonymous"></script> */ }
+<script src="https://kit.fontawesome.com/ab03e28fd9.js" crossorigin="anonymous"></script>
 
 import { useContext } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
@@ -19,7 +19,7 @@ export const ProfileFeed = () => {
                         Festival Montañitas
                     </div>
                 </h6>
-                <div class="header">
+                <div className="header-feed">
                     <div className="header-left">
                         <img
                             className="profile-pic-post rounded-circle"
@@ -33,9 +33,9 @@ export const ProfileFeed = () => {
                         </div>
                     </div>
 
-                    <div class="header-right">
-                        <div class="icono_puntos">
-                            <i class="fas fa-ellipsis-v"></i>
+                    <div className="header-right">
+                        <div className="icono_puntos">
+                            <i className="fas fa-ellipsis-v"></i>
                         </div>
 
                     </div>

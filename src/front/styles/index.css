@@ -3,42 +3,46 @@
 */
 /* Include any default variable overrides here (though functions won't be available) */
 
-/* TITULO POST DE USUARIO EN perfilUsuario */
-.header {
-    display: flex;
-    justify-content: space-between;
-}
-
-/* TITULO POST DE USUARIO LADO IZQUIERDO EN perfilUsuario */
-.header-left {
-    display: flex;
-}
-
-/* IMAGEN DE PERFIL DEL USUARIO EN perfilUsuario */
+/* IMAGEN DE PERFIL DEL USUARIO EN perfilHeader */
 .profile-pic {
     margin: 10px 5px 10px 1px;
     /* width: 150 height 150; */
 }
 
+/* TITULO POST DE USUARIO EN perfilFeed */
+.header-feed {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* TITULO POST DE USUARIO LADO IZQUIERDO EN perfilFeed */
+.header-left {
+    display: flex;
+}
+
+/* UBICACION DE USUARIO EN perfilFeed */
 .titulo-ubicacion {
     font-size: 80%;
     margin: -5px 0px 5px 0px;
 }
 
+/* NOMBRE DEL USUARIO EN perfilFeed */
 .nombre-usuario {
     font-size: 120%;
     margin: 10px 0px 5px 0px;
 }
 
+/* IMAGEN DE PERFIL DEL USUARIO EN perfilFeed */
 .profile-pic-post {
     margin: 3px 8px 1px 8px;
-
 }
 
+/* DESCRIPCION DEL POST DE USUARIO EN perfilFeed */
 .descripcion-post {
     margin: 10px 30px 10px 10px;
 }
 
+/* CHARLY */
 .navarra {
     background: linear-gradient(to right,
             rgba(222, 22, 22, 1),
@@ -54,6 +58,7 @@
     margin: 0 auto;
 }
 
+/* TIPOGRAFIA LOGO */
 #estilo {
     font-family: "Fuzzy Bubbles", cursive;
     color: white;
