@@ -9,7 +9,7 @@ body {
 
 
 .navarra {
-    background: linear-gradient(to right, rgba(222, 22, 22, 1), rgba(244, 43, 78, 0.7));
+    background: linear-gradient(135deg, rgba(222, 22, 22, 1), rgba(244, 43, 78, 0.7));
     color: white;
 }
 
