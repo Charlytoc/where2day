@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import logo from "../../img/logo-where2.png"
 
 
 import { useContext } from "react"; // #1 Traer context de react
@@ -17,15 +17,14 @@ export const Navbar = () => {
         {!store.auth ? (
             <Link to="/">
             <span className="navarra fs-4 text-dark boton-navbar">
-              {/* <img src={logoPres} style={{ height: 60 }} /> */}
-              Where2Day
+              <img src={logo} style={{ height: 60 }} />
             </span>
           </Link>
         ):(
           <Link to="/feed" style={{ textDecoration: 'none' }}>
             <span className="navarra fs-4 text-dark" id="estilo">
-              {/* <img src={logoPres} style={{ height: 60 }} /> */}
-              Where2Day
+              <img src={logo} style={{ height: 60 }} />
+              
             </span>
           </Link>
         )

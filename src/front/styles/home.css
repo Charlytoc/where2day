@@ -6,7 +6,7 @@
     on that page only (the ones not reused in other pages).
 */
 body {
-    background: linear-gradient(to right, rgba(255, 233, 222, 1), rgba(245, 222,242, 1));
+    background: linear-gradient(to right, rgba(255, 239, 222, 0.993), rgb(255, 250, 224, 0.9));
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
 }
