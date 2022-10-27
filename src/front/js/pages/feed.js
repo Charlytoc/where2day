@@ -39,15 +39,15 @@ export const Feed = () => {
         <>
             {/* BODY GENERAL */}
         
-            <div className="d-flex container m-0">
-                <div className="filtros w-25"><Filtros /></div>
-                <div className="centro w-50 me-2 mt-2">
+            <div className="container m-0 row">
+                <div className="filtros  col-3"><Filtros /></div>
+                <div className=" mt-2 col-6">
                 
-                <CrearExp />
+                    <CrearExp />
                         {/* <MostrarExp /> */}
-                        <div className="navarra mt-2 text-center">Últimas experiencias</div>
+                    <div className="navarra mt-2 text-center ">Últimas experiencias</div>
                         
-                        {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
+                     {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
                             title={item.titulo}
                             fecha={item.fecha}
                             description={item.descripcion}
@@ -57,10 +57,13 @@ export const Feed = () => {
                             outdoor={item.outdoor}
                             indoor={item.indoor}
                             anywhere={item.anywhere}
-                            
-                        /></div>)}
-                        </div>
-                        <div className="derecho w-25 float-end"><CrearEvento/>
+                            />
+                    </div>)}
+                </div>
+                <div className="mt-2 col-3">
+                <CrearEvento/>
+                <div className="navarra mt-3 text-center ">Últimos eventos</div>
+                    
                         {store.mostrarEventos.map((item) =>
                             <div key={item.id} > < MostrarEventos
                                 usuarioid={item.usuarioid}
@@ -70,8 +73,9 @@ export const Feed = () => {
                                 description={item.description}
                             />
                             </div >)
-                        } </div>  
-                        </div>
+                            } 
+                </div>  
+            </div>
                 
             <Footer />
         </>

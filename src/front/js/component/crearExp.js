@@ -61,20 +61,23 @@ useEffect( () => {
           <h2 className="text-center  font-weight-bold navarra rounded">Cuéntale al mundo tu experiencia</h2>
           <div className="bg-light">
             {/* Aca editamos Titulo */}
-          <input onChange={(e) => {setTitulo(e.target.value)}} value={titulo}  
+          <input onChange={(e) => {setTitulo(e.target.value)}} value={titulo} 
+          placeholder="Coloca el titulo de tu publicacion" 
           type="text" className="mt-1 form-control" />
 
           {/* Aca editamos Lugar */}
         <input onChange={(e) => {setLugar(e.target.value)}} value={lugar}  
+        placeholder="Coloca la ubicacion de tu experiencia"
         type="text" className="mt-1 form-control" />
 
         {/* Aca editamos Fecha*/}
-        <input onChange={(e) => {setFecha(e.target.value)}} value={fecha}  
+        <input onChange={(e) => {setFecha(e.target.value)}} value={fecha} 
+        placeholder="Coloca la fecha de tu experiencia" 
         type="text" className="mt-1 form-control" />
           </div>
 
           {/* Botones Booleanos */}
-        <div className="d-flex text-center text-dark bg-light">
+        <div className="d-flex text-center justify-content-center text-dark bg-light">
             <input className="mt-1 form-check-input float-start" onClick={()=>{outdoor ? setOutdoor(false) : setOutdoor(true)}} type="checkbox" value=""/>
             <label className=" form-check-label float-start" htmlFor="flexCheckDefault">
             Outdoor
@@ -92,6 +95,7 @@ useEffect( () => {
         
         {/* Abajo viene para la descripcion */}
         <input onChange={(e) => {setDescription(e.target.value)}} value={description} 
+        placeholder="Cuentanos mas sobre tu experiencia!"
         className="form-control"  id="floatingTextarea"/>
         
         {/* Boton para postear, al postear hacemos useEffect */}
