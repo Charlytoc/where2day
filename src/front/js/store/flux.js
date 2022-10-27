@@ -146,7 +146,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       loadExperiencias: () => {
         fetch(process.env.BACKEND_URL + "/api/leerPost")
           .then((response) => response.json())
-          .then((data) => setStore({ feedExperiencias: data.results }));
+          .then((data) => setStore({ feedExperiencias: data.results.reverse() }));
         // setStore({charactersCard: data.results}))
       },
 

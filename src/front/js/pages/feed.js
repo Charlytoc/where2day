@@ -19,6 +19,20 @@ export const Feed = () => {
     const [prueba, setPrueba] = useState(false);
     // console.log(store.feedExperiencias)
 
+    
+    let newArr = [];
+    const reverseArray = (arr)=> {
+        // feedExperiencias
+        console.log(store.feedExperiencias);
+        
+        store.feedExperiencias.slice().reverse().forEach(x => newArr.push(x))
+        console.log(newArr)
+    }
+    // let newArr = [];
+    // store.feedExperiencias.slice().reverse().forEach(x => newArr.push(x));
+    // console.log(newArr) ;
+    
+
 
 
     return (
@@ -32,6 +46,7 @@ export const Feed = () => {
                 <CrearExp />
                         {/* <MostrarExp /> */}
                         <div className="navarra mt-2 text-center">Últimas experiencias</div>
+                        
                         {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
                             title={item.titulo}
                             fecha={item.fecha}
