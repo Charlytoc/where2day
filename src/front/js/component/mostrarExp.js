@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo-where2-alone.png";
 import logoPres from "../../img/Logo WHERE2DAY.png";

@@ -40,6 +40,7 @@ const postear = () => {
   setAnywhere(false)
   setOutdoor(false)
   setIndoor(false)
+  actions.loadExperiencias()
 
 }
 
@@ -64,6 +65,7 @@ useEffect( () => {
         <input onChange={(e) => {setFecha(e.target.value)}} value={fecha} placeholder="Fecha" type="text" className="mt-1 form-control" />
           </div>
 
+          {/* Botones Booleanos */}
         <div className="d-flex text-center text-dark bg-light">
             <input className="mt-1 form-check-input float-start" onClick={()=>{outdoor ? setOutdoor(false) : setOutdoor(true)}} type="checkbox" value=""/>
             <label className=" form-check-label float-start" htmlFor="flexCheckDefault">
@@ -80,8 +82,13 @@ useEffect( () => {
 
          </div>
         
+        {/* Abajo viene para la descripcion */}
         <textarea onChange={(e) => {setDescription(e.target.value)}} value={description} className="form-control" placeholder="Cuenta cómo fue la experiencia" id="floatingTextarea"></textarea>
+        
+        {/* Boton para postear, al postear hacemos useEffect */}
         <button onClick={postear} className=" btn-outline border-0 rounded btn-lg navarra animable2 boton3 me-2">Postear</button>
+
+        {/* Boton CIERRA el box de "postear" */}
         <button onClick={()=>{setDesplegar(false)}} className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3">Cerrar</button>
 
           </> : <button onClick={desplegarCaja} className=" btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3 mt-0">Crear post</button>

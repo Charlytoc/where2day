@@ -1,4 +1,4 @@
-import React, { useContext } from "react"; // #1 Traer context de react
+import React, { useContext, useEffect, useState } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 import "../../styles/home.css";
 // import rigoImageUrl from "../../img/Where2Day.png";
@@ -16,12 +16,15 @@ import { Footer } from "../component/footer";
 export const Feed = () => {
     const { store, actions } = useContext(Context); // #3 Consumirlo
 
+    const [prueba, setPrueba] = useState(false);
     // console.log(store.feedExperiencias)
+
+
 
     return (
         <>
             {/* BODY GENERAL */}
-            
+        
             <div className="d-flex container m-0">
                 <div className="filtros w-25"><Filtros /></div>
                 <div className="centro w-50 me-2 mt-2">

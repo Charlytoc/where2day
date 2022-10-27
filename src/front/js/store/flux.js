@@ -197,7 +197,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           },
         })
           .then((response) => response.json())
-          .then((data) => console.log(data));
+          .then((data) => {console.log(data), getActions().loadExperiencias()} 
+          );
       },
 
       postearEvento: (titulo, lugar, description, usuario_id, fecha, outdoor, indoor, anywhere) => {
