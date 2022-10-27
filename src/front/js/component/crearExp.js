@@ -40,7 +40,7 @@ const postear = () => {
   setAnywhere(false)
   setOutdoor(false)
   setIndoor(false)
-  actions.loadExperiencias()
+ 
 
 }
 
@@ -60,9 +60,17 @@ useEffect( () => {
           { desplegar ? <>
           <h2 className="text-center  font-weight-bold navarra rounded">Cuéntale al mundo tu experiencia</h2>
           <div className="bg-light">
-          <input onChange={(e) => {setTitulo(e.target.value)}} value={titulo} placeholder="Título de la experiencia" type="text" className="mt-1 form-control" />
-        <input onChange={(e) => {setLugar(e.target.value)}} value={lugar} placeholder="Lugar" type="text" className="mt-1 form-control" />
-        <input onChange={(e) => {setFecha(e.target.value)}} value={fecha} placeholder="Fecha" type="text" className="mt-1 form-control" />
+            {/* Aca editamos Titulo */}
+          <input onChange={(e) => {setTitulo(e.target.value)}} value={titulo}  
+          type="text" className="mt-1 form-control" />
+
+          {/* Aca editamos Lugar */}
+        <input onChange={(e) => {setLugar(e.target.value)}} value={lugar}  
+        type="text" className="mt-1 form-control" />
+
+        {/* Aca editamos Fecha*/}
+        <input onChange={(e) => {setFecha(e.target.value)}} value={fecha}  
+        type="text" className="mt-1 form-control" />
           </div>
 
           {/* Botones Booleanos */}
@@ -83,7 +91,8 @@ useEffect( () => {
          </div>
         
         {/* Abajo viene para la descripcion */}
-        <textarea onChange={(e) => {setDescription(e.target.value)}} value={description} className="form-control" placeholder="Cuenta cómo fue la experiencia" id="floatingTextarea"></textarea>
+        <input onChange={(e) => {setDescription(e.target.value)}} value={description} 
+        className="form-control"  id="floatingTextarea"/>
         
         {/* Boton para postear, al postear hacemos useEffect */}
         <button onClick={postear} className=" btn-outline border-0 rounded btn-lg navarra animable2 boton3 me-2">Postear</button>

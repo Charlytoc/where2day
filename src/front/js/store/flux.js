@@ -223,7 +223,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             .then ((data) => console.log(data))
          },
 
-         editExp: ( titulo, exp_id) => {
+         editExp: ( titulo, exp_id, lugar, description, fecha, outdoor,indoor,anywhere) => {
           const store = getStore();
   
           fetch(process.env.BACKEND_URL + "/api/updateExp", {
@@ -231,13 +231,13 @@ const getState = ({ getStore, getActions, setStore }) => {
             body: JSON.stringify({
               titulo: titulo,
               exp_id: exp_id,
-              // lugar: lugar,
-              // description: description,
-              // usuario_id: store.usuario_actual,
-              // fecha: fecha,
-              // outdoor: outdoor,
-              // indoor: indoor,
-              // anywhere: anywhere,
+              lugar: lugar,
+              description: description,
+              usuario_id: store.usuario_actual,
+              fecha: fecha,
+              outdoor: outdoor,
+              indoor: indoor,
+              anywhere: anywhere,
               // imagen: "some image link"
             }),
             headers: {
