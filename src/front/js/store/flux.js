@@ -176,15 +176,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ usuario_actual: data }));
       },
 
-      postear: (
-        titulo,
-        lugar,
-        description,
-        fecha,
-        outdoor,
-        indoor,
-        anywhere
-      ) => {
+      postear: ( titulo, lugar,description, fecha,outdoor,indoor,anywhere) => {
         const store = getStore();
 
         fetch(process.env.BACKEND_URL + "/api/postear", {
@@ -229,8 +221,35 @@ const getState = ({ getStore, getActions, setStore }) => {
             .then ((response) => response.json())
             .then ((data) => console.log(data))
          },
+
+         editExp: ( titulo, exp_id) => {
+          const store = getStore();
+  
+          fetch(process.env.BACKEND_URL + "/api/updateExp", {
+            method: "POST",
+            body: JSON.stringify({
+              titulo: titulo,
+              exp_id: exp_id,
+              // lugar: lugar,
+              // description: description,
+              // usuario_id: store.usuario_actual,
+              // fecha: fecha,
+              // outdoor: outdoor,
+              // indoor: indoor,
+              // anywhere: anywhere,
+              // imagen: "some image link"
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => console.log(data));
+        },
     },
   };
 };
+
+
 
 export default getState;

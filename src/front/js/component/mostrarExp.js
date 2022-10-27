@@ -20,6 +20,20 @@ export const MostrarExp = (props) => {
         // console.log(desplegar)
     }
 
+// Funcion para llamar al fetch del flux y postear con las variables anteriores
+const editExperiencia = () => {
+    setDesplegar(false)
+    actions.editExp(titulo, props.exp_id)
+    setTitulo('')
+    // setFecha('')
+    // setDescription('')
+    // setLugar('')
+    // setAnywhere(false)
+    // setOutdoor(false)
+    // setIndoor(false)
+  
+  }
+
     return (
         <>
             <div className=" card " >
@@ -44,7 +58,10 @@ export const MostrarExp = (props) => {
                 </div>
                 
                 <h4 className="text-dark text-center fs-6 p-5">✍🏻{props.description}</h4>
-                <button  className=" btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3 mt-0"> Edit Post</button>
+                <button  className=" btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3 mt-0"
+                 onClick={editExperiencia}>
+                     Edit Post
+                </button>
             </>
         :
              <>
