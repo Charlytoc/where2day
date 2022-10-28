@@ -31,7 +31,8 @@ export const MostrarExp = (props) => {
 // Funcion para llamar al fetch del flux y postear con las variables anteriores
 const editExperiencia = () => {
     setDesplegar(false)
-    actions.editExp(titulo, props.exp_id, lugar, fecha, description, indoor,outdoor,anywhere)  
+    actions.editExp(titulo, props.exp_id, lugar, fecha, description, indoor,outdoor,anywhere) 
+     console.table(store.feedExperiencias)
     
   } 
   
