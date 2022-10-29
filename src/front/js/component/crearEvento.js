@@ -57,7 +57,7 @@ export const CrearEvento = () => {
         <div className="container mt-2" style={{width: 300}}>
              {/* Este div me permite "Colorear el card" y luego el h4 le pongo ms-2 para que "se centre mejor el texto" */}
              
-                <h4 className="p-2 navarra rounded">
+                <h4 className="p-2 navarra rounded text-center">
                 Comparte tus eventos
                 </h4>
              
@@ -75,7 +75,7 @@ export const CrearEvento = () => {
              onChange={(e) => setFecha(e.target.value)} value={fecha}></input>
 
             {/* En este div van las Checkbox , centro los etiquetas que iran aca con las class del div*/}
-            <div className="input-group container text-center">
+            <div className="input-group  ">
 
                 {/* Este checkbox es un ternario on Click que cambia el booleano setIndoor */}
                 <input type="checkbox" className="mt-1 form-check-input" 
@@ -83,14 +83,14 @@ export const CrearEvento = () => {
                 <p className="ms-1">Indoor</p>
                 
                 {/* Este checkbox es un ternario on Click que cambia el booleano setOutdoor */}
-                <input type="checkbox" className="ms-2 form-check-input" 
+                <input type="checkbox" className="ms-1 form-check-input" 
                 onClick={()=> outdoor ? setOutdoor(false) : setOutdoor(true)} value=""></input>
                 <p className="ms-1 ">Outdoor</p>
 
                 {/* Este checkbox es un ternario on Click que cambia el booleano setAnywhere */}
-                <input type="checkbox" className="ms-2 form-check-input" 
+                <input type="checkbox" className="ms-1 form-check-input" 
                 onClick={()=> anywhere ? setAnywhere(false) : setAnywhere(true)} value=""></input>
-                <p className="ms-1">Anywhere</p>
+                <p className="">Anywhere</p>
             </div>
             
             {/* Aca va la descropcion  */}
@@ -98,8 +98,8 @@ export const CrearEvento = () => {
             onChange={(e) => setDescription(e.target.value)} value={description} id="floatingTextarea"></textarea>
 
             {/* Boton de publicar y boton de cierre a continuacion */}
-            <button className="btn-outline border-0 rounded btn-lg navarra animable2 boton3 me-2" onClick={postearEvento}> Publicar Evento</button>
-            <button className="btn-outline border-0 rounded btn-lg navarra animable2 boton3 me-2" onClick={desplegarCaja}> Cerrar </button>
+            <button className="btn-outline border-0 rounded btn-lg navarra animable2 boton3 me-2 justify-content-center" onClick={postearEvento}> Postear</button>
+            <button className="btn-outline border-0 rounded btn-lg navarra animable2 boton3 me-2 justify-content-center" onClick={desplegarCaja}> Cerrar </button>
          </div> 
         </> }
         

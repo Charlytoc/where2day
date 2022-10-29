@@ -40,6 +40,7 @@ const postear = () => {
   setAnywhere(false)
   setOutdoor(false)
   setIndoor(false)
+ 
 
 }
 
@@ -59,12 +60,24 @@ useEffect( () => {
           { desplegar ? <>
           <h2 className="text-center  font-weight-bold navarra rounded">Cuéntale al mundo tu experiencia</h2>
           <div className="bg-light">
-          <input onChange={(e) => {setTitulo(e.target.value)}} value={titulo} placeholder="Título de la experiencia" type="text" className="mt-1 form-control" />
-        <input onChange={(e) => {setLugar(e.target.value)}} value={lugar} placeholder="Lugar" type="text" className="mt-1 form-control" />
-        <input onChange={(e) => {setFecha(e.target.value)}} value={fecha} placeholder="Fecha" type="text" className="mt-1 form-control" />
+            {/* Aca editamos Titulo */}
+          <input onChange={(e) => {setTitulo(e.target.value)}} value={titulo} 
+          placeholder="Coloca el titulo de tu publicacion" 
+          type="text" className="mt-1 form-control" />
+
+          {/* Aca editamos Lugar */}
+        <input onChange={(e) => {setLugar(e.target.value)}} value={lugar}  
+        placeholder="Coloca la ubicacion de tu experiencia"
+        type="text" className="mt-1 form-control" />
+
+        {/* Aca editamos Fecha*/}
+        <input onChange={(e) => {setFecha(e.target.value)}} value={fecha} 
+        placeholder="Coloca la fecha de tu experiencia" 
+        type="text" className="mt-1 form-control" />
           </div>
 
-        <div className="d-flex text-center text-dark bg-light">
+          {/* Botones Booleanos */}
+        <div className="d-flex text-center justify-content-center text-dark bg-light">
             <input className="mt-1 form-check-input float-start" onClick={()=>{outdoor ? setOutdoor(false) : setOutdoor(true)}} type="checkbox" value=""/>
             <label className=" form-check-label float-start" htmlFor="flexCheckDefault">
             Outdoor
@@ -80,8 +93,15 @@ useEffect( () => {
 
          </div>
         
-        <textarea onChange={(e) => {setDescription(e.target.value)}} value={description} className="form-control" placeholder="Cuenta cómo fue la experiencia" id="floatingTextarea"></textarea>
+        {/* Abajo viene para la descripcion */}
+        <input onChange={(e) => {setDescription(e.target.value)}} value={description} 
+        placeholder="Cuentanos mas sobre tu experiencia!"
+        className="form-control"  id="floatingTextarea"/>
+        
+        {/* Boton para postear, al postear hacemos useEffect */}
         <button onClick={postear} className=" btn-outline border-0 rounded btn-lg navarra animable2 boton3 me-2">Postear</button>
+
+        {/* Boton CIERRA el box de "postear" */}
         <button onClick={()=>{setDesplegar(false)}} className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3">Cerrar</button>
 
           </> : <button onClick={desplegarCaja} className=" btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3 mt-0">Crear post</button>
