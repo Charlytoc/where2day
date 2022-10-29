@@ -1,4 +1,4 @@
-import React, { useContext } from "react"; // #1 Traer context de react
+import React, { useContext, useEffect, useState } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 import "../../styles/home.css";
 // import rigoImageUrl from "../../img/Where2Day.png";
@@ -16,19 +16,37 @@ import { Footer } from "../component/footer";
 export const Feed = () => {
     const { store, actions } = useContext(Context); // #3 Consumirlo
 
+    const [prueba, setPrueba] = useState(false);
     // console.log(store.feedExperiencias)
+
+
+    let newArr = [];
+    const reverseArray = (arr) => {
+        // feedExperiencias
+        console.log(store.feedExperiencias);
+
+        store.feedExperiencias.slice().reverse().forEach(x => newArr.push(x))
+        console.log(newArr)
+    }
+    // let newArr = [];
+    // store.feedExperiencias.slice().reverse().forEach(x => newArr.push(x));
+    // console.log(newArr) ;
+
+
+
 
     return (
         <>
             {/* BODY GENERAL */}
-            <Navbar />
-            <div className="d-flex container m-0">
-                <div className="filtros w-25"><Filtros /></div>
-                <div className="centro w-50 me-2 mt-2">
+
+            <div className="container m-0 row">
+                <div className="filtros  col-3"><Filtros /></div>
+                <div className=" mt-2 col-6">
 
                     <CrearExp />
                     {/* <MostrarExp /> */}
-                    <div className="navarra mt-2 text-center">Últimas experiencias</div>
+                    <div className="navarra mt-2 text-center ">Últimas experiencias</div>
+
                     {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
                         title={item.titulo}
                         fecha={item.fecha}
@@ -39,10 +57,13 @@ export const Feed = () => {
                         outdoor={item.outdoor}
                         indoor={item.indoor}
                         anywhere={item.anywhere}
-
-                    /></div>)}
+                    />
+                    </div>)}
                 </div>
-                <div className="derecho w-25 float-end"><CrearEvento />
+                <div className="mt-2 col-3">
+                    <CrearEvento />
+                    <div className="navarra mt-3 text-center ">Últimos eventos</div>
+
                     {store.mostrarEventos.map((item) =>
                         <div key={item.id} > < MostrarEventos
                             usuarioid={item.usuarioid}
@@ -52,7 +73,8 @@ export const Feed = () => {
                             description={item.description}
                         />
                         </div >)
-                    } </div>
+                    }
+                </div>
             </div>
 
             <Footer />

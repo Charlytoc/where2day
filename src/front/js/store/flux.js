@@ -52,13 +52,32 @@ const getState = ({ getStore, getActions, setStore }) => {
           // Si es un 401, entonces auth:false
           if (!response.status === 200) {
             // console.log(response)
-            alert("Wrong eMail or Password, please try again");
-            
+            Swal.fire({
+              icon: "error",
+              title: "Oops... Something went wrong!",
+              text: "Make sure you are using the correct eMail and/or Password",
+            });
           } else {
+            // esperamos el response y lo igualamos a "data"
             const data = await response.json();
-            // console.log(data.access_token)
-            localStorage.setItem("token", data.access_token);
-            getActions().autenticar();
+            console.log(data);
+
+            // si el mesanje es DISTINTO a "bad email or password"
+            // entonces el usuario esta AUTENTICADO y lo verificamos
+            if (data.msg !== "Bad email or password") {
+              localStorage.setItem("token", data.access_token);
+              getActions().autenticar();
+
+              // Sino, entonces quiere decir que hubo un correo/password
+              // erroneo, y se le notifica del mismo al usuario
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Oops... Something went wrong!",
+                text: "Make sure you are using the correct eMail and/or Password",
+              });
+            }
+
             // console.log("Aca quiero verificar si tenemos el TOKEN guardado ya o no " + localStorage.getItem("token"))
             // const store = getStore();
             // console.log(store.auth)
@@ -68,9 +87,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         } catch (error) {
           // Ahora... Si el TRY NO SIRVIO, entonces INMEDIATAMENTE HAREMOS UN CATCH
           // El catch NOS DIRA donde viene el error o porque el async/await no sirvio
-          if (error.msg === "Bad email and password") {
-            alert("Wrong eMail or Password, please try again");
-          }
+          // if (error.msg === "Bad email and password") {
+          // }
+          Swal.fire({
+            icon: "error",
+            title: "Oops... Something went wrong!",
+            text: "Make sure you are using the correct eMail and/or Password",
+          });
           setStore({ auth: false });
           console.log(error);
         }
@@ -78,14 +101,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       // EL ASYNC SIEMPRE DEBE IR ACOMPA:ADO DE UN AWAIT, es como un "if/else", son dependientes
       signup: async (email, password) => {
-        const store = getStore()
+        const store = getStore();
         // el try INTENTARA hacer lo que se encuentra entre "{}", SINO funciona, omite la logica que ahi se encuentra
         try {
           const response = await axios.post(
-            process.env.BACKEND_URL + "/api/signup",{
+            process.env.BACKEND_URL + "/api/signup",
+            {
               email: email,
               password: password,
-            });
+            }
+          );
           // Una vez que funciono el "try" y los datos se trajeron, entonces
           // Hacemos un if/else con el status recibido
 
@@ -93,29 +118,27 @@ const getState = ({ getStore, getActions, setStore }) => {
             // setStore({ redirectLogin: true });
             // Esto es SINONIMO de ALERT, pero mas "elegante"
             Swal.fire(
-              '¡Te has registrado exitosamente!',
-              'Se ha enviado un correo, por favor sigue los pasos',
-              'success'
-            )
-            setStore({redirectLogin: true})
-            // console.log(store.redirectLogin)
-          } 
+              "Te Has Registrado Exitosamente!",
+              "Se ha enviado un correo, por favor sigue los pasos!",
+              "success"
+            );
+          }
         } catch (error) {
           // Ahora... Si el TRY NO SIRVIO, entonces INMEDIATAMENTE HAREMOS UN CATCH
           // El catch NOS DIRA donde viene el error o porque el async/await no sirvio
           console.log("Error loading message from backend", error);
           Swal.fire(
             error.response.data,
-            'Por favor utiliza otro correo, o ve a login y usa el correo ya registado!',
-            'error'
-          )
+            "Por favor utiliza otro eMail/Password, o ve a login y usa el correo ya registrado.",
+            "error"
+          );
         }
       },
 
       logout: () => {
         setStore({ auth: false });
         const store = getStore();
-        localStorage.removeItem("token")
+        localStorage.removeItem("token");
         // console.log("Este es el status actual de auth al clickear en logout " + store.auth);
       },
 
@@ -123,7 +146,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       loadExperiencias: () => {
         fetch(process.env.BACKEND_URL + "/api/leerPost")
           .then((response) => response.json())
-          .then((data) => setStore({ feedExperiencias: data.results }));
+          .then((data) => setStore({ feedExperiencias: data.results.reverse() }));
         // setStore({charactersCard: data.results}))
       },
 
@@ -153,15 +176,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ usuario_actual: data }));
       },
 
-      postear: (
-        titulo,
-        lugar,
-        description,
-        fecha,
-        outdoor,
-        indoor,
-        anywhere
-      ) => {
+      postear: ( titulo, lugar,description, fecha,outdoor,indoor,anywhere) => {
         const store = getStore();
 
         fetch(process.env.BACKEND_URL + "/api/postear", {
@@ -182,7 +197,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           },
         })
           .then((response) => response.json())
-          .then((data) => console.log(data));
+          .then((data) => {console.log(data), getActions().loadExperiencias()} 
+          );
       },
 
       postearEvento: (titulo, lugar, description, usuario_id, fecha, outdoor, indoor, anywhere) => {
@@ -206,8 +222,35 @@ const getState = ({ getStore, getActions, setStore }) => {
             .then ((response) => response.json())
             .then ((data) => console.log(data))
          },
+
+         editExp: ( titulo, exp_id, lugar, description, fecha, outdoor,indoor,anywhere) => {
+          const store = getStore();
+  
+          fetch(process.env.BACKEND_URL + "/api/updateExp", {
+            method: "POST",
+            body: JSON.stringify({
+              titulo: titulo,
+              exp_id: exp_id,
+              lugar: lugar,
+              description: description,
+              usuario_id: store.usuario_actual,
+              fecha: fecha,
+              outdoor: outdoor,
+              indoor: indoor,
+              anywhere: anywhere,
+              // imagen: "some image link"
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {console.log(data), getActions().loadExperiencias()});
+        },
     },
   };
 };
+
+
 
 export default getState;
