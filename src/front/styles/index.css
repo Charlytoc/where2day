@@ -3,20 +3,16 @@
 */
 /* Include any default variable overrides here (though functions won't be available) */
 
-body {
-    
-}
-
-
+/* CHARLY */
 .navarra {
-    background: linear-gradient(135deg, rgba(222, 22, 22, 1), rgba(244, 43, 78, 0.7));
+    background: linear-gradient(135deg,
+            rgba(222, 22, 22, 1),
+            rgba(244, 43, 78, 0.7));
     color: white;
 }
 
 .pub-title {
-    
     font-weight: bolder;
-    
 }
 
 .centrar {
@@ -24,7 +20,6 @@ body {
 }
 
 #estilo {
-    font-family: 'Fuzzy Bubbles', cursive;
+    font-family: "Fuzzy Bubbles", cursive;
     color: white;
-
 }

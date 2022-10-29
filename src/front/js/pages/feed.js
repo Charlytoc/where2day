@@ -25,36 +25,36 @@ export const Feed = () => {
             <div className="d-flex container m-0">
                 <div className="filtros w-25"><Filtros /></div>
                 <div className="centro w-50 me-2 mt-2">
-                
-                <CrearExp />
-                        {/* <MostrarExp /> */}
-                        <div className="navarra mt-2 text-center">Últimas experiencias</div>
-                        {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
+
+                    <CrearExp />
+                    {/* <MostrarExp /> */}
+                    <div className="navarra mt-2 text-center">Últimas experiencias</div>
+                    {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
+                        title={item.titulo}
+                        fecha={item.fecha}
+                        description={item.descripcion}
+                        lugar={item.lugar}
+                        exp_id={item.id}
+                        expOwner={item.exp_owner}
+                        outdoor={item.outdoor}
+                        indoor={item.indoor}
+                        anywhere={item.anywhere}
+
+                    /></div>)}
+                </div>
+                <div className="derecho w-25 float-end"><CrearEvento />
+                    {store.mostrarEventos.map((item) =>
+                        <div key={item.id} > < MostrarEventos
+                            usuarioid={item.usuarioid}
                             title={item.titulo}
-                            fecha={item.fecha}
-                            description={item.descripcion}
                             lugar={item.lugar}
-                            exp_id={item.id}
-                            expOwner={item.exp_owner}
-                            outdoor={item.outdoor}
-                            indoor={item.indoor}
-                            anywhere={item.anywhere}
-                            
-                        /></div>)}
-                        </div>
-                        <div className="derecho w-25 float-end"><CrearEvento/>
-                        {store.mostrarEventos.map((item) =>
-                            <div key={item.id} > < MostrarEventos
-                                usuarioid={item.usuarioid}
-                                title={item.titulo}
-                                lugar={item.lugar}
-                                fecha={item.fecha}
-                                description={item.description}
-                            />
-                            </div >)
-                        } </div>  
-                        </div>
-                
+                            fecha={item.fecha}
+                            description={item.description}
+                        />
+                        </div >)
+                    } </div>
+            </div>
+
             <Footer />
         </>
     );
