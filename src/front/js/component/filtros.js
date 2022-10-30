@@ -9,9 +9,15 @@ import { Context } from "../store/appContext"; // #2 traer nuestro context
 export const Filtros = () => {
 
   const { store, actions } = useContext(Context); // #3 Consumirlo
+  
+  const filtrarExp = (filtro) => {
+    actions.filtrarExperiencias(filtro)
+  }
+
+
 
   return (
-   <>
+    <>
     <div className="card mt-2 me-2">
               {/* CARD FILTROS */}
               
@@ -20,11 +26,13 @@ export const Filtros = () => {
                 </div>
               
               <ul className="list-group list-group-flush">
-                <li className="list-group-item"> Tus experiencias </li>
-                <li className="list-group-item"> Cerca de ti </li>
-                <li className="list-group-item"> En cualquier lugar </li>
+                <li onClick={()=>{filtrarExp(store.usuario_actual)}} className="hand list-group-item">Tus experiencias </li>
+                <li onClick={()=>{actions.loadExperiencias()}} className=" hand list-group-item">Últimas</li>
+                <li onClick={()=>{filtrarExp('outdoor')}} className="hand list-group-item">Experiencias fuera de casa</li>
+                <li onClick={()=>{filtrarExp('indoor')}} className="hand list-group-item">Experiencias indoor</li>
+                <li onClick={()=>{filtrarExp('anywhere')}} className="hand list-group-item">Experiencias online</li>
               </ul>
-              <div className="card-footer bg-yellw2d">Actividades</div>
+              <div className="hand card-footer bg-yellw2d">Actividades</div>
             </div>
    </>
 

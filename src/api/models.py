@@ -93,7 +93,8 @@ class Eventos(db.Model):
             "lugar": self.lugar,
             "outdoor": self.outdoor,
             "indoor": self.indoor,
-            "anywhere": self.anywhere
+            "anywhere": self.anywhere,
+            "eventOwner": self.usuario_id
         }
 
 

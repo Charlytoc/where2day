@@ -73,7 +73,7 @@ useEffect( () => {
         {/* Aca editamos Fecha*/}
         <input onChange={(e) => {setFecha(e.target.value)}} value={fecha} 
         placeholder="Coloca la fecha de tu experiencia" 
-        type="text" className="mt-1 form-control" />
+        type="date" className="mt-1 form-control" />
           </div>
 
           {/* Botones Booleanos */}
