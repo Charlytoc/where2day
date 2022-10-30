@@ -46,17 +46,18 @@ export const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/userProfile">
-                <button
-                  className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3 ms-3">
-                  Profile
-                </button>
-              </Link>
               <button
                 className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3"
                 onClick={() => actions.logout()}>
                 Logout
               </button>
+
+              <Link to="/userProfile">
+                <button
+                  className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3  ms-3">
+                  🛠
+                </button>
+              </Link>
             </>
           )}
         </div>

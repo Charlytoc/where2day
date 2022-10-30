@@ -14,8 +14,8 @@ export const HeaderProfile = () => {
     return (
         <>
             <div className="card">
-                <div className="cover-body d-flex justify-content-between align-items-center px-5">
-                    <div>
+                <div className="cover-body d-flex justify-content-between align-items-center px-5 row ">
+                    <div className="col-3">
                         <img
                             className="profile-pic rounded-circle"
                             width={150}
@@ -24,14 +24,25 @@ export const HeaderProfile = () => {
                             alt="profile"
                         />
                         <div className="info-profile">
-                            <h3 className="profile-name text-black">Carlos Toc Toc</h3>
+                            <h3 className="profile-name text-black">props.username</h3>
                             <p>
 
-                                New York, USA
+                                props.lugar
                             </p>
                         </div>
+                       
                     </div>
-                    <div className="header-info ">
+                     {/* UN COL-4 ACA ARRIBA */}
+                     {/* UN COL ACA ABAJO*/}
+                     <div className="col-7 justify-content-center text-center">
+                        <h3> props.correo</h3>
+                        <h3> props.nombre</h3>
+                        <h3> props.apellido</h3>
+                        <h3> props.edad</h3>
+                        <h3> props.password</h3>
+                     </div>
+
+                    <div className="header-info col-2">
                         <button className="btn navarra fa-regular">
                             <FontAwesomeIcon icon={faPen} />
                             Edit profile

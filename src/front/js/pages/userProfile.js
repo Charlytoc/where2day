@@ -21,21 +21,18 @@ export const UserProfile = () => {
         <>
             {/* BODY GENERAL */}
 
-            <Navbar />
-
-
             <div className="container fluid">
                 <div className="row p-3 justify-content-center">
                     {/* PERIL HEADER */}
-                    <div className="col-md-11">
+                    <div className="col-11">
                         <HeaderProfile />
                     </div>
                     {/* PERIL INFO */}
                     <div className="row p-3 justify-content-center">
-                        <div className="col-md-4">
+                        <div className="col-4">
                             <InfoProfile />
                         </div>
-                        <div className="col-md-7">
+                        <div className="col-7">
                             <FeedProfile />
                         </div>
                     </div>
