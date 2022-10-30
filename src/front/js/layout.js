@@ -12,15 +12,16 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Login } from "./pages/login";
 import { Signup } from "./pages/signup.jsx";
-import { Single } from "./pages/single";
 import { ErrorPage } from "./pages/errorPage";
 import { Reset } from "./pages/resetPassword";
 
-import injectContext from "./store/appContext";
 import { Feed } from "./pages/feed.js";
-
+import { UserProfile } from "./pages/userProfile.js";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+
+import injectContext from "./store/appContext";
+// import { Single } from "./pages/single";
 
 //create your first component
 const Layout = () => {
@@ -34,35 +35,40 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          
-          <Navbar/>
+
+          <Navbar />
           <Routes>
-            <Route element={store.auth ? <Navigate to="/feed"/> : <Home />} path="/" />
+            <Route element={store.auth ? <Navigate to="/feed" /> : <Home />} path="/" />
             {/* <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" /> */}
             {/* <Route element={<Signup />} path="/signup" /> */}
-
-            <Route element={<Reset />} path="/reset" />
-            {/* Este es la ruta LOGIN condicional, si el usuario se regista exitosamente redirigira al feed */}
-            <Route
-              element={store.auth ? <Navigate to="/feed" /> : <Login />}
-              path="/login"
-            />
-            
-            <Route
-              element={!store.auth ? <Navigate to="/" /> : <Feed />}
-              path="/feed"
-            />
 
             <Route
               element={store.redirectLogin ? <Navigate to="/login" /> : <Signup />}
               path="/signup"
             />
-            
+
+
+            {/* Este es la ruta LOGIN condicional, si el usuario se regista exitosamente redirigira al feed */}
+            <Route
+              element={store.auth ? <Navigate to="/feed" /> : <Login />}
+              path="/login"
+            />
+
+            <Route
+              element={!store.auth ? <Navigate to="/" /> : <Feed />}
+              path="/feed"
+            />
+
+            <Route element={<UserProfile />} path="/userProfile" />
+
+            <Route element={<Reset />} path="/reset" />
+
             <Route element={<ErrorPage />} path="*" />
+
           </Routes>
 
-        
+
         </ScrollToTop>
       </BrowserRouter>
     </div>

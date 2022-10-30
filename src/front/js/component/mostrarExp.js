@@ -47,7 +47,7 @@ const editExperiencia = () => {
             {/* <button onClick={mostrar}> TE MUESTRO LOS BOOLEANOS</button> */}
             
             {/* Empieza el booleano desplegarEdit, depende si true o false */}
-            {/* Mostraremos entoncrs el INPUT para editar o SOLO el Post normal */}
+            {/* Mostraremos entonces el INPUT para editar o SOLO el Post normal */}
             {desplegar ? 
             <>
                 

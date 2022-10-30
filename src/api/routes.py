@@ -282,6 +282,48 @@ def update_exp ():
     return jsonify(response_body), 200
 
 
+@api.route("/updateEvento", methods=["POST"])
+def update_evento ():
+    titulo = request.json.get("titulo", None)
+    lugar = request.json.get("lugar", None)
+    fecha = request.json.get("fecha", None)
+    description =  request.json.get("description", None)
+    indoor = request.json.get("indoor", None)
+    outdoor = request.json.get("outdoor", None)
+    anywhere = request.json.get("anywhere", None)
+    event_id = request.json.get("event_id", None)
+
+    
+    event = Experiencias.query.get(event_id)
+
+    if event is None:
+      raise APIException('Evento no encontrado', status_code=404)
+
+    if titulo:
+     event.titulo = titulo
+
+    if lugar:
+        event.lugar = lugar
+    
+    if description:
+        event.description = description
+    if outdoor:
+        event.outdoor = outdoor
+    if fecha:
+        event.fecha = fecha
+    if indoor:
+        event.indoor = indoor
+    if anywhere:
+        event.anywhere = anywhere
+
+
+    db.session.commit()
+
+
+    response_body = "Has agregado los cambios a tu Evento"
+    return jsonify(response_body), 200
+
+
 
 @api.route("/getExp", methods=["GET"])
 def getExp_id ():

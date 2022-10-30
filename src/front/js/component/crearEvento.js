@@ -75,22 +75,28 @@ export const CrearEvento = () => {
              onChange={(e) => setFecha(e.target.value)} value={fecha}></input>
 
             {/* En este div van las Checkbox , centro los etiquetas que iran aca con las class del div*/}
-            <div className="input-group  ">
+            <div className="">
 
                 {/* Este checkbox es un ternario on Click que cambia el booleano setIndoor */}
-                <input type="checkbox" className="mt-1 form-check-input" 
+                <div className="input-group">
+                    <input type="checkbox" className="mt-1 form-check-input ms-1" 
                 onClick={()=> indoor ? setIndoor(false) : setIndoor(true)} value=""></input>
-                <p className="ms-1">Indoor</p>
+                    <p className="ms-1">Indoor</p>
+                </div>
                 
                 {/* Este checkbox es un ternario on Click que cambia el booleano setOutdoor */}
-                <input type="checkbox" className="ms-1 form-check-input" 
-                onClick={()=> outdoor ? setOutdoor(false) : setOutdoor(true)} value=""></input>
-                <p className="ms-1 ">Outdoor</p>
+                <div className="input-group">
+                    <input type="checkbox" className="ms-1 form-check-input" 
+                    onClick={()=> outdoor ? setOutdoor(false) : setOutdoor(true)} value=""></input>
+                    <p className="ms-1 ">Outdoor</p>
+                </div>
 
                 {/* Este checkbox es un ternario on Click que cambia el booleano setAnywhere */}
-                <input type="checkbox" className="ms-1 form-check-input" 
-                onClick={()=> anywhere ? setAnywhere(false) : setAnywhere(true)} value=""></input>
-                <p className="">Anywhere</p>
+                <div className="input-group">
+                    <input type="checkbox" className="ms-1 form-check-input" 
+                    onClick={()=> anywhere ? setAnywhere(false) : setAnywhere(true)} value=""></input>
+                    <p className="ms-1">Anywhere</p>
+                </div>
             </div>
             
             {/* Aca va la descropcion  */}

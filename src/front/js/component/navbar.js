@@ -12,24 +12,24 @@ export const Navbar = () => {
   return (
     <nav className="navbar bg-light navarra" style={{ height: 80 }}>
       <div className="container">
-        
+
         {/* Aca inicia ternario de REDIRIGIR a home/feed dependiente del auth STATUS */}
         {!store.auth ? (
-            <Link to="/">
+          <Link to="/">
             <span className="navarra fs-4 text-dark boton-navbar">
               <img src={logo} style={{ height: 60 }} />
             </span>
           </Link>
-        ):(
+        ) : (
           <Link to="/feed" style={{ textDecoration: 'none' }}>
             <span className="navarra fs-4 text-dark" id="estilo">
               <img src={logo} style={{ height: 60 }} />
-              
+
             </span>
           </Link>
         )
-      }
-        
+        }
+
 
 
         {/* Aca inicia ternario de login/logout dependiente del auth STATUS */}
@@ -45,12 +45,20 @@ export const Navbar = () => {
               </Link>
             </>
           ) : (
-            <button
-              className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3"
-              onClick={() => actions.logout()}
-            >
-              Logout
-            </button>
+            <>
+              <button
+                className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3"
+                onClick={() => actions.logout()}>
+                Logout
+              </button>
+
+              <Link to="/userProfile">
+                <button
+                  className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3  ms-3">
+                  🛠
+                </button>
+              </Link>
+            </>
           )}
         </div>
       </div>

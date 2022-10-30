@@ -19,64 +19,64 @@ export const Feed = () => {
     const [prueba, setPrueba] = useState(false);
     // console.log(store.feedExperiencias)
 
-    
+
     let newArr = [];
-    const reverseArray = (arr)=> {
+    const reverseArray = (arr) => {
         // feedExperiencias
         console.log(store.feedExperiencias);
-        
+
         store.feedExperiencias.slice().reverse().forEach(x => newArr.push(x))
         console.log(newArr)
     }
     // let newArr = [];
     // store.feedExperiencias.slice().reverse().forEach(x => newArr.push(x));
     // console.log(newArr) ;
-    
+
 
 
 
     return (
         <>
             {/* BODY GENERAL */}
-        
+
             <div className="container m-0 row">
                 <div className="filtros  col-3"><Filtros /></div>
                 <div className=" mt-2 col-6">
-                
+
                     <CrearExp />
-                        {/* <MostrarExp /> */}
+                    {/* <MostrarExp /> */}
                     <div className="navarra mt-2 text-center ">Últimas experiencias</div>
-                        
-                     {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
-                            title={item.titulo}
-                            fecha={item.fecha}
-                            description={item.descripcion}
-                            lugar={item.lugar}
-                            exp_id={item.id}
-                            expOwner={item.exp_owner}
-                            outdoor={item.outdoor}
-                            indoor={item.indoor}
-                            anywhere={item.anywhere}
-                            />
+
+                    {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
+                        title={item.titulo}
+                        fecha={item.fecha}
+                        description={item.descripcion}
+                        lugar={item.lugar}
+                        exp_id={item.id}
+                        expOwner={item.exp_owner}
+                        outdoor={item.outdoor}
+                        indoor={item.indoor}
+                        anywhere={item.anywhere}
+                    />
                     </div>)}
                 </div>
                 <div className="mt-2 col-3">
-                <CrearEvento/>
-                <div className="navarra mt-3 text-center ">Últimos eventos</div>
-                    
-                        {store.mostrarEventos.map((item) =>
-                            <div key={item.id} > < MostrarEventos
-                                usuarioid={item.usuarioid}
-                                title={item.titulo}
-                                lugar={item.lugar}
-                                fecha={item.fecha}
-                                description={item.description}
-                            />
-                            </div >)
-                            } 
-                </div>  
+                    <CrearEvento />
+                    <div className="navarra mt-3 text-center ">Últimos eventos</div>
+
+                    {store.mostrarEventos.map((item) =>
+                        <div key={item.id} > < MostrarEventos
+                            usuarioid={item.usuarioid}
+                            title={item.titulo}
+                            lugar={item.lugar}
+                            fecha={item.fecha}
+                            description={item.description}
+                        />
+                        </div >)
+                    }
+                </div>
             </div>
-                
+
             <Footer />
         </>
     );
