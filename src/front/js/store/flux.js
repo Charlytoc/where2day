@@ -247,6 +247,30 @@ const getState = ({ getStore, getActions, setStore }) => {
             .then((response) => response.json())
             .then((data) => {console.log(data), getActions().loadExperiencias()});
         },
+
+        // editUser: ( username, email, nombre, apellido, edad, password) => {
+        //   const store = getStore();
+  
+        //   fetch(process.env.BACKEND_URL + "/api/editUser", {
+        //     method: "POST",
+        //     body: JSON.stringify({
+        //       username: username,
+        //       email: email,
+        //       nombre: nombre,
+        //       apellido: apellido,
+        //       edad: edad,
+        //       password: password,
+        //       usuario_id: store.usuario_actual,
+              
+        //       // imagen: "some image link"
+        //     }),
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //     },
+        //   })
+        //     .then((response) => response.json())
+        //     .then((data) => {console.log(data), getActions().loadExperiencias()});
+        // },
     },
   };
 };

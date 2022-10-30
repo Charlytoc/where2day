@@ -48,10 +48,6 @@ export const HeaderProfile = () => {
                         {/*  Este input cambiara username*/}
                         <input onChange={(e) => {setUsername(e.target.value)}} value={username}
                             type="text" className="mt-1 form-control justify-content-center text-center" />
-
-                        {/*  Este input cambiara lugar*/}
-                        <input onChange={(e) => {setLugar(e.target.value)}} value={lugar}
-                            type="text" className="mt-1 form-control mb-1 justify-content-center text-center" />
                     </div>
                    
                 </div>
@@ -98,10 +94,6 @@ export const HeaderProfile = () => {
                         />
                         <div className="info-profile">
                             <h5 className="profile-name text-black">props.username</h5>
-                            <p>
-
-                                props.lugar
-                            </p>
                         </div>
                        
                     </div>
