@@ -25,7 +25,14 @@ export const UserProfile = () => {
                 <div className="row p-3 justify-content-center">
                     {/* PERIL HEADER */}
                     <div className="col-11">
-                        <HeaderProfile />
+                        <HeaderProfile                         
+                        username={item.username}
+                        correo={item.correo}
+                        nombre={item.nombre}
+                        apellido={item.apellido}
+                        edad={item.edad}
+                        password={item.password}
+                        />
                     </div>
                     {/* PERIL INFO */}
                     <div className="row p-3 justify-content-center">
