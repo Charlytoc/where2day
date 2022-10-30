@@ -138,10 +138,11 @@ def getUser_id ():
 
 
 
-@api.route('/filtrarExp', methods=['GET'])
+@api.route('/filtrarExp', methods=['POST'])
 def get_filtered_experiences ():
 
     variable = request.json.get("variable", None)
+    user = request.json.get("user", None)
 
     # print(variable)
 
@@ -151,6 +152,8 @@ def get_filtered_experiences ():
         exp_query = Experiencias.query.filter_by(indoor = True).all()
     elif variable == 'anywhere':
         exp_query = Experiencias.query.filter_by(anywhere = True).all()
+    elif user:
+        exp_query = Experiencias.query.filter_by(usuario_id = user).all()
     else: 
         response_body = {
             'msg': 'No valid filter'
@@ -325,16 +328,17 @@ def update_evento ():
 
 
 
-@api.route("/getExp", methods=["GET"])
-def getExp_id ():
+@api.route("/deleteExp", methods=["POST"])
+def delete_exp ():
 
-    titulo = request.json.get("titulo", None)
-    usuario_id = request.json.get("usuario_id", None)
+    exp_id = request.json.get('exp_id', None)
+
+    
+    exp = Experiencias.query.get(exp_id)
+
+    db.session.delete(exp)
+    db.session.commit()
 
 
-    exp = Experiencias.query.filter_by(titulo = titulo, usuario_id= usuario_id).first()
-
-    print(exp)
-
-    return jsonify(exp.id), 200
-
+    response_body = "Has eliminado la experiencia"
+    return jsonify(response_body), 200
