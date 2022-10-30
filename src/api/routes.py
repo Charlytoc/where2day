@@ -342,3 +342,19 @@ def delete_exp ():
 
     response_body = "Has eliminado la experiencia"
     return jsonify(response_body), 200
+
+
+@api.route("/deleteEvent", methods=["POST"])
+def delete_event ():
+
+    event_id = request.json.get('event_id', None)
+
+    
+    event = Eventos.query.get(event_id)
+
+    db.session.delete(event)
+    db.session.commit()
+
+
+    response_body = "Has eliminado el evento"
+    return jsonify(response_body), 200
