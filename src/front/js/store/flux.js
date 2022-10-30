@@ -115,7 +115,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           // Hacemos un if/else con el status recibido
 
           if (response.status === 200) {
-            // setStore({ redirectLogin: true });
+            setStore({ redirectLogin: true });
             // Esto es SINONIMO de ALERT, pero mas "elegante"
             Swal.fire(
               "Te Has Registrado Exitosamente!",
@@ -247,6 +247,30 @@ const getState = ({ getStore, getActions, setStore }) => {
             .then((response) => response.json())
             .then((data) => {console.log(data), getActions().loadExperiencias()});
         },
+
+        
+        filtrarExperiencias: async (variable) => {
+          try {
+
+           if (!isNaN(variable)) {
+             const resp = await axios.post(process.env.BACKEND_URL + "/api/filtrarExp", {
+               user: variable
+             })
+             setStore({feedExperiencias: resp.data.results})
+             console.log("chato ñay")
+           }
+           else {
+             const resp = await axios.post(process.env.BACKEND_URL + "/api/filtrarExp", {
+               variable: variable
+             })
+             setStore({feedExperiencias: resp.data.results})
+             console.log("chato")
+           }
+           
+          }
+          catch (error) {console.log(error)}
+        },
+
 
         // editUser: ( username, email, nombre, apellido, edad, password) => {
         //   const store = getStore();
