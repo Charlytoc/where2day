@@ -10,6 +10,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       feedExperiencias: [],
       usuario_actual: 0,
       redirectLogin: false,
+      profile: {},
     },
     actions: {
       getMessage: async () => {
@@ -272,29 +273,50 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
 
 
-        // editUser: ( username, email, nombre, apellido, edad, password) => {
-        //   const store = getStore();
+        // editUser: ( email, password, username, nombre, apellido, edad) => {
+          editUser: (email, password, username, nombre, apellido, edad, pais) => {
+          const store = getStore();
   
-        //   fetch(process.env.BACKEND_URL + "/api/editUser", {
-        //     method: "POST",
-        //     body: JSON.stringify({
-        //       username: username,
-        //       email: email,
-        //       nombre: nombre,
-        //       apellido: apellido,
-        //       edad: edad,
-        //       password: password,
-        //       usuario_id: store.usuario_actual,
+          fetch(process.env.BACKEND_URL + "/api/updateUser", {
+            method: "POST",
+            body: JSON.stringify({
+              email: email,
+              password: password,
+              username: username,
+              nombre: nombre,
+              apellido: apellido,
+              edad: edad,
+              pais: pais,
+              usuario_id: store.usuario_actual,
               
-        //       // imagen: "some image link"
-        //     }),
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //     },
-        //   })
-        //     .then((response) => response.json())
-        //     .then((data) => {console.log(data), getActions().loadExperiencias()});
-        // },
+              // imagen: "some image link"
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {console.log(data), getActions().getUserProfile()});
+            // .then((data) => console.log(data));
+        },
+
+        getUserProfile: async () => {
+          try{ 
+            const store = getStore();
+            const url = (process.env.BACKEND_URL + "/api/getProfile")
+            
+            // const formData = new FormData()
+            // formData.append("usuario_id", store.usuario_actual)
+            const response = await axios.post(url, {usuario_id: store.usuario_actual})  
+            setStore({profile: response.data.results})
+            console.log(store.profile)
+            }
+
+            catch(error){
+            console.log(error)
+          }
+
+        },
     },
   };
 };

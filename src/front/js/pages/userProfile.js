@@ -23,18 +23,11 @@ export const UserProfile = () => {
 
             <div className="container fluid">
                 <div className="row p-3 justify-content-center">
-                    {/* PERIL HEADER */}
+                    {/* PERFIL HEADER */}
                     <div className="col-11">
-                        <HeaderProfile                         
-                        username={item.username}
-                        correo={item.correo}
-                        nombre={item.nombre}
-                        apellido={item.apellido}
-                        edad={item.edad}
-                        password={item.password}
-                        />
+                        <HeaderProfile username={store.profile.username} />
                     </div>
-                    {/* PERIL INFO */}
+                    {/* PERFIL INFO */}
                     <div className="row p-3 justify-content-center">
                         <div className="col-4">
                             <InfoProfile />
