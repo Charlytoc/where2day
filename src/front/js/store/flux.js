@@ -27,11 +27,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Error loading message from backend", error);
         }
       },
-      
+
       // Aca autenticaremos al usuario si localStorage.getItem ("token") NO esta vacio, quiere decir
       // que YA tenemos un JWT, por lo tanto el usuario esta verificado, y podemos autenticarle
-      autenticar: () =>{
-        localStorage.getItem("token") ? setStore({auth: true}) : setStore({auth: false})
+      autenticar: () => {
+        localStorage.getItem("token") ? setStore({ auth: true }) : setStore({ auth: false })
       },
       // EL ASYNC SIEMPRE DEBE IR ACOMPA:ADO DE UN AWAIT, es como un "if/else", son dependientes
       login: async (email, password) => {
@@ -177,7 +177,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ usuario_actual: data }));
       },
 
-      postear: ( titulo, lugar,description, fecha,outdoor,indoor,anywhere) => {
+      postear: (titulo, lugar, description, fecha, outdoor, indoor, anywhere) => {
         const store = getStore();
 
         fetch(process.env.BACKEND_URL + "/api/postear", {
@@ -198,125 +198,149 @@ const getState = ({ getStore, getActions, setStore }) => {
           },
         })
           .then((response) => response.json())
-          .then((data) => {console.log(data), getActions().loadExperiencias()} 
+          .then((data) => { console.log(data), getActions().loadExperiencias() }
           );
       },
 
       postearEvento: (titulo, lugar, description, usuario_id, fecha, outdoor, indoor, anywhere) => {
-        const store = getStore()	
-        fetch   (process.env.BACKEND_URL + "/api/postearEvento", 	{
+        const store = getStore()
+        fetch(process.env.BACKEND_URL + "/api/postearEvento", {
           method: "POST",
-          body: JSON.stringify(	{
-            titulo		: titulo,
-            lugar	        : lugar,
-            description	: description,
-            usuario_id 	: store.usuario_actual,
-            fecha	  	: fecha,
-            outdoor		: outdoor,
-            indoor		: indoor,
-            anywhere	: anywhere,
-                             }),	
-          headers:{
+          body: JSON.stringify({
+            titulo: titulo,
+            lugar: lugar,
+            description: description,
+            usuario_id: store.usuario_actual,
+            fecha: fecha,
+            outdoor: outdoor,
+            indoor: indoor,
+            anywhere: anywhere,
+          }),
+          headers: {
             'Content-Type': 'application/json'
-                   }					
-                                                                    })
-            .then ((response) => response.json())
-            .then ((data) => console.log(data))
-         },
-
-         editExp: ( titulo, exp_id, lugar, description, fecha, outdoor,indoor,anywhere) => {
-          const store = getStore();
-  
-          fetch(process.env.BACKEND_URL + "/api/updateExp", {
-            method: "POST",
-            body: JSON.stringify({
-              titulo: titulo,
-              exp_id: exp_id,
-              lugar: lugar,
-              description: description,
-              usuario_id: store.usuario_actual,
-              fecha: fecha,
-              outdoor: outdoor,
-              indoor: indoor,
-              anywhere: anywhere,
-              // imagen: "some image link"
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
-            .then((response) => response.json())
-            .then((data) => {console.log(data), getActions().loadExperiencias()});
-        },
-
-        
-        filtrarExperiencias: async (variable) => {
-          try {
-
-           if (!isNaN(variable)) {
-             const resp = await axios.post(process.env.BACKEND_URL + "/api/filtrarExp", {
-               user: variable
-             })
-             setStore({feedExperiencias: resp.data.results})
-             console.log("chato ñay")
-           }
-           else {
-             const resp = await axios.post(process.env.BACKEND_URL + "/api/filtrarExp", {
-               variable: variable
-             })
-             setStore({feedExperiencias: resp.data.results})
-             console.log("chato")
-           }
-           
           }
-          catch (error) {console.log(error)}
-        },
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+      },
 
+      editExp: (titulo, exp_id, lugar, description, fecha, outdoor, indoor, anywhere) => {
+        const store = getStore();
 
-        // editUser: ( email, password, username, nombre, apellido, edad) => {
-          editUser: (email, password, username, nombre, apellido, edad, pais) => {
-          const store = getStore();
-  
-          fetch(process.env.BACKEND_URL + "/api/updateUser", {
-            method: "POST",
-            body: JSON.stringify({
-              email: email,
-              password: password,
-              username: username,
-              nombre: nombre,
-              apellido: apellido,
-              edad: edad,
-              pais: pais,
-              usuario_id: store.usuario_actual,
-              
-              // imagen: "some image link"
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
-            .then((response) => response.json())
-            .then((data) => {console.log(data), getActions().getUserProfile()});
-            // .then((data) => console.log(data));
-        },
+        fetch(process.env.BACKEND_URL + "/api/updateExp", {
+          method: "POST",
+          body: JSON.stringify({
+            titulo: titulo,
+            exp_id: exp_id,
+            lugar: lugar,
+            description: description,
+            usuario_id: store.usuario_actual,
+            fecha: fecha,
+            outdoor: outdoor,
+            indoor: indoor,
+            anywhere: anywhere,
+            // imagen: "some image link"
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => { console.log(data), getActions().loadExperiencias() });
+      },
 
-        getUserProfile: async () => {
-          try{ 
-            const store = getStore();
-            const url = (process.env.BACKEND_URL + "/api/getProfile")
-            
-            // const formData = new FormData()
-            // formData.append("usuario_id", store.usuario_actual)
-            const response = await axios.post(url, {usuario_id: store.usuario_actual})  
-            setStore({profile: response.data.results})
-            console.log(store.profile)
-            }
+      editEvento: (titulo, exp_id, lugar, description, fecha, outdoor, indoor, anywhere) => {
+        const store = getStore();
 
-            catch(error){
-            console.log(error)
+        fetch(process.env.BACKEND_URL + "/api/updateEvento", {
+          method: "POST",
+          body: JSON.stringify({
+            titulo: titulo,
+            exp_id: exp_id,
+            lugar: lugar,
+            description: description,
+            usuario_id: store.usuario_actual,
+            fecha: fecha,
+            outdoor: outdoor,
+            indoor: indoor,
+            anywhere: anywhere,
+            // imagen: "some image link"
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => { console.log(data), getActions().loadEventos() });
+      },
+
+      filtrarExperiencias: async (variable) => {
+        try {
+
+          if (!isNaN(variable)) {
+            const resp = await axios.post(process.env.BACKEND_URL + "/api/filtrarExp", {
+              user: variable
+            })
+            setStore({ feedExperiencias: resp.data.results })
+            console.log("chato ñay")
+          }
+          else {
+            const resp = await axios.post(process.env.BACKEND_URL + "/api/filtrarExp", {
+              variable: variable
+            })
+            setStore({ feedExperiencias: resp.data.results })
+            console.log("chato")
           }
 
-        },
+        }
+        catch (error) { console.log(error) }
+      },
+
+
+      // editUser: ( email, password, username, nombre, apellido, edad) => {
+      editUser: (email, password, username, nombre, apellido, edad, pais) => {
+        const store = getStore();
+
+        fetch(process.env.BACKEND_URL + "/api/updateUser", {
+          method: "POST",
+          body: JSON.stringify({
+            email: email,
+            password: password,
+            username: username,
+            nombre: nombre,
+            apellido: apellido,
+            edad: edad,
+            pais: pais,
+            usuario_id: store.usuario_actual,
+
+            // imagen: "some image link"
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => { console.log(data), getActions().getUserProfile() });
+        // .then((data) => console.log(data));
+      },
+
+      getUserProfile: async () => {
+        try {
+          const store = getStore();
+          const url = (process.env.BACKEND_URL + "/api/getProfile")
+
+          // const formData = new FormData()
+          // formData.append("usuario_id", store.usuario_actual)
+          const response = await axios.post(url, { usuario_id: store.usuario_actual })
+          setStore({ profile: response.data.results })
+          console.log(store.profile)
+        }
+
+        catch (error) {
+          console.log(error)
+        }
+
+      },
     },
   };
 };
