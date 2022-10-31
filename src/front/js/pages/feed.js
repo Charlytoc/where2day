@@ -42,7 +42,6 @@ export const Feed = () => {
             <div className="container m-0 row">
                 <div className="filtros  col-3"><Filtros /></div>
                 <div className=" mt-2 col-6">
-
                     <CrearExp />
                     {/* <MostrarExp /> */}
                     <div className="navarra mt-2 text-center ">Últimas experiencias</div>

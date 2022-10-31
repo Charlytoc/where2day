@@ -28,19 +28,6 @@ export const CrearExp = () => {
 
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   const { store, actions } = useContext(Context); // #3 Consumirlo
 
   // Les explico poco a poco lo que haré:

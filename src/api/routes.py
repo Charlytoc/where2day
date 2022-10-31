@@ -213,6 +213,7 @@ def update_user ():
     apellido = request.json.get("apellido", None)
     edad = request.json.get("edad", None)
     usuario_id = request.json.get("usuario_id", None)
+    pais = request.json.get("pais", None)
 
     
     user1 = Usuario.query.get(usuario_id)
@@ -234,6 +235,9 @@ def update_user ():
         user1.apellido = apellido
     if edad:
         user1.edad = edad
+
+    if pais:
+        user1.pais = pais
 
 
     db.session.commit()

@@ -60,7 +60,10 @@ const Layout = () => {
               path="/feed"
             />
 
-            <Route element={<UserProfile />} path="/userProfile" />
+<Route
+              element={!store.auth ? <Navigate to="/" /> : <UserProfile />}
+              path="/userProfile"
+            />
 
             <Route element={<Reset />} path="/reset" />
 
