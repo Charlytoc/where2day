@@ -13,6 +13,7 @@ class Usuario(db.Model):
     apellido = db.Column(db.String(120), unique=False, nullable=True)
     edad = db.Column(db.Integer, unique=False, nullable=True)
     pais = db.Column(db.String(120), unique=False, nullable=True)
+    imagen = db.Column(db.String(120), unique=False, nullable=True)
     
     experiencias = db.relationship('Experiencias', backref='usuario', lazy=True)
     invitado = db.relationship('Invitados', backref='usuario', lazy=True)
@@ -29,7 +30,8 @@ class Usuario(db.Model):
             "nombre": self.nombre,
             "apellido": self.apellido,
             "edad": self.edad,
-            "pais": self.pais
+            "pais": self.pais,
+            "imagen": self.imagen
         }
 
 

@@ -56,6 +56,7 @@ export const Feed = () => {
                         outdoor={item.outdoor}
                         indoor={item.indoor}
                         anywhere={item.anywhere}
+                        imageUrl={item.image_url}
                     />
                     </div>)}
                 </div>
