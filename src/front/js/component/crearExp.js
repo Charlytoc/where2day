@@ -10,23 +10,15 @@ import { Context } from "../store/appContext"; // #2 traer nuestro context
 export const CrearExp = () => {
 
   
-  const url = "https://api.cloudinary.com/v1_1/charlycloud/image/upload";
-  const form = new FormData ()
+const uploadImage = async (e) => {
+  const files = e.target.files
+  const data = new FormData()
+  data.append("file", files[0])
+  data.append("upload_preset", "pruebas")
 
-    // form.append("file", file);
-    // form.append("upload_preset", "docs_upload_example_us_preset");
-
-  const submitiar = ( ) => {
-    
-    axios.post(url, { form })
-      .then((response) => {
-        return response.text();
-      })
-      .then((data) => {
-        document.getElementById("data").innerHTML += data;
-      });
-
-  }
+  const res = axios.post("https://api.cloudinary.com/v1_1/dlmcf8yed/image/upload", data)
+  res.then((data) => setImage(data.data.secure_url))
+}
 
   const { store, actions } = useContext(Context); // #3 Consumirlo
 
@@ -51,7 +43,7 @@ export const CrearExp = () => {
 // Funcion para llamar al fetch del flux y postear con las variables anteriores
 const postear = () => {
   setDesplegar(false)
-  actions.postear(titulo, lugar, description, fecha, outdoor, indoor, anywhere)
+  actions.postear(titulo, lugar, description, fecha, outdoor, indoor, anywhere, image)
   setTitulo('')
   setFecha('')
   setDescription('')
@@ -94,7 +86,8 @@ useEffect( () => {
         placeholder="Coloca la fecha de tu experiencia" 
         type="date" className="mt-1 form-control" />
         
-        <input type="file" onChange={(e)=>{setImage(e.target.files[0])}}/>
+        <input className="mt-1 form-control" type="file" onChange={(e)=>{uploadImage(e)}}/>
+        <img src={image} className="w-100" />
           </div>
 
           {/* Botones Booleanos */}
