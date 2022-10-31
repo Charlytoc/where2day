@@ -73,31 +73,31 @@ export const Signup = () => {
   }
   const timeline = gsap.timeline()
 
-  // const animation = () => {
+  const animation = () => {
 
-  //   let animables = document.querySelectorAll(".animable")
-  //   let animables2 = document.querySelectorAll(".animable2")
-  //   let animables3 = document.querySelectorAll(".animable3")
-  //   timeline.from(animables, {
-  //     y: -50,
-  //     duration: 1,
-  //     opacity: 0,
-  //     stagger: -0.2,
-  //   }).from(animables2, {
-  //     x: 50,
-  //     duration: 1,
-  //     opacity: 0,
-  //     stagger: 0.2
-  //   }, "-=0.9").from(animables3, {
-  //     x: -50,
-  //     duration: 1,
-  //     opacity: 0
-  //   }, "-=0.9")
-  // }
+    let animables = document.querySelectorAll(".animable")
+    let animables2 = document.querySelectorAll(".animable2")
+    let animables3 = document.querySelectorAll(".animable3")
+    timeline.from(animables, {
+      y: -50,
+      duration: 1,
+      opacity: 0,
+      stagger: -0.2,
+    }).from(animables2, {
+      x: 50,
+      duration: 1,
+      opacity: 0,
+      stagger: 0.2
+    }, "-=0.9").from(animables3, {
+      x: -50,
+      duration: 1,
+      opacity: 0
+    }, "-=0.9")
+  }
 
-  // useEffect(() => {
-  //   animation()
-  // }, [])
+  useEffect(() => {
+    animation()
+  }, [])
 
   return (
     <div className="text-center w-50 container">

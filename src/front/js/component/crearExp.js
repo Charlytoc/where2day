@@ -2,11 +2,44 @@ import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
 import logoPres from "../../img/Logo WHERE2DAY.png";
+import axios from 'axios';
 
 import { useContext } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 
 export const CrearExp = () => {
+
+  
+  const url = "https://api.cloudinary.com/v1_1/charlycloud/image/upload";
+  const form = new FormData ()
+
+    // form.append("file", file);
+    // form.append("upload_preset", "docs_upload_example_us_preset");
+
+  const submitiar = ( ) => {
+    
+    axios.post(url, { form })
+      .then((response) => {
+        return response.text();
+      })
+      .then((data) => {
+        document.getElementById("data").innerHTML += data;
+      });
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   const { store, actions } = useContext(Context); // #3 Consumirlo
 
@@ -21,8 +54,7 @@ export const CrearExp = () => {
   const [outdoor, setOutdoor] = useState(false)
   const [indoor, setIndoor] = useState(false)
   const [anywhere, setAnywhere] = useState(false)
-
-
+  const [image, setImage] = useState('')
   // Función para desplegar la caja de añadir experiencia
   const desplegarCaja = () => {
     // setDesplegar(true)
@@ -74,6 +106,8 @@ useEffect( () => {
         <input onChange={(e) => {setFecha(e.target.value)}} value={fecha} 
         placeholder="Coloca la fecha de tu experiencia" 
         type="date" className="mt-1 form-control" />
+        
+        <input type="file" onChange={(e)=>{setImage(e.target.files[0])}}/>
           </div>
 
           {/* Botones Booleanos */}
