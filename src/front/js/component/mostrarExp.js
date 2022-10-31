@@ -35,7 +35,7 @@ const editExperiencia = () => {
      console.table(store.feedExperiencias)
     
   } 
-  
+  console.log(props.imageUrl)
   const mostrar = ()=>{
     console.log(indoor)
     console.log(outdoor)
@@ -58,7 +58,7 @@ const editExperiencia = () => {
                     && 
                     <button className="btn" onClick={desplegarEdit}> 🖊</button> }
                 </div>
-                <div className="text-center"><img src={logo} className="w-75"></img></div>
+                <div className="text-center"><img src={props.imageUrl} className="w-75"></img></div>
                 <div className=" container text-center">   
                 {/* Input de Lugar */}
                     <input onChange={(e) => {setLugar(e.target.value)}} value={lugar}
@@ -115,7 +115,7 @@ const editExperiencia = () => {
                     && 
                     <button className="btn" onClick={desplegarEdit}> 🖊</button> }
                 </div>
-                <div className="text-center"><img src={logo} className="w-75"></img></div>
+                <div className="text-center"><img src={props.imageUrl} className="w-75"></img></div>
                 <div className=" container text-center">   
                     <h4 className="text-dark text-center d-inline-block" title="Lugar">🔍 {props.lugar}</h4>
                     <h4 className="text-dark text-center d-inline-block" title="Fecha">🗓️ {props.fecha}</h4>

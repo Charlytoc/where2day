@@ -176,7 +176,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ usuario_actual: data }));
       },
 
-      postear: ( titulo, lugar,description, fecha,outdoor,indoor,anywhere) => {
+      postear: ( titulo, lugar,description, fecha,outdoor,indoor,anywhere, image) => {
         const store = getStore();
 
         fetch(process.env.BACKEND_URL + "/api/postear", {
@@ -190,7 +190,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             outdoor: outdoor,
             indoor: indoor,
             anywhere: anywhere,
-            imagen: "some image link"
+            imagen: image
           }),
           headers: {
             "Content-Type": "application/json",
