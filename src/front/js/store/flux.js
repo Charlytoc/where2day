@@ -274,15 +274,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
         // editUser: ( email, password, username, nombre, apellido, edad) => {
-          editUser: (username, email, password, nombre, apellido, edad, pais) => {
+          editUser: (email, password, username, nombre, apellido, edad, pais) => {
           const store = getStore();
   
           fetch(process.env.BACKEND_URL + "/api/updateUser", {
             method: "POST",
             body: JSON.stringify({
-              username: username,
               email: email,
               password: password,
+              username: username,
               nombre: nombre,
               apellido: apellido,
               edad: edad,

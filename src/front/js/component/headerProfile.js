@@ -15,6 +15,13 @@ export const HeaderProfile = () => {
     const [nombre, setNombre] = useState("")
     const [apellido, setApellido] = useState("")
     const [edad, setEdad] = useState("")
+
+    // const [username, setUsername] = useState(props.username)
+    // const [pais, setPais] = useState(props.pais)
+    // const [email, setEmail] = useState(props.email)
+    // const [nombre, setNombre] = useState(props.nombre)
+    // const [apellido, setApellido] = useState(props.apellido)
+    // const [edad, setEdad] = useState(props.edad)
     const [password, setPassword] = useState("")
     
 
@@ -61,10 +68,10 @@ export const HeaderProfile = () => {
                     <div className="info-profile">
                         
                         {/*  Este input cambiara username*/}
-                        <input onChange={(e) => {setUsername(e.target.value)}} value={username} placeholder="Ingresa Tu Username"
+                        <input onChange={(e) => {setUsername(e.target.value)}} value={username} placeholder={store.profile.username}
                             type="text" className="mt-1 form-control justify-content-center text-center" />
                         {/*  Este input cambiara Pais*/}
-                        <input onChange={(e) => {setPais(e.target.value)}} value={pais} placeholder="Ingresa Tu Pais"
+                        <input onChange={(e) => {setPais(e.target.value)}} value={pais} placeholder={store.profile.pais}
                             type="text" className="mt-1 form-control justify-content-center text-center mb-2" />
                     </div>
                    
@@ -74,8 +81,11 @@ export const HeaderProfile = () => {
                  <div className="col-7 justify-content-center text-center">
                     
                     {/*  Este input cambiara email*/}
-                    <input onChange={(e) => {setEmail(e.target.value)}} value={email} placeholder="Ingresa Tu Nuevo Correo"
+                    { email === null ? <input onChange={(e) => {setEmail(e.target.value)}} value={email} 
                             type="text" className="mt-1 form-control justify-content-center text-center" />
+                    :
+                    <input onChange={(e) => {setEmail(e.target.value)}} value={email}
+                            type="text" className="mt-1 form-control justify-content-center text-center" />}
                             
                             
 
