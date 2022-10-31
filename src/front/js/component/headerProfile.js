@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from '@fortawesome/free-solid-svg-icons'
-
+import axios from "axios";
 
 import { useContext } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
@@ -15,31 +15,35 @@ export const HeaderProfile = () => {
     const [nombre, setNombre] = useState("")
     const [apellido, setApellido] = useState("")
     const [edad, setEdad] = useState("")
-
-    // const [username, setUsername] = useState(props.username)
-    // const [pais, setPais] = useState(props.pais)
-    // const [email, setEmail] = useState(props.email)
-    // const [nombre, setNombre] = useState(props.nombre)
-    // const [apellido, setApellido] = useState(props.apellido)
-    // const [edad, setEdad] = useState(props.edad)
+    const [Image, setImage] = useState("")
     const [password, setPassword] = useState("")
     
-
-
-
     const [desplegar, setDesplegar] = useState(false) // Este es el booleano que nos permitira pasar de EDIT a NO EDIT
 
     const editProfile = () => {
         desplegar ? setDesplegar(false) : setDesplegar(true);
-        // console.log(desplegar)
-        // console.log(store.usuario_actual)
-        
     }
 
-    const submitChanges = () => {
-        setDesplegar(false)
-        // actions.editUser(username)
-        actions.editUser(email, password, username, nombre, apellido, edad, pais)
+    const submitChanges = async () => {
+        
+        // actions.editUser(email, password, username, nombre, apellido, edad, pais)
+        try {
+            setDesplegar(false)
+            const url = process.env.BACKEND_URL + "/api/updateUser"
+            const resp = await axios.post(url, {
+                username: username,
+                usuario_id: store.usuario_actual,
+                pais: pais,
+                email: email,
+                password: password,
+                edad: edad,
+                nombre: nombre,
+                apellido: apellido
+            })
+            console.log(resp.data)
+        }
+        catch (error) {console.log(error)}
+
     }
 
     useEffect(() => {
@@ -48,6 +52,14 @@ export const HeaderProfile = () => {
 
        
       }, []);
+
+      console.log(`Email: ${email} 
+      Password: ${password} 
+      Username: ${username} 
+      Edad ${edad}
+      Pais ${pais}
+      Nombre: ${nombre}
+      Apellido: ${apellido}`)
 
     return (
         <>
@@ -66,44 +78,23 @@ export const HeaderProfile = () => {
                         alt="profile"
                     />
                     <div className="info-profile">
-                        
-                        {/*  Este input cambiara username*/}
-                        <input onChange={(e) => {setUsername(e.target.value)}} value={username} placeholder={store.profile.username}
+                        <input onChange={(e) => {setUsername(e.target.value)}} placeholder="Username" value={username}
                             type="text" className="mt-1 form-control justify-content-center text-center" />
-                        {/*  Este input cambiara Pais*/}
-                        <input onChange={(e) => {setPais(e.target.value)}} value={pais} placeholder={store.profile.pais}
+                        <input onChange={(e) => {setPais(e.target.value)}} value={pais} placeholder="País"
                             type="text" className="mt-1 form-control justify-content-center text-center mb-2" />
                     </div>
                    
                 </div>
-                 {/* UN COL-4 ACA ARRIBA */}
-                 {/* UN COL ACA ABAJO*/}
                  <div className="col-7 justify-content-center text-center">
                     
-                    {/*  Este input cambiara email*/}
-                    { email === null ? <input onChange={(e) => {setEmail(e.target.value)}} value={email} 
-                            type="text" className="mt-1 form-control justify-content-center text-center" />
-                    :
-                    <input onChange={(e) => {setEmail(e.target.value)}} value={email}
-                            type="text" className="mt-1 form-control justify-content-center text-center" />}
-                            
-                            
-
-                    {/*  Este input cambiara nombre*/}
                    <input onChange={(e) => {setNombre(e.target.value)}} value={nombre} placeholder="Ingresa Tu Nombre"
                             type="text" className="mt-1 form-control justify-content-center text-center" />
-    
-                    
-                    {/*  Este input cambiara apellido*/}
                     <input onChange={(e) => {setApellido(e.target.value)}} value={apellido} placeholder="Ingresa Tu Apellido"
                             type="text" className="mt-1 form-control justify-content-center text-center" />
-                    
-                    {/*  Este input cambiara edad*/}
-                    <input onChange={(e) => {setEdad(e.target.value)}} value={edad} placeholder="Ingresa Tu Edad"
+                    <input onChange={(e) => {setEdad(e.target.value)}} value={edad} placeholder="Ingresa tu edad"
                             type="text" className="mt-1 form-control justify-content-center text-center" />
-
-                    
-                    {/*  Este input cambiara Password*/}
+                    <input onChange={(e) => {setEmail(e.target.value)}} value={email}
+                            type="text" className="mt-1 form-control justify-content-center text-center" />
                     <input onChange={(e) => {setPassword(e.target.value)}} value={password} placeholder="Introduce Tu Contraseña Aqui"
                             type="password" className="mt-1 form-control justify-content-center text-center" />
                  </div>
@@ -144,7 +135,7 @@ export const HeaderProfile = () => {
                      {store.profile.correo === null ? <p><b>Confirma Tu eMail</b></p> : <h3> {store.profile.email}</h3> }
                      {store.profile.nombre === null ? <p><b>Confirma Tu Nombre</b></p> :   <h3> {store.profile.nombre}</h3> }
                      {store.profile.apellido === null ? <p><b>Confirma Tu Apellido</b></p> :   <h3> {store.profile.apellido}</h3> }
-                     {store.profile.edad === null ? <p><b>Confirma Tu Edad</b></p> :   <h3> {store.profile.edad}</h3> }
+                     {/* {store.profile.edad === null ? <p><b>Confirma Tu Edad</b></p> :   <h3> {store.profile.edad}</h3> } */}
                      <h5> Change Your Password: ***** </h5> 
                      </div>
 
