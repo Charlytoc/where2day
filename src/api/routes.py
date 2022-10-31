@@ -358,3 +358,22 @@ def delete_event ():
 
     response_body = "Has eliminado el evento"
     return jsonify(response_body), 200
+
+
+
+
+@api.route('/getProfile', methods=['POST'])
+def get_profile():
+
+    usuario_id = request.json.get("usuario_id", None)
+
+    user = Usuario.query.get(usuario_id)
+
+    print(user.serialize())
+
+
+    response_body = {
+        "msg": "OK",
+        "results": user.serialize()
+    }
+    return jsonify(response_body), 200

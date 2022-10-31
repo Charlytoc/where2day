@@ -27,3 +27,8 @@
 .hand {
     cursor: pointer;
 }
+
+.hand:hover {
+    background-color: rgb(236, 74, 74)
+}
+

@@ -12,6 +12,7 @@ class Usuario(db.Model):
     nombre = db.Column(db.String(120), unique=False, nullable=True)
     apellido = db.Column(db.String(120), unique=False, nullable=True)
     edad = db.Column(db.Integer, unique=False, nullable=True)
+    pais = db.Column(db.String(120), unique=False, nullable=True)
     
     experiencias = db.relationship('Experiencias', backref='usuario', lazy=True)
     invitado = db.relationship('Invitados', backref='usuario', lazy=True)
@@ -24,11 +25,11 @@ class Usuario(db.Model):
         return {
             "id": self.id,
             "email": self.email,
-            # do not serialize the password, its a security breach
             "username": self.username,
             "nombre": self.nombre,
             "apellido": self.apellido,
-            "edad": self.edad
+            "edad": self.edad,
+            "pais": self.pais
         }
 
 
