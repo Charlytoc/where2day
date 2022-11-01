@@ -44,7 +44,7 @@ export const Feed = () => {
                 <div className=" mt-2 col-6">
                     <CrearExp />
                     {/* <MostrarExp /> */}
-                    <div className="navarra mt-2 text-center ">Últimas experiencias</div>
+                    <div className="mt-2 text-center ">Últimas experiencias</div>
 
                     {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
                         title={item.titulo}
@@ -62,7 +62,7 @@ export const Feed = () => {
                 </div>
                 <div className="mt-2 col-3">
                     <CrearEvento />
-                    <div className="navarra mt-3 text-center ">Últimos eventos</div>
+                    <div className="mt-3 text-center ">Últimos eventos</div>
 
                     {store.mostrarEventos.map((item) =>
                         <div key={item.id} > < MostrarEventos

@@ -67,7 +67,6 @@ export const Home = () => {
                   </div>
                 </div>
               </div>
-              {/* BUTTON */}
             </div>
           </div>
         </div>
