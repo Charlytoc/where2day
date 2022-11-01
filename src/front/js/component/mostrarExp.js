@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo-where2-alone.png";
 import logoPres from "../../img/Logo WHERE2DAY.png";
+const Swal = require("sweetalert2")
 
 import { useContext } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
@@ -20,6 +21,7 @@ export const MostrarExp = (props) => {
     const [indoor, setIndoor] = useState(props.indoor)
     const [outdoor, setOutdoor] = useState(props.outdoor)
     const [anywhere, setAnywhere] = useState(props.anywhere)
+    const [image, setImage] = useState(props.image_url)
 
 
     const [desplegar, setDesplegar] = useState(false)
@@ -28,21 +30,30 @@ export const MostrarExp = (props) => {
         // console.log(desplegar)
     }
 
+    // const alertEliminar = () => {
+    //     console.log("TODO BIEN")
+    //     Swal.fire({
+    //         showConfirmButton: true,
+    //         confirmButtonText: "Sí",
+    //         showDenyButton: true,
+    //         denyButtonText:"No",
+    //         confirmButtonColor: "#ec4a4a"
+    //       })
+    // }
+
 // Funcion para llamar al fetch del flux y postear con las variables anteriores
 const editExperiencia = () => {
     setDesplegar(false)
-    actions.editExp(titulo, props.exp_id, lugar, fecha, description, indoor,outdoor,anywhere) 
-     console.table(store.feedExperiencias)
+    
+    actions.editExp(titulo, props.exp_id, lugar, description, fecha, outdoor,indoor,anywhere, image)
     
   } 
   
-  const mostrar = ()=>{
-    console.log(indoor)
-    console.log(outdoor)
-    console.log(anywhere)
-  }
+
     return (
         <>
+        
+        
             <div className=" card " >
             {/* <button onClick={mostrar}> TE MUESTRO LOS BOOLEANOS</button> */}
             
@@ -113,17 +124,31 @@ const editExperiencia = () => {
                     <h3 >{props.title}</h3>
                     {props.expOwner === store.usuario_actual 
                     && 
-                    <button className="btn" onClick={desplegarEdit}> 🖊</button> }
+                    //  }
+                    <><button className="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    ⚙️
+  </button>
+  <div className="collapse" id="collapseExample">
+  
+  <button className="btn" onClick={desplegarEdit}> 🖊 </button>
+  <button className="btn" onClick={()=>actions.delete(props.exp_id, "exp")}>Eliminar post</button>
+  
+</div></>
+}
                 </div>
-                <div className="text-center"><img src={props.image_url} className="w-75"></img></div>
+                <div className="text-center"><img src={props.image_url} className="img-fluid"></img></div>
                 <div className=" container text-center">   
                     <h4 className="text-dark text-center d-inline-block" title="Lugar">🔍 {props.lugar}</h4>
                     <h4 className="text-dark text-center d-inline-block" title="Fecha">🗓️ {props.fecha}</h4>
                     { outdoor ? <h4 className="text-dark text-center d-inline-block" title="Outdoor">🏃🏻</h4> : null}
                     { indoor ? <h4 className="text-dark text-center d-inline-block" title="Indoor">🏠</h4> : null}
                     { anywhere ? <h4 className="text-dark text-center d-inline-block" title="Anywhere">🌐</h4> : null}
+                {/*  */}
                 </div>
+                {props.expOwner === store.usuario_actual ? <>
                 
+                
+                </> : null}
                 <h4 className="text-dark text-center fs-6 p-5">✍🏻{props.description}</h4>
             </>
                 

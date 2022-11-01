@@ -17,15 +17,21 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
 
+from flask_mail import Mail
+
+
+
 
 
 
 
 #from models import Person
 
+
 ENV = os.getenv("FLASK_ENV")
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)
+
 app.url_map.strict_slashes = False
 
 # database condiguration
@@ -42,6 +48,18 @@ db.init_app(app)
 # Allow CORS requests to this API
 CORS(app)
 
+app.config['MAIL_SERVER']='smtp.mailtrap.io'
+app.config['MAIL_PORT'] = 2525
+app.config['MAIL_USERNAME'] = '08627f82e2b8ab'
+app.config['MAIL_PASSWORD'] = '61f06728c6b337'
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_DEFAULT_SENDER'] = '08627f82e2b8ab'
+
+
+mail = Mail(app)
+app.mail = mail
+
 # add the admin
 setup_admin(app)
 
@@ -55,6 +73,7 @@ app.register_blueprint(api, url_prefix='/api')
 # Aquí estoy añadiendo la configuración de JWT-Flask
 app.config["JWT_SECRET_KEY"] = "secreto-de-where2day"  # Change this!
 jwt = JWTManager(app)
+
 
 
 

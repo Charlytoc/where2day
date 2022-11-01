@@ -32,3 +32,6 @@
     background-color: rgb(236, 74, 74)
 }
 
+html {
+    min-height: 100%;
+}

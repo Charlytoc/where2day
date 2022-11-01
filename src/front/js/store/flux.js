@@ -10,7 +10,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       feedExperiencias: [],
       usuario_actual: 0,
       redirectLogin: false,
-      profile: {},
+      post: {
+      },
+      profile: {}
     },
     actions: {
       getMessage: async () => {
@@ -26,6 +28,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         } catch (error) {
           console.log("Error loading message from backend", error);
         }
+      },
+
+      actualizarPost: (post) => {
+        setStore({post: post})
+
       },
       
       // Aca autenticaremos al usuario si localStorage.getItem ("token") NO esta vacio, quiere decir
@@ -136,6 +143,21 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
+      delete: async (id, exp_or_event) => {
+        try {
+          const url = process.env.BACKEND_URL + "/api/delete"
+          const resp = await axios.post(url, {
+            id: id,
+            exp_or_event: exp_or_event
+          })
+          console.log(resp.data)
+
+          getActions().loadExperiencias()
+
+        }
+        catch (error) {console.log(error)}
+      },
+
       logout: () => {
         setStore({ auth: false });
         const store = getStore();
@@ -224,7 +246,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             .then ((data) => console.log(data))
          },
 
-         editExp: ( titulo, exp_id, lugar, description, fecha, outdoor,indoor,anywhere) => {
+         editExp: ( titulo, exp_id, lugar, description, fecha, outdoor,indoor,anywhere, image) => {
           const store = getStore();
   
           fetch(process.env.BACKEND_URL + "/api/updateExp", {
@@ -239,6 +261,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               outdoor: outdoor,
               indoor: indoor,
               anywhere: anywhere,
+              image_url: image
               // imagen: "some image link"
             }),
             headers: {

@@ -1,7 +1,7 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
-from flask import Flask, request, jsonify, url_for, Blueprint
+from flask import Flask, request, jsonify, url_for, Blueprint, current_app
 from api.models import db, Usuario, Experiencias, Eventos
 from api.utils import generate_sitemap, APIException
 
@@ -9,6 +9,8 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
+import random, string
+from flask_mail import Message
 
 
 api = Blueprint('api', __name__)
@@ -214,6 +216,7 @@ def update_user ():
     edad = request.json.get("edad", None)
     usuario_id = request.json.get("usuario_id", None)
     pais = request.json.get("pais", None)
+    image_url = request.json.get("image_url", None)
 
     
     user1 = Usuario.query.get(usuario_id)
@@ -226,6 +229,8 @@ def update_user ():
 
     if email:
         user1.email = email
+    if image_url:
+        user1.image_url = image_url
     
     if password:
         user1.password = password
@@ -257,6 +262,7 @@ def update_exp ():
     outdoor = request.json.get("outdoor", None)
     anywhere = request.json.get("anywhere", None)
     exp_id = request.json.get("exp_id", None)
+    image_url = request.json.get("image_url", None)
 
     
     exp = Experiencias.query.get(exp_id)
@@ -266,6 +272,8 @@ def update_exp ():
 
     if titulo:
      exp.titulo = titulo
+    if image_url:
+     exp.image_url = image_url
 
     if lugar:
         exp.lugar = lugar
@@ -332,19 +340,23 @@ def update_evento ():
 
 
 
-@api.route("/deleteExp", methods=["POST"])
+@api.route("/delete", methods=["POST"])
 def delete_exp ():
 
-    exp_id = request.json.get('exp_id', None)
-
+    id = request.json.get('id', None)
+    exp_or_event = request.json.get('exp_or_event', None)
     
-    exp = Experiencias.query.get(exp_id)
-
-    db.session.delete(exp)
-    db.session.commit()
-
-
-    response_body = "Has eliminado la experiencia"
+    if exp_or_event == 'event':
+        event = Eventos.query.get(id)
+        db.session.delete(event)
+        db.session.commit()
+        response_body = "¡Has eliminado el evento, yeeha!"
+    elif exp_or_event == 'exp':
+        exp = Experiencias.query.get(id)
+        db.session.delete(exp)
+        db.session.commit()
+        response_body = "¡Has eliminado la experiencia, yeeha!"
+    
     return jsonify(response_body), 200
 
 
@@ -381,3 +393,26 @@ def get_profile():
         "results": user.serialize()
     }
     return jsonify(response_body), 200
+
+
+@api.route("/forgotpassword", methods=["POST"])
+def forgotpassword():
+    recover_email = request.json['email']
+    recover_password = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(8)) #clave aleatoria nueva
+    if not recover_email:
+        return jsonify({"msg": "Debe ingresar el correo"}), 401
+	#busco si el correo existe en mi base de datos
+    user = Usuario.query.filter_by(email=recover_email).first()
+    if recover_email != user.email:
+        return jsonify({"msg": "El correo ingresado no existe en nuestros registros"}), 400
+    #si existe guardo la nueva contraseña aleatoria
+	
+	#luego se la envio al usuario por correo para que pueda ingresar
+    msg = Message("Hi", recipients=[recover_email])
+    msg.html = f"""<h1>Su nueva contraseña es: {recover_password}</h1>"""
+
+    user.password = recover_password
+    db.session.commit()
+    
+    current_app.mail.send(msg)
+    return jsonify({"msg": "Su nueva clave ha sido enviada al correo electrónico ingresado"}), 200
