@@ -50,13 +50,13 @@ export const Navbar = () => {
             <>
               <Link to="/userProfile">
                 <button
-                  className="mt-2 btn btn-light border-0 rounded btn-lg animable2 mb-3 ms-3 boton3 ">
+                  className="btn btn-light btn-lg mt-2">
                   <FontAwesomeIcon icon={faUser} />
                 </button>
               </Link>
 
               <button
-                className="mt-2 btn btn-light border-0 rounded btn-lg animable2 mb-3 ms-3 boton3"
+                className="btn btn-light btn-md ms-3 mt-2"
                 onClick={() => actions.logout()}>
                 Logout
               </button>

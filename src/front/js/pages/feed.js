@@ -39,41 +39,43 @@ export const Feed = () => {
         <>
             {/* BODY GENERAL */}
 
-            <div className="container m-0 row">
-                <div className="filtros  col-3"><Filtros /></div>
-                <div className=" mt-2 col-6">
-                    <CrearExp />
-                    {/* <MostrarExp /> */}
-                    <div className="mt-2 text-center ">Últimas experiencias</div>
+            <div className="container">
+                <div className="row">
+                    <div className="filtros col-3 mt-5"><Filtros /></div>
+                    <div className="mt-3 col-5">
+                        <CrearExp />
+                        {/* <MostrarExp /> */}
+                        <div className="mt-2 text-center">Últimas experiencias</div>
 
-                    {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
-                        title={item.titulo}
-                        fecha={item.fecha}
-                        description={item.descripcion}
-                        lugar={item.lugar}
-                        exp_id={item.id}
-                        expOwner={item.exp_owner}
-                        outdoor={item.outdoor}
-                        indoor={item.indoor}
-                        anywhere={item.anywhere}
-                        image_url={item.image_url}
-                    />
-                    </div>)}
-                </div>
-                <div className="mt-2 col-3">
-                    <CrearEvento />
-                    <div className="mt-3 text-center ">Últimos eventos</div>
-
-                    {store.mostrarEventos.map((item) =>
-                        <div key={item.id} > < MostrarEventos
-                            usuarioid={item.usuarioid}
+                        {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
                             title={item.titulo}
-                            lugar={item.lugar}
                             fecha={item.fecha}
-                            description={item.description}
+                            description={item.descripcion}
+                            lugar={item.lugar}
+                            exp_id={item.id}
+                            expOwner={item.exp_owner}
+                            outdoor={item.outdoor}
+                            indoor={item.indoor}
+                            anywhere={item.anywhere}
+                            image_url={item.image_url}
                         />
-                        </div >)
-                    }
+                        </div>)}
+                    </div>
+                    <div className="mt-4 col-4">
+                        <CrearEvento />
+                        <div className="mt-3 text-center ">Últimos eventos</div>
+
+                        {store.mostrarEventos.map((item) =>
+                            <div key={item.id} > < MostrarEventos
+                                usuarioid={item.usuarioid}
+                                title={item.titulo}
+                                lugar={item.lugar}
+                                fecha={item.fecha}
+                                description={item.description}
+                            />
+                            </div >)
+                        }
+                    </div>
                 </div>
             </div>
 
