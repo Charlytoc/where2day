@@ -63,7 +63,7 @@ export const Feed = () => {
                     </div>
                     <div className="mt-4 col-4">
                         <CrearEvento />
-                        <div className="mt-3 text-center ">Últimos eventos</div>
+                        <div className="mt-5 text-center ">Últimos eventos</div>
 
                         {store.mostrarEventos.map((item) =>
                             <div key={item.id} > < MostrarEventos

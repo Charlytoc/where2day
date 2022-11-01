@@ -9,6 +9,7 @@ import { HeaderProfile } from "../component/headerProfile";
 import { InfoProfile } from "../component/infoProfile";
 import { FeedProfile } from "../component/feedProfile";
 import { Navbar } from "../component/navbar";
+import { Footer } from "../component/footer";
 // import { Filtros } from "../component/filtros";
 // import { CrearExp } from "../component/crearExp";
 // import { MostrarExp } from "../component/mostrarExp";
@@ -38,6 +39,7 @@ export const UserProfile = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 };

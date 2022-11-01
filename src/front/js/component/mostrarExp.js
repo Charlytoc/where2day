@@ -5,7 +5,14 @@ import logoPres from "../../img/Logo WHERE2DAY.png";
 const Swal = require("sweetalert2")
 
 import { useContext } from "react"; // #1 Traer context de react
-import { Context } from "../store/appContext"; // #2 traer nuestro context
+import { Context } from "../store/appContext"; // #2 traer nuestro context}
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocation } from '@fortawesome/free-solid-svg-icons'
+import { faCalendar } from '@fortawesome/free-solid-svg-icons'
+import { faPersonHiking } from '@fortawesome/free-solid-svg-icons'
+import { faHouseUser } from '@fortawesome/free-solid-svg-icons'
+import { faLaptopCode } from '@fortawesome/free-solid-svg-icons'
+
 
 export const MostrarExp = (props) => {
 
@@ -54,14 +61,13 @@ export const MostrarExp = (props) => {
         <>
 
 
-            <div className="card" >
+            <div className=" card ">
                 {/* <button onClick={mostrar}> TE MUESTRO LOS BOOLEANOS</button> */}
 
                 {/* Empieza el booleano desplegarEdit, depende si true o false */}
                 {/* Mostraremos entonces el INPUT para editar o SOLO el Post normal */}
                 {desplegar ?
                     <>
-
                         <div className="card-header d-flex justify-content-between">
                             <input onChange={(e) => { setTitulo(e.target.value) }} value={titulo}
                                 type="text" className="mt-1 form-control" />
@@ -70,7 +76,7 @@ export const MostrarExp = (props) => {
                                 <button className="btn" onClick={desplegarEdit}> 🖊</button>}
                         </div>
                         <div className="text-center"><img src={props.image_url} className="w-75"></img></div>
-                        <div className=" container text-center">
+                        <div className="container text-center">
                             {/* Input de Lugar */}
                             <input onChange={(e) => { setLugar(e.target.value) }} value={lugar}
                                 type="text" className="mt-1 form-control" />
@@ -102,16 +108,14 @@ export const MostrarExp = (props) => {
                                 <label className="form-check-label float-end" htmlFor="flexCheckDefault">
                                     Anywhere
                                 </label>
-
                             </div>
+
 
 
                             {/*Input Description  */}
                             <input onChange={(e) => { setDescription(e.target.value) }}
                                 value={description} type="text" className="mt-1 form-control" />
                         </div>
-
-
 
                         <button className=" btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3 mt-0"
                             onClick={editExperiencia}>
@@ -120,46 +124,57 @@ export const MostrarExp = (props) => {
                     </>
                     :
                     <>
-                        <div className="card-header d-flex justify-content-between">
-                            <h3 >{props.title}</h3>
-                            {props.expOwner === store.usuario_actual
-                                &&
-                                //  }
-                                <><button className="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                    ⚙️
-                                </button>
-                                    <div className="collapse" id="collapseExample">
+                        <div className="card">
+                            <div className="card-header bg-yellw2d"></div>
+                            <div className="header-profile d-flex">
+                                <div className="header-left">
+                                    <img
+                                        className="profile-pic-post rounded-circle"
+                                        width={55}
+                                        height={55}
+                                        src="https://images.pexels.com/photos/343717/pexels-photo-343717.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                        alt="profile" />
+                                    <div>
+                                        <h5 >{props.title}</h5>
+                                        <p className="text-dark text-center d-inline-block" title="Lugar">
+                                            <FontAwesomeIcon icon={faLocation} /> {props.lugar} </p>
+                                    </div>
+                                </div>
+                                <div className="header-right">
+                                    <div className="edit-icon">
+                                        {props.expOwner === store.usuario_actual
+                                            &&
+                                            <>
+                                                <button className="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                                    ⚙️
+                                                </button>
+                                                <div className="collapse" id="collapseExample">
 
-                                        <button className="btn" onClick={desplegarEdit}> 🖊 </button>
-                                        <button className="btn" onClick={() => actions.delete(props.exp_id, "exp")}>Eliminar post</button>
+                                                    <button className="btn" onClick={desplegarEdit}> 🖊 </button>
+                                                    <button className="btn" onClick={() => actions.delete(props.exp_id, "exp")}>Eliminar post</button>
 
-                                    </div></>
-                            }
+                                                </div>
+                                            </>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="text-center"><img src={props.image_url} className="img-fluid"></img></div>
+                            <div className="descripcion-post">
+                                <h4 className="text-dark text-center d-inline-block" title="Fecha"><FontAwesomeIcon icon={faCalendar} /> {props.fecha} </h4>
+                                {outdoor ? <h4 className="text-dark text-center d-inline-block" title="Outdoor"><FontAwesomeIcon icon={faPersonHiking} /> Outdoor</h4> : null}
+                                {indoor ? <h4 className="text-dark text-center d-inline-block" title="Indoor"><FontAwesomeIcon icon={faHouseUser} />Indoor</h4> : null}
+                                {anywhere ? <h4 className="text-dark text-center d-inline-block" title="On-line"> <FontAwesomeIcon icon={faLaptopCode} />On-line</h4> : null}
+                                {/*  */}
+                            </div>
+                            {props.expOwner === store.usuario_actual ? <>
+
+                            </> : null}
+                            <p className="text-dark text-center fs-6 p-5">{props.description}</p>
                         </div>
-                        <div className="text-center"><img src={props.image_url} className="img-fluid"></img></div>
-                        <div className=" container text-center">
-                            <h4 className="text-dark text-center d-inline-block" title="Lugar">🔍 {props.lugar}</h4>
-                            <h4 className="text-dark text-center d-inline-block" title="Fecha">🗓️ {props.fecha}</h4>
-                            {outdoor ? <h4 className="text-dark text-center d-inline-block" title="Outdoor">🏃🏻</h4> : null}
-                            {indoor ? <h4 className="text-dark text-center d-inline-block" title="Indoor">🏠</h4> : null}
-                            {anywhere ? <h4 className="text-dark text-center d-inline-block" title="Anywhere">🌐</h4> : null}
-                            {/*  */}
-                        </div>
-                        {props.expOwner === store.usuario_actual ? <>
-
-
-                        </> : null}
-                        <h4 className="text-dark text-center fs-6 p-5">✍🏻{props.description}</h4>
                     </>
-
                 }
-
-
             </div>
-
         </>
-
-
-
     )
 }
