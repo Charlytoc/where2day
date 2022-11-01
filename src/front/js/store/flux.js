@@ -11,6 +11,18 @@ const getState = ({ getStore, getActions, setStore }) => {
       usuario_actual: 0,
       redirectLogin: false,
       profile: {},
+      post: {
+        titulo : "",
+        fecha: "",
+        description: "",
+        lugar : "",
+        post_id : "",
+        expOwner : "",
+        outdoor  : "",
+        indoor   : "",
+        anywhere : "",
+        image_url : ""
+      },
     },
     actions: {
       getMessage: async () => {
@@ -303,18 +315,21 @@ const getState = ({ getStore, getActions, setStore }) => {
         getUserProfile: async () => {
           try{ 
             const store = getStore();
-            const url = (process.env.BACKEND_URL + "/api/getProfile")
+            const url = process.env.BACKEND_URL + "/api/getProfile"
             
             // const formData = new FormData()
             // formData.append("usuario_id", store.usuario_actual)
             const response = await axios.post(url, {usuario_id: store.usuario_actual})  
             setStore({profile: response.data.results})
             console.log(store.profile)
+        
             }
 
             catch(error){
             console.log(error)
           }
+
+        
 
         },
     },

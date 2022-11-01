@@ -214,6 +214,7 @@ def update_user ():
     edad = request.json.get("edad", None)
     usuario_id = request.json.get("usuario_id", None)
     pais = request.json.get("pais", None)
+    image_url = request.json.get("image_url", None)
 
     
     user1 = Usuario.query.get(usuario_id)
@@ -238,6 +239,9 @@ def update_user ():
 
     if pais:
         user1.pais = pais
+
+    if image_url:
+        user1.image_url = image_url
 
 
     db.session.commit()

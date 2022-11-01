@@ -18,7 +18,7 @@ export const FeedProfile = () => {
                 {/* CARD EVENTOS */}
                 <h6>
                     <div className="card-header font-weight-bold bg-yellw2d">
-                        Festival Montañitas
+                        {store.post.titulo}
                     </div>
                 </h6>
                 <div className="header-feed">
