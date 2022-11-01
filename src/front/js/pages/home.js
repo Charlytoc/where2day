@@ -1,85 +1,42 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
-import rigoImageUrl from "../../img/Where2Day.png";
 
 export const Home = () => {
   //   const { store, actions } = useContext(Context);
 
   return (
-    <div className="row mt-5">
-      <div className="col-10 offset-1 col-md-8 offset-md-2">
-        <h1 className="text-center">Where2Day</h1> <hr className="my-4" />
-      </div>
-      <div className="col-12 col-md-8 offset-md-2">
-        <div
-          id="carouselExampleInterval"
-          className="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div className="carousel-inner">
-            <div className="carousel-item active" data-bs-interval="10000">
-              <img
-                src="https://www.simplemost.com/wp-content/uploads/2015/07/dinner-party.jpg"
-                className="d-block w-100"
-                alt="..."
-              />
+    <div className="main-header">
+      <div className="background-overlay py-5">
+        <div className="container">
+
+          {/* COLUMNA IZQUIERDA */}
+          <div className="row g-0">
+            <div className="col-md-6 text-center">
+              <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              </h2>
+              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, iure cupiditate? Dolor molestias,
+                corporis esse perspiciatis quidem dolore cupiditate eligendi ex nisi odit,
+                modi fugiat reiciendis obcaecati rerum blanditiis reprehenderit?
+              </p>
+
+              {/* COLUMNA DERECHA */}
+              <div className="row w-100">
+                <h2 className="col text-center"></h2>
+                <button className="btn navarrawhite fa-regular">
+                  Join the movement!
+                  {/* onClick={editProfile} */}
+                </button>
+              </div>
             </div>
-            <div className="carousel-item" data-bs-interval="2000">
-              <img
-                src="http://www.superpark.com.sg/wp-content/uploads/2016/11/SG_Skate-145.jpg"
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div className="carousel-item">
-              <img
-                src="https://www.muscleandfitness.com/wp-content/uploads/2017/08/Female-kayaking-in-cavernous-river.jpg?quality=86&strip=all"
-                className="d-block w-100"
-                alt="..."
-              />
+            <div className="col-md-6">
+              <img src="https://picsum.photos/seed/picsum/500/500" className="img-fluid" alt="" />
             </div>
           </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleInterval"
-            data-bs-slide="prev"
-          >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleInterval"
-            data-bs-slide="next"
-          >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Next</span>
-          </button>
         </div>
-      </div>
-      <div className="row mt-5">
-        <div className="col-10 offset-1 col-md-8 offset-md-2">
-          <h2 className="text-center">Join the movement!</h2>
-          <p className="text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-            eum nostrum fuga, minus veritatis sed dignissimos, cupiditate
-            asperiores ipsum quaerat inventore eaque, nesciunt nobis laudantium
-            laborum itaque repellendus ipsa quia2.{" "}
-          </p>
-        </div>
-      </div>
-      <div>
-        <div className="col-12 col-md-8 offset-md-2 d-flex justify-content-center"></div>
       </div>
     </div>
+
+
   );
 };

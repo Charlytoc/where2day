@@ -29,6 +29,12 @@
     background-color: rgba(241, 228, 206, 0.35);
 }
 
+/* FONDO LANDING PAGE */
+.main-header {
+    background-size: cover;
+    min-height: 500px;
+}
+
 /* IMAGEN DE PERFIL DEL USUARIO EN perfilHeader */
 .profile-pic {
     margin: 10px 5px 10px 1px;
