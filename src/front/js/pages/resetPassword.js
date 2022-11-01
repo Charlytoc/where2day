@@ -4,14 +4,16 @@ import { Context } from "../store/appContext"; // #2 traer nuestro context
 import gsap from "gsap";
 import { useEffect } from "react";
 import logo from "../../img/logo-where2-alone.png";
-
+import Swal from "sweetalert2";
 import "../../styles/index.css";
+import axios from "axios";
 
 export const Reset = () => {
   const [reset, setReset] = useState("");
   
   const [password, setPassword] = useState("");
   const { store, actions } = useContext(Context); // #3 Consumirlo
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -68,6 +70,21 @@ export const Reset = () => {
     animation()
   }, [])
 
+  const enviarCorreo = async () => {
+    try {
+      const url = process.env.BACKEND_URL + "/api/forgotpassword"
+      const resp = await axios.post(url, {
+        email: email
+      })
+      console.log(resp.data.msg)
+      Swal.fire(
+        "¡Felicidades!",
+        "Una contraseña de recuperación ha sido enviada a tu correo electrónico, inicia sesión con ella y cambia la clave",
+        "success"
+      );
+    }
+    catch (err) {console.log(err)}
+  }
 
 
 
@@ -79,7 +96,12 @@ export const Reset = () => {
     <img src={logo}  className="w-50 mb-2 animable" />
     </div>
     <h2 className="btn-outline navarra rounded mt-2 animable3">Introduce tu correo electrónico</h2>
-    <input type="text" placeholder="correo asociado" className="form-control mt-2" />
+    <input type="text" onChange={(e)=>{setEmail(e.target.value)}} placeholder="correo asociado" className="form-control mt-2" />
+    <button  
+             onMouseDown={disminuir}
+             onMouseOver={agrandar}
+             onClick={enviarCorreo} 
+             className="btn-outline d-inline-block boton border-0 rounded btn-lg navarra animable2 mt-2 mb-3 boton3" >Enviar contraseña al correo</button>
     <Link to="/">
       <button  
              onMouseDown={disminuir}
