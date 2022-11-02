@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo-where2.png"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 import { useContext } from "react"; // #1 Traer context de react
@@ -37,27 +39,28 @@ export const Navbar = () => {
           {!store.auth ? (
             <>
               <Link to="/login">
-                <button className="navarra btn btn-danger btn-md" >Login</button>
+                <button className="btn btn-light btn-md" >Login</button>
               </Link>
 
               <Link to="/signup">
-                <button className="navarra btn btn-danger btn-md ms-3" >Signup</button>
+                <button className="btn btn-light btn-md ms-3" >Signup</button>
               </Link>
             </>
           ) : (
             <>
+              <Link to="/userProfile">
+                <button
+                  className="btn btn-light btn-lg mt-2">
+                  <FontAwesomeIcon icon={faUser} />
+                </button>
+              </Link>
+
               <button
-                className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3"
+                className="btn btn-light btn-md ms-3 mt-2"
                 onClick={() => actions.logout()}>
                 Logout
               </button>
 
-              <Link to="/userProfile">
-                <button
-                  className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3  ms-3">
-                  🛠
-                </button>
-              </Link>
             </>
           )}
         </div>

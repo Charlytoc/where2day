@@ -7,15 +7,18 @@
 */
 
 /* FRANZ */
+.main-header {
+    background: url(https://dev2.uplist.lk/wp-content/uploads/2022/08/world_travel_brave.jpg);
+    background-size: cover;
+    min-height: 700px;
+}
 
-/*  FONDO FRANZ */
-/* body {
-    background: linear-gradient(to right,
-            rgba(255, 233, 222, 1),
-            rgba(245, 222, 242, 1));
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-} */
+.background-overlay {
+    background: linear-gradient(190deg,
+            rgba(222, 22, 22, 7),
+            rgba(244, 43, 78, 0.4));
+    min-height: 700px;
+}
 
 /* COLOR ROJO CON LETRA BLANCA */
 .bg-redw2d {
