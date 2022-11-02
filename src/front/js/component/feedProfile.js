@@ -16,10 +16,10 @@ export const FeedProfile = () => {
     console.log(store.post.lugar)
     return (
         <>
-            <div className="card text-bg-light mb-3">
-                {/* CARD EVENTOS */}
+            <div className="card">
+                <div className="card-header bg-yellw2d"></div>
                 <h6>
-                    <div className="card-header font-weight-bold bg-yellw2d">
+                    <div className="header-profile d-flex">
                         <p>{store.post.titulo}</p>
                         <p className="float-end">{store.post.fecha}</p>
                     </div>
@@ -52,7 +52,7 @@ export const FeedProfile = () => {
                         alt="..."
                     />
                     <p className="descripcion-post text-dark">
-                    {store.post.descripcion}
+                        {store.post.descripcion}
                     </p>
                 </div>
             </div>

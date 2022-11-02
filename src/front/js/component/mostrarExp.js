@@ -12,6 +12,10 @@ import { faCalendar } from '@fortawesome/free-solid-svg-icons'
 import { faPersonHiking } from '@fortawesome/free-solid-svg-icons'
 import { faHouseUser } from '@fortawesome/free-solid-svg-icons'
 import { faLaptopCode } from '@fortawesome/free-solid-svg-icons'
+import { faGear } from '@fortawesome/free-solid-svg-icons'
+import { faPen } from '@fortawesome/free-solid-svg-icons'
+import { faX } from '@fortawesome/free-solid-svg-icons'
+import { faMessage } from '@fortawesome/free-solid-svg-icons'
 
 
 export const MostrarExp = (props) => {
@@ -135,7 +139,7 @@ export const MostrarExp = (props) => {
                                         src="https://images.pexels.com/photos/343717/pexels-photo-343717.jpeg?auto=compress&cs=tinysrgb&w=800"
                                         alt="profile" />
                                     <div>
-                                        <h5 >{props.title}</h5>
+                                        <h5>{props.title}</h5>
                                         <p className="text-dark text-center d-inline-block" title="Lugar">
                                             <FontAwesomeIcon icon={faLocation} /> {props.lugar} </p>
                                     </div>
@@ -146,12 +150,12 @@ export const MostrarExp = (props) => {
                                             &&
                                             <>
                                                 <button className="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                                    ⚙️
+                                                    <FontAwesomeIcon icon={faGear} />
                                                 </button>
                                                 <div className="collapse" id="collapseExample">
 
-                                                    <button className="btn" onClick={desplegarEdit}> 🖊 </button>
-                                                    <button className="btn" onClick={() => actions.delete(props.exp_id, "exp")}>Eliminar post</button>
+                                                    <button className="btn" onClick={desplegarEdit}> <FontAwesomeIcon icon={faPen} /> </button>
+                                                    <button className="btn" onClick={() => actions.delete(props.exp_id, "exp")}><FontAwesomeIcon icon={faX} /></button>
 
                                                 </div>
                                             </>
@@ -165,7 +169,7 @@ export const MostrarExp = (props) => {
                                 {outdoor ? <h4 className="text-dark text-center d-inline-block" title="Outdoor"><FontAwesomeIcon icon={faPersonHiking} /> Outdoor</h4> : null}
                                 {indoor ? <h4 className="text-dark text-center d-inline-block" title="Indoor"><FontAwesomeIcon icon={faHouseUser} />Indoor</h4> : null}
                                 {anywhere ? <h4 className="text-dark text-center d-inline-block" title="On-line"> <FontAwesomeIcon icon={faLaptopCode} />On-line</h4> : null}
-                                {/*  */}
+                                <h4 className="text-dark text-center d-inline-block" title="Whatsapp"><FontAwesomeIcon icon={faMessage} /> </h4>
                             </div>
                             {props.expOwner === store.usuario_actual ? <>
 

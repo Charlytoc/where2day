@@ -14,8 +14,13 @@ export const MostrarEventos = (props) => {
   return (
     <>
       <div className="card text-bg-light mb-3">
-        <div className="card-header font-weight-bold bg-yellw2d">
-        </div>
+
+        {/* CARD EVENTOS */}
+        <h5>
+          <div className="card-header font-weight-bold bg-yellw2d">
+            Eventos
+          </div>
+        </h5>
         <div className="card-body">
           <h5 className="card-title"> {props.usuarioid} </h5>
           <h4> {props.title} </h4>
