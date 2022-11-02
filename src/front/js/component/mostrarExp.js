@@ -139,7 +139,7 @@ export const MostrarExp = (props) => {
                                         src="https://images.pexels.com/photos/343717/pexels-photo-343717.jpeg?auto=compress&cs=tinysrgb&w=800"
                                         alt="profile" />
                                     <div>
-                                        <h5>{props.title}</h5>
+                                        <h5 >{props.title}</h5>
                                         <p className="text-dark text-center d-inline-block" title="Lugar">
                                             <FontAwesomeIcon icon={faLocation} /> {props.lugar} </p>
                                     </div>

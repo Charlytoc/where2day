@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
 import logoPres from "../../img/Logo WHERE2DAY.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocation } from '@fortawesome/free-solid-svg-icons'
+import { faCalendar } from '@fortawesome/free-solid-svg-icons'
+import { faPersonHiking } from '@fortawesome/free-solid-svg-icons'
+import { faHouseUser } from '@fortawesome/free-solid-svg-icons'
+import { faLaptopCode } from '@fortawesome/free-solid-svg-icons'
+import { faGear } from '@fortawesome/free-solid-svg-icons'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
+import { faX } from '@fortawesome/free-solid-svg-icons'
+import { faMessage } from '@fortawesome/free-solid-svg-icons'
 
 
 import { useContext } from "react"; // #1 Traer context de react
@@ -18,13 +26,7 @@ export const FeedProfile = () => {
         <>
             <div className="card">
                 <div className="card-header bg-yellw2d"></div>
-                <h6>
-                    <div className="header-profile d-flex">
-                        <p>{store.post.titulo}</p>
-                        <p className="float-end">{store.post.fecha}</p>
-                    </div>
-                </h6>
-                <div className="header-feed">
+                <div className="header-profile d-flex">
                     <div className="header-left">
                         <img
                             className="profile-pic-post rounded-circle"
@@ -33,16 +35,16 @@ export const FeedProfile = () => {
                             src={store.profile.image_url}
                             alt="profile" />
                         <div>
-                            <h5 className="nombre-usuario text-black">{store.post.username}</h5>
-                            <p className="titulo-ubicacion text-black">{store.post.lugar}</p>
-                        </div>
-                    </div>
-
-                    <div className="header-right">
-                        <div className="icono_puntos">
-                            <FontAwesomeIcon icon={faPen} />
+                            <h5 className="nombre-usuario text-black">{store.post.titulo}</h5>
+                            <p className="titulo-ubicacion text-black">
+                                <FontAwesomeIcon icon={faLocation} />{store.post.lugar}</p>
                         </div>
 
+                        <div className="header-right">
+                            <div className="icono_puntos">
+                                <FontAwesomeIcon icon={faGear} />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="card-body">
@@ -51,6 +53,9 @@ export const FeedProfile = () => {
                         className="d-block w-100"
                         alt="..."
                     />
+
+                    <p className="float-end"> <FontAwesomeIcon icon={faCalendar} /> {store.post.fecha}</p>
+                    <h4 className="text-dark text-center d-inline-block" title="Whatsapp"><FontAwesomeIcon icon={faMessage} /> </h4>
                     <p className="descripcion-post text-dark">
                         {store.post.descripcion}
                     </p>
