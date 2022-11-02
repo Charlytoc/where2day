@@ -66,9 +66,10 @@ export const CrearExp = () => {
   // console.log("Este es el numero de ID_usuario actual utilizando nuestra app " + store.usuario_actual)
   return (
     <>
-      <div className="text-bg-light me-2 d-grip gap-2s mt-5">
+      <div className="mt-3 text-bg-light">
         {/* CARD CREAR EXPERIENCIA */}
         {desplegar ? <>
+          <div className="navarra">
           <h2 className="text-center  font-weight-bold navarra rounded">Cuéntale al mundo tu experiencia</h2>
           <div className="bg-light">
             {/* Aca editamos Titulo */}
@@ -118,7 +119,14 @@ export const CrearExp = () => {
           {/* Boton CIERRA el box de "postear" */}
           <button onClick={() => { setDesplegar(false) }} className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3">Cerrar</button>
 
-        </> : <button onClick={desplegarCaja} className=" btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3 mt-0">Crear post</button>
+        
+          </div>
+          </> : 
+        <div className="w-100">
+          <h1 onClick={desplegarCaja} className="text-center click p-3 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3 mt-0">Crear post
+        </h1>
+        </div>
+        
         }
 
       </div>

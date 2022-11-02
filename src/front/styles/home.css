@@ -77,15 +77,7 @@
 }
 
 /* CHARLY */
-.titulo {
-    padding: 50;
-    font-size: 90px;
-    font-family: "Permanent Marker", cursive;
-    background: linear-gradient(to right, rgb(222, 82, 81), rgb(122, 32, 122));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: content-box;
-}
+
 
 .columna {
     height: 200px;
@@ -120,14 +112,8 @@ body {
     background: linear-gradient(to right,
             rgba(255, 216, 237, 0.13),
             rgb(255, 200, 191, 0.13));
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
+
     font-weight: bold;
 }
 
-/* .letra {
-    border: rgb(122, 32, 122);
-    color: wheat;
-    position: inherit;
-    z-index: 2;
-    font-size: 100px;
-} */

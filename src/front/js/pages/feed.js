@@ -37,15 +37,14 @@ export const Feed = () => {
 
     return (
         <>
-            {/* BODY GENERAL */}
+            <div id="contenedor-feed" className="w-100 row container">
 
-            <div className="container">
-                <div className="row">
-                    <div className="filtros col-3 mt-5"><Filtros /></div>
-                    <div className="mt-3 col-5">
-                        <CrearExp />
-                        {/* <MostrarExp /> */}
-                        <div className="mt-2 text-center">Últimas experiencias</div>
+                <div id="contenedor-filtros" className="col-3">
+                <Filtros />
+                </div>
+                <div id="contenedor-feed" className="col-6">
+                <CrearExp />
+                <div className="mt-2 text-center">Últimas experiencias</div>
 
                         {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
                             title={item.titulo}
@@ -60,9 +59,9 @@ export const Feed = () => {
                             image_url={item.image_url}
                         />
                         </div>)}
-                    </div>
-                    <div className="mt-4 col-4">
-                        <CrearEvento />
+                </div>
+                <div id="contenedor-right" className="col-3">
+                <CrearEvento />
                         <div className="mt-5 text-center ">Últimos eventos</div>
 
                         {store.mostrarEventos.map((item) =>
@@ -75,10 +74,10 @@ export const Feed = () => {
                             />
                             </div >)
                         }
-                    </div>
                 </div>
             </div>
 
+          
             <Footer />
         </>
     );

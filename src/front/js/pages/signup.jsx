@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react"; // #1 import Con
 
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 
-import logo from "../../img/logo-where2-alone.png";
+import logo from "../../img/ul-logo.png";
 import Swal from "sweetalert2";
 // import "../../styles/home.css";
 import { Link } from "react-router-dom";
@@ -100,66 +100,50 @@ export const Signup = () => {
   }, [])
 
   return (
-    <div className="text-center w-50 container">
-      <img src={logo} className="w-50 mb-2 animable" />
-
-      <h1 className="animable3"> Signup </h1>
-
-      {/* Aca creamos un form que "onSubmit" nos suba la data a la DB Signup */}
-      <form onSubmit={handleSubmit}>
+    <div className="text-center w-75 navarra container d-flex border shadow bg-body rounded">
+      <img src={logo} className="w-50 float-start animable bg-body rounded navarra" />
+      <div id="mitad-derecha" className="shadow-lg navarra rounded w-100 h-75 ">
+      <h2 className="animable3 w-100 h-30 shadow-lg p-3 bg-body rounded navarra">Bienvenido, espero que te diviertas en tu siguiente experiencia</h2>
+      <form className="navarra" onSubmit={handleSubmit}>
         {/* Este es el form de eMail  */}
-        <div className="mb-3 input-group d-flex justify-content-center animable2">
+        <div className="input-group justify-content-center animable2">
           <div className="form-floating">
             <input
               type="email"
-              className="form-control animable"
+              className="form-control animable shadow-lg mt-3 p-3 bg-body rounded"
               aria-describedby="emailHelp"
               placeholder="Your eMail"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
-            <label>email</label>
-          </div>
-        </div>
-
-        {/* Este es el form de password */}
-        <div className="mb-3 input-group d-flex justify-content-center animable3">
-          <div className="form-floating">
             <input
               type="password"
-              className="form-control animable"
+              className="form-control animable shadow-lg p-3 mt-2 bg-body rounded"
               id="floatingInputGroup1"
               placeholder="Username"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
-            <label>password</label>
-          </div>
-        </div>
-
-        {/* Esto es el boton submit */}
-        <div className="d-block justify-content-center animable">
-          <button
-            onMouseDown={disminuir}
-            onMouseOver={agrandar}
+            <div className="container mt-2"><button
+            
             type="submit"
-            className="btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton"
+            className="btn click btn-lg navarra animable2 boton shadow-lg mt-2 p-3 bg-body rounded"
 
           >
             <span className="animable2"> Signup </span>
-          </button>
-          <br></br>
-          {/* <Link to="/login">
-            <button onMouseDown={disminuir2}
-              onMouseOver={agrandar2} className="btn-outline d-inline-block border-0 rounded btn-lg navarra animable2 mb-3 boton2" >ven acá si ya tienes cuenta</button>
-          </Link> */}
-          <br></br>
-          <Link to="/">
-            <button onClick={saludar} onMouseDown={disminuir3}
-              onMouseOver={agrandar3} className="btn-outline d-inline-block  border-0 rounded btn-lg navarra animable2 mb-3 boton3" >regresa al inicio</button>
-          </Link>
+          </button></div>
+          <div className="container mt-2 mb-3"><Link to="/">
+            <button onClick={saludar}
+               className="btn click d-inline-block  border-0 rounded btn-lg navarra animable2 boton3 shadow-lg p-3 bg-body rounded" >regresa al inicio</button>
+          </Link></div>
+          </div>
         </div>
       </form>
+      </div>
+      
+
+      {/* Aca creamos un form que "onSubmit" nos suba la data a la DB Signup */}
+      
 
     </div>
   );
