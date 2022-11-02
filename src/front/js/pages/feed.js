@@ -39,12 +39,12 @@ export const Feed = () => {
         <>
             <div id="contenedor-feed" className="w-100 row container">
 
-                <div id="contenedor-filtros" className="col-3">
+                <div id="contenedor-filtros" className="col-xl-3 col-lg-2 col-md-6 col-sm-12 ">
                 <Filtros />
                 </div>
-                <div id="contenedor-feed" className="col-6">
+                <div id="contenedor-feed" className="col-sm-12 col-md-6 col-lg-7 col-xl-6   ">
                 <CrearExp />
-                <div className="mt-2 text-center">Últimas experiencias</div>
+                <h1 className="mt-2 text-center selected rounded p-2">{store.feed}</h1>
 
                         {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
                             title={item.titulo}
@@ -60,7 +60,7 @@ export const Feed = () => {
                         />
                         </div>)}
                 </div>
-                <div id="contenedor-right" className="col-3">
+                <div id="contenedor-right" className="col-xl-3 col-sm-12 col-md-6  col-lg-2  ">
                 <CrearEvento />
                         <div className="mt-5 text-center ">Últimos eventos</div>
 

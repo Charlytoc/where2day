@@ -80,7 +80,8 @@ def obtener_experiencias():
 
     response_body = {
         "msg": "OK",
-        "results": all_exp
+        "results": all_exp,
+        "filter": "Ultimas experiencias"
     }
     return jsonify(response_body), 200
 
@@ -150,12 +151,16 @@ def get_filtered_experiences ():
 
     if variable == 'outdoor':
         exp_query = Experiencias.query.filter_by(outdoor = True).all()
+        filter_var = 'Experiencias fuera de casa'
     elif variable == 'indoor':
         exp_query = Experiencias.query.filter_by(indoor = True).all()
+        filter_var = 'Experiencias dentro de casa'
     elif variable == 'anywhere':
         exp_query = Experiencias.query.filter_by(anywhere = True).all()
+        filter_var = 'Experiencias online'
     elif user:
         exp_query = Experiencias.query.filter_by(usuario_id = user).all()
+        filter_var = 'Tus experiencias'
     else: 
         response_body = {
             'msg': 'No valid filter'
@@ -169,7 +174,8 @@ def get_filtered_experiences ():
     # print(all_exp)
     response_body = {
         "msg": "OK",
-        "results": all_exp
+        "results": all_exp,
+        "filter": filter_var
     }
     return jsonify(response_body), 200
 

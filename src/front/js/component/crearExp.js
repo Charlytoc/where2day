@@ -6,6 +6,7 @@ import axios from 'axios';
 
 import { useContext } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
+import { selector } from "gsap";
 
 export const CrearExp = () => {
 
@@ -55,6 +56,7 @@ export const CrearExp = () => {
 
   }
 
+  const selected = 'selected'
   // El hook siguiente obtiene el usuario que va a postear las experiencias
 
   useEffect(() => {
@@ -66,64 +68,52 @@ export const CrearExp = () => {
   // console.log("Este es el numero de ID_usuario actual utilizando nuestra app " + store.usuario_actual)
   return (
     <>
-      <div className="mt-3 text-bg-light">
+      <div id="letra-feed" className="mt-3 navarra text-light shadow-lg rounded">
         {/* CARD CREAR EXPERIENCIA */}
         {desplegar ? <>
-          <div className="navarra">
-          <h2 className="text-center  font-weight-bold navarra rounded">Cuéntale al mundo tu experiencia</h2>
+          <div className="navarra w-100 h-100 rounded">
+          <h3 className="text-center p-2  font-weight-bold navarra rounded">Cuéntale al mundo tu experiencia</h3>
           <div className="bg-light">
             {/* Aca editamos Titulo */}
             <input onChange={(e) => { setTitulo(e.target.value) }} value={titulo}
               placeholder="Coloca el titulo de tu publicacion"
-              type="text" className="mt-1 form-control" />
+              type="text" className="form-control" />
 
             {/* Aca editamos Lugar */}
             <input onChange={(e) => { setLugar(e.target.value) }} value={lugar}
               placeholder="Coloca la ubicacion de tu experiencia"
-              type="text" className="mt-1 form-control" />
+              type="text" className="form-control" />
 
             {/* Aca editamos Fecha*/}
             <input onChange={(e) => { setFecha(e.target.value) }} value={fecha}
               placeholder="Coloca la fecha de tu experiencia"
-              type="date" className="mt-1 form-control" />
+              type="date" className="form-control" />
 
-            <input className="mt-3 form-control" type="file" onChange={(e) => { uploadImage(e) }} />
+            <input className=" form-control" type="file" onChange={(e) => { uploadImage(e) }} />
             <img src={image} className="w-100" />
           </div>
 
           {/* Botones Booleanos */}
-          <div className="d-flex text-center justify-content-center text-dark bg-light">
-            <input className="mt-1 form-check-input float-start" onClick={() => { outdoor ? setOutdoor(false) : setOutdoor(true) }} type="checkbox" value="" />
-            <label className=" form-check-label float-start" htmlFor="flexCheckDefault">
-              Outdoor
-            </label>
-            <input onClick={() => { indoor ? setIndoor(false) : setIndoor(true) }} className=" mt-1 form-check-input" type="checkbox" value="" />
-            <label className=" form-check-label" htmlFor="flexCheckDefault">
-              Indoor
-            </label>
-            <input onClick={() => { anywhere ? setAnywhere(false) : setAnywhere(true) }} className="form-check-input float-end" type="checkbox" value="" />
-            <label className="form-check-label float-end" htmlFor="flexCheckDefault">
-              Anywhere
-            </label>
+          <div className="text-center bg-light">
+          <button className={indoor ? `btn btn-md navarra ${selected}` : "btn btn-md navarra"} onClick={() => { indoor ? setIndoor(false) : setIndoor(true) }}>Indoor</button>
+          <button className={outdoor ? `btn btn-md navarra ${selected}` : "btn btn-md navarra"} onClick={() => { outdoor ? setOutdoor(false) : setOutdoor(true) }}>Outdoor</button>
+          <button className={anywhere ? `btn btn-md navarra ${selected}` : "btn btn-md navarra"} onClick={() => { anywhere ? setAnywhere(false) : setAnywhere(true) }}>Anywhere</button>
 
           </div>
 
           {/* Abajo viene para la descripcion */}
-          <input onChange={(e) => { setDescription(e.target.value) }} value={description}
+          <textarea onChange={(e) => { setDescription(e.target.value) }} value={description}
             placeholder="Cuentanos mas sobre tu experiencia!"
             className="form-control" id="floatingTextarea" />
+          <div className="text-center navarra rounded">
+          <button onClick={postear} className=" btn-outline border-0 click rounded btn-lg navarra animable2 boton3 me-2">Postear</button>
+          <button onClick={() => { setDesplegar(false) }} className="mt-2 btn-outline click border-0 rounded btn-lg navarra animable2 mb-3 boton3">Cerrar</button>
+          </div>
 
-          {/* Boton para postear, al postear hacemos useEffect */}
-          <button onClick={postear} className=" btn-outline border-0 rounded btn-lg navarra animable2 boton3 me-2">Postear</button>
-
-          {/* Boton CIERRA el box de "postear" */}
-          <button onClick={() => { setDesplegar(false) }} className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3">Cerrar</button>
-
-        
           </div>
           </> : 
-        <div className="w-100">
-          <h1 onClick={desplegarCaja} className="text-center click p-3 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3 mt-0">Crear post
+        <div className="w-100 bg-light">
+          <h1 onClick={desplegarCaja} className=" rounded text-center click p-3 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3 mt-0">Crear post
         </h1>
         </div>
         

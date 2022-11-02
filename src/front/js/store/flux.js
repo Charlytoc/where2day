@@ -12,7 +12,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       redirectLogin: false,
       post: {
       },
-      profile: {}
+      profile: {},
+      feed: ""
     },
     actions: {
       getMessage: async () => {
@@ -169,7 +170,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       loadExperiencias: () => {
         fetch(process.env.BACKEND_URL + "/api/leerPost")
           .then((response) => response.json())
-          .then((data) => setStore({ feedExperiencias: data.results.reverse() }));
+          .then((data) => {setStore({ feedExperiencias: data.results.reverse() }), setStore({feed: data.filter})});
         // setStore({charactersCard: data.results}))
       },
 
@@ -281,6 +282,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                user: variable
              })
              setStore({feedExperiencias: resp.data.results})
+             setStore({feed: resp.data.filter})
              console.log("chato ñay")
            }
            else {
@@ -288,6 +290,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                variable: variable
              })
              setStore({feedExperiencias: resp.data.results})
+             setStore({feed: resp.data.filter})
              console.log("chato")
            }
            

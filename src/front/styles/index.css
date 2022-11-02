@@ -53,3 +53,10 @@ html {
 .fijar {
     position: sticky;
 }
+
+.selected {
+    background: linear-gradient(135deg,
+            rgb(255, 180, 88),
+            rgba(251, 251, 148, 0.5));
+    color: black;
+}
