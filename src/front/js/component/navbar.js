@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../img/logo-where2.png"
+import logo from "../../img/ul-large.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
@@ -12,19 +12,19 @@ export const Navbar = () => {
   const { store, actions } = useContext(Context); // #3 Consumirlo
 
   return (
-    <nav className="navbar bg-light navarra" style={{ height: 80 }}>
+    <nav className="navbar fijar bg-light navarra" style={{ height: 80 }}>
       <div className="container">
 
         {/* Aca inicia ternario de REDIRIGIR a home/feed dependiente del auth STATUS */}
         {!store.auth ? (
           <Link to="/">
-            <span className="navarra fs-4 text-dark boton-navbar">
+            <span className="btn fs-4 text-dark ">
               <img src={logo} style={{ height: 60 }} />
             </span>
           </Link>
         ) : (
           <Link to="/feed" style={{ textDecoration: 'none' }}>
-            <span className="navarra fs-4 text-dark" id="estilo">
+            <span className=" fs-4 text-dark" id="estilo">
               <img src={logo} style={{ height: 60 }} />
 
             </span>
@@ -39,24 +39,24 @@ export const Navbar = () => {
           {!store.auth ? (
             <>
               <Link to="/login">
-                <button className="btn btn-light btn-md" >Login</button>
+                <button className="btn selected navarra btn-md" >Login</button>
               </Link>
 
               <Link to="/signup">
-                <button className="btn btn-light btn-md ms-3" >Signup</button>
+                <button className="btn selected navarra btn-md ms-3" >Signup</button>
               </Link>
             </>
           ) : (
             <>
               <Link to="/userProfile">
                 <button
-                  className="btn btn-light btn-lg mt-2">
+                  className="btn selected btn-lg mt-2">
                   <FontAwesomeIcon icon={faUser} />
                 </button>
               </Link>
 
               <button
-                className="btn btn-light btn-md ms-3 mt-2"
+                className="btn selected btn-md ms-3 mt-2"
                 onClick={() => actions.logout()}>
                 Logout
               </button>

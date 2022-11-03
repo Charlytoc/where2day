@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 
 
-import logo from "../../img/logo-where2-alone.png";
+import logo from "../../img/ul-logo.png";
 import "../../styles/home.css";
 import gsap from "gsap";
 
@@ -98,60 +98,57 @@ export const Login = () => {
 
 
   return (
-    <div className="text-center w-50 container">
-      <img src={logo} onClick={desaparecer} className="mb-2 w-50 animable desaparecer" />
-
-      <h1 className="animable2 desaparecer">Inicia sesión</h1>
-
-      {/* Aca creamos un form que "onSubmit" nos suba la data a la DB Signup */}
-      <form onSubmit={handleSubmit}>
+    <div className="text-center w-50 d-flex my-5 container border shadow bg-body rounded">
+      <img src={logo} className="w-50 float-start animable bg-body rounded " />
+      <div id="mitad-derecha" className="  rounded w-50 h-100 ">
+      <h2 className="animable3 w-100 text-center p-3 bg-body rounded ">Inicia sesión</h2>
+      <form className="" onSubmit={handleSubmit}>
         {/* Este es el form de eMail  */}
-        <div className="mb-3 input-group d-flex justify-content-center">
-          <div className="form-floating animable3">
+        <div className="input-group justify-content-center animable2">
+          <div className="form-floating">
             <input
               type="email"
-              className="form-control"
+              className="form-control animable  mt-3 p-3 bg-body rounded"
               aria-describedby="emailHelp"
               placeholder="Your eMail"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
-            <label>email</label>
-          </div>
-        </div>
-
-        {/* Este es el form de password */}
-        <div className="mb-3 input-group d-flex justify-content-center animable2">
-          <div className="form-floating">
             <input
               type="password"
-              className="form-control"
+              className="form-control animable  p-3 mt-2 bg-body rounded"
               id="floatingInputGroup1"
               placeholder="Username"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
-            <label>contraseña</label>
+            <div className="container mt-2"><button
+            // onMouseDown={disminuir}
+            // onMouseOver={agrandar}
+            type="submit"
+            className=" click btn-outline border-0 rounded btn-lg navarra animable2 boton  mt-2 p-3 bg-body rounded"
+
+          >
+            <span onClick={handleSubmit} className="animable2">Login</span>
+          </button></div>
+          <div className="container mt-2 mb-3"><Link to="/">
+            <button 
+            // onClick={saludar} onMouseDown={disminuir3}
+              // onMouseOver={agrandar3} 
+              className="btn-outline d-inline-block click border-0 rounded btn-lg navarra animable2 boton3 shadow-lg p-3 bg-body rounded" >regresa al inicio</button>
+          </Link></div>
+          <Link style={{ textDecoration: 'none', color: "black" }} to="/reset">
+                <p className=" border-0 rounded animable2 boton letra-peq sp-3 bg-body rounded">Clickea acá si perdiste tu contraseña</p>
+            </Link>
           </div>
         </div>
-
-            <Link style={{ textDecoration: 'none', color: "black" }} to="/reset">
-                <p className="animable2 dos">Clickea acá si perdiste tu contraseña</p>
-            </Link>
-
-        {/* Esto es el boton submit */}
-        <div className="d-flex justify-content-center">
-          <button onMouseDown={disminuir}
-            onMouseOver={agrandar} onClick={handleSubmit} type="submit" className="animable3 btn-outline border-0 rounded btn-lg ms-3 boton navarra" >
-            Inicia sesión
-          </button>
-          
-        </div>
       </form>
-      <Link to="/">
-      <button onMouseDown={disminuir3}
-            onMouseOver={agrandar3} className="mt-2 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3" >regresa al inicio</button>
-      </Link>
+      </div>
+      
+
+      {/* Aca creamos un form que "onSubmit" nos suba la data a la DB Signup */}
+      
+
     </div>
   );
 };

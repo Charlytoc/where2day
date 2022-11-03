@@ -67,13 +67,6 @@ export const HeaderProfile = () => {
 
     }, []);
 
-    //   console.log(`Email: ${email} 
-    //   Password: ${password} 
-    //   Username: ${username} 
-    //   Edad ${edad}
-    //   Pais ${pais}
-    //   Nombre: ${nombre}
-    //   Apellido: ${apellido}`)
 
     return (
         <>

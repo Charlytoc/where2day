@@ -4,11 +4,16 @@
 /* Include any default variable overrides here (though functions won't be available) */
 
 /* CHARLY */
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
+
 .navarra {
     background: linear-gradient(135deg,
-            rgba(222, 22, 22, 1),
-            rgba(244, 43, 78, 0.7));
-    color: white;
+            rgba(224, 22, 22, 0.8),
+            rgba(244, 43, 78, 0.6));
+    color: rgb(255, 242, 195);
 }
 
 .pub-title {
@@ -20,7 +25,7 @@
 }
 
 #estilo {
-    font-family: "Fuzzy Bubbles", cursive;
+    font-family: 'Rubik', sans-serif;
     color: white;
 }
 
@@ -34,4 +39,39 @@
 
 html {
     min-height: 100%;
+    font-size: 100%;
+}
+
+.click:hover {
+    background: linear-gradient(135deg,
+            rgb(255, 180, 88),
+            rgba(251, 251, 148, 0.5));
+    color: black;
+    cursor: pointer;
+}
+
+.fijar {
+    position: sticky;
+    top: 0px
+}
+
+/* .fijado {
+    position: sticky;
+    top: 100px
+} */
+
+.fijar-fil {
+    position: sticky;
+    top: 128px
+}
+
+.selected {
+    background: linear-gradient(135deg,
+            rgb(255, 180, 88),
+            rgba(251, 251, 148, 0.5));
+    color: black;
+}
+
+.letra.peq {
+    font-size: 10px;
 }
