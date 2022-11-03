@@ -1,17 +1,113 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
-import rigoImageUrl from "../../img/Where2Day.png";
+
 
 export const Home = () => {
   //   const { store, actions } = useContext(Context);
 
   return (
-    <div className="main-header">
+    <div>
+      <div className="main-header1">
+        <div className="ptext">
+          
+          <Link to="signup" className="dos">
+            <span className="border ">
+                Join The Movement!
+            </span>
+          </Link>
+          
+        </div>
+      </div>
+
+
+     <section className="section section-light">
+      <h1> What is Where2day?</h1>
+      <p> Having all the tools at the palm of your hand, you must take advantage!
+
+      <br/>
+      <br/>
+        Nowadays we do not know where to go, what to do on your free time even tho we have lots of thing available!
+      <br/>
+      <br/>
+        Where2day mission is to make those things easier, and give you plenty of social ideas for you to be part of!
+      </p>
+     </section>
+
+     <div className="main-header2"> 
+      <div className="ptext">
+        <span className="border trans">
+          Where Do You Want To Go?
+        </span>
+      </div>
+     </div>
+
+    
+     <section className="section section-dark">
+      <h1> Outdoor , Indoor or Online? </h1>
+      <p> 
+        {/* <strong> */}
+        Having all the tools at the palm of your hand, you must take advantage!
+        <br/>
+        <br/>
+        Nowadays even tho there are lots of options, we do not know where to go... What to do on your free time?
+        <br/>
+        <br/>
+         You may have more things available than you have thought of!
+        <br/>
+        <br/>
+        Where2day is the app to come in and boost your social reach!
+        <br/>
+        <br/>
+        See what others are saying, sharing, posting, attending and join them too!
+       
+       <br/>
+       <br/>
+
+       </p> 
+       <p className="sizeEmphasis">Join Us Today And Go And Seek New Adventures Near Your City!
+       
+       </p>
+     </section>
+
+     <div className="main-header3 "> 
+      <div className="ptext">
+        <span className=" trans">
+          <h1>Join Where2day Social Events!</h1>
+        </span>
+      </div>
+     </div>
+
+     <section className="section section-dark">
+      <h2> Its time to get out! <br/> Where2day is the place to connect with other adventureous souls!</h2>
+        <br/>
+        <br/>
+      <p> Join our community social events! 
+        <br/>
+        <br/>
+        You can take part of any event on Where2day where the community will be actively sharing tours, places to visit and social gatherings.
+      </p>
+     </section>
+
+     
+      <div className="main-header4">
+        <div className="ptext">
+        <Link to="signup" className="dos">
+            <span className="border ">
+                Join The Movement!
+            </span>
+          </Link>
+        </div>
+
+        
+      </div>
+    
+      {/* <div className="main-header">
       <div className="background-overlay text-white py-5">
         <div className="container text-center">
 
-          {/* COLUMNA IZQUIERDA */}
+         
           <div className="row">
             <div className="col-12">
               <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -25,7 +121,7 @@ export const Home = () => {
                 <h2 className="col text-center"></h2>
                 <button className="btn btn-light fa-regular">
                   Join the movement!
-                  {/* onClick={editProfile} */}
+                
                 </button>
               </div>
 
@@ -70,7 +166,7 @@ export const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
 
 
