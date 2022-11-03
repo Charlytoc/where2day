@@ -11,61 +11,36 @@ export const Home = () => {
       <div className="background-overlay text-white py-5">
         <div className="container text-center">
 
-          {/* COLUMNA IZQUIERDA */}
-          <div className="row">
-            <div className="col-12">
-              <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              </h2>
-              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, iure cupiditate? Dolor molestias,
-                corporis esse perspiciatis quidem dolore cupiditate eligendi ex nisi odit,
-                modi fugiat reiciendis obcaecati rerum blanditiis reprehenderit?
-              </p>
+          <div className="display-5">
+            Lorem ipsum
+          </div>
 
-              <div className="row w-50 text-center">
-                <h2 className="col text-center"></h2>
-                <button className="btn btn-light fa-regular">
-                  Join the movement!
-                  {/* onClick={editProfile} */}
-                </button>
+          <div className="display-6">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, iure cupiditate? Dolor molestias,
+            corporis esse perspiciatis quidem?
+          </div>
+
+          <div className="row w-50">
+            <button className="btn btn-light fa-regular">
+              Join the movement!
+              {/* onClick={editProfile} */}
+            </button>
+          </div>
+
+          <div className="row row-cols-1 row-cols-md-3 g-3">
+            <div className="col">
+              <div className="card bg-card h-100">
+                <img src="https://cdn.pixabay.com/photo/2017/03/27/13/52/person-2178868_1280.jpg" className="card-img-top" alt="..." />
               </div>
-
-              <div className="row row-cols-1 row-cols-md-3 g-4">
-                <div className="col">
-                  <div className="card h-100">
-                    <img src="https://picsum.photos/50/80" className="card-img-top" alt="..." />
-                    <div className="card-body">
-                      <h5 className="card-title">Card title</h5>
-                      <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div className="card-footer">
-                      <small className="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                  </div>
-                </div>
-                <div className="col">
-                  <div className="card border-light mb-6">
-                    <img src="https://picsum.photos/50/80" className="card-img-top" alt="..." />
-                    <div className="card-body">
-                      <h5 className="card-title">Card title</h5>
-                      <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    <div className="card-footer">
-                      <small className="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                  </div>
-                </div>
-                <div className="col">
-                  <div className="card h-100">
-                    <img src="..." className="card-img-top" alt="..." />
-                    <div className="card-body">
-                      <h5 className="card-title">Card title</h5>
-                      <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    </div>
-                    <div className="card-footer">
-                      <small className="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                  </div>
-                </div>
+            </div>
+            <div className="col">
+              <div className="card bg-card border-light mb-6">
+                <img src="https://images.pexels.com/photos/4255483/pexels-photo-4255483.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="card-img-top" alt="..." />
+              </div>
+            </div>
+            <div className="col">
+              <div className="card bg-card h-70">
+                <img src="https://images.pexels.com/photos/4063792/pexels-photo-4063792.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="card-img-top" alt="..." />
               </div>
             </div>
           </div>

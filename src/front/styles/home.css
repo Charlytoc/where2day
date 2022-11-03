@@ -7,6 +7,11 @@
 */
 
 /* FRANZ */
+
+.bg-card {
+    width: 200px;
+}
+
 .main-header {
     background: url(https://dev2.uplist.lk/wp-content/uploads/2022/08/world_travel_brave.jpg);
     background-size: cover;
@@ -14,9 +19,7 @@
 }
 
 .background-overlay {
-    background: linear-gradient(190deg,
-            rgba(222, 22, 22, 7),
-            rgba(244, 43, 78, 0.4));
+    background: linear-gradient(190deg, rgba(240, 237, 238, 0.4));
     min-height: 700px;
 }
 
