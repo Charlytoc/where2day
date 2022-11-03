@@ -68,11 +68,11 @@ export const CrearExp = () => {
   // console.log("Este es el numero de ID_usuario actual utilizando nuestra app " + store.usuario_actual)
   return (
     <>
-      <div id="letra-feed" className="my-5 fijado navarra text-light shadow-lg rounded">
+      <div id="letra-feed" className="my-5 fijado text-light shadow-lg rounded">
         {/* CARD CREAR EXPERIENCIA */}
         {desplegar ? <>
-          <div className="navarra w-100 h-100 rounded">
-          <h3 className="text-center p-2  font-weight-bold navarra rounded">Cuéntale al mundo tu experiencia</h3>
+          <div className="w-100 h-100 rounded">
+          <h3 className="text-center p-3 text-dark selected font-weight-bold rounded">Cuéntale al mundo tu experiencia</h3>
           <div className="bg-light">
             {/* Aca editamos Titulo */}
             <input onChange={(e) => { setTitulo(e.target.value) }} value={titulo}
@@ -94,9 +94,9 @@ export const CrearExp = () => {
           </div>
 
           {/* Botones Booleanos */}
-          <div className="text-center bg-light">
+          <div className="text-center mb-2 bg-light">
           <button className={indoor ? `btn btn-md navarra ${selected}` : "btn btn-md navarra"} onClick={() => { indoor ? setIndoor(false) : setIndoor(true) }}>Indoor</button>
-          <button className={outdoor ? `btn btn-md navarra ${selected}` : "btn btn-md navarra"} onClick={() => { outdoor ? setOutdoor(false) : setOutdoor(true) }}>Outdoor</button>
+          <button className={outdoor ? `btn btn-md me-2 ms-2 navarra ${selected}` : "btn btn-md me-2 ms-2 navarra"} onClick={() => { outdoor ? setOutdoor(false) : setOutdoor(true) }}>Outdoor</button>
           <button className={anywhere ? `btn btn-md navarra ${selected}` : "btn btn-md navarra"} onClick={() => { anywhere ? setAnywhere(false) : setAnywhere(true) }}>Anywhere</button>
 
           </div>
@@ -105,7 +105,7 @@ export const CrearExp = () => {
           <textarea onChange={(e) => { setDescription(e.target.value) }} value={description}
             placeholder="Cuentanos mas sobre tu experiencia!"
             className="form-control" id="floatingTextarea" />
-          <div className="text-center navarra rounded">
+          <div className="text-center rounded">
           <button onClick={postear} className=" btn-outline border-0 click rounded btn-lg navarra animable2 boton3 me-2">Postear</button>
           <button onClick={() => { setDesplegar(false) }} className="mt-2 btn-outline click border-0 rounded btn-lg navarra animable2 mb-3 boton3">Cerrar</button>
           </div>
