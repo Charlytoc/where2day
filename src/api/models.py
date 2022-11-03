@@ -18,6 +18,7 @@ class Usuario(db.Model):
     experiencias = db.relationship('Experiencias', backref='usuario', lazy=True)
     invitado = db.relationship('Invitados', backref='usuario', lazy=True)
     eventos = db.relationship('Eventos', backref='usuario', lazy=True)
+    todos = db.relationship('Todos', backref='usuario', lazy=True)
 
     def __repr__(self):
         return f'<Usuario {self.username}>'
@@ -48,7 +49,7 @@ class Experiencias(db.Model):
     image_url = db.Column(db.String(250), unique=False, nullable=True)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'),
         nullable=False)
-    
+    todos = db.relationship('Todos', backref='experiencias', lazy=True)
     
 
     def __repr__(self):
@@ -114,5 +115,21 @@ class Invitados(db.Model):
     def serialize(self):
         return {
             "id": self.id
+        }
+
+class Todos(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'),
+        nullable=False)
+    experiencias_id = db.Column(db.Integer, db.ForeignKey('experiencias.id'),
+        nullable=False)
+
+    def __repr__(self):
+        return f'<Todos {self.id}>'
+
+    def serialize(self):
+        return {
+            "todo_id": self.id,
+            "exp": Experiencias.query.get(self.experiencias_id).serialize()
         }
 

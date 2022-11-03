@@ -19,19 +19,18 @@ export const Filtros = () => {
   return (
     <> 
       <div className="card shadow bg-body fijar-fil rounded my-5 float-start">
-        {/* CARD FILTROS */}
 
-        <h4 className="btn-outline rounded p-3 text-center selected">
+        <h4 className="btn-outline mb-0 rounded p-3 text-center selected">
           Filtros
         </h4>
 
-        <ul className="list-group click list-group-flush">
+        <ul className="list-group mt-0 click list-group-flush">
           <li onClick={() => { filtrarExp(store.usuario_actual) }} className="click list-group-item">Tus experiencias </li>
           <li onClick={() => { actions.loadExperiencias() }} className="click list-group-item">Últimas</li>
           <li onClick={() => { filtrarExp('outdoor') }} className="click list-group-item">Experiencias fuera de casa</li>
           <li onClick={() => { filtrarExp('indoor') }} className="click list-group-item">Experiencias indoor</li>
           <li onClick={() => { filtrarExp('anywhere') }} className="click list-group-item">Experiencias online</li>
-          <li className="hand list-group-item">Actividades</li>
+          {/* <li className="hand list-group-item">Actividades</li> */}
         </ul>
       </div>
     </>
