@@ -44,7 +44,7 @@ export const Feed = () => {
                 </div>
                 <div id="contenedor-feed" className="col-sm-12 col-md-6 col-lg-7 col-xl-6   ">
                 <CrearExp />
-                <h1 className="mt-2 text-center selected rounded p-2">{store.feed}</h1>
+                <h1 className="mt-2 text-center rounded p-2">{store.feed}</h1>
 
                         {store.feedExperiencias.map((item) => <div key={item.id}><MostrarExp
                             title={item.titulo}
@@ -78,7 +78,7 @@ export const Feed = () => {
             </div>
 
           
-            <Footer />
+            
         </>
     );
 };

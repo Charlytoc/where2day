@@ -41,15 +41,10 @@ export const MostrarExp = (props) => {
         // console.log(desplegar)
     }
 
-    // const alertEliminar = () => {
-    //     console.log("TODO BIEN")
-    //     Swal.fire({
-    //         showConfirmButton: true,
-    //         confirmButtonText: "Sí",
-    //         showDenyButton: true,
-    //         denyButtonText:"No",
-    //         confirmButtonColor: "#ec4a4a"
-    //       })
+    
+    useEffect(() => {
+        actions.getPostOwner(props.expOwner);
+    }, []);
     // }
 
     // Funcion para llamar al fetch del flux y postear con las variables anteriores
@@ -63,7 +58,29 @@ export const MostrarExp = (props) => {
 
     return (
         <>
-
+            <div className="container border">
+                <div className="row">
+                    <div className="col-3">
+                        <img src={store.profilePost.image_url} className="rounded w-100" />
+                    </div>
+                    <div className="col-7">
+                        <p className="m-0 p-0 mt-1 fs-6">{props.title}</p>
+                        <p className="m-0 p-0 text-secondary"><FontAwesomeIcon icon={faLocation} /> {props.lugar}</p>
+                    </div>
+                    <div className="col-2">
+                        <button className="btn mt-3 border-0">
+                        <FontAwesomeIcon icon={faGear} />
+                        </button>
+                        <div className="collapse" id="collapseExample">
+                             <button className="btn" onClick={desplegarEdit}> <FontAwesomeIcon icon={faPen} /> </button>
+                            <button className="btn" onClick={() => actions.delete(props.exp_id, "exp")}><FontAwesomeIcon icon={faX} /></button>
+                             </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <img src={props.image_url} />
+                </div>
+            </div>
 
             <div className=" card ">
                 {/* <button onClick={mostrar}> TE MUESTRO LOS BOOLEANOS</button> */}

@@ -17,15 +17,15 @@ export const Filtros = () => {
 
 
   return (
-    <>
-      <div className="card mb-3 shadow bg-body rounded mt-3 float-start">
+    <> 
+      <div className="card shadow bg-body fijar-fil rounded my-5 float-start">
         {/* CARD FILTROS */}
 
-        <div className="btn-outline rounded p-3 text-center navarra">
+        <h4 className="btn-outline rounded p-3 text-center selected">
           Filtros
-        </div>
+        </h4>
 
-        <ul className="list-group click navarra list-group-flush">
+        <ul className="list-group click list-group-flush">
           <li onClick={() => { filtrarExp(store.usuario_actual) }} className="click list-group-item">Tus experiencias </li>
           <li onClick={() => { actions.loadExperiencias() }} className="click list-group-item">Últimas</li>
           <li onClick={() => { filtrarExp('outdoor') }} className="click list-group-item">Experiencias fuera de casa</li>

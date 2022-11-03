@@ -100,17 +100,17 @@ export const Signup = () => {
   }, [])
 
   return (
-    <div className="text-center w-75 navarra container d-flex border shadow bg-body rounded">
-      <img src={logo} className="w-50 float-start animable bg-body rounded navarra" />
-      <div id="mitad-derecha" className="shadow-lg navarra rounded w-100 h-75 ">
-      <h2 className="animable3 w-100 h-30 shadow-lg p-3 bg-body rounded navarra">Bienvenido, espero que te diviertas en tu siguiente experiencia</h2>
-      <form className="navarra" onSubmit={handleSubmit}>
+    <div className="text-center w-50 my-5 container d-flex border shadow bg-body rounded">
+      <img src={logo} className="w-50 float-start animable bg-body rounded " />
+      <div id="mitad-derecha" className=" container rounded w-50 h-75 ">
+      <h2 className="animable3 w-100  p-3 rounded">Bienvenido</h2>
+      <form className="" onSubmit={handleSubmit}>
         {/* Este es el form de eMail  */}
         <div className="input-group justify-content-center animable2">
           <div className="form-floating">
             <input
               type="email"
-              className="form-control animable shadow-lg mt-3 p-3 bg-body rounded"
+              className="form-control animable  mt-3 p-3 bg-body rounded"
               aria-describedby="emailHelp"
               placeholder="Your eMail"
               onChange={(e) => setEmail(e.target.value)}
@@ -118,7 +118,7 @@ export const Signup = () => {
             />
             <input
               type="password"
-              className="form-control animable shadow-lg p-3 mt-2 bg-body rounded"
+              className="form-control animable  p-3 mt-2 bg-body rounded"
               id="floatingInputGroup1"
               placeholder="Username"
               onChange={(e) => setPassword(e.target.value)}
@@ -127,7 +127,7 @@ export const Signup = () => {
             <div className="container mt-2"><button
             
             type="submit"
-            className="btn click btn-lg navarra animable2 boton shadow-lg mt-2 p-3 bg-body rounded"
+            className="btn click btn-lg navarra animable2 boton mt-2 p-3 bg-body rounded"
 
           >
             <span className="animable2"> Signup </span>

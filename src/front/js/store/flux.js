@@ -13,7 +13,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       post: {
       },
       profile: {},
-      feed: ""
+      feed: "",
+      profilePost: {}
     },
     actions: {
       getMessage: async () => {
@@ -324,6 +325,25 @@ const getState = ({ getStore, getActions, setStore }) => {
             .then((response) => response.json())
             .then((data) => {console.log(data), getActions().getUserProfile()});
             // .then((data) => console.log(data));
+        },
+
+
+        getPostOwner: async (id) => {
+          try{ 
+            const store = getStore();
+            const url = (process.env.BACKEND_URL + "/api/getProfile")
+            
+            // const formData = new FormData()
+            // formData.append("usuario_id", store.usuario_actual)
+            const response = await axios.post(url, {usuario_id: id})  
+            setStore({profilePost: response.data.results})
+            console.log(store.profilePost)
+            }
+
+            catch(error){
+            console.log(error)
+          }
+
         },
 
         getUserProfile: async () => {

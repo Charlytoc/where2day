@@ -68,7 +68,7 @@ export const CrearExp = () => {
   // console.log("Este es el numero de ID_usuario actual utilizando nuestra app " + store.usuario_actual)
   return (
     <>
-      <div id="letra-feed" className="mt-3 navarra text-light shadow-lg rounded">
+      <div id="letra-feed" className="my-5 fijado navarra text-light shadow-lg rounded">
         {/* CARD CREAR EXPERIENCIA */}
         {desplegar ? <>
           <div className="navarra w-100 h-100 rounded">

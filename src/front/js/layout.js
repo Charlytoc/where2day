@@ -70,7 +70,7 @@ const Layout = () => {
             <Route element={<ErrorPage />} path="*" />
 
           </Routes>
-
+          <Footer />
 
         </ScrollToTop>
       </BrowserRouter>

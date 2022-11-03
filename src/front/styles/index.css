@@ -11,8 +11,8 @@ body {
 
 .navarra {
     background: linear-gradient(135deg,
-            rgb(224, 22, 22),
-            rgba(244, 43, 78, 1));
+            rgba(224, 22, 22, 0.8),
+            rgba(244, 43, 78, 0.6));
     color: rgb(255, 242, 195);
 }
 
@@ -39,7 +39,7 @@ body {
 
 html {
     min-height: 100%;
-    font-size: 110%;
+    font-size: 100%;
 }
 
 .click:hover {
@@ -52,6 +52,17 @@ html {
 
 .fijar {
     position: sticky;
+    top: 0px
+}
+
+/* .fijado {
+    position: sticky;
+    top: 100px
+} */
+
+.fijar-fil {
+    position: sticky;
+    top: 128px
 }
 
 .selected {
@@ -59,4 +70,8 @@ html {
             rgb(255, 180, 88),
             rgba(251, 251, 148, 0.5));
     color: black;
+}
+
+.letra.peq {
+    font-size: 10px;
 }

@@ -98,17 +98,17 @@ export const Login = () => {
 
 
   return (
-    <div className="text-center w-75 navarra container d-flex border shadow bg-body rounded">
-      <img src={logo} className="w-50 float-start animable bg-body rounded navarra" />
-      <div id="mitad-derecha" className="shadow-lg navarra rounded w-100 h-75 ">
-      <h2 className="animable3 w-100 h-30 shadow-lg p-3 bg-body rounded navarra">Bienvenido, espero que te diviertas en tu siguiente experiencia</h2>
-      <form className="navarra" onSubmit={handleSubmit}>
+    <div className="text-center w-50 d-flex my-5 container border shadow bg-body rounded">
+      <img src={logo} className="w-50 float-start animable bg-body rounded " />
+      <div id="mitad-derecha" className="  rounded w-50 h-100 ">
+      <h2 className="animable3 w-100 text-center p-3 bg-body rounded ">Inicia sesión</h2>
+      <form className="" onSubmit={handleSubmit}>
         {/* Este es el form de eMail  */}
         <div className="input-group justify-content-center animable2">
           <div className="form-floating">
             <input
               type="email"
-              className="form-control animable shadow-lg mt-3 p-3 bg-body rounded"
+              className="form-control animable  mt-3 p-3 bg-body rounded"
               aria-describedby="emailHelp"
               placeholder="Your eMail"
               onChange={(e) => setEmail(e.target.value)}
@@ -116,7 +116,7 @@ export const Login = () => {
             />
             <input
               type="password"
-              className="form-control animable shadow-lg p-3 mt-2 bg-body rounded"
+              className="form-control animable  p-3 mt-2 bg-body rounded"
               id="floatingInputGroup1"
               placeholder="Username"
               onChange={(e) => setPassword(e.target.value)}
@@ -126,7 +126,7 @@ export const Login = () => {
             // onMouseDown={disminuir}
             // onMouseOver={agrandar}
             type="submit"
-            className=" click btn-outline border-0 rounded btn-lg navarra animable2 boton shadow-lg mt-2 p-3 bg-body rounded"
+            className=" click btn-outline border-0 rounded btn-lg navarra animable2 boton  mt-2 p-3 bg-body rounded"
 
           >
             <span onClick={handleSubmit} className="animable2">Login</span>
@@ -138,7 +138,7 @@ export const Login = () => {
               className="btn-outline d-inline-block click border-0 rounded btn-lg navarra animable2 boton3 shadow-lg p-3 bg-body rounded" >regresa al inicio</button>
           </Link></div>
           <Link style={{ textDecoration: 'none', color: "black" }} to="/reset">
-                <button className="click btn-outline border-0 rounded btn-lg navarra animable2 boton shadow-lg p-3 bg-body rounded">Clickea acá si perdiste tu contraseña</button>
+                <p className=" border-0 rounded animable2 boton letra-peq sp-3 bg-body rounded">Clickea acá si perdiste tu contraseña</p>
             </Link>
           </div>
         </div>
