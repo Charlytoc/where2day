@@ -47,6 +47,36 @@ def login():
     return jsonify(access_token=access_token), 200
 
 
+
+@api.route("/basedata", methods=["GET"])
+def parse_basedata():
+
+    nuevo_usuario = Usuario(email="charlyjchaconc@gmail.com", password="Char.dev", pais="Ecuador", username="Charlytoc", nombre="Charly", apellido="Chacón", edad=23, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667496142/pruebas/edahciykyeeiyo5a5j3t.jpg")
+    usuario_existente = Usuario.query.filter_by(email="charlyjchaconc@gmail.com").first()
+
+    if nuevo_usuario == usuario_existente:
+        return jsonify("Ya tienes todo bien"), 200
+
+    db.session.add(nuevo_usuario)
+    db.session.commit()
+
+
+    return jsonify("Todo bien el DB"), 200
+
+
+
+@api.route("/cargarExp", methods=["GET"])
+def cargar_exp():
+
+    nueva_experiencia = Experiencias(titulo="Viaje a Cuenca", lugar="Cuenca, Ecuador", description="Fui de vacaciones para conocer a una amiga, debo decir que la ciudad me pareció muy limpia y ordenada", usuario_id=1, fecha="12/10/22", outdoor=True , indoor=False, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667445987/pruebas/qbbity8sg6bylfffekzi.jpg")
+    nueva_experiencia2 = Experiencias(titulo="Cocinando pollo Gordon Bleu", lugar="Guayaquil, Ecuador", description="Esta es de esas recetas que son sencillas pero que quedan exquisitas. Además, cocinar siempre me despeja la mente y me hace pensar en cosas interesantes", usuario_id=1, fecha="13/09/22", outdoor=False , indoor=True, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667445987/pruebas/qbbity8sg6bylfffekzi.jpg")
+    db.session.add(nueva_experiencia, nueva_experiencia2)
+    db.session.commit()
+
+
+    return jsonify("Todo bien en el DB"), 200
+
+
 @api.route("/signup", methods=["POST"])
 def to_signup():
     email = request.json.get("email", None)
@@ -60,13 +90,7 @@ def to_signup():
 
     nuevo_usuario = Usuario(email=email, password=password)
     
-
-    db.session.add(nuevo_usuario)
-    
-
-    # nueva_experiencia = Experiencias(titulo="titulo", lugar="lugar", description="description", usuario_id=1, fecha="fecha", outdoor=True , indoor=False, anywhere=True, image_url="imagen")
-    nueva_experiencia = Experiencias(titulo="Viaje a Cuenca", lugar="Cuenca, Ecuador", description="Fui de vacaciones para conocer a una amiga, debo decir que la ciudad me pareció muy limpia y ordenada", usuario_id=1, fecha="12/10/22", outdoor=True , indoor=False, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667445987/pruebas/qbbity8sg6bylfffekzi.jpg")
-    db.session.add(nueva_experiencia)
+    db.session.add(nuevo_usuario)    
     db.session.commit()
 
     response_body = "te has loggeado tío, y todo bien"

@@ -58,7 +58,7 @@ export const MostrarExp = (props) => {
 
     return (
         <>
-            <div className="container border">
+            <div className="container border p-0 m-0">
                 <div className="row">
                     <div className="col-3">
                         <img src={store.profilePost.image_url} className="rounded w-100" />
@@ -68,17 +68,30 @@ export const MostrarExp = (props) => {
                         <p className="m-0 p-0 text-secondary"><FontAwesomeIcon icon={faLocation} /> {props.lugar}</p>
                     </div>
                     <div className="col-2">
-                        <button className="btn mt-3 border-0">
+                        <button className="btn mt-3 border-0 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <FontAwesomeIcon icon={faGear} />
                         </button>
-                        <div className="collapse" id="collapseExample">
-                             <button className="btn" onClick={desplegarEdit}> <FontAwesomeIcon icon={faPen} /> </button>
-                            <button className="btn" onClick={() => actions.delete(props.exp_id, "exp")}><FontAwesomeIcon icon={faX} /></button>
-                             </div>
+                        <ul className="dropdown-menu">
+                        <li>
+                        <button className="btn" onClick={desplegarEdit}><FontAwesomeIcon icon={faPen} />  Editar</button>
+                        </li>
+                        <li>
+                        <button className="btn" onClick={() => actions.delete(props.exp_id, "exp")}><FontAwesomeIcon icon={faX}/>  Eliminar</button>
+                        </li>
+                        </ul>
                     </div>
                 </div>
                 <div className="row">
                     <img src={props.image_url} />
+                </div>
+                <div className="row">
+                    <div className="col-4">
+
+                    </div>
+                    <div className="col-4"></div>
+                    <div className="col-4">
+
+                    </div>
                 </div>
             </div>
 
