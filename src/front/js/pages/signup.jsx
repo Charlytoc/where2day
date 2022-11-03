@@ -100,7 +100,7 @@ export const Signup = () => {
   }, [])
 
   return (
-    <div className="text-center w-50 my-5 container d-flex border shadow bg-body rounded">
+    <div className="text-center zindex-toast w-50 my-5 container d-flex border shadow bg-body rounded">
       <img src={logo} className="w-50 float-start animable bg-body rounded " />
       <div id="mitad-derecha" className=" container rounded w-50 h-75 ">
       <h2 className="animable3 w-100  p-3 rounded">Bienvenido</h2>

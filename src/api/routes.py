@@ -51,11 +51,7 @@ def login():
 def to_signup():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
-    # username = request.json.get("username", None)
-    # nombre =  request.json.get("nombre", None)
-    # apellido = request.json.get("apellido", None)
-    # edad = request.json.get("edad", None)
-
+   
     usuario_existente = Usuario.query.filter_by(email=email).first()
     print(usuario_existente)
 
@@ -66,9 +62,14 @@ def to_signup():
     
 
     db.session.add(nuevo_usuario)
+    
+
+    # nueva_experiencia = Experiencias(titulo="titulo", lugar="lugar", description="description", usuario_id=1, fecha="fecha", outdoor=True , indoor=False, anywhere=True, image_url="imagen")
+    nueva_experiencia = Experiencias(titulo="Viaje a Cuenca", lugar="Cuenca, Ecuador", description="Fui de vacaciones para conocer a una amiga, debo decir que la ciudad me pareció muy limpia y ordenada", usuario_id=1, fecha="12/10/22", outdoor=True , indoor=False, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667445987/pruebas/qbbity8sg6bylfffekzi.jpg")
+    db.session.add(nueva_experiencia)
     db.session.commit()
 
-    response_body = "te has loggeado tío"
+    response_body = "te has loggeado tío, y todo bien"
     return jsonify(response_body), 200
 
 
