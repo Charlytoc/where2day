@@ -1,3 +1,5 @@
+/* @import url(../img/how-to.png); */
+
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
@@ -14,6 +16,7 @@ body {
             rgba(224, 22, 22, 0.8),
             rgba(244, 43, 78, 0.6));
     color: rgb(255, 242, 195);
+    z-index: 3;
 }
 
 .pub-title {

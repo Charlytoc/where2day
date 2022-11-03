@@ -94,10 +94,10 @@ export const CrearExp = () => {
           </div>
 
           {/* Botones Booleanos */}
-          <div className="text-center mb-2 bg-light">
-          <button className={indoor ? `btn btn-md navarra ${selected}` : "btn btn-md navarra"} onClick={() => { indoor ? setIndoor(false) : setIndoor(true) }}>Indoor</button>
-          <button className={outdoor ? `btn btn-md me-2 ms-2 navarra ${selected}` : "btn btn-md me-2 ms-2 navarra"} onClick={() => { outdoor ? setOutdoor(false) : setOutdoor(true) }}>Outdoor</button>
-          <button className={anywhere ? `btn btn-md navarra ${selected}` : "btn btn-md navarra"} onClick={() => { anywhere ? setAnywhere(false) : setAnywhere(true) }}>Anywhere</button>
+          <div className="text-center my-2 bg-light">
+          <button className={indoor ? `btn btn-md navarra ${selected}` : "btn btn-md "} onClick={() => { indoor ? setIndoor(false) : setIndoor(true) }}>Indoor</button>
+          <button className={outdoor ? `btn btn-md me-2 ms-2 navarra ${selected}` : "btn btn-md me-2 ms-2 "} onClick={() => { outdoor ? setOutdoor(false) : setOutdoor(true) }}>Outdoor</button>
+          <button className={anywhere ? `btn btn-md navarra ${selected}` : "btn btn-md "} onClick={() => { anywhere ? setAnywhere(false) : setAnywhere(true) }}>Anywhere</button>
 
           </div>
 
@@ -106,14 +106,14 @@ export const CrearExp = () => {
             placeholder="Cuentanos mas sobre tu experiencia!"
             className="form-control" id="floatingTextarea" />
           <div className="text-center rounded">
-          <button onClick={postear} className=" btn-outline border-0 click rounded btn-lg navarra animable2 boton3 me-2">Postear</button>
-          <button onClick={() => { setDesplegar(false) }} className="mt-2 btn-outline click border-0 rounded btn-lg navarra animable2 mb-3 boton3">Cerrar</button>
+          <button onClick={postear} className=" btn-outline border-0 click rounded btn-lg animable2 boton3 me-2">Postear</button>
+          <button onClick={() => { setDesplegar(false) }} className="mt-2 btn-outline click border-0 rounded btn-lg  animable2 mb-3 boton3">Cerrar</button>
           </div>
 
           </div>
           </> : 
         <div className="w-100 bg-light">
-          <h1 onClick={desplegarCaja} className=" rounded text-center click p-3 btn-outline border-0 rounded btn-lg navarra animable2 mb-3 boton3 mt-0">Crear post
+          <h1 onClick={desplegarCaja} className=" rounded text-center click p-3 btn-outline border-0 text-dark rounded btn-lg animable2 mb-3 boton3 mt-0">Crear post
         </h1>
         </div>
         

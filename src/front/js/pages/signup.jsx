@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 // import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import { gsap, Elastic } from "gsap";
+import axios from "axios";
 
 export const Signup = () => {
   const [email, setEmail] = useState("");
@@ -36,41 +37,7 @@ export const Signup = () => {
     console.log("hola")
   }
 
-  const agrandar = () => {
-    let boton = document.querySelectorAll(".boton")
-    let anim = gsap.to(boton, { scale: 1.2, yoyo: true, duration: 1 })
-    anim.play()
-  }
-
-  const disminuir = () => {
-    let boton = document.querySelector(".boton")
-    let anim = gsap.to(boton, { scale: 0.8, yoyo: true, duration: 1 })
-    anim.play()
-  }
-
-  const agrandar2 = () => {
-    let boton = document.querySelectorAll(".boton2")
-    let anim = gsap.to(boton, { scale: 1.2, yoyo: true, duration: 1 })
-    anim.play()
-  }
-
-  const disminuir2 = () => {
-    let boton = document.querySelector(".boton2")
-    let anim = gsap.to(boton, { scale: 0.8, yoyo: true, duration: 1 })
-    anim.play()
-  }
-
-  const agrandar3 = () => {
-    let boton = document.querySelectorAll(".boton3")
-    let anim = gsap.to(boton, { scale: 1.2, yoyo: true, duration: 1 })
-    anim.play()
-  }
-
-  const disminuir3 = () => {
-    let boton = document.querySelector(".boton3")
-    let anim = gsap.to(boton, { scale: 0.8, yoyo: true, duration: 1 })
-    anim.play()
-  }
+  
   const timeline = gsap.timeline()
 
   const animation = () => {
@@ -95,12 +62,23 @@ export const Signup = () => {
     }, "-=0.9")
   }
 
+  const obtenerDB = async () => {
+    try {
+      const url = process.env.BACKEND_URL + "/api/basedata"
+    const resp = await axios(url)
+    console.log(resp.data)
+    }
+    catch(error) {console.log(error)}
+  }
+
+
   useEffect(() => {
-    animation()
+    animation(),
+    obtenerDB()
   }, [])
 
   return (
-    <div className="text-center w-50 my-5 container d-flex border shadow bg-body rounded">
+    <div className="text-center zindex-toast w-50 my-5 container d-flex border shadow bg-body rounded">
       <img src={logo} className="w-50 float-start animable bg-body rounded " />
       <div id="mitad-derecha" className=" container rounded w-50 h-75 ">
       <h2 className="animable3 w-100  p-3 rounded">Bienvenido</h2>

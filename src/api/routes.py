@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint, current_app
-from api.models import db, Usuario, Experiencias, Eventos
+from api.models import db, Usuario, Experiencias, Eventos, Todos
 from api.utils import generate_sitemap, APIException
 
 from flask_jwt_extended import create_access_token
@@ -47,15 +47,42 @@ def login():
     return jsonify(access_token=access_token), 200
 
 
+
+@api.route("/basedata", methods=["GET"])
+def parse_basedata():
+
+    nuevo_usuario = Usuario(email="charlyjchaconc@gmail.com", password="Char.dev", pais="Ecuador", username="Charlytoc", nombre="Charly", apellido="Chacón", edad=23, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667496142/pruebas/edahciykyeeiyo5a5j3t.jpg")
+    usuario_existente = Usuario.query.filter_by(email="charlyjchaconc@gmail.com").first()
+
+    if nuevo_usuario == usuario_existente:
+        return jsonify("Ya tienes todo bien"), 200
+
+    db.session.add(nuevo_usuario)
+    db.session.commit()
+
+
+    return jsonify("Todo bien el DB"), 200
+
+
+
+@api.route("/cargarExp", methods=["GET"])
+def cargar_exp():
+    print("bien")
+    nueva_experiencia = Experiencias(titulo="Viaje a Cuenca", lugar="Cuenca, Ecuador", description="Fui de vacaciones para conocer a una amiga, debo decir que la ciudad me pareció muy limpia y ordenada", usuario_id=1, fecha="12/10/22", outdoor=True , indoor=False, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667445987/pruebas/qbbity8sg6bylfffekzi.jpg")
+    nueva_experiencia2 = Experiencias(titulo="Cocinando pollo Gordon Bleu", lugar="Guayaquil, Ecuador", description="Esta es de esas recetas que son sencillas pero que quedan exquisitas. Además, cocinar siempre me despeja la mente y me hace pensar en cosas interesantes", usuario_id=1, fecha="13/09/22", outdoor=False , indoor=True, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667499696/pruebas/vzskhugafiy1eowtravh.jpg")
+    db.session.add(nueva_experiencia)
+    db.session.add(nueva_experiencia2)
+    db.session.commit()
+
+
+    return jsonify("Todo bien en el DB"), 200
+
+
 @api.route("/signup", methods=["POST"])
 def to_signup():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
-    # username = request.json.get("username", None)
-    # nombre =  request.json.get("nombre", None)
-    # apellido = request.json.get("apellido", None)
-    # edad = request.json.get("edad", None)
-
+   
     usuario_existente = Usuario.query.filter_by(email=email).first()
     print(usuario_existente)
 
@@ -64,11 +91,10 @@ def to_signup():
 
     nuevo_usuario = Usuario(email=email, password=password)
     
-
-    db.session.add(nuevo_usuario)
+    db.session.add(nuevo_usuario)    
     db.session.commit()
 
-    response_body = "te has loggeado tío"
+    response_body = "te has loggeado tío, y todo bien"
     return jsonify(response_body), 200
 
 
@@ -422,3 +448,57 @@ def forgotpassword():
     
     current_app.mail.send(msg)
     return jsonify({"msg": "Su nueva clave ha sido enviada al correo electrónico ingresado"}), 200
+
+
+@api.route('/todos', methods=['POST'])
+def get_user_todos ():
+
+    user_id = request.json.get("user_id", None)
+
+
+    todos_to = Todos.query.filter_by(usuario_id=user_id).all()
+    
+    todos = list(map(lambda item: item.serialize(), todos_to))
+
+    print(todos)
+    response_body = {
+        "msg": "OK",
+        "user": user_id,
+        "todos": todos
+    }
+    return jsonify(response_body), 200
+
+
+@api.route('/actividad', methods=['POST'])
+def set_todo ():
+
+    exp_id = request.json.get("exp_id", None)
+    user_id = request.json.get("user_id", None)
+
+    todo = Todos(usuario_id=user_id, experiencias_id=exp_id)
+
+    db.session.add(todo)
+    db.session.commit()
+
+    response_body = {
+        "msg": "OK"
+    }
+    return jsonify(response_body), 200
+
+
+
+@api.route('/deleteTodo', methods=['POST'])
+def delete_todo ():
+
+    todo_id = request.json.get("todo_id", None)
+
+    todo = Todos.query.get(todo_id)
+    
+    db.session.delete(todo)
+    db.session.commit()
+
+    response_body = {
+        "msg": "OK"
+    }
+    return jsonify(response_body), 200
+

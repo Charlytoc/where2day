@@ -34,6 +34,7 @@ const injectContext = (PassedComponent) => {
       state.actions.loadExperiencias();
       state.actions.autenticar();
       state.actions.obtenerUsuario();
+      state.actions.getTodos();
       // console.log("Este es el estado actual del auth: "+ state.store.auth); // <---- calling this function from the flux.js actions
     }, []);
     // <---- calling this function from the flux.js actions

@@ -3,8 +3,12 @@ import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import rigoImageUrl from "../../img/Where2Day.png";
 
+
 export const Home = () => {
   //   const { store, actions } = useContext(Context);
+
+  
+
 
   return (
     <div className="main-header">

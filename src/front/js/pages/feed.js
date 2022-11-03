@@ -8,41 +8,23 @@ import "../../styles/home.css";
 import { Filtros } from "../component/filtros";
 import { CrearExp } from "../component/crearExp";
 import { MostrarExp } from "../component/mostrarExp";
-import { MostrarEventos } from "../component/mostrarEventos";
-import { CrearEvento } from "../component/crearEvento";
-import { Navbar } from "../component/navbar";
-import { Footer } from "../component/footer";
+import { Todos } from "../component/todos";
 
 export const Feed = () => {
     const { store, actions } = useContext(Context); // #3 Consumirlo
 
     const [prueba, setPrueba] = useState(false);
-    // console.log(store.feedExperiencias)
-
-
-    let newArr = [];
-    const reverseArray = (arr) => {
-        // feedExperiencias
-        console.log(store.feedExperiencias);
-
-        store.feedExperiencias.slice().reverse().forEach(x => newArr.push(x))
-        console.log(newArr)
-    }
-    // let newArr = [];
-    // store.feedExperiencias.slice().reverse().forEach(x => newArr.push(x));
-    // console.log(newArr) ;
-
-
+ 
 
 
     return (
         <>
-            <div id="contenedor-feed" className="w-100 row container">
+            <div id="contenedor-feed" className="w-100 row container-flex">
 
-                <div id="contenedor-filtros" className="col-xl-3 col-lg-2 col-md-6 col-sm-12 ">
+                <div id="contenedor-filtros" className="ms-5 col-xxl-3 col-xl-3 col-lg-2 col-md-6 col-sm-12 ">
                 <Filtros />
                 </div>
-                <div id="contenedor-feed" className="col-sm-12 col-md-6 col-lg-7 col-xl-6   ">
+                <div id="contenedor-feed" className="col-xxl-5 col-sm-12 col-md-6 col-lg-7 col-xl-5 container-flex me-3 ">
                 <CrearExp />
                 <h1 className="mt-2 text-center rounded p-2">{store.feed}</h1>
 
@@ -60,20 +42,8 @@ export const Feed = () => {
                         />
                         </div>)}
                 </div>
-                <div id="contenedor-right" className="col-xl-3 col-sm-12 col-md-6  col-lg-2  ">
-                <CrearEvento />
-                        <div className="mt-5 text-center ">Últimos eventos</div>
-
-                        {store.mostrarEventos.map((item) =>
-                            <div key={item.id} > < MostrarEventos
-                                usuarioid={item.usuarioid}
-                                title={item.titulo}
-                                lugar={item.lugar}
-                                fecha={item.fecha}
-                                description={item.description}
-                            />
-                            </div >)
-                        }
+                <div id="contenedor-right" className="ms-3 col-xxl-3 col-xl-3 col-sm-12 col-md-6  col-lg-2  ">
+                    <Todos />
                 </div>
             </div>
 

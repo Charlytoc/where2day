@@ -14,7 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       profile: {},
       feed: "",
-      profilePost: {}
+      profilePost: {},
+      todos: []
     },
     actions: {
       getMessage: async () => {
@@ -198,7 +199,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           },
         })
           .then((response) => response.json())
-          .then((data) => setStore({ usuario_actual: data }));
+          .then((data) => {setStore({ usuario_actual: data }), getActions().getTodos()});
       },
 
       postear: ( titulo, lugar,description, fecha,outdoor,indoor,anywhere, image) => {
@@ -326,6 +327,21 @@ const getState = ({ getStore, getActions, setStore }) => {
             .then((data) => {console.log(data), getActions().getUserProfile()});
             // .then((data) => console.log(data));
         },
+        getTodos: async () => {
+          try{
+              const store = getStore()
+              const url = (process.env.BACKEND_URL + "/api/todos")
+              const resp = await axios.post(url, {user_id: store.usuario_actual})
+              
+              setStore({todos: resp.data.todos})
+
+              // console.log(store.todos)
+
+          }
+          catch (err) {console.log(err)
+      
+          }
+        },
 
 
         getPostOwner: async (id) => {
@@ -337,7 +353,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             // formData.append("usuario_id", store.usuario_actual)
             const response = await axios.post(url, {usuario_id: id})  
             setStore({profilePost: response.data.results})
-            console.log(store.profilePost)
+            // console.log(store.profilePost)
             }
 
             catch(error){
