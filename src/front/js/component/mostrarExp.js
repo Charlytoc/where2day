@@ -98,7 +98,7 @@ export const MostrarExp = (props) => {
 
     return (
         <>
-            <div className="container border p-0 m-0 my-5">
+            <div className="container border p-0 m-0 my-5 shadow rounded">
                 {desplegar ?
                     <>  
                         <div className="row">

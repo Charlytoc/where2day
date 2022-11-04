@@ -112,7 +112,7 @@ export const CrearExp = () => {
 
           </div>
           </> : 
-        <div className="w-100 bg-light">
+        <div className="w-100 bg-light rounded">
           <h1 onClick={desplegarCaja} className=" rounded text-center click p-3 btn-outline border-0 text-dark rounded btn-lg animable2 mb-3 boton3 mt-0">Crear post
         </h1>
         </div>
