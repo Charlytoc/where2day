@@ -334,7 +334,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
           })
             .then((response) => response.json())
-            .then((data) => {console.log(data), getActions().getUserProfile()});
+            .then((data) => {console.log(data), getActions().getUserProfile(store.usuario_actual)});
             // .then((data) => console.log(data));
         },
         getTodos: async () => {
@@ -396,17 +396,15 @@ const getState = ({ getStore, getActions, setStore }) => {
           catch(err) {console.log(err)}
         },
 
-        getUserProfile: async () => {
+        getUserProfile: async (id) => {
           try{ 
             const store = getStore();
             const url = (process.env.BACKEND_URL + "/api/getProfile")
-            
-            // const formData = new FormData()
-            // formData.append("usuario_id", store.usuario_actual)
-            const response = await axios.post(url, {usuario_id: store.usuario_actual})
+            const response = await axios.post(url, {usuario_id: id})
             
             setStore({profile: response.data.results})
-            getActions().filtrarExperiencias(store.usuario_actual)
+            let idUser = response.data.results.id
+            getActions().filtrarExperiencias(idUser)
             }
 
             catch(error){

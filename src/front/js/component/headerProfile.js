@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 import axios from "axios";
-
+import { useParams } from "react-router-dom";
 import { useContext } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 
 export const HeaderProfile = () => {
     const { store, actions } = useContext(Context); // #3 Consumirlo
-
+    const params = useParams()
     const [username, setUsername] = useState("")
     const [pais, setPais] = useState("")
     const [email, setEmail] = useState("")
@@ -58,15 +58,11 @@ export const HeaderProfile = () => {
         res.then((data) => setImage(data.data.secure_url))
     }
 
-
+    console.log(params.id)
 
     useEffect(() => {
-
-        actions.getUserProfile();
-
-
+        actions.getUserProfile(params.id);
     }, []);
-
 
     return (
         <>

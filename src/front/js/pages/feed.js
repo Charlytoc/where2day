@@ -15,7 +15,7 @@ export const Feed = () => {
 
     const [prueba, setPrueba] = useState(false);
  
-    console.log(store.feedExperiencias)
+    // console.log(store.feedExperiencias)
 
     return (
         <>

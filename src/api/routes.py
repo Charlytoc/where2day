@@ -79,7 +79,7 @@ def cargar_exp():
     exp_ex = Experiencias.query.filter_by(usuario_id=1).first()
 
     if exp_ex:
-        return "Ya tienes exps", 201
+        return jsonify("Ya agregaste exps"), 200
 
 
     db.session.add(nueva_experiencia)
@@ -391,16 +391,18 @@ def delete_exp ():
     id = request.json.get('id', None)
     exp_or_event = request.json.get('exp_or_event', None)
     
-    if exp_or_event == 'event':
-        event = Eventos.query.get(id)
-        db.session.delete(event)
+    exp = Experiencias.query.get(id)
+
+    like = Likes.query.filter_by(experiencias_id=id).first()
+    if like:
+        db.session.delete(like)
         db.session.commit()
-        response_body = "¡Has eliminado el evento, yeeha!"
-    elif exp_or_event == 'exp':
-        exp = Experiencias.query.get(id)
-        db.session.delete(exp)
-        db.session.commit()
-        response_body = "¡Has eliminado la experiencia, yeeha!"
+
+    db.session.delete(exp)
+    db.session.commit()
+        
+        
+    response_body = "¡Has eliminado la experiencia, yeeha!"
     
     return jsonify(response_body), 200
 
@@ -473,7 +475,7 @@ def get_user_todos ():
     
     todos = list(map(lambda item: item.serialize(), todos_to))
 
-    print(todos)
+    # print(todos)
     response_body = {
         "msg": "OK",
         "user": user_id,
@@ -487,14 +489,19 @@ def set_todo ():
 
     exp_id = request.json.get("exp_id", None)
     user_id = request.json.get("user_id", None)
-
-
-
+    
     todo = Todos(usuario_id=user_id, experiencias_id=exp_id)
+    old_todo = Todos.query.filter_by(experiencias_id=exp_id).first()
 
-    db.session.add(todo)
-    db.session.commit()
+    if not old_todo:
+        db.session.add(todo)
+        db.session.commit()
+        return "LISTO", 200
+    if old_todo.serialize()["usuario_id"] == user_id:
+        return "ya la agregaste antes", 201
 
+    
+    
     response_body = {
         "msg": "OK"
     }
@@ -541,12 +548,20 @@ def likeando ():
     exp_id = request.json.get("exp_id", None)
     user_id = request.json.get("user_id", None)
 
-
-
     like = Likes(usuario_id=user_id, experiencias_id=exp_id)
+    like_old = Likes.query.filter_by(experiencias_id=exp_id).first()
 
-    db.session.add(like)
-    db.session.commit()
+    if not like_old:
+        db.session.add(like)
+        db.session.commit()
+        return "1", 200
+    if like_old and like_old.serialize()["usuario_id"] == user_id:
+        db.session.delete(like_old)
+        db.session.commit()
+        return "-1", 200
+
+
+    
 
     response_body = {
         "msg": "Le has da'o like"

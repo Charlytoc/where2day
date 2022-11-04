@@ -14,6 +14,7 @@ import { faPen } from '@fortawesome/free-solid-svg-icons'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router-dom";
 
 
 export const MostrarExp = (props) => {
@@ -73,8 +74,8 @@ export const MostrarExp = (props) => {
             user_id: store.usuario_actual,
             exp_id: props.exp_id
         })
-        console.log(resp.data)
-        setLikes(likes + 1)
+        // console.log(resp.data)
+        setLikes(likes + parseInt(resp.data))
 
     }
     catch (err) {console.log(err)}
@@ -146,7 +147,7 @@ export const MostrarExp = (props) => {
                             <div className="col-6 container text-center">
                             <button className=" btn-outline border-0 rounded btn-lg click animable2 mb-3 boton3 mt-0"
                             onClick={editExperiencia}>
-                            Edit Post
+                            Guardar cambios
                         </button>
                             </div>
                             <div className="col-3"></div>
@@ -156,7 +157,9 @@ export const MostrarExp = (props) => {
                     <>
                     <div className="row m-0">
                     <div className="col-3 container">
+                        <Link to={`/userProfile/${props.expOwner}`}>
                         <img src={props.imageOwner} className="rounded img-thumbnail w-75" />
+                        </Link>
                     </div>
                     <div className="col-7">
                         <p className="m-0 p-0 mt-3 fs-5">{props.title}</p>
