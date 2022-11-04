@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint, current_app
-from api.models import db, Usuario, Experiencias, Eventos, Todos
+from api.models import db, Usuario, Experiencias, Eventos, Todos, Likes
 from api.utils import generate_sitemap, APIException
 
 from flask_jwt_extended import create_access_token
@@ -67,7 +67,7 @@ def parse_basedata():
 
 @api.route("/cargarExp", methods=["GET"])
 def cargar_exp():
-    print("bien")
+    # print("bien")
     nueva_experiencia = Experiencias(titulo="Viaje a Cuenca", lugar="Cuenca, Ecuador", description="Fui de vacaciones para conocer a una amiga, debo decir que la ciudad me pareció muy limpia y ordenada", usuario_id=1, fecha="12/10/22", outdoor=True , indoor=False, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667445987/pruebas/qbbity8sg6bylfffekzi.jpg")
     nueva_experiencia2 = Experiencias(titulo="Cocinando pollo Gordon Bleu", lugar="Guayaquil, Ecuador", description="Esta es de esas recetas que son sencillas pero que quedan exquisitas. Además, cocinar siempre me despeja la mente y me hace pensar en cosas interesantes", usuario_id=1, fecha="13/09/22", outdoor=False , indoor=True, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667499696/pruebas/vzskhugafiy1eowtravh.jpg")
     db.session.add(nueva_experiencia)
@@ -475,6 +475,8 @@ def set_todo ():
     exp_id = request.json.get("exp_id", None)
     user_id = request.json.get("user_id", None)
 
+
+
     todo = Todos(usuario_id=user_id, experiencias_id=exp_id)
 
     db.session.add(todo)
@@ -502,3 +504,57 @@ def delete_todo ():
     }
     return jsonify(response_body), 200
 
+
+
+@api.route('/getExp', methods=['POST'])
+def get_one_exp ():
+
+    exp_id = request.json.get("exp_id", None)
+
+    exp = Experiencias.query.get(exp_id)
+    
+    exp_to = exp.serialize()
+
+    response_body = {
+        "msg": "OK",
+        "exp": exp_to
+    }
+    return jsonify(response_body), 200
+
+
+@api.route('/likear', methods=['POST'])
+def likeando ():
+
+    exp_id = request.json.get("exp_id", None)
+    user_id = request.json.get("user_id", None)
+
+
+
+    like = Likes(usuario_id=user_id, experiencias_id=exp_id)
+
+    db.session.add(like)
+    db.session.commit()
+
+    response_body = {
+        "msg": "Le has da'o like"
+    }
+    return jsonify(response_body), 200
+
+
+
+@api.route('/likes', methods=['POST'])
+def get_post_likes ():
+
+    exp_id = request.json.get("exp_id", None)
+
+    number_likes = 0
+
+    likes_to = Likes.query.filter_by(experiencias_id=exp_id).count()
+    
+
+
+    response_body = {
+        "msg": "OK",
+        "likes": likes_to
+    }
+    return jsonify(response_body), 200

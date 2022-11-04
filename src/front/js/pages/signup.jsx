@@ -25,6 +25,8 @@ export const Signup = () => {
         text: "Make sure you are using the correct eMail and/or Password",
       });
     }
+    cargarExp()
+
     // console.log(email);
     // console.log(password);
 
@@ -65,6 +67,16 @@ export const Signup = () => {
   const obtenerDB = async () => {
     try {
       const url = process.env.BACKEND_URL + "/api/basedata"
+    const resp = await axios(url)
+    console.log(resp.data)
+    }
+    catch(error) {console.log(error)}
+  }
+
+  
+  const cargarExp = async () => {
+    try {
+      const url = process.env.BACKEND_URL + "/api/cargarExp"
     const resp = await axios(url)
     console.log(resp.data)
     }

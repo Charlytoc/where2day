@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import logo from "../../img/logo-where2-alone.png";
-import logoPres from "../../img/Logo WHERE2DAY.png";
 const Swal = require("sweetalert2")
 import axios from "axios";
 import { useContext } from "react"; // #1 Traer context de react
@@ -15,7 +12,8 @@ import { faLaptopCode } from '@fortawesome/free-solid-svg-icons'
 import { faGear } from '@fortawesome/free-solid-svg-icons'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 import { faX } from '@fortawesome/free-solid-svg-icons'
-import { faMessage } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 
 
 export const MostrarExp = (props) => {
@@ -64,6 +62,11 @@ export const MostrarExp = (props) => {
     }
     catch (err) {console.log(err)}
     
+  }
+
+
+  const likear = () => {
+    console.log(props.exp_id)
   }
 
     useEffect(() => {
@@ -165,19 +168,19 @@ export const MostrarExp = (props) => {
                 <div className="row">
                     <img src={props.image_url} />
                 </div>
-                <div className="row">
-                    <div className="col-4 d-flex">
-                    {outdoor ? <><FontAwesomeIcon icon={faPersonHiking} /> <p>Outdoor</p></> : null}
-                    {indoor ? <><FontAwesomeIcon icon={faHouseUser} /><p>Indoor</p></> : null}
-                    {anywhere ? <> <FontAwesomeIcon icon={faLaptopCode} /><p>Online</p></> : null}
+                <div className="row p-2">
+
+                    <div className="col-4 fs-5 d-flex h-100">
+                    {outdoor ? <> <p className="ms-2 h-100"><FontAwesomeIcon title="Fuera de casa"  className="mt-1" icon={faPersonHiking} /> Outdoor</p></> : null}
+                    {indoor ? <><FontAwesomeIcon title="Dentro de casa"  icon={faHouseUser} /><p className="ms-2">Indoor</p></> : null}
+                    {anywhere ? <> <FontAwesomeIcon title="Online"  icon={faLaptopCode} /><p className="ms-2">Online</p></> : null}
                     </div>
-                    <div className="col-4 container-flex text-center">
-                        <button onClick={realizarEsto}>QUIERO HACERLO</button>
-                    <FontAwesomeIcon icon={faCalendar} /><p className="float-end">{props.fecha} </p>
+                    <div className="col-4 fs-5 justify-content-center text-center h-100">
+                    <p className="float-end"><FontAwesomeIcon title="Fecha" className="float-end ms-2" icon={faCalendar} /> {props.fecha} </p>
                     </div>
-                    <div className="col-4 container-flex">
-                    <FontAwesomeIcon className="float-end " icon={faMessage} />
-                    <p className="float-end ">Fav</p>
+                    <div className="col-4 fs-5 container-flex h-100">
+                    <button onClick={realizarEsto} title="Realizar más tarde" className="btn click float-end"><FontAwesomeIcon icon={faBookmark} /></button>
+                    <button onClick={()=>{likear()}} title="Darle like" className="btn click float-end"><FontAwesomeIcon icon={faHeart} /></button>
                     </div>
                 </div>
                 <div className="row">

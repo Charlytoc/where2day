@@ -22,6 +22,10 @@ export const Todos = () => {
 
   }
 
+  const verExp = (e) => {
+    actions.getOneExp(e)
+  }
+
   useEffect(() => {
     actions.getTodos()
   }, [])
@@ -36,8 +40,8 @@ export const Todos = () => {
         </h4>
 
         <ul className="list-group list-group-flush">
-          {store.todos.map((item, index) => <div key={index} className="row mt-1 m-0 border w-100">
-            <div className="col-3 m-0 p-2">
+          {store.todos.map((item, index) => <div key={index} onClick={()=>{verExp(item.exp.id)}}  className="row mt-1 click m-0 border w-100">
+            <div className="col-3 m-0 p-2 ">
                 <img className="w-100 mt-2" src={item.exp.image_url} />
             </div>
             <div className="col-7 m-0">
