@@ -14,7 +14,7 @@ export const Home = () => {
           
           <Link to="signup" className="dos">
             <span className="border ">
-                Join The Movement!
+                ¡Unete al Movimiento!
             </span>
           </Link>
           
@@ -23,70 +23,72 @@ export const Home = () => {
 
 
      <section className="section section-light">
-      <h1> What is Where2day?</h1>
-      <p> Having all the tools at the palm of your hand, you must take advantage!
-
+      <h1> ¿Que es Where2Day?</h1>
+      <p> Teniendo todas las herramientas en la palma de tu mano... ¡Debes tomar ventaja!
       <br/>
       <br/>
-        Nowadays we do not know where to go, what to do on your free time even tho we have lots of thing available!
+        Hoy dia no sabemos a donde queremos ir, que hacer con nuestro tiempo libre, ¡A pesar de que tenemos muchas posibilidades!
+        
       <br/>
       <br/>
-        Where2day mission is to make those things easier, and give you plenty of social ideas for you to be part of!
+        Where2day tiene como mision hacer eso mas sencillo y darte montones de ideas sociales de las cuales tu puedes formar parte.
       </p>
      </section>
 
      <div className="main-header2"> 
       <div className="ptext">
         <span className="border trans">
-          Where Do You Want To Go?
+          ¿A donde quiere ir?
         </span>
       </div>
      </div>
 
     
      <section className="section section-dark">
-      <h1> Outdoor , Indoor or Online? </h1>
+      <h1> ¿Outdoor , Indoor , Online? </h1>
       <p> 
-        {/* <strong> */}
-        Having all the tools at the palm of your hand, you must take advantage!
+        Teniendo todas las herramientas en la palma de tu mano... ¡Debes tomar ventaja!
         <br/>
         <br/>
-        Nowadays even tho there are lots of options, we do not know where to go... What to do on your free time?
+        Hoy dia a pesar de que tenemos montones de opciones, no sabemos a donde ir... ¿Que hacer con nuestro tiempo libre?
         <br/>
         <br/>
-         You may have more things available than you have thought of!
+         ¡Puedes tener mas cosas disponbiles para hacer de las que pensaste!
         <br/>
         <br/>
-        Where2day is the app to come in and boost your social reach!
+        ¡Where2day es la aplicacion que viene a hacer un boost a tu alcance social!
         <br/>
         <br/>
-        See what others are saying, sharing, posting, attending and join them too!
-       
+        ¡Mira lo que otras estan diciendo, compartiendo, posteando, atendiendo y unete tambien!
        <br/>
        <br/>
 
        </p> 
-       <p className="sizeEmphasis">Join Us Today And Go And Seek New Adventures Near Your City!
-       
+       <p className="sizeEmphasis">
+        ¡Unete hoy y empieza a buscar y adentrar en nuevas aventuras cerca de tu ciudad!
        </p>
      </section>
 
-     <div className="main-header3 "> 
+     <div className="main-header3"> 
       <div className="ptext">
-        <span className=" trans">
-          <h1>Join Where2day Social Events!</h1>
+      <Link to="signup" className="dos">
+        <span className=" border trans">
+           Unete a los Eventos Sociales de Where2day
         </span>
+      </Link>
       </div>
      </div>
 
      <section className="section section-dark">
-      <h2> Its time to get out! <br/> Where2day is the place to connect with other adventureous souls!</h2>
+      <h2> ¡Es hora de salir!
+        <br/> 
+        Where2day es el lugar para que puedas conectar con otros espiritus aventureros</h2>
         <br/>
         <br/>
-      <p> Join our community social events! 
+      <p> ¡Unete a los eventos sociales de nuestra comunidad!
         <br/>
         <br/>
-        You can take part of any event on Where2day where the community will be actively sharing tours, places to visit and social gatherings.
+        Puedes formar parte de cualquier evento en Where2Day de los cuales nuestrac comunidad estara compartiendo activamente, lugares para visitar y reuniones sociales.
       </p>
      </section>
 
@@ -95,7 +97,7 @@ export const Home = () => {
         <div className="ptext">
         <Link to="signup" className="dos">
             <span className="border ">
-                Join The Movement!
+                ¡Unete al Movimiento!
             </span>
           </Link>
         </div>

@@ -228,7 +228,7 @@ html {
 }
 
 .ptext .border {
-  background-color: #111;
+  background-color: rgba(224, 22, 22, 0.8);
   color: #fff;
   padding: 20px;
   text-decoration: transparent;
