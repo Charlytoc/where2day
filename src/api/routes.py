@@ -76,10 +76,14 @@ def cargar_exp():
     nueva_experiencia = Experiencias(titulo="Viaje a Cuenca", lugar="Cuenca, Ecuador", description="Fui de vacaciones para conocer a una amiga, debo decir que la ciudad me pareció muy limpia y ordenada", usuario_id=1, fecha="12/10/22", outdoor=True , indoor=False, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667445987/pruebas/qbbity8sg6bylfffekzi.jpg")
     nueva_experiencia2 = Experiencias(titulo="Cocinando pollo Gordon Bleu", lugar="Guayaquil, Ecuador", description="Esta es de esas recetas que son sencillas pero que quedan exquisitas. Además, cocinar siempre me despeja la mente y me hace pensar en cosas interesantes", usuario_id=1, fecha="13/09/22", outdoor=False , indoor=True, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667499696/pruebas/vzskhugafiy1eowtravh.jpg")
     nueva_experiencia3 = Experiencias(titulo="Noche de Juegos de Mesa", lugar="En casa", description="Una de las experiencias que mas disfruto es reunirme con mis amigos un viernes por la noche y ponernos a jugar juegos de mesa, destruir un par de amistades a costar de ganar en Monopoly..? Lo Tomo! Totalmente recomendado, reunion social, cocinar, ponerse al dia con tus amigos mientras juegan algo divertido", usuario_id=2, fecha="13/09/22", outdoor=False , indoor=True, anywhere=False, image_url="https://images.pexels.com/photos/4691555/pexels-photo-4691555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+    exp_ex = Experiencias.query.filter_by(usuario_id=1).first()
+
+    if exp_ex:
+        return "Ya tienes exps", 201
+
 
     db.session.add(nueva_experiencia)
     db.session.add(nueva_experiencia2)
-    db.session.commit()
     db.session.add(nueva_experiencia3)
     db.session.commit()
 
