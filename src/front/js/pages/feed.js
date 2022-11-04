@@ -15,7 +15,7 @@ export const Feed = () => {
 
     const [prueba, setPrueba] = useState(false);
  
-
+    console.log(store.feedExperiencias)
 
     return (
         <>
@@ -40,6 +40,7 @@ export const Feed = () => {
                             anywhere={item.anywhere}
                             image_url={item.image_url}
                             likes={item.likes}
+                            imageOwner={item.owner.image_url}
                         />
                         </div>)}
                 </div>

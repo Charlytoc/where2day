@@ -404,9 +404,9 @@ const getState = ({ getStore, getActions, setStore }) => {
             // const formData = new FormData()
             // formData.append("usuario_id", store.usuario_actual)
             const response = await axios.post(url, {usuario_id: store.usuario_actual})
-            // .then((e)=>{getActions().filtrarExperiencias(store.usuario_actual)})  
+            
             setStore({profile: response.data.results})
-            // console.log(store.profile)
+            getActions().filtrarExperiencias(store.usuario_actual)
             }
 
             catch(error){

@@ -156,7 +156,7 @@ export const MostrarExp = (props) => {
                     <>
                     <div className="row m-0">
                     <div className="col-3 container">
-                        <img src={store.profilePost.image_url} className="rounded img-thumbnail w-75" />
+                        <img src={props.imageOwner} className="rounded img-thumbnail w-75" />
                     </div>
                     <div className="col-7">
                         <p className="m-0 p-0 mt-3 fs-5">{props.title}</p>

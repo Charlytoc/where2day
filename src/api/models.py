@@ -67,6 +67,7 @@ class Experiencias(db.Model):
             "indoor": self.indoor,
             "anywhere": self.anywhere,
             "exp_owner": self.usuario_id,
+            "owner": Usuario.query.get(self.usuario_id).serialize(),
             "image_url": self.image_url,
             "likes": Likes.query.filter_by(experiencias_id=self.id).count()
         }
