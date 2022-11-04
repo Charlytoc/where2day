@@ -547,14 +547,8 @@ def get_post_likes ():
 
     exp_id = request.json.get("exp_id", None)
 
-    number_likes = 0
+    
 
     likes_to = Likes.query.filter_by(experiencias_id=exp_id).count()
     
-
-
-    response_body = {
-        "msg": "OK",
-        "likes": likes_to
-    }
-    return jsonify(response_body), 200
+    return jsonify(likes_to), 200

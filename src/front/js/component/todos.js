@@ -40,11 +40,11 @@ export const Todos = () => {
         </h4>
 
         <ul className="list-group list-group-flush">
-          {store.todos.map((item, index) => <div key={index} onClick={()=>{verExp(item.exp.id)}}  className="row mt-1 click m-0 border w-100">
-            <div className="col-3 m-0 p-2 ">
+          {store.todos.map((item, index) => <div key={index}  className="row mt-1 click m-0 border w-100">
+            <div onClick={()=>{verExp(item.exp.id)}} className="col-3 m-0 p-2 ">
                 <img className="w-100 mt-2" src={item.exp.image_url} />
             </div>
-            <div className="col-7 m-0">
+            <div onClick={()=>{verExp(item.exp.id)}} className="col-7 m-0">
                 <p className="m-0">{item.exp.titulo}</p>
                 <p className="m-0 mt-0 text-secondary">{item.exp.lugar}</p>
             </div>
