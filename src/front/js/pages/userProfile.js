@@ -33,7 +33,7 @@ export const UserProfile = () => {
                         <div className="col-4">
                             <InfoProfile />
                         </div>
-                        <div className="col-7">
+                        <div className="col-7 border shadow">
                             <FeedProfile />
                         </div>
                     </div>

@@ -14,53 +14,57 @@ import { faX } from '@fortawesome/free-solid-svg-icons'
 import { faMessage } from '@fortawesome/free-solid-svg-icons'
 
 
-import { useContext } from "react"; // #1 Traer context de react
+import { useContext, useState } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 
 export const FeedProfile = () => {
     const { store, actions } = useContext(Context); // #3 Consumirlo
+    
+    const [indoor, setIndoor] = useState(store.profile.indoor)
+    const [outdoor, setOutdoor] = useState(store.profile.outdoor)
+    const [anywhere, setAnywhere] = useState(store.profile.anywhere)
 
 
-    console.log(store.post.lugar)
+    console.log(store.post)
     return (
         <>
-            <div className="card">
-                <div className="card-header bg-yellw2d"></div>
-                <div className="header-profile d-flex">
-                    <div className="header-left">
-                        <img
-                            className="profile-pic-post rounded-circle"
-                            width={55}
-                            height={55}
-                            src={store.profile.image_url}
-                            alt="profile" />
-                        <div>
-                            <h5 className="nombre-usuario text-black">{store.post.titulo}</h5>
-                            <p className="titulo-ubicacion text-black">
-                                <FontAwesomeIcon icon={faLocation} />{store.post.lugar}</p>
-                        </div>
-
-                        <div className="header-right">
-                            <div className="icono_puntos">
-                                <FontAwesomeIcon icon={faGear} />
-                            </div>
-                        </div>
+                    <div className="row m-0">
+                    <div className="col-3 container">
+                        <img src={store.profile.image_url} className="rounded img-thumbnail w-75" />
+                    </div>
+                    <div className="col-7">
+                        <p className="m-0 p-0 mt-3 fs-5">{store.post.titulo}</p>
+                        <p className="m-0 p-0 text-secondary"><FontAwesomeIcon icon={faLocation} /> {store.post.lugar}</p>
+                    </div>
+                    <div className="col-2">
+                   
                     </div>
                 </div>
-                <div className="card-body">
-                    <img
-                        src={store.post.image_url}
-                        className="d-block w-100"
-                        alt="..."
-                    />
-
-                    <p className="float-end"> <FontAwesomeIcon icon={faCalendar} /> {store.post.fecha}</p>
-                    <h4 className="text-dark text-center d-inline-block" title="Whatsapp"><FontAwesomeIcon icon={faMessage} /> </h4>
-                    <p className="descripcion-post text-dark">
-                        {store.post.descripcion}
-                    </p>
+                <div className="row">
+                    <img src={store.post.image_url} />
                 </div>
-            </div>
-        </>
+                <div className="row p-2">
+
+                    <div className="col-4 fs-5 d-flex h-100">
+                    {outdoor ? <> <p className="ms-2 h-100"><FontAwesomeIcon title="Fuera de casa"  className="mt-1" icon={faPersonHiking} /> Outdoor</p></> : null}
+                    {indoor ? <><FontAwesomeIcon title="Dentro de casa"  icon={faHouseUser} /><p className="ms-2">Indoor</p></> : null}
+                    {anywhere ? <> <FontAwesomeIcon title="Online"  icon={faLaptopCode} /><p className="ms-2">Online</p></> : null}
+                    </div>
+                    <div className="col-4 fs-5 justify-content-center text-center h-100">
+                    <p className="float-end"><FontAwesomeIcon title="Fecha" className="float-end ms-2" icon={faCalendar} /> {store.post.fecha} </p>
+                    </div>
+                    <div className="col-4 fs-5 container-flex h-100">
+                        
+                    {/* <button onClick={realizarEsto} title="Realizar más tarde" className="btn click float-end"><FontAwesomeIcon icon={faBookmark} /></button> */}
+                    {/* <button onClick={()=>{likear()}} title="Darle like" className="btn click float-end"><FontAwesomeIcon icon={faHeart} /></button> */}
+                    <p className="d-inline float-end"></p>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-1"></div>
+                    <div className="col-10"><p className="text-dark text-center fs-6 p-5">{store.post.descripcion}</p></div>
+                    <div className="col-1"></div>
+                </div>
+                    </>
     );
 };
