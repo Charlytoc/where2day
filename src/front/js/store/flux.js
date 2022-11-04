@@ -15,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       profile: {},
       feed: "",
       profilePost: {},
-      todos: []
+      todos: [],
+      likes: 0
     },
     actions: {
       getMessage: async () => {
@@ -36,6 +37,15 @@ const getState = ({ getStore, getActions, setStore }) => {
       actualizarPost: (post) => {
         setStore({post: post})
 
+      },
+
+      likes: (lik) => {
+        setStore({likes: lik})
+      },
+
+      likear: () => {
+        const store = getStore()
+        setStore({likes: (store.likes + 1)})
       },
       
       // Aca autenticaremos al usuario si localStorage.getItem ("token") NO esta vacio, quiere decir
@@ -361,6 +371,18 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
 
         },
+
+        // getLikes: async (exp) => {
+        //   try {
+        //       const url = (process.env.BACKEND_URL + "/api/likes")
+        //       const resp = await axios.post(url, {
+        //           exp_id: exp
+        //       })
+        //       console.log(resp.data)
+        //       // const resp = 
+        //   }
+        //   catch (err) {console.log(err)}
+        // },
 
         getOneExp: async (exp_id) => {
           try {

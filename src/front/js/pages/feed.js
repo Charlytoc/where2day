@@ -39,6 +39,7 @@ export const Feed = () => {
                             indoor={item.indoor}
                             anywhere={item.anywhere}
                             image_url={item.image_url}
+                            likes={item.likes}
                         />
                         </div>)}
                 </div>

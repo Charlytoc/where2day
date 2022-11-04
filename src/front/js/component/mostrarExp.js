@@ -31,6 +31,7 @@ export const MostrarExp = (props) => {
     const [outdoor, setOutdoor] = useState(props.outdoor)
     const [anywhere, setAnywhere] = useState(props.anywhere)
     const [image, setImage] = useState(props.image_url)
+    const [likes, setLikes] = useState(props.likes)
 
 
     const [desplegar, setDesplegar] = useState(false)
@@ -65,12 +66,23 @@ export const MostrarExp = (props) => {
   }
 
 
-  const likear = () => {
-    console.log(props.exp_id)
+  const likear = async () => {
+    try {
+        const url = (process.env.BACKEND_URL + "/api/likear")
+        const resp = await axios.post(url, {
+            user_id: store.usuario_actual,
+            exp_id: props.exp_id
+        })
+        console.log(resp.data)
+        setLikes(likes + 1)
+
+    }
+    catch (err) {console.log(err)}
   }
 
     useEffect(() => {
         actions.getPostOwner(props.expOwner);
+        actions.likes(props.likes)
     }, []);
     // }
 
@@ -179,8 +191,10 @@ export const MostrarExp = (props) => {
                     <p className="float-end"><FontAwesomeIcon title="Fecha" className="float-end ms-2" icon={faCalendar} /> {props.fecha} </p>
                     </div>
                     <div className="col-4 fs-5 container-flex h-100">
+                        
                     <button onClick={realizarEsto} title="Realizar más tarde" className="btn click float-end"><FontAwesomeIcon icon={faBookmark} /></button>
                     <button onClick={()=>{likear()}} title="Darle like" className="btn click float-end"><FontAwesomeIcon icon={faHeart} /></button>
+                    <p className="d-inline float-end">{likes}</p>
                     </div>
                 </div>
                 <div className="row">
