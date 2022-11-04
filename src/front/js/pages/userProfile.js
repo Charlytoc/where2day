@@ -25,11 +25,9 @@ export const UserProfile = () => {
             <div className="container fluid">
                 <div className="row p-3 justify-content-center">
                     {/* PERFIL HEADER */}
-                    <div className="col-11">
-                        <HeaderProfile username={store.profile.username} />
-                    </div>
+                    <HeaderProfile username={store.profile.username} />
                     {/* PERFIL INFO */}
-                    <div className="row p-3 justify-content-center">
+                    <div className="row mt-3 justify-content-center">
                         <div className="col-4">
                             <InfoProfile />
                         </div>
@@ -39,7 +37,6 @@ export const UserProfile = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     );
 };

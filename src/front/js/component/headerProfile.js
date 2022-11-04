@@ -121,8 +121,8 @@ export const HeaderProfile = () => {
                         </div>
                     </div>
                     :
-                    <div className="cover-body d-flex justify-content-between align-items-center px-5 row ">
-                        <div className="col-3 container">
+                    <div className="row">
+                        <div className="col-3">
                             <img
                                 className="profile-pic rounded-circle justify-content-center"
                                 width={150}
@@ -130,35 +130,50 @@ export const HeaderProfile = () => {
                                 src={store.profile.image_url}
                                 alt="profile"
                             />
-                            <div className="info-profile justify-content-center text-center">
-
-                                {/* Si el usuario NO TIENE un userna/pais/etc, entonces hacemos ternario 
+                            <div className="col-9 container">
+                                <div className="row">
+                                    <div className="col-6">
+                                        {/* Si el usuario NO TIENE un userna/pais/etc, entonces hacemos ternario 
                          Para solicitarle/que sea evidente que esta NULL y debe rellenar ese campo */}
-                                {store.profile.username === null ? <p><b>Elije Un Username</b></p> : <h5 className="profile-name text-black">{store.profile.username}</h5>}
-                                {store.profile.pais === null ? <p><b>Elije Tu Ubicacion</b></p> : <h6 className="profile-name text-black">{store.profile.pais}</h6>}
+                                        {store.profile.username === null ? <p><b>Elije Un Username</b></p> : <h5 className="profile-name text-black">{store.profile.username}</h5>}
+                                    </div>
+
+                                    <div className="col-6">
+                                        <div className="header-info col-2">
+                                            <button className="btn navarra fa-regular" onClick={editProfile}>
+                                                <FontAwesomeIcon icon={faPen} />
+                                                Edit profile
+                                            </button>
+                                        </div>
+
+                                        <div className="row">
+                                            <div className="col-6">
+                                                {store.profile.nombre === null ? <p><b>Confirma Tu Nombre</b></p> : <h2> {store.profile.nombre}</h2>}
+                                                {store.profile.apellido === null ? <p><b>Confirma Tu Apellido</b></p> : <h2> {store.profile.apellido}</h2>}
+                                            </div>
+
+                                            <div className="col-6">
+                                                {store.profile.pais === null ? <p><b>Elije Tu Ubicacion</b></p> : <h6 className="profile-name text-black">{store.profile.pais}</h6>}
+                                                {store.profile.edad === null ? <p><b>Confirma Tu Edad</b></p> : <h2> {store.profile.edad}</h2>}
+                                            </div>
+                                            <div className="row">
+                                                {store.profile.correo === null ? <p><b>Confirma Tu eMail</b></p> : <h4> {store.profile.email}</h4>}
+                                                <p> Change Your Password: ***** </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-                        </div>
-                        {/* UN COL-4 ACA ARRIBA */}
-                        {/* UN COL ACA ABAJO*/}
-                        <div className="col-6 justify-content-center">
-                            {store.profile.nombre === null ? <p><b>Confirma Tu Nombre</b></p> : <h2> {store.profile.nombre}</h2>}
-                            {store.profile.apellido === null ? <p><b>Confirma Tu Apellido</b></p> : <h2> {store.profile.apellido}</h2>}
-                            {store.profile.edad === null ? <p><b>Confirma Tu Edad</b></p> : <h2> {store.profile.edad}</h2>}
-                            {store.profile.correo === null ? <p><b>Confirma Tu eMail</b></p> : <h4> {store.profile.email}</h4>}
-                            <p> Change Your Password: ***** </p>
-                        </div>
-
-                        <div className="header-info col-2">
-                            <button className="btn navarra fa-regular" onClick={editProfile}>
-                                <FontAwesomeIcon icon={faPen} />
-                                Edit profile
-                            </button>
                         </div>
                     </div>
-                }
 
+                }
             </div>
         </>
+
+
+
+
+
     );
 };
