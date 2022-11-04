@@ -91,7 +91,7 @@ export const Signup = () => {
 
   return (
     <div className="text-center zindex-toast w-50 my-5 container d-flex border shadow bg-body rounded">
-      <img src={logo} className="w-50 ms-0 float-start animable bg-body rounded " />
+      <img src={logo} className="w-50 ms-0 py-2 float-start animable bg-body rounded " />
       <div id="mitad-derecha" className=" container rounded w-50 h-75 ">
       <h2 className="animable3 w-100  p-3 rounded">Bienvenido</h2>
       <form className="" onSubmit={handleSubmit}>
@@ -117,7 +117,7 @@ export const Signup = () => {
             <div className="container mt-2"><button
             
             type="submit"
-            className="btn click btn-lg animable2 boton mt-2 p-3 bg-body rounded"
+            className="btn click btn-lg animable2 boton mt-2 p-3 border bg-body rounded"
 
           >
             <span className="animable2"> Signup </span>

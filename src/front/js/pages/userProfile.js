@@ -30,16 +30,19 @@ export const UserProfile = () => {
                     </div>
                     {/* PERFIL INFO */}
                     <div className="row p-3 justify-content-center">
-                        <div className="col-4">
+                        <div className="col-2"> </div>
+                        <div className="col-3">
                             <InfoProfile />
                         </div>
-                        <div className="col-7 border shadow">
+                        <div className="col-5 border shadow my-3">
                             <FeedProfile />
+                        </div>
+                        <div className="col-2">
+
                         </div>
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     );
 };
