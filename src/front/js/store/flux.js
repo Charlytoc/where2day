@@ -362,6 +362,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         },
 
+        getOneExp: async (exp_id) => {
+          try {
+            const store = getStore();
+            const url = (process.env.BACKEND_URL + "/api/getExp")
+            const resp = await axios.post(url, {exp_id: exp_id})
+            console.log(resp.data.exp)
+            setStore({feedExperiencias: [resp.data.exp]})
+            setStore({feed: "Qué esperas para realizar:"})
+          }
+          catch(err) {console.log(err)}
+        },
+
         getUserProfile: async () => {
           try{ 
             const store = getStore();

@@ -130,6 +130,26 @@ class Todos(db.Model):
     def serialize(self):
         return {
             "todo_id": self.id,
+            "usuario_id": self.usuario_id,
+            "experiencias_id": self.experiencias_id,
             "exp": Experiencias.query.get(self.experiencias_id).serialize()
+        }
+
+
+class Likes(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'),
+        nullable=False)
+    experiencias_id = db.Column(db.Integer, db.ForeignKey('experiencias.id'),
+        nullable=False)
+
+    def __repr__(self):
+        return f'<Likes {self.id}>'
+
+    def serialize(self):
+        return {
+            "like_id": self.id,
+            "usuario_id": self.usuario_id,
+            "experiencias_id": self.experiencias_id
         }
 
