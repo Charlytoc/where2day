@@ -52,12 +52,16 @@ def login():
 def parse_basedata():
 
     nuevo_usuario = Usuario(email="charlyjchaconc@gmail.com", password="Char.dev", pais="Ecuador", username="Charlytoc", nombre="Charly", apellido="Chacón", edad=23, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667496142/pruebas/edahciykyeeiyo5a5j3t.jpg")
+    nuevo_usuario2 = Usuario(email="carloscarranza@gmail.com", password="Char.dev", pais="Costa Rica", username="Wishmastering", nombre="Carlos", apellido="Carranza", edad=27, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667534765/pruebas/uftrxdcbtdpn4nqprybn.jpg")
+    
     usuario_existente = Usuario.query.filter_by(email="charlyjchaconc@gmail.com").first()
 
-    if nuevo_usuario == usuario_existente:
+    if nuevo_usuario.email == usuario_existente-email:
         return jsonify("Ya tienes todo bien"), 200
 
     db.session.add(nuevo_usuario)
+    db.session.commit()
+    db.session.add(nuevo_usuario2)
     db.session.commit()
 
 
@@ -70,8 +74,12 @@ def cargar_exp():
     # print("bien")
     nueva_experiencia = Experiencias(titulo="Viaje a Cuenca", lugar="Cuenca, Ecuador", description="Fui de vacaciones para conocer a una amiga, debo decir que la ciudad me pareció muy limpia y ordenada", usuario_id=1, fecha="12/10/22", outdoor=True , indoor=False, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667445987/pruebas/qbbity8sg6bylfffekzi.jpg")
     nueva_experiencia2 = Experiencias(titulo="Cocinando pollo Gordon Bleu", lugar="Guayaquil, Ecuador", description="Esta es de esas recetas que son sencillas pero que quedan exquisitas. Además, cocinar siempre me despeja la mente y me hace pensar en cosas interesantes", usuario_id=1, fecha="13/09/22", outdoor=False , indoor=True, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667499696/pruebas/vzskhugafiy1eowtravh.jpg")
+    nueva_experiencia3 = Experiencias(titulo="Noche de Juegos de Mesa", lugar="En casa", description="Una de las experiencias que mas disfruto es reunirme con mis amigos un viernes por la noche y ponernos a jugar juegos de mesa, destruir un par de amistades a costar de ganar en Monopoly..? Lo Tomo! Totalmente recomendado, reunion social, cocinar, ponerse al dia con tus amigos mientras juegan algo divertido", usuario_id=2, fecha="13/09/22", outdoor=False , indoor=True, anywhere=False, image_url="https://images.pexels.com/photos/4691555/pexels-photo-4691555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+
     db.session.add(nueva_experiencia)
     db.session.add(nueva_experiencia2)
+    db.session.commit()
+    db.session.add(nueva_experiencia3)
     db.session.commit()
 
 

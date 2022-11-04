@@ -99,7 +99,7 @@ export const Login = () => {
 
   return (
     <div className="text-center w-50 d-flex my-5 container border shadow bg-body rounded">
-      <img src={logo} className="w-50 float-start animable bg-body rounded " />
+      <img src={logo} className="w-50 py-2 float-start animable bg-body rounded " />
       <div id="mitad-derecha" className="  rounded w-50 h-100 ">
       <h2 className="animable3 w-100 text-center p-3 bg-body rounded ">Inicia sesión</h2>
       <form className="" onSubmit={handleSubmit}>
@@ -126,7 +126,7 @@ export const Login = () => {
             // onMouseDown={disminuir}
             // onMouseOver={agrandar}
             type="submit"
-            className=" click btn-outline border-0 rounded btn-lg  animable2 boton  mt-2 p-3 bg-body rounded"
+            className=" click border btn-outline border-0 rounded btn-lg  animable2 boton  mt-2 p-3 bg-body rounded"
 
           >
             <span onClick={handleSubmit} className="animable2">Login</span>
@@ -138,7 +138,7 @@ export const Login = () => {
               className="btn-outline d-inline-block click border-0 rounded btn-lg  animable2 boton3 shadow-lg p-3 bg-body rounded" >regresa al inicio</button>
           </Link></div>
           <Link style={{ textDecoration: 'none', color: "black" }} to="/reset">
-                <p className=" border-0 rounded animable2 boton letra-peq sp-3 bg-body rounded">Clickea acá si perdiste tu contraseña</p>
+                <p className="click border-0 rounded animable2 boton letra-peq sp-3 bg-body rounded">Clickea acá si perdiste tu contraseña</p>
             </Link>
           </div>
         </div>
