@@ -6,7 +6,7 @@ import logoPres from "../../img/Logo WHERE2DAY.png";
 import { useContext } from "react"; // #1 Traer context de react
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 
-export const InfoProfile = ({setStore}) => {
+export const InfoProfile = ({ setStore }) => {
     const { store, actions } = useContext(Context); // #3 Consumirlo
 
     const actualizarPost = (titulo, lugar, image_url, descripcion, fecha) => {
@@ -24,20 +24,17 @@ export const InfoProfile = ({setStore}) => {
     console.log(store.feedExperiencias)
     return (
         <>
-            <div className="card text-bg-light mb-3">
+            <div className="card shadow bg-body fijar-fil rounded my-3 m-0 float-start">
                 {/* CARD EVENTOS */}
                 <h6>
-                    <div className="card-header font-weight-bold bg-yellw2d">
-                        Mis eventos/otros
+                    <div className="btn-outline mb-0 rounded p-3 text-center selected">
+                        Mis experiencias
                     </div>
                 </h6>
-                <ul className="list-group list-group-flush">
-                    {store.feedExperiencias.map((item, index) => 
-                    <li key={index} onClick={()=>{actualizarPost(item.titulo, item.lugar, item.image_url, item.descripcion, item.fecha)}} className="list-group-item hand" >{item.titulo}</li>)}
-                
-                    
+                <ul className="list-group mt-0 list-group-flush">
+                    {store.feedExperiencias.map((item, index) =>
+                        <li key={index} onClick={() => { actualizarPost(item.titulo, item.lugar, item.image_url, item.descripcion, item.fecha) }} className="list-group-item click" >{item.titulo}</li>)}
                 </ul>
-                <div className="card-footer bg-yellw2d">Actividades</div>
             </div>
         </>
     );
