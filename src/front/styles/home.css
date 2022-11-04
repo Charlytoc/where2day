@@ -1,119 +1,219 @@
-/*
-    home.css: This website contains selectors only used in home.css
-
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
-
-/* FRANZ */
-.main-header {
-    background: url(https://dev2.uplist.lk/wp-content/uploads/2022/08/world_travel_brave.jpg);
-    background-size: cover;
-    min-height: 700px;
-}
 
 .background-overlay {
-    background: linear-gradient(190deg,
-            rgba(222, 22, 22, 7),
-            rgba(244, 43, 78, 0.4));
+    background: linear-gradient(
+      190deg,
+      rgba(222, 22, 22, 7),
+      rgba(244, 43, 78, 0.4)
+    );
     min-height: 700px;
-}
-
-/* COLOR ROJO CON LETRA BLANCA */
-.bg-redw2d {
+  }
+  
+  /* COLOR ROJO CON LETRA BLANCA */
+  .bg-redw2d {
     color: white !important;
     background-color: rgba(222, 82, 81);
-}
-
-/* COLOR AMARILLO CON LETRA NEGRA */
-.bg-yellw2d {
+  }
+  
+  /* COLOR AMARILLO CON LETRA NEGRA */
+  .bg-yellw2d {
     color: rgb(0, 0, 0) !important;
     background-color: rgba(241, 228, 206, 0.35);
-}
-
-/* IMAGEN DE PERFIL DEL USUARIO EN perfilHeader */
-.profile-pic {
+  }
+  
+  /* IMAGEN DE PERFIL DEL USUARIO EN perfilHeader */
+  .profile-pic {
     margin: 10px 5px 10px 1px;
     /* width: 150 height 150; */
-}
-
-/* TITULO POST DE USUARIO EN perfilFeed */
-.header-feed {
+  }
+  
+  /* TITULO POST DE USUARIO EN perfilFeed */
+  .header-feed {
     display: flex;
     justify-content: space-between;
-}
-
-/* TITULO POST DE USUARIO LADO IZQUIERDO EN perfilFeed */
-.header-left {
+  }
+  
+  /* TITULO POST DE USUARIO LADO IZQUIERDO EN perfilFeed */
+  .header-left {
     display: flex;
-}
-
-/* TITULO POST DE USUARIO LADO IZQUIERDO EN perfilFeed */
-.header-right {
+  }
+  
+  /* TITULO POST DE USUARIO LADO IZQUIERDO EN perfilFeed */
+  .header-right {
     display: flex;
-}
-
-/* UBICACION DE USUARIO EN perfilFeed */
-.titulo-ubicacion {
+  }
+  
+  /* UBICACION DE USUARIO EN perfilFeed */
+  .titulo-ubicacion {
     font-size: 80%;
     margin: -5px 0px 5px 0px;
-}
-
-/* NOMBRE DEL USUARIO EN perfilFeed */
-.nombre-usuario {
+  }
+  
+  /* NOMBRE DEL USUARIO EN perfilFeed */
+  .nombre-usuario {
     font-size: 120%;
     margin: 10px 0px 5px 0px;
-}
-
-/* IMAGEN DE PERFIL DEL USUARIO EN perfilFeed */
-.profile-pic-post {
+  }
+  
+  /* IMAGEN DE PERFIL DEL USUARIO EN perfilFeed */
+  .profile-pic-post {
     margin: 3px 8px 1px 8px;
-}
-
-/* DESCRIPCION DEL POST DE USUARIO EN perfilFeed */
-.descripcion-post {
+  }
+  
+  /* DESCRIPCION DEL POST DE USUARIO EN perfilFeed */
+  .descripcion-post {
     margin: 10px 30px 10px 10px;
-}
-
-/* CHARLY */
-
-
-.columna {
+  }
+  
+  /* CHARLY */
+  .titulo {
+    padding: 50;
+    font-size: 90px;
+    font-family: "Permanent Marker", cursive;
+    background: linear-gradient(to right, rgb(222, 82, 81), rgb(122, 32, 122));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: content-box;
+  }
+  
+  .columna {
     height: 200px;
     font-size: 150px;
-}
-
-.dos {
+  }
+  
+  .dos {
     text-decoration: none;
     color: rgba(222, 22, 22, 1);
     border: 2 dotted black;
-}
-
-.dos:hover {
+  }
+  
+  .dos:hover {
     text-decoration: none;
     border: 2cm;
     color: rgba(255, 255, 255, 1);
-}
-
-.tres {
+  }
+  
+  .tres {
     text-decoration: none;
     color: rgba(44, 145, 244, 0.7);
     border: 2 dotted black;
-}
-
-.tres:hover {
+  }
+  
+  .tres:hover {
     text-decoration: none;
     border: 2cm;
     color: rgba(255, 255, 255, 1);
-}
-
-body {
-    background: linear-gradient(to right,
-            rgba(255, 216, 237, 0.13),
-            rgb(255, 200, 191, 0.13));
-    font-family: 'Montserrat', sans-serif;
-
+  }
+  
+  body {
+    background: linear-gradient(
+      to right,
+      rgba(255, 216, 237, 0.13),
+      rgb(255, 200, 191, 0.13)
+    );
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
-}
-
+  }
+  
+  
+  body,
+  html {
+    height: 100%;
+    /* margin: 0; */
+    /* font-size: 16px; */
+    font-family: "Montserrat", sans-serif;
+    /* font-weight: 400; */
+    /* line-height: 1.8em; */
+    /* color: #666; */
+  }
+  
+  /* .pimg{
+      backfround-image:url('../img/')
+  } */
+  
+  .main-header1 {
+    background-image: url(https://dev2.uplist.lk/wp-content/uploads/2022/08/world_travel_brave.jpg);
+    min-height: 1000px;
+  }
+  
+  .main-header1,
+  .main-header3,
+  .main-header4 {
+    position: relative;
+    opacity: 0.7;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+    background-attachment: fixed;
+  }
+  .main-header2 {
+    position: relative;
+    opacity: 0.7;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+    background-attachment: fixed;
+  }
+  
+  .main-header2 {
+    background-image: url(https://res.cloudinary.com/dlmcf8yed/image/upload/v1667508472/pruebas/qqvflxrwnzdvsqresdud.png);
+    /* background-image: url(src/front/img/pimg2.png); */
+    min-height: 500px;
+    min-width: 10%;
+    max-width: 500%;
+  }
+  
+  .main-header3 {
+    background-image: url(https://images.pexels.com/photos/1963622/pexels-photo-1963622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    min-height: 400px;
+  }
+  
+  .main-header4 {
+    background-image: url(https://images.pexels.com/photos/158028/bellingrath-gardens-alabama-landscape-scenic-158028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    min-height: 900px;
+  }
+  
+  .section {
+    text-align: center;
+    padding: 50px 80px;
+    font-size: 25px;
+    font-style: oblique;
+  }
+  
+  .section-light {
+    background-color: #f4f4f4;
+    color: #666;
+  }
+  
+  .section-dark {
+    background-color: #282e34;
+    color: #ddd;
+  }
+  
+  .ptext {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    font-size: 27px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+  }
+  
+  .ptext .border {
+    background-color: rgba(224, 22, 22, 0.8);
+    color: #fff;
+    padding: 20px;
+    text-decoration: transparent;
+  }
+  
+  .ptext .border .trans {
+    background-color: transparent;
+  }
+  
+  .sizeEmphasis {
+    font-size: 40px;
+  }
+  

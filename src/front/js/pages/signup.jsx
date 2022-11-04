@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react"; // #1 import Con
 
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 
-import logo from "../../img/ul-logo.png";
+import logo from "../../img/camping.jpeg";
 import Swal from "sweetalert2";
 // import "../../styles/home.css";
 import { Link } from "react-router-dom";
@@ -91,7 +91,7 @@ export const Signup = () => {
 
   return (
     <div className="text-center zindex-toast w-50 my-5 container d-flex border shadow bg-body rounded">
-      <img src={logo} className="w-50 float-start animable bg-body rounded " />
+      <img src={logo} className="w-50 ms-0 float-start animable bg-body rounded " />
       <div id="mitad-derecha" className=" container rounded w-50 h-75 ">
       <h2 className="animable3 w-100  p-3 rounded">Bienvenido</h2>
       <form className="" onSubmit={handleSubmit}>
@@ -117,14 +117,14 @@ export const Signup = () => {
             <div className="container mt-2"><button
             
             type="submit"
-            className="btn click btn-lg navarra animable2 boton mt-2 p-3 bg-body rounded"
+            className="btn click btn-lg animable2 boton mt-2 p-3 bg-body rounded"
 
           >
             <span className="animable2"> Signup </span>
           </button></div>
           <div className="container mt-2 mb-3"><Link to="/">
             <button onClick={saludar}
-               className="btn click d-inline-block  border-0 rounded btn-lg navarra animable2 boton3 shadow-lg p-3 bg-body rounded" >regresa al inicio</button>
+               className="btn click d-inline-block  border-0 rounded btn-lg animable2 boton3 shadow-lg p-3 bg-body rounded" >regresa al inicio</button>
           </Link></div>
           </div>
         </div>

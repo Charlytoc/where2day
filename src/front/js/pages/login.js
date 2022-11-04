@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext"; // #2 traer nuestro context
 
 
-import logo from "../../img/ul-logo.png";
+import logo from "../../img/comida.jpeg";
 import "../../styles/home.css";
 import gsap from "gsap";
 
@@ -104,13 +104,13 @@ export const Login = () => {
       <h2 className="animable3 w-100 text-center p-3 bg-body rounded ">Inicia sesión</h2>
       <form className="" onSubmit={handleSubmit}>
         {/* Este es el form de eMail  */}
-        <div className="input-group justify-content-center animable2">
+        <div className="input-group text-dark justify-content-center animable2">
           <div className="form-floating">
             <input
               type="email"
               className="form-control animable  mt-3 p-3 bg-body rounded"
               aria-describedby="emailHelp"
-              placeholder="Your eMail"
+              placeholder="Correo electrónico"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
@@ -126,7 +126,7 @@ export const Login = () => {
             // onMouseDown={disminuir}
             // onMouseOver={agrandar}
             type="submit"
-            className=" click btn-outline border-0 rounded btn-lg navarra animable2 boton  mt-2 p-3 bg-body rounded"
+            className=" click btn-outline border-0 rounded btn-lg  animable2 boton  mt-2 p-3 bg-body rounded"
 
           >
             <span onClick={handleSubmit} className="animable2">Login</span>
@@ -135,7 +135,7 @@ export const Login = () => {
             <button 
             // onClick={saludar} onMouseDown={disminuir3}
               // onMouseOver={agrandar3} 
-              className="btn-outline d-inline-block click border-0 rounded btn-lg navarra animable2 boton3 shadow-lg p-3 bg-body rounded" >regresa al inicio</button>
+              className="btn-outline d-inline-block click border-0 rounded btn-lg  animable2 boton3 shadow-lg p-3 bg-body rounded" >regresa al inicio</button>
           </Link></div>
           <Link style={{ textDecoration: 'none', color: "black" }} to="/reset">
                 <p className=" border-0 rounded animable2 boton letra-peq sp-3 bg-body rounded">Clickea acá si perdiste tu contraseña</p>
