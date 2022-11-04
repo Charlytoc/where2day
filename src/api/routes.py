@@ -53,16 +53,17 @@ def parse_basedata():
 
     nuevo_usuario = Usuario(email="charlyjchaconc@gmail.com", password="Char.dev", pais="Ecuador", username="Charlytoc", nombre="Charly", apellido="Chacón", edad=23, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667496142/pruebas/edahciykyeeiyo5a5j3t.jpg")
     nuevo_usuario2 = Usuario(email="carloscarranza@gmail.com", password="Char.dev", pais="Costa Rica", username="Wishmastering", nombre="Carlos", apellido="Carranza", edad=27, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667534765/pruebas/uftrxdcbtdpn4nqprybn.jpg")
-    
+    nuevo_usuario3 = Usuario(email="franz@gmail.com", password="Char.dev", pais="Colombia", username="FranzSeidel", nombre="Franz", apellido="Seidel", edad=27, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667543179/pruebas/ipuye9d9bkskvneijxjp.jpg")
     usuario_existente = Usuario.query.filter_by(email="charlyjchaconc@gmail.com").first()
 
-    if nuevo_usuario.email == usuario_existente-email:
-        return jsonify("Ya tienes todo bien"), 200
+    if usuario_existente:
+        return "El usuario ya existe", 201
 
     db.session.add(nuevo_usuario)
-    db.session.commit()
     db.session.add(nuevo_usuario2)
+    db.session.add(nuevo_usuario3)
     db.session.commit()
+    
 
 
     return jsonify("Todo bien el DB"), 200
