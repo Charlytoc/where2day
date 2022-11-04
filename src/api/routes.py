@@ -53,7 +53,7 @@ def parse_basedata():
 
     nuevo_usuario = Usuario(email="charlyjchaconc@gmail.com", password="Char.dev", pais="Ecuador", username="Charlytoc", nombre="Charly", apellido="Chacón", edad=23, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667496142/pruebas/edahciykyeeiyo5a5j3t.jpg")
     nuevo_usuario2 = Usuario(email="carloscarranza@gmail.com", password="Char.dev", pais="Costa Rica", username="Wishmastering", nombre="Carlos", apellido="Carranza", edad=27, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667534765/pruebas/uftrxdcbtdpn4nqprybn.jpg")
-    nuevo_usuario3 = Usuario(email="franz@gmail.com", password="Char.dev", pais="Colombia", username="FranzSeidel", nombre="Franz", apellido="Seidel", edad=27, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667543179/pruebas/ipuye9d9bkskvneijxjp.jpg")
+    nuevo_usuario3 = Usuario(email="franz8818@gmail.com", password="12", username="franz8818", nombre="Franz", apellido="Seidel", edad=34, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667578540/pruebas/imit0ii0vx0b37shkwwc.jpg")
     usuario_existente = Usuario.query.filter_by(email="charlyjchaconc@gmail.com").first()
 
     if usuario_existente:
@@ -77,7 +77,10 @@ def cargar_exp():
     nueva_experiencia2 = Experiencias(titulo="Cocinando pollo Gordon Bleu", lugar="Guayaquil, Ecuador", description="Esta es de esas recetas que son sencillas pero que quedan exquisitas. Además, cocinar siempre me despeja la mente y me hace pensar en cosas interesantes", usuario_id=1, fecha="13/09/22", outdoor=False , indoor=True, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667499696/pruebas/vzskhugafiy1eowtravh.jpg")
     nueva_experiencia3 = Experiencias(titulo="Noche de Juegos de Mesa", lugar="En casa", description="Una de las experiencias que mas disfruto es reunirme con mis amigos un viernes por la noche y ponernos a jugar juegos de mesa, destruir un par de amistades a costar de ganar en Monopoly..? Lo Tomo! Totalmente recomendado, reunion social, cocinar, ponerse al dia con tus amigos mientras juegan algo divertido", usuario_id=2, fecha="13/09/22", outdoor=False , indoor=True, anywhere=False, image_url="https://images.pexels.com/photos/4691555/pexels-photo-4691555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
     exp_ex = Experiencias.query.filter_by(usuario_id=1).first()
-
+    nueva_experiencia4 = Experiencias(titulo="Obra de teatra de unos amigos en la Castellana", lugar="Bogotá, Colombia", description="Invitación al teatro de mi ciudad natal. Fue inolvidable, muy interesante la obra, que grandes actores, vamos pa la segunda parte.", usuario_id=3,fecha="02/08/09", outdoor=False , indoor=True, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667577035/pruebas/ua4a9kej6csciobflpit.jpg")
+    nueva_experiencia5 = Experiencias(titulo="Tour rapido por Chicago", lugar="Chicago, Illinois", description="El mejora viaje de la vida, que ciudad mas increible, hay tanto por conocer, con esa arquitectura tan atravida y diversa, de los lugares mas bonito que conozco", usuario_id=3, fecha="11/02/19", outdoor=True , indoor=False, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667577074/pruebas/yy87k1rluvjstgbboedb.jpg")
+    nueva_experiencia6 = Experiencias(titulo="Torneo oficial de Halo con mis primos", lugar="Medellin, Colombia", description="Mis primos me insitieron tanto que los acompañara, que no tuve remedio. La pasamos muy bien, y Juan avanso mucho en el torneo. Lo celebramos con Pizza todos, epico día.", usuario_id=3, fecha="20/05/22", outdoor=False , indoor=False, anywhere=True, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667576008/pruebas/y4y6eeuetfcoybbchajw.webp")
+    
     if exp_ex:
         return jsonify("Ya agregaste exps"), 200
 
@@ -85,6 +88,9 @@ def cargar_exp():
     db.session.add(nueva_experiencia)
     db.session.add(nueva_experiencia2)
     db.session.add(nueva_experiencia3)
+    db.session.add(nueva_experiencia5)
+    db.session.add(nueva_experiencia4)
+    db.session.add(nueva_experiencia6)
     db.session.commit()
 
 
