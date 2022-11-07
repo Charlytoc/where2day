@@ -15,22 +15,12 @@ export const Navbar = () => {
     <nav className="navbar fijar bg-light navarra" style={{ height: 80 }}>
       <div className="container">
 
-        {/* Aca inicia ternario de REDIRIGIR a home/feed dependiente del auth STATUS */}
-        {!store.auth ? (
-          <Link to="/">
-            <span className="btn fs-4 text-dark ">
-              <img src={logo} style={{ height: 60 }} />
-            </span>
-          </Link>
-        ) : (
-          <Link to="/feed" style={{ textDecoration: 'none' }}>
+      <Link to="/feed" style={{ textDecoration: 'none' }}>
             <span className=" fs-4 text-dark" id="estilo">
-              <img src={logo} style={{ height: 60 }} />
+              <img onClick={()=>{actions.loadExperiencias()}} src={logo} style={{ height: 60 }} />
 
             </span>
           </Link>
-        )
-        }
 
 
 
@@ -48,7 +38,7 @@ export const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/userProfile">
+              <Link to={`/userProfile/${store.usuario_actual}`}>
                 <button
                   className="btn selected btn-lg mt-2">
                   <FontAwesomeIcon icon={faUser} />

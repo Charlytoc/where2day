@@ -21,11 +21,11 @@ export const Signup = () => {
     } else {
       Swal.fire({
         icon: "error",
-        title: "Oops... Something went wrong!",
-        text: "Make sure you are using the correct eMail and/or Password",
+        title: "¡Uy, tenemos un error!",
+        text: "Asegúrate de que estás introduciendo un email y contraseña válidos",
       });
     }
-    cargarExp()
+    
 
     // console.log(email);
     // console.log(password);
@@ -67,7 +67,7 @@ export const Signup = () => {
   const obtenerDB = async () => {
     try {
       const url = process.env.BACKEND_URL + "/api/basedata"
-    const resp = await axios(url)
+    const resp = await axios(url).then((e)=>{cargarExp()})
     console.log(resp.data)
     }
     catch(error) {console.log(error)}

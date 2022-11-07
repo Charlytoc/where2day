@@ -53,16 +53,17 @@ def parse_basedata():
 
     nuevo_usuario = Usuario(email="charlyjchaconc@gmail.com", password="Char.dev", pais="Ecuador", username="Charlytoc", nombre="Charly", apellido="Chacón", edad=23, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667496142/pruebas/edahciykyeeiyo5a5j3t.jpg")
     nuevo_usuario2 = Usuario(email="carloscarranza@gmail.com", password="Char.dev", pais="Costa Rica", username="Wishmastering", nombre="Carlos", apellido="Carranza", edad=27, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667534765/pruebas/uftrxdcbtdpn4nqprybn.jpg")
-    
+    nuevo_usuario3 = Usuario(email="franz8818@gmail.com", password="12", username="franz8818", nombre="Franz", apellido="Seidel", edad=34, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667578540/pruebas/imit0ii0vx0b37shkwwc.jpg")
     usuario_existente = Usuario.query.filter_by(email="charlyjchaconc@gmail.com").first()
 
-    if nuevo_usuario.email == usuario_existente-email:
-        return jsonify("Ya tienes todo bien"), 200
+    if usuario_existente:
+        return "El usuario ya existe", 201
 
     db.session.add(nuevo_usuario)
-    db.session.commit()
     db.session.add(nuevo_usuario2)
+    db.session.add(nuevo_usuario3)
     db.session.commit()
+    
 
 
     return jsonify("Todo bien el DB"), 200
@@ -75,11 +76,21 @@ def cargar_exp():
     nueva_experiencia = Experiencias(titulo="Viaje a Cuenca", lugar="Cuenca, Ecuador", description="Fui de vacaciones para conocer a una amiga, debo decir que la ciudad me pareció muy limpia y ordenada", usuario_id=1, fecha="12/10/22", outdoor=True , indoor=False, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667445987/pruebas/qbbity8sg6bylfffekzi.jpg")
     nueva_experiencia2 = Experiencias(titulo="Cocinando pollo Gordon Bleu", lugar="Guayaquil, Ecuador", description="Esta es de esas recetas que son sencillas pero que quedan exquisitas. Además, cocinar siempre me despeja la mente y me hace pensar en cosas interesantes", usuario_id=1, fecha="13/09/22", outdoor=False , indoor=True, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667499696/pruebas/vzskhugafiy1eowtravh.jpg")
     nueva_experiencia3 = Experiencias(titulo="Noche de Juegos de Mesa", lugar="En casa", description="Una de las experiencias que mas disfruto es reunirme con mis amigos un viernes por la noche y ponernos a jugar juegos de mesa, destruir un par de amistades a costar de ganar en Monopoly..? Lo Tomo! Totalmente recomendado, reunion social, cocinar, ponerse al dia con tus amigos mientras juegan algo divertido", usuario_id=2, fecha="13/09/22", outdoor=False , indoor=True, anywhere=False, image_url="https://images.pexels.com/photos/4691555/pexels-photo-4691555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+    exp_ex = Experiencias.query.filter_by(usuario_id=1).first()
+    nueva_experiencia4 = Experiencias(titulo="Obra de teatra de unos amigos en la Castellana", lugar="Bogotá, Colombia", description="Invitación al teatro de mi ciudad natal. Fue inolvidable, muy interesante la obra, que grandes actores, vamos pa la segunda parte.", usuario_id=3,fecha="02/08/09", outdoor=False , indoor=True, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667577035/pruebas/ua4a9kej6csciobflpit.jpg")
+    nueva_experiencia5 = Experiencias(titulo="Tour rapido por Chicago", lugar="Chicago, Illinois", description="El mejora viaje de la vida, que ciudad mas increible, hay tanto por conocer, con esa arquitectura tan atravida y diversa, de los lugares mas bonito que conozco", usuario_id=3, fecha="11/02/19", outdoor=True , indoor=False, anywhere=False, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667577074/pruebas/yy87k1rluvjstgbboedb.jpg")
+    nueva_experiencia6 = Experiencias(titulo="Torneo oficial de Halo con mis primos", lugar="Medellin, Colombia", description="Mis primos me insitieron tanto que los acompañara, que no tuve remedio. La pasamos muy bien, y Juan avanso mucho en el torneo. Lo celebramos con Pizza todos, epico día.", usuario_id=3, fecha="20/05/22", outdoor=False , indoor=False, anywhere=True, image_url="https://res.cloudinary.com/dlmcf8yed/image/upload/v1667576008/pruebas/y4y6eeuetfcoybbchajw.webp")
+    
+    if exp_ex:
+        return jsonify("Ya agregaste exps"), 200
+
 
     db.session.add(nueva_experiencia)
     db.session.add(nueva_experiencia2)
-    db.session.commit()
     db.session.add(nueva_experiencia3)
+    db.session.add(nueva_experiencia5)
+    db.session.add(nueva_experiencia4)
+    db.session.add(nueva_experiencia6)
     db.session.commit()
 
 
@@ -386,16 +397,18 @@ def delete_exp ():
     id = request.json.get('id', None)
     exp_or_event = request.json.get('exp_or_event', None)
     
-    if exp_or_event == 'event':
-        event = Eventos.query.get(id)
-        db.session.delete(event)
+    exp = Experiencias.query.get(id)
+
+    like = Likes.query.filter_by(experiencias_id=id).first()
+    if like:
+        db.session.delete(like)
         db.session.commit()
-        response_body = "¡Has eliminado el evento, yeeha!"
-    elif exp_or_event == 'exp':
-        exp = Experiencias.query.get(id)
-        db.session.delete(exp)
-        db.session.commit()
-        response_body = "¡Has eliminado la experiencia, yeeha!"
+
+    db.session.delete(exp)
+    db.session.commit()
+        
+        
+    response_body = "¡Has eliminado la experiencia, yeeha!"
     
     return jsonify(response_body), 200
 
@@ -468,7 +481,7 @@ def get_user_todos ():
     
     todos = list(map(lambda item: item.serialize(), todos_to))
 
-    print(todos)
+    # print(todos)
     response_body = {
         "msg": "OK",
         "user": user_id,
@@ -482,14 +495,19 @@ def set_todo ():
 
     exp_id = request.json.get("exp_id", None)
     user_id = request.json.get("user_id", None)
-
-
-
+    
     todo = Todos(usuario_id=user_id, experiencias_id=exp_id)
+    old_todo = Todos.query.filter_by(experiencias_id=exp_id).first()
 
-    db.session.add(todo)
-    db.session.commit()
+    if not old_todo:
+        db.session.add(todo)
+        db.session.commit()
+        return "LISTO", 200
+    if old_todo.serialize()["usuario_id"] == user_id:
+        return "ya la agregaste antes", 201
 
+    
+    
     response_body = {
         "msg": "OK"
     }
@@ -536,12 +554,20 @@ def likeando ():
     exp_id = request.json.get("exp_id", None)
     user_id = request.json.get("user_id", None)
 
-
-
     like = Likes(usuario_id=user_id, experiencias_id=exp_id)
+    like_old = Likes.query.filter_by(experiencias_id=exp_id).first()
 
-    db.session.add(like)
-    db.session.commit()
+    if not like_old:
+        db.session.add(like)
+        db.session.commit()
+        return "1", 200
+    if like_old and like_old.serialize()["usuario_id"] == user_id:
+        db.session.delete(like_old)
+        db.session.commit()
+        return "-1", 200
+
+
+    
 
     response_body = {
         "msg": "Le has da'o like"
